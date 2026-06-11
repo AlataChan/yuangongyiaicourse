@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 4 → 第 5 课交接包：场景闭环交给发布候选 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 4 → 第 5 课交接包：场景闭环交给发布候选 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="04_to_05_release_candidate_pack.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="04_to_05_release_candidate_pack.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>bridge-materials/templates/04_to_05_release_candidate_pack.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="第-4-→-第-5-课交接包场景闭环交给发布候选">第 4 → 第 5 课交接包：场景闭环交给发布候选</h1>
+<p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/04_to_05_release_candidate_pack.md</code></p>
+<p>用途：第 4 课下课前填写，第 5 课用于判断是否进入内测预发布。</p>
+<h2 id="1-场景闭环卡">1. 场景闭环卡</h2>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>主场景名称</td><td></td></tr><tr><td>目标使用者</td><td></td></tr><tr><td>真实输入</td><td>用户会提供什么材料或问题</td></tr><tr><td>项目助理处理</td><td>调用哪些 Skill / 知识库 / 工作流</td></tr><tr><td>输出结果</td><td>交付什么格式</td></tr><tr><td>人工审核点</td><td>哪一步必须由人确认</td></tr><tr><td>成功标准</td><td>什么情况算这条链路跑通</td></tr></tbody></table>
+<h2 id="2-闭环链路">2. 闭环链路</h2>
+<pre><code class="language-text">输入：
+  ↓
+项目助理判断：
+  ↓
+Skill / 知识库 / 工作流：
+  ↓
+人工审核：
+  ↓
+最终产出：
+  ↓
+反馈写回：</code></pre>
+<p>反馈写回规则：</p>
+<table><thead><tr><th>反馈类型</th><th>写回哪里</th><th>谁负责</th></tr></thead><tbody><tr><td>输出格式问题</td><td>Skill 输出契约 / Gotchas</td><td></td></tr><tr><td>事实缺失</td><td>知识库资料 / metadata</td><td></td></tr><tr><td>路由错误</td><td>Agent 路由表</td><td></td></tr><tr><td>合规风险</td><td>边界卡 / 拒答规则</td><td></td></tr></tbody></table>
+<h2 id="3-能力缺口判断">3. 能力缺口判断</h2>
+<table><thead><tr><th>缺口</th><th>是否存在</th><th>处理方式</th></tr></thead><tbody><tr><td>需要第二个 Skill</td><td>是 / 否</td><td></td></tr><tr><td>需要补知识库资料</td><td>是 / 否</td><td></td></tr><tr><td>需要改路由</td><td>是 / 否</td><td></td></tr><tr><td>需要加人工审核点</td><td>是 / 否</td><td></td></tr><tr><td>需要限制使用范围</td><td>是 / 否</td><td></td></tr></tbody></table>
+<p>判断原则：只有当主场景闭环需要，才补第二个 Skill；不要为了“数量好看”加能力。</p>
+<h2 id="4-skill-稳定性检查">4. Skill 稳定性检查</h2>
+<table><thead><tr><th>Skill</th><th>当前状态</th><th>必测用例数</th><th>通过数</th><th>主要问题</th><th>是否允许进入内测</th></tr></thead><tbody><tr><td></td><td>草稿 / 可用 / 稳定</td><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td></td><td>草稿 / 可用 / 稳定</td><td></td><td></td><td></td><td>是 / 否</td></tr></tbody></table>
+<h2 id="5-场景验收测试">5. 场景验收测试</h2>
+<p>至少覆盖 5 类测试。</p>
+<table><thead><tr><th>#</th><th>测试类型</th><th>测试问题/任务</th><th>命中的 Skill</th><th>是否需要知识库</th><th>期望结果</th><th>实际结果</th><th>是否符合输出契约</th><th>失败写回哪里</th><th>是否通过</th></tr></thead><tbody><tr><td>1</td><td>正常任务</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>2</td><td>知识库检索</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>3</td><td>Skill 触发</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>4</td><td>缺信息</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>5</td><td>敏感信息/越界</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr></tbody></table>
+<h2 id="6-缺陷分级">6. 缺陷分级</h2>
+<table><thead><tr><th>级别</th><th>定义</th><th>例子</th><th>发布判断</th></tr></thead><tbody><tr><td>P0</td><td>会造成错误承诺、隐私风险、严重误导</td><td>编造资助结果、泄露个人信息</td><td>必须修复后才能内测</td></tr><tr><td>P1</td><td>影响主场景完成，但可人工绕过</td><td>路由偶发错误、格式经常不对</td><td>修复或写清绕行方式</td></tr><tr><td>P2</td><td>不影响主流程的小问题</td><td>文案不够自然、按钮说明不清</td><td>可带入内测观察</td></tr></tbody></table>
+<p>缺陷清单：</p>
+<table><thead><tr><th>#</th><th>缺陷描述</th><th>级别</th><th>责任人</th><th>修复方式</th><th>状态</th></tr></thead><tbody><tr><td>1</td><td></td><td>P0 / P1 / P2</td><td></td><td></td><td>未修 / 已修 / 观察</td></tr><tr><td>2</td><td></td><td>P0 / P1 / P2</td><td></td><td></td><td>未修 / 已修 / 观察</td></tr><tr><td>3</td><td></td><td>P0 / P1 / P2</td><td></td><td></td><td>未修 / 已修 / 观察</td></tr></tbody></table>
+<h2 id="7-发布候选判断">7. 发布候选判断</h2>
+<table><thead><tr><th>判断项</th><th>标准</th><th>当前状态</th></tr></thead><tbody><tr><td>P0 缺陷</td><td>0 个未修复</td><td>通过 / 不通过</td></tr><tr><td>主场景验收</td><td>至少 4/5 通过</td><td>通过 / 不通过</td></tr><tr><td>人工审核点</td><td>已明确</td><td>通过 / 不通过</td></tr><tr><td>合规边界</td><td>已写入拒答/转人工规则</td><td>通过 / 不通过</td></tr><tr><td>内测对象</td><td>已确定 2-3 人</td><td>通过 / 不通过</td></tr></tbody></table>
+<p>结论：</p>
+<pre><code class="language-text">□ Go：进入第 5 课内测预发布
+□ Conditional Go：允许内测，但必须先处理以下事项：
+□ No-Go：暂不内测，先回到第 4 课修闭环</code></pre>
+      <div class="source-path">Markdown 原文：<code>bridge-materials/templates/04_to_05_release_candidate_pack.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="04_to_05_release_candidate_pack.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="04_to_05_release_candidate_pack.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#第-4-→-第-5-课交接包场景闭环交给发布候选">第 4 → 第 5 课交接包：场景闭环交给发布候选</a>
+<a href="#1-场景闭环卡">1. 场景闭环卡</a>
+<a href="#2-闭环链路">2. 闭环链路</a>
+<a href="#3-能力缺口判断">3. 能力缺口判断</a>
+<a href="#4-skill-稳定性检查">4. Skill 稳定性检查</a>
+<a href="#5-场景验收测试">5. 场景验收测试</a>
+<a href="#6-缺陷分级">6. 缺陷分级</a>
+<a href="#7-发布候选判断">7. 发布候选判断</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 第 4 → 第 5 课交接包：场景闭环交给发布候选\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/04_to_05_release_candidate_pack.md`\n\n用途：第 4 课下课前填写，第 5 课用于判断是否进入内测预发布。\n\n## 1. 场景闭环卡\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 目标使用者 | |\n| 真实输入 | 用户会提供什么材料或问题 |\n| 项目助理处理 | 调用哪些 Skill / 知识库 / 工作流 |\n| 输出结果 | 交付什么格式 |\n| 人工审核点 | 哪一步必须由人确认 |\n| 成功标准 | 什么情况算这条链路跑通 |\n\n## 2. 闭环链路\n\n```text\n输入：\n  ↓\n项目助理判断：\n  ↓\nSkill / 知识库 / 工作流：\n  ↓\n人工审核：\n  ↓\n最终产出：\n  ↓\n反馈写回：\n```\n\n反馈写回规则：\n\n| 反馈类型 | 写回哪里 | 谁负责 |\n|----------|----------|--------|\n| 输出格式问题 | Skill 输出契约 / Gotchas | |\n| 事实缺失 | 知识库资料 / metadata | |\n| 路由错误 | Agent 路由表 | |\n| 合规风险 | 边界卡 / 拒答规则 | |\n\n## 3. 能力缺口判断\n\n| 缺口 | 是否存在 | 处理方式 |\n|------|----------|----------|\n| 需要第二个 Skill | 是 / 否 | |\n| 需要补知识库资料 | 是 / 否 | |\n| 需要改路由 | 是 / 否 | |\n| 需要加人工审核点 | 是 / 否 | |\n| 需要限制使用范围 | 是 / 否 | |\n\n判断原则：只有当主场景闭环需要，才补第二个 Skill；不要为了“数量好看”加能力。\n\n## 4. Skill 稳定性检查\n\n| Skill | 当前状态 | 必测用例数 | 通过数 | 主要问题 | 是否允许进入内测 |\n|-------|----------|------------|--------|----------|------------------|\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n\n## 5. 场景验收测试\n\n至少覆盖 5 类测试。\n\n| # | 测试类型 | 测试问题/任务 | 命中的 Skill | 是否需要知识库 | 期望结果 | 实际结果 | 是否符合输出契约 | 失败写回哪里 | 是否通过 |\n|---|----------|---------------|---------------|----------------|----------|----------|------------------|--------------|----------|\n| 1 | 正常任务 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 2 | 知识库检索 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 3 | Skill 触发 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 4 | 缺信息 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 5 | 敏感信息/越界 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n\n## 6. 缺陷分级\n\n| 级别 | 定义 | 例子 | 发布判断 |\n|------|------|------|----------|\n| P0 | 会造成错误承诺、隐私风险、严重误导 | 编造资助结果、泄露个人信息 | 必须修复后才能内测 |\n| P1 | 影响主场景完成，但可人工绕过 | 路由偶发错误、格式经常不对 | 修复或写清绕行方式 |\n| P2 | 不影响主流程的小问题 | 文案不够自然、按钮说明不清 | 可带入内测观察 |\n\n缺陷清单：\n\n| # | 缺陷描述 | 级别 | 责任人 | 修复方式 | 状态 |\n|---|----------|------|--------|----------|------|\n| 1 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 2 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 3 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n\n## 7. 发布候选判断\n\n| 判断项 | 标准 | 当前状态 |\n|--------|------|----------|\n| P0 缺陷 | 0 个未修复 | 通过 / 不通过 |\n| 主场景验收 | 至少 4/5 通过 | 通过 / 不通过 |\n| 人工审核点 | 已明确 | 通过 / 不通过 |\n| 合规边界 | 已写入拒答/转人工规则 | 通过 / 不通过 |\n| 内测对象 | 已确定 2-3 人 | 通过 / 不通过 |\n\n结论：\n\n```text\n□ Go：进入第 5 课内测预发布\n□ Conditional Go：允许内测，但必须先处理以下事项：\n□ No-Go：暂不内测，先回到第 4 课修闭环\n```\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

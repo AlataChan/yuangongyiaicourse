@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>社群 FAQ 技能（传播运营模块 · M3） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="社群 FAQ 技能（传播运营模块 · M3） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="SKILL.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-04-scenario/skills/env-ngo-community-faq/SKILL.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <hr>
+<p>name: env-ngo-community-faq description: &gt;- Load when the user provides community chat logs, recurring questions from volunteers or beneficiaries, or wants to build a FAQ document for an environmental nonprofit's community channels. Do not load for closure reports, case extraction, or activity recaps. disable-model-invocation: true</p>
+<hr>
+<h1 id="社群-faq-技能传播运营模块-·-m3">社群 FAQ 技能（传播运营模块 · M3）</h1>
+<p>从社群聊天记录、志愿者/受益人反复提出的问题中，整理出一份结构化 FAQ 文档，供社群管理员快速回复或作为公众号「常见问题」板块。这是第 4 课「场景深化」的 M3 第二样板技能，与 <code>env-ngo-activity-recap</code> 组成传播运营模块的「≥2 技能」组合。</p>
+<h2 id="when-to-use">When To Use</h2>
+<ul><li>用户提供了社群聊天截图/文字记录、志愿者常问问题列表、或受益人咨询记录。</li><li>用户想要的是一份<strong>结构化的 FAQ / 常见问题解答</strong>，用于社群置顶、公众号菜单或内部客服手册。</li><li>触发关键词：FAQ、常见问题、社群问答、自动回复、快捷回复、问题整理。</li></ul>
+<p>不要用于：写活动复盘帖（用 <code>env-ngo-activity-recap</code>）、写结项报告（用 <code>env-ngo-closure-report</code>）、萃取案例（用 <code>env-ngo-case-extract</code>）。</p>
+<h2 id="workflow">Workflow</h2>
+<ol><li>读取用户提供的聊天记录/问题列表，识别高频问题并归类。</li><li>对照 <code>assets/faq_template.md</code> 的结构，按类目组织问答。</li><li>答案<strong>必须</strong>基于机构知识库或用户提供的官方信息，不编造政策、时间、联系方式。</li><li>个人信息在输出前脱敏。</li><li>对于无法确定答案的问题，标注「需机构确认」。</li></ol>
+<h2 id="required-inputs">Required Inputs</h2>
+<ul><li>问题来源：社群聊天记录、志愿者常问问题列表、受益人咨询记录（至少一种）。</li><li>可选：机构官方信息（活动日程、报名方式、联系渠道）用于核实答案准确性。</li></ul>
+<h2 id="output-contract">Output Contract</h2>
+<p>输出 Markdown，结构如下：</p>
+<ol><li><strong>文档标题</strong>（如「XX 项目社群常见问题」）</li><li><strong>快速索引</strong>（问题编号 + 一句话概括，方便跳转）</li><li><strong>分类问答</strong>（按类目分组，每个 Q&amp;A 格式统一）：</li></ol>
+<ul><li>类目标题（如「活动报名」「志愿者管理」「环保知识」）</li><li>Q：&lt;问题&gt;</li><li>A：&lt;回答&gt;（≤150 字，口语化但准确）</li></ul>
+<ol><li><strong>待确认问题</strong>（有人问过但机构尚未给出官方答案的问题）</li></ol>
+<p>每条回答 50–150 字，口语化、直接。总条目建议 8–20 条。</p>
+<h2 id="gotchas">Gotchas</h2>
+<ul><li>答案必须基于用户提供的信息或知识库内容，<strong>不编造活动时间、报名链接、联系方式</strong>。</li><li>无法确认的答案统一标注 <code>[需机构确认]</code>，不要猜测。</li><li>聊天记录中的个人信息（群昵称、手机号、微信号）必须脱敏。</li><li>合并近似问题（如「怎么报名」和「在哪报名」），避免重复。</li><li>涉及政策法规的回答，标注信息时效（如「截至 2026 年 X 月」）。</li><li>避免官方套话，用社群成员能听懂的语言回答。</li></ul>
+<h2 id="files-to-read">Files To Read</h2>
+<ul><li><code>assets/faq_template.md</code>：FAQ 输出结构模板（必读）。</li></ul>
+      <div class="source-path">Markdown 原文：<code>part-04-scenario/skills/env-ngo-community-faq/SKILL.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SKILL.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#社群-faq-技能传播运营模块-·-m3">社群 FAQ 技能（传播运营模块 · M3）</a>
+<a href="#when-to-use">When To Use</a>
+<a href="#workflow">Workflow</a>
+<a href="#required-inputs">Required Inputs</a>
+<a href="#output-contract">Output Contract</a>
+<a href="#gotchas">Gotchas</a>
+<a href="#files-to-read">Files To Read</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"---\nname: env-ngo-community-faq\ndescription: >-\n  Load when the user provides community chat logs, recurring questions\n  from volunteers or beneficiaries, or wants to build a FAQ document for\n  an environmental nonprofit's community channels. Do not load for\n  closure reports, case extraction, or activity recaps.\ndisable-model-invocation: true\n---\n\n# 社群 FAQ 技能（传播运营模块 · M3）\n\n从社群聊天记录、志愿者/受益人反复提出的问题中，整理出一份结构化 FAQ 文档，供社群管理员快速回复或作为公众号「常见问题」板块。这是第 4 课「场景深化」的 M3 第二样板技能，与 `env-ngo-activity-recap` 组成传播运营模块的「≥2 技能」组合。\n\n## When To Use\n\n- 用户提供了社群聊天截图/文字记录、志愿者常问问题列表、或受益人咨询记录。\n- 用户想要的是一份**结构化的 FAQ / 常见问题解答**，用于社群置顶、公众号菜单或内部客服手册。\n- 触发关键词：FAQ、常见问题、社群问答、自动回复、快捷回复、问题整理。\n\n不要用于：写活动复盘帖（用 `env-ngo-activity-recap`）、写结项报告（用 `env-ngo-closure-report`）、萃取案例（用 `env-ngo-case-extract`）。\n\n## Workflow\n\n1. 读取用户提供的聊天记录/问题列表，识别高频问题并归类。\n2. 对照 `assets/faq_template.md` 的结构，按类目组织问答。\n3. 答案**必须**基于机构知识库或用户提供的官方信息，不编造政策、时间、联系方式。\n4. 个人信息在输出前脱敏。\n5. 对于无法确定答案的问题，标注「需机构确认」。\n\n## Required Inputs\n\n- 问题来源：社群聊天记录、志愿者常问问题列表、受益人咨询记录（至少一种）。\n- 可选：机构官方信息（活动日程、报名方式、联系渠道）用于核实答案准确性。\n\n## Output Contract\n\n输出 Markdown，结构如下：\n\n1. **文档标题**（如「XX 项目社群常见问题」）\n2. **快速索引**（问题编号 + 一句话概括，方便跳转）\n3. **分类问答**（按类目分组，每个 Q&A 格式统一）：\n   - 类目标题（如「活动报名」「志愿者管理」「环保知识」）\n   - Q：\u003c问题>\n   - A：\u003c回答>（≤150 字，口语化但准确）\n4. **待确认问题**（有人问过但机构尚未给出官方答案的问题）\n\n每条回答 50–150 字，口语化、直接。总条目建议 8–20 条。\n\n## Gotchas\n\n- 答案必须基于用户提供的信息或知识库内容，**不编造活动时间、报名链接、联系方式**。\n- 无法确认的答案统一标注 `[需机构确认]`，不要猜测。\n- 聊天记录中的个人信息（群昵称、手机号、微信号）必须脱敏。\n- 合并近似问题（如「怎么报名」和「在哪报名」），避免重复。\n- 涉及政策法规的回答，标注信息时效（如「截至 2026 年 X 月」）。\n- 避免官方套话，用社群成员能听懂的语言回答。\n\n## Files To Read\n\n- `assets/faq_template.md`：FAQ 输出结构模板（必读）。\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

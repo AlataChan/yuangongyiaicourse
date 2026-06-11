@@ -383,7 +383,7 @@
           <p class="sample-flow">执行流水账 → 六章节结构化报告</p>
           <div class="sample-actions">
             <button class="btn btn-primary btn-sm" type="button" data-open="closure">预览技能</button>
-            <a class="raw-link" href="skills/env-ngo-closure-report/SKILL.md" target="_blank" rel="noopener">源文件</a>
+            <a class="raw-link" href="skills/env-ngo-closure-report/SKILL.html" target="_blank" rel="noopener">查看页面</a>
           </div>
         </article>
 
@@ -395,7 +395,7 @@
           <p class="sample-flow">机构简介 + 案例 + 指南 → 立项书初稿</p>
           <div class="sample-actions">
             <button class="btn btn-primary btn-sm" type="button" data-open="proposal">预览技能</button>
-            <a class="raw-link" href="skills/env-ngo-proposal-draft/SKILL.md" target="_blank" rel="noopener">源文件</a>
+            <a class="raw-link" href="skills/env-ngo-proposal-draft/SKILL.html" target="_blank" rel="noopener">查看页面</a>
           </div>
         </article>
 
@@ -407,7 +407,7 @@
           <p class="sample-flow">项目核心信息 → 一页纸申请信 / 摘要</p>
           <div class="sample-actions">
             <button class="btn btn-primary btn-sm" type="button" data-open="grant">预览技能</button>
-            <a class="raw-link" href="skills/env-ngo-grant-letter/SKILL.md" target="_blank" rel="noopener">源文件</a>
+            <a class="raw-link" href="skills/env-ngo-grant-letter/SKILL.html" target="_blank" rel="noopener">查看页面</a>
           </div>
         </article>
 
@@ -419,7 +419,7 @@
           <p class="sample-flow">你的 SKILL.md → 体检报告（健康分 + 可粘贴改写文本）</p>
           <div class="sample-actions">
             <button class="btn btn-primary btn-sm" type="button" data-open="skillopt">预览技能</button>
-            <a class="raw-link" href="skills/env-ngo-skill-optimize/SKILL.md" target="_blank" rel="noopener">源文件</a>
+            <a class="raw-link" href="skills/env-ngo-skill-optimize/SKILL.html" target="_blank" rel="noopener">查看页面</a>
           </div>
         </article>
       </div>
@@ -956,7 +956,7 @@ disable-model-invocation: true
      * @property {string} label   面板中显示的文档标题
      * @property {string} kind    文档类别标签（技能定义 / 配套模板）
      * @property {string} embedId 内嵌 <script> 元素的 id
-     * @property {string} raw     源文件相对路径（用于「查看源文件」）
+     * @property {string} raw     源文件相对路径（用于生成「查看页面」入口）
      * @property {string} copy    复制按钮文案
      */
 
@@ -1279,10 +1279,10 @@ disable-model-invocation: true
 
           const rawLink = document.createElement("a");
           rawLink.className = "copy-btn";
-          rawLink.href = doc.raw;
+          rawLink.href = doc.raw.endsWith(".md") ? doc.raw.replace(/\.md$/, ".html") : doc.raw;
           rawLink.target = "_blank";
           rawLink.rel = "noopener";
-          rawLink.textContent = "源文件 ↗";
+          rawLink.textContent = "查看页面 ↗";
           toolbar.appendChild(rawLink);
 
           block.appendChild(toolbar);
@@ -1307,7 +1307,7 @@ disable-model-invocation: true
           list.className = "doc-links";
           skill.links.forEach((lk) => {
             const a = document.createElement("a");
-            a.href = lk.raw;
+            a.href = lk.raw.endsWith(".md") ? lk.raw.replace(/\.md$/, ".html") : lk.raw;
             a.target = "_blank";
             a.rel = "noopener";
             a.textContent = "↗ " + lk.label;

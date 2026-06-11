@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ima + WorkBuddy 知识工作流练习 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="ima + WorkBuddy 知识工作流练习 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="ima_workbuddy_lab.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="ima_workbuddy_lab.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-02-knowledge-base/tools/ima_workbuddy_lab.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="ima-+-workbuddy-知识工作流练习">ima + WorkBuddy 知识工作流练习</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md</code></p><p></p><p>用途：第 2 课初阶练习。目标不是精通工具，而是把个人散乱资料变成可被任务调用的知识。</p></blockquote>
+<h2 id="适用范围">适用范围</h2>
+<table><thead><tr><th>适合放入 ima / WorkBuddy</th><th>不适合放入</th></tr></thead><tbody><tr><td>个人常读 PDF、网页、公开报告、已脱敏案例</td><td>L4 敏感信息</td></tr><tr><td>需要快速摘要、问答、萃取的微信文件</td><td>未经授权的内部原始资料</td></tr><tr><td>L3 内部资料的个人辅助阅读</td><td>需要组织共享的正式知识库唯一版本</td></tr></tbody></table>
+<h2 id="课堂任务">课堂任务</h2>
+<ol><li>选择 5 份资料：至少包含 1 份 PDF、1 份 Word 或 Markdown、1 份网页或图片资料。</li><li>导入 ima，分别提问：</li></ol>
+<ul><li>这份资料讲了什么？</li><li>里面有哪些可复用案例？</li><li>哪些内容适合进入组织知识库？</li><li>哪些内容需要脱敏？</li></ul>
+<ol><li>让 ima 输出候选标签：</li></ol>
+<ul><li>文档类型</li><li>年份</li><li>项目名</li><li>领域标签</li><li>合规档位建议</li></ul>
+<ol><li>在 WorkBuddy 中调用整理后的资料，跑一次第 1 课技能任务。</li><li>记录一次任务结果：哪些事实被正确引用，哪些仍需要进腾讯元器。</li></ol>
+<h2 id="课堂输出">课堂输出</h2>
+<pre><code class="language-text">我用 ima 整理了 ___ 份资料；
+其中 ___ 份适合进入腾讯元器；
+___ 份只适合留在 WorkBuddy；
+我用 WorkBuddy 完成了 ___ 任务；
+需要补充或脱敏的资料是：___。</code></pre>
+<h2 id="常见误区">常见误区</h2>
+<table><thead><tr><th>误区</th><th>修正</th></tr></thead><tbody><tr><td>把 ima 当正式组织知识库</td><td>ima 更适合作个人资料收纳、阅读和初步萃取</td></tr><tr><td>资料一导入就上云</td><td>先做 L1-L4 分级，L2 脱敏审核后再上云</td></tr><tr><td>只问“总结一下”</td><td>要追问“哪些事实可引用、哪些内容需脱敏、适合打什么标签”</td></tr><tr><td>只看回答是否顺畅</td><td>还要检查是否能指出来源和边界</td></tr></tbody></table>
+      <div class="source-path">Markdown 原文：<code>part-02-knowledge-base/tools/ima_workbuddy_lab.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="ima_workbuddy_lab.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="ima_workbuddy_lab.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#ima-+-workbuddy-知识工作流练习">ima + WorkBuddy 知识工作流练习</a>
+<a href="#适用范围">适用范围</a>
+<a href="#课堂任务">课堂任务</a>
+<a href="#课堂输出">课堂输出</a>
+<a href="#常见误区">常见误区</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# ima + WorkBuddy 知识工作流练习\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md`\n>\n> 用途：第 2 课初阶练习。目标不是精通工具，而是把个人散乱资料变成可被任务调用的知识。\n\n## 适用范围\n\n| 适合放入 ima / WorkBuddy | 不适合放入 |\n|--------------------------|------------|\n| 个人常读 PDF、网页、公开报告、已脱敏案例 | L4 敏感信息 |\n| 需要快速摘要、问答、萃取的微信文件 | 未经授权的内部原始资料 |\n| L3 内部资料的个人辅助阅读 | 需要组织共享的正式知识库唯一版本 |\n\n## 课堂任务\n\n1. 选择 5 份资料：至少包含 1 份 PDF、1 份 Word 或 Markdown、1 份网页或图片资料。\n2. 导入 ima，分别提问：\n   - 这份资料讲了什么？\n   - 里面有哪些可复用案例？\n   - 哪些内容适合进入组织知识库？\n   - 哪些内容需要脱敏？\n3. 让 ima 输出候选标签：\n   - 文档类型\n   - 年份\n   - 项目名\n   - 领域标签\n   - 合规档位建议\n4. 在 WorkBuddy 中调用整理后的资料，跑一次第 1 课技能任务。\n5. 记录一次任务结果：哪些事实被正确引用，哪些仍需要进腾讯元器。\n\n## 课堂输出\n\n```text\n我用 ima 整理了 ___ 份资料；\n其中 ___ 份适合进入腾讯元器；\n___ 份只适合留在 WorkBuddy；\n我用 WorkBuddy 完成了 ___ 任务；\n需要补充或脱敏的资料是：___。\n```\n\n## 常见误区\n\n| 误区 | 修正 |\n|------|------|\n| 把 ima 当正式组织知识库 | ima 更适合作个人资料收纳、阅读和初步萃取 |\n| 资料一导入就上云 | 先做 L1-L4 分级，L2 脱敏审核后再上云 |\n| 只问“总结一下” | 要追问“哪些事实可引用、哪些内容需脱敏、适合打什么标签” |\n| 只看回答是否顺畅 | 还要检查是否能指出来源和边界 |\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="README.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-02-knowledge-base/README.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="第-2-课-·-知识库实战从散乱资料到可检索资产学员手册">第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册）</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/README.md</code></p><p></p><p>时长 120 分钟　|　课后产出：个人层 + 组织层知识库上线，命中率达标</p><p></p><p>前置：完成第 1 课「技能构建」，手上至少有 1 个跑通的文书技能。</p></blockquote>
+<hr>
+<h2 id="一、这节课要解决什么">一、这节课要解决什么</h2>
+<p>调研显示，约 <strong>50%</strong> 的环境公益机构把「资料散落各处、过往案例难以复用」列为最大痛点之一。团队换人、项目结项、资助方更替——每次都要从头找文件、翻聊天记录、问老同事。</p>
+<p>第 1 课解决了「怎么做」（技能），但技能要答得<strong>准</strong>，必须有机构自己的资料支撑。第 2 课就从这里切入：把散落在云盘、微信、邮件附件里的项目档案、资助指南、历年案例，整理成 AI 能准确检索的<strong>知识库</strong>。</p>
+<p>一句话：<strong>技能知道「怎么做」，知识库提供「弹药」。</strong></p>
+<h2 id="二、学习线路7-步走完一轮知识库">二、学习线路：7 步走完一轮知识库</h2>
+<p>这节课按「先想清楚，再动工具」来学：</p>
+<table><thead><tr><th>步骤</th><th>核心问题</th><th>产出</th></tr></thead><tbody><tr><td>1. 看清关系</td><td>知识库和第 1 课技能是什么关系？</td><td>知道知识库提供事实，技能定义做法</td></tr><tr><td>2. 定范围</td><td>我的项目助理最需要查哪类资料？</td><td>选定 1-2 个知识库栏目 + 10 个测试问题</td></tr><tr><td>3. 过合规</td><td>哪些资料能用，哪些不能上云？</td><td>L1-L4 分级清单</td></tr><tr><td>4. 整资料</td><td>文件要怎么清洗、拆分、打标签？</td><td>可入库文档 + metadata</td></tr><tr><td>5. 放工具</td><td>ima、WorkBuddy、腾讯元器、Dify 分别放在哪？</td><td>个人层 + 组织层工具边界</td></tr><tr><td>6. 跑一轮</td><td>知识库能不能回答真实问题？</td><td>10 问命中率</td></tr><tr><td>7. 调问题</td><td>答不好是检索问题还是生成问题？</td><td>修复记录 + 下一轮优化</td></tr></tbody></table>
+<h2 id="三、第一步先分清知识库-vs-技能">三、第一步：先分清知识库 vs 技能</h2>
+<table><thead><tr><th>维度</th><th>技能（第 1 课）</th><th>知识库（本课）</th></tr></thead><tbody><tr><td>回答的问题</td><td><strong>怎么做</strong>——流程、格式、边界</td><td><strong>有什么</strong>——事实、案例、数据</td></tr><tr><td>公益类比</td><td>机构 SOP + 模板 + 规则</td><td>历年项目档案、资助指南、案例库</td></tr><tr><td>更新频率</td><td>流程变了才改</td><td>有新材料就补</td></tr><tr><td>典型内容</td><td>输出契约、Gotchas、触发说明</td><td>PDF 报告、项目总结、服务故事</td></tr></tbody></table>
+<p><strong>它们不是竞争关系，而是搭档</strong>：技能定义「怎么做」，知识库储备「做事素材」——第 3 课把二者编排进同一个 AI 智能体。</p>
+<h2 id="四、第二步先定范围和-10-个测试问题">四、第二步：先定范围和 10 个测试问题</h2>
+<p>调研数据告诉我们，学员最需要的五类知识库内容（按「有用」评分排序）：</p>
+<table><thead><tr><th>排名</th><th>知识库分类</th><th>调研评分</th><th>典型内容举例</th></tr></thead><tbody><tr><td>1</td><td><strong>沟通模板</strong></td><td>4.38</td><td>捐赠人邮件模板、媒体问答口径、社区沟通话术</td></tr><tr><td>2</td><td><strong>资助指南</strong></td><td>4.38</td><td>各基金会申请要求、评审标准、往期资助清单</td></tr><tr><td>3</td><td><strong>项目管理</strong></td><td>4.29</td><td>项目计划模板、监测评估框架、财务报告格式</td></tr><tr><td>4</td><td><strong>案例</strong></td><td>4.17–4.25</td><td>成功/失败案例复盘、服务故事、传播素材</td></tr><tr><td>5</td><td><strong>志愿者管理</strong></td><td>4.08</td><td>招募流程、培训手册、志愿者反馈表</td></tr></tbody></table>
+<p>先建评分最高、与你立项书最相关的 1-2 类。不要先问“我要用哪个工具”，先问：</p>
+<pre><code class="language-text">我的项目助理未来最常被问哪 10 个问题？
+这些问题的答案应该来自哪些资料？
+这些资料是否真实存在、可用、可上云？</code></pre>
+<h2 id="五、第三步数据合规-4-档">五、第三步：数据合规 4 档</h2>
+<p>把资料喂给 AI 之前，<strong>必须</strong>先分级。4 档从松到严：</p>
+<table><thead><tr><th>级别</th><th>名称</th><th>例子</th><th>怎么处理</th></tr></thead><tbody><tr><td><strong>L1</strong></td><td>公开</td><td>公众号文章、年报、公开活动总结</td><td>可直接用，上传腾讯元器</td></tr><tr><td><strong>L2</strong></td><td>准公开</td><td>脱敏后的案例、内部培训资料</td><td>经审核后可用，上传前确认已脱敏</td></tr><tr><td><strong>L3</strong></td><td>内部</td><td>会议纪要、未发布计划、内部预算</td><td>仅限 ima / WorkBuddy 个人层，不上传云端</td></tr><tr><td><strong>L4</strong></td><td>敏感</td><td>捐赠人手机、受益人身份证、志愿者隐私</td><td><strong>禁止</strong>写进任何知识库或技能</td></tr></tbody></table>
+<p><strong>红线</strong>：受益人、志愿者、捐赠人的姓名与联系方式，输出前一律脱敏（姓名→A/B，删除手机/证件号）。拿不准时，宁可不放。</p>
+<h2 id="六、第四步把资料整理成-ai-能检索的形态">六、第四步：把资料整理成 AI 能检索的形态</h2>
+<h3 id="61-三类核心材料">6.1 三类核心材料</h3>
+<table><thead><tr><th>材料</th><th>来源</th><th>处理方式</th><th>metadata</th></tr></thead><tbody><tr><td>历年项目档案</td><td>结项报告、季度总结、活动记录</td><td>一个项目 = 一份文档，按章节拆分</td><td>项目名、年份、资助方、领域标签</td></tr><tr><td>PDF 报告与资助指南</td><td>申请指南、行业报告、政策文件</td><td>转文本、清乱码、修复表格</td><td>发布机构、年份、文档类型</td></tr><tr><td>案例与服务故事</td><td>传播稿、项目复盘、服务故事</td><td>统一为背景、干预、结果、反思</td><td>案例类型、领域、年份</td></tr></tbody></table>
+<h3 id="62-不同文件类型怎么处理">6.2 不同文件类型怎么处理</h3>
+<table><thead><tr><th>文件类型</th><th>入库前处理</th><th>注意事项</th></tr></thead><tbody><tr><td>Word / Markdown</td><td>保留标题层级，按章节清理</td><td>最适合直接入库；一份文档只讲一个主题</td></tr><tr><td>PDF</td><td>先判断文字 PDF 还是扫描件；扫描件先 OCR</td><td>表格页单独转结构化文本，避免乱码污染知识库</td></tr><tr><td>Excel / CSV</td><td>转成字段说明、典型问答、行记录摘要</td><td>不要整表硬传；数字类问题要保留口径说明</td></tr><tr><td>PPT</td><td>转成逐页讲稿或要点</td><td>图片里的关键信息要补文字说明</td></tr><tr><td>图片</td><td>先用 ima 或 OCR 识别，再转文本</td><td>不把图片当作唯一事实来源</td></tr><tr><td>音频 / 访谈</td><td>先转写，再脱敏，再按主题拆分</td><td>访谈对象姓名、电话、住址必须删除或替换</td></tr></tbody></table>
+<h2 id="七、第五步工具落位而不是工具先行">七、第五步：工具落位，而不是工具先行</h2>
+<p>本课不把「工具功能」当主线，而是按使用场景分层：</p>
+<table><thead><tr><th>层级</th><th>工具</th><th>课程定位</th><th>适合处理</th></tr></thead><tbody><tr><td>初阶个人层</td><td><strong>腾讯 ima 知识工作台</strong></td><td>快速收纳、阅读、问答、萃取碎片资料</td><td>微信文件、网页、PDF、图片、音频、个人资料夹</td></tr><tr><td>个人执行层</td><td><strong>WorkBuddy</strong></td><td>调用个人知识做实际任务</td><td>第 1 课技能、个人草稿、L3 内部资料</td></tr><tr><td>组织主线</td><td><strong>腾讯元器</strong></td><td>组织层项目助理知识库，挂载到 AI智能体</td><td>L1 公开资料、审核后的 L2 准公开资料</td></tr><tr><td>高阶理解</td><td><strong>腾讯元器进阶 / Dify</strong></td><td>解释 RAG 机制，训练检索调参能力</td><td>向量检索、全文检索、混合检索、rerank、metadata 过滤</td></tr></tbody></table>
+<pre><code class="language-text">已分级、已清洗、已打标签的资料
+  → ima：个人收纳、阅读、初步萃取
+  → WorkBuddy：个人任务执行
+  → 腾讯元器：组织层知识库 + 项目助理
+  → 高阶 RAG：检索策略、切片、metadata、评测</code></pre>
+<h2 id="八、第六步先跑-10-问命中率再讲检索原理">八、第六步：先跑 10 问命中率，再讲检索原理</h2>
+<p>知识库建好后，测试「问 10 个真实问题，AI 答对几个」——这就是<strong>命中率</strong>。</p>
+<table><thead><tr><th>结果</th><th>记分</th><th>判断标准</th></tr></thead><tbody><tr><td>命中</td><td>1</td><td>找到正确资料，回答事实准确，可引用来源</td></tr><tr><td>半命中</td><td>0.5</td><td>找到部分资料，但答案不完整或表达有误</td></tr><tr><td>未命中</td><td>0</td><td>没找到资料、引用错误资料、编造答案</td></tr></tbody></table>
+<h2 id="九、第七步把检索模式当作诊断工具">九、第七步：把检索模式当作诊断工具</h2>
+<p>只有当 10 问测试暴露问题后，再讲向量、全文、混合检索。这样学员会知道这些概念是在解决什么问题。</p>
+<table><thead><tr><th>问题类型</th><th>推荐检索</th><th>例子</th></tr></thead><tbody><tr><td>精确名词、编号、日期、政策条款</td><td>全文检索更稳</td><td>「2024 清河项目巡护次数是多少？」</td></tr><tr><td>换一种说法问同一件事</td><td>向量检索更稳</td><td>「哪些案例适合讲社区参与成效？」</td></tr><tr><td>既有关键词又要语义判断</td><td>混合检索默认优先</td><td>「找一个和湿地公众教育相似、且有志愿者数据的案例」</td></tr><tr><td>大知识库、多部门、多项目</td><td>metadata 过滤必需</td><td>限定年份、项目、资助方、领域后再检索</td></tr></tbody></table>
+<p>答不好时，按这个顺序排查：</p>
+<pre><code class="language-text">答不好
+├── 资料不存在 → 补资料
+├── 资料存在但没找到 → 改切片 / metadata / 检索模式
+└── 找到了但写不好 → 回第 1 课改 Skill 输出契约 / Gotchas</code></pre>
+<p><strong>口诀</strong>：先看资料，再看检索，最后看生成。</p>
+<h2 id="十、课堂练习60-分钟">十、课堂练习（60 分钟）</h2>
+<pre><code class="language-text">练习进度：
+- [ ] Step 1 选材料：从三类中选 1 类，找出 5–10 份真实文档
+- [ ] Step 2 分级：逐份标注 L1–L4，L4 直接剔除
+- [ ] Step 3 ima 初步整理：导入碎片资料，提炼摘要和候选标签
+- [ ] Step 4 切片 + 打标签：按建议切片，写好 metadata
+- [ ] Step 5 上传：L1/L2 进腾讯元器，L3 留在 WorkBuddy
+- [ ] Step 6 测试命中率：问 10 个真实问题，记录答对几个
+- [ ] Step 7 诊断 + 改进：先看资料，再看检索，最后看生成</code></pre>
+<h2 id="十一、课后作业分层">十一、课后作业（分层）</h2>
+<table><thead><tr><th>层级</th><th>个人层</th><th>组织层</th><th>命中率</th><th>验收</th></tr></thead><tbody><tr><td>入门 L1（用起来）</td><td>ima / WorkBuddy ≥30 份文档</td><td>腾讯元器 ≥10 份</td><td>≥60%</td><td>能回答基本项目问题</td></tr><tr><td>进阶 L2（用得顺）</td><td>ima / WorkBuddy ≥80 份文档</td><td>腾讯元器 ≥25 份</td><td>≥70%</td><td>有 metadata + 诊断记录</td></tr><tr><td>高阶 L2+（懂原理）</td><td>完成 1 轮检索模式对比</td><td>元器进阶或 Dify 演示</td><td>说明 3 个未命中原因</td><td>能判断向量/全文/混合检索适用场景</td></tr></tbody></table>
+<p>下课带走一句话：<strong>「我的知识库现在有 ___ 份文档，命中率从 ___% 提升到了 ___%。」</strong></p>
+<h2 id="十二、配套模板与工具讲义">十二、配套模板与工具讲义</h2>
+<table><thead><tr><th>材料</th><th>文件路径</th></tr></thead><tbody><tr><td>资料盘点表</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_source_inventory.md</code></td></tr><tr><td>metadata 字段表</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md</code></td></tr><tr><td>10 问命中率测试表</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_eval_questions.md</code></td></tr><tr><td>ima + WorkBuddy 练习</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md</code></td></tr><tr><td>腾讯元器知识库练习</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/yuanqi_kb_lab.md</code></td></tr><tr><td>检索模式对比</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/retrieval_mode_comparison.md</code></td></tr><tr><td>Dify 高阶 RAG 练习</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/dify_advanced_rag_lab.md</code></td></tr><tr><td>第 2 → 第 3 课交接包</td><td><code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/02_to_03_kb_agent_handoff.md</code></td></tr></tbody></table>
+<h2 id="十三、和前后课的衔接">十三、和前后课的衔接</h2>
+<table><thead><tr><th>课程</th><th>角色</th><th>类比</th></tr></thead><tbody><tr><td>第 1 课 · 技能</td><td>定义「怎么做」</td><td>菜谱</td></tr><tr><td><strong>第 2 课 · 知识库</strong>（本课）</td><td>提供「做事素材」</td><td>食材库</td></tr><tr><td>第 3 课 · AI智能体</td><td>编排技能 + 知识库</td><td>厨师</td></tr></tbody></table>
+<p>下课前，请把本课的知识库范围、合规分级、metadata、10 问命中率和检索参数填入 <code>第 2 → 第 3 课交接包</code>。第 3 课会直接用它来挂载知识库和建立项目助理测试问题。</p>
+<h2 id="十四、下一课预告">十四、下一课预告</h2>
+<p>技能知道「怎么做」，知识库提供了「弹药」——下一步，把它们编排成一个完整的<strong>项目助理</strong>。第 3 课《AI智能体组装》教你把多个技能和知识库挂到同一个智能体上，让它根据用户意图自动选技能、查知识库、给出回答。</p>
+      <div class="source-path">Markdown 原文：<code>part-02-knowledge-base/README.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#第-2-课-·-知识库实战从散乱资料到可检索资产学员手册">第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册）</a>
+<a href="#一、这节课要解决什么">一、这节课要解决什么</a>
+<a href="#二、学习线路7-步走完一轮知识库">二、学习线路：7 步走完一轮知识库</a>
+<a href="#三、第一步先分清知识库-vs-技能">三、第一步：先分清知识库 vs 技能</a>
+<a href="#四、第二步先定范围和-10-个测试问题">四、第二步：先定范围和 10 个测试问题</a>
+<a href="#五、第三步数据合规-4-档">五、第三步：数据合规 4 档</a>
+<a href="#六、第四步把资料整理成-ai-能检索的形态">六、第四步：把资料整理成 AI 能检索的形态</a>
+<a href="#61-三类核心材料">6.1 三类核心材料</a>
+<a href="#62-不同文件类型怎么处理">6.2 不同文件类型怎么处理</a>
+<a href="#七、第五步工具落位而不是工具先行">七、第五步：工具落位，而不是工具先行</a>
+<a href="#八、第六步先跑-10-问命中率再讲检索原理">八、第六步：先跑 10 问命中率，再讲检索原理</a>
+<a href="#九、第七步把检索模式当作诊断工具">九、第七步：把检索模式当作诊断工具</a>
+<a href="#十、课堂练习60-分钟">十、课堂练习（60 分钟）</a>
+<a href="#十一、课后作业分层">十一、课后作业（分层）</a>
+<a href="#十二、配套模板与工具讲义">十二、配套模板与工具讲义</a>
+<a href="#十三、和前后课的衔接">十三、和前后课的衔接</a>
+<a href="#十四、下一课预告">十四、下一课预告</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册）\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/README.md`\n>\n> 时长 120 分钟　|　课后产出：个人层 + 组织层知识库上线，命中率达标\n>\n> 前置：完成第 1 课「技能构建」，手上至少有 1 个跑通的文书技能。\n\n---\n\n## 一、这节课要解决什么\n\n调研显示，约 **50%** 的环境公益机构把「资料散落各处、过往案例难以复用」列为最大痛点之一。团队换人、项目结项、资助方更替——每次都要从头找文件、翻聊天记录、问老同事。\n\n第 1 课解决了「怎么做」（技能），但技能要答得**准**，必须有机构自己的资料支撑。第 2 课就从这里切入：把散落在云盘、微信、邮件附件里的项目档案、资助指南、历年案例，整理成 AI 能准确检索的**知识库**。\n\n一句话：**技能知道「怎么做」，知识库提供「弹药」。**\n\n## 二、学习线路：7 步走完一轮知识库\n\n这节课按「先想清楚，再动工具」来学：\n\n| 步骤 | 核心问题 | 产出 |\n|------|----------|------|\n| 1. 看清关系 | 知识库和第 1 课技能是什么关系？ | 知道知识库提供事实，技能定义做法 |\n| 2. 定范围 | 我的项目助理最需要查哪类资料？ | 选定 1-2 个知识库栏目 + 10 个测试问题 |\n| 3. 过合规 | 哪些资料能用，哪些不能上云？ | L1-L4 分级清单 |\n| 4. 整资料 | 文件要怎么清洗、拆分、打标签？ | 可入库文档 + metadata |\n| 5. 放工具 | ima、WorkBuddy、腾讯元器、Dify 分别放在哪？ | 个人层 + 组织层工具边界 |\n| 6. 跑一轮 | 知识库能不能回答真实问题？ | 10 问命中率 |\n| 7. 调问题 | 答不好是检索问题还是生成问题？ | 修复记录 + 下一轮优化 |\n\n## 三、第一步：先分清知识库 vs 技能\n\n| 维度 | 技能（第 1 课） | 知识库（本课） |\n|------|----------------|---------------|\n| 回答的问题 | **怎么做**——流程、格式、边界 | **有什么**——事实、案例、数据 |\n| 公益类比 | 机构 SOP + 模板 + 规则 | 历年项目档案、资助指南、案例库 |\n| 更新频率 | 流程变了才改 | 有新材料就补 |\n| 典型内容 | 输出契约、Gotchas、触发说明 | PDF 报告、项目总结、服务故事 |\n\n**它们不是竞争关系，而是搭档**：技能定义「怎么做」，知识库储备「做事素材」——第 3 课把二者编排进同一个 AI 智能体。\n\n## 四、第二步：先定范围和 10 个测试问题\n\n调研数据告诉我们，学员最需要的五类知识库内容（按「有用」评分排序）：\n\n| 排名 | 知识库分类 | 调研评分 | 典型内容举例 |\n|------|-----------|---------|-------------|\n| 1 | **沟通模板** | 4.38 | 捐赠人邮件模板、媒体问答口径、社区沟通话术 |\n| 2 | **资助指南** | 4.38 | 各基金会申请要求、评审标准、往期资助清单 |\n| 3 | **项目管理** | 4.29 | 项目计划模板、监测评估框架、财务报告格式 |\n| 4 | **案例** | 4.17–4.25 | 成功/失败案例复盘、服务故事、传播素材 |\n| 5 | **志愿者管理** | 4.08 | 招募流程、培训手册、志愿者反馈表 |\n\n先建评分最高、与你立项书最相关的 1-2 类。不要先问“我要用哪个工具”，先问：\n\n```text\n我的项目助理未来最常被问哪 10 个问题？\n这些问题的答案应该来自哪些资料？\n这些资料是否真实存在、可用、可上云？\n```\n\n## 五、第三步：数据合规 4 档\n\n把资料喂给 AI 之前，**必须**先分级。4 档从松到严：\n\n| 级别 | 名称 | 例子 | 怎么处理 |\n|------|------|------|---------|\n| **L1** | 公开 | 公众号文章、年报、公开活动总结 | 可直接用，上传腾讯元器 |\n| **L2** | 准公开 | 脱敏后的案例、内部培训资料 | 经审核后可用，上传前确认已脱敏 |\n| **L3** | 内部 | 会议纪要、未发布计划、内部预算 | 仅限 ima / WorkBuddy 个人层，不上传云端 |\n| **L4** | 敏感 | 捐赠人手机、受益人身份证、志愿者隐私 | **禁止**写进任何知识库或技能 |\n\n**红线**：受益人、志愿者、捐赠人的姓名与联系方式，输出前一律脱敏（姓名→A/B，删除手机/证件号）。拿不准时，宁可不放。\n\n## 六、第四步：把资料整理成 AI 能检索的形态\n\n### 6.1 三类核心材料\n\n| 材料 | 来源 | 处理方式 | metadata |\n|------|------|----------|----------|\n| 历年项目档案 | 结项报告、季度总结、活动记录 | 一个项目 = 一份文档，按章节拆分 | 项目名、年份、资助方、领域标签 |\n| PDF 报告与资助指南 | 申请指南、行业报告、政策文件 | 转文本、清乱码、修复表格 | 发布机构、年份、文档类型 |\n| 案例与服务故事 | 传播稿、项目复盘、服务故事 | 统一为背景、干预、结果、反思 | 案例类型、领域、年份 |\n\n### 6.2 不同文件类型怎么处理\n\n| 文件类型 | 入库前处理 | 注意事项 |\n|----------|------------|----------|\n| Word / Markdown | 保留标题层级，按章节清理 | 最适合直接入库；一份文档只讲一个主题 |\n| PDF | 先判断文字 PDF 还是扫描件；扫描件先 OCR | 表格页单独转结构化文本，避免乱码污染知识库 |\n| Excel / CSV | 转成字段说明、典型问答、行记录摘要 | 不要整表硬传；数字类问题要保留口径说明 |\n| PPT | 转成逐页讲稿或要点 | 图片里的关键信息要补文字说明 |\n| 图片 | 先用 ima 或 OCR 识别，再转文本 | 不把图片当作唯一事实来源 |\n| 音频 / 访谈 | 先转写，再脱敏，再按主题拆分 | 访谈对象姓名、电话、住址必须删除或替换 |\n\n## 七、第五步：工具落位，而不是工具先行\n\n本课不把「工具功能」当主线，而是按使用场景分层：\n\n| 层级 | 工具 | 课程定位 | 适合处理 |\n|------|------|----------|----------|\n| 初阶个人层 | **腾讯 ima 知识工作台** | 快速收纳、阅读、问答、萃取碎片资料 | 微信文件、网页、PDF、图片、音频、个人资料夹 |\n| 个人执行层 | **WorkBuddy** | 调用个人知识做实际任务 | 第 1 课技能、个人草稿、L3 内部资料 |\n| 组织主线 | **腾讯元器** | 组织层项目助理知识库，挂载到 AI智能体 | L1 公开资料、审核后的 L2 准公开资料 |\n| 高阶理解 | **腾讯元器进阶 / Dify** | 解释 RAG 机制，训练检索调参能力 | 向量检索、全文检索、混合检索、rerank、metadata 过滤 |\n\n```text\n已分级、已清洗、已打标签的资料\n  → ima：个人收纳、阅读、初步萃取\n  → WorkBuddy：个人任务执行\n  → 腾讯元器：组织层知识库 + 项目助理\n  → 高阶 RAG：检索策略、切片、metadata、评测\n```\n\n## 八、第六步：先跑 10 问命中率，再讲检索原理\n\n知识库建好后，测试「问 10 个真实问题，AI 答对几个」——这就是**命中率**。\n\n| 结果 | 记分 | 判断标准 |\n|------|------|----------|\n| 命中 | 1 | 找到正确资料，回答事实准确，可引用来源 |\n| 半命中 | 0.5 | 找到部分资料，但答案不完整或表达有误 |\n| 未命中 | 0 | 没找到资料、引用错误资料、编造答案 |\n\n## 九、第七步：把检索模式当作诊断工具\n\n只有当 10 问测试暴露问题后，再讲向量、全文、混合检索。这样学员会知道这些概念是在解决什么问题。\n\n| 问题类型 | 推荐检索 | 例子 |\n|----------|----------|------|\n| 精确名词、编号、日期、政策条款 | 全文检索更稳 | 「2024 清河项目巡护次数是多少？」 |\n| 换一种说法问同一件事 | 向量检索更稳 | 「哪些案例适合讲社区参与成效？」 |\n| 既有关键词又要语义判断 | 混合检索默认优先 | 「找一个和湿地公众教育相似、且有志愿者数据的案例」 |\n| 大知识库、多部门、多项目 | metadata 过滤必需 | 限定年份、项目、资助方、领域后再检索 |\n\n答不好时，按这个顺序排查：\n\n```text\n答不好\n├── 资料不存在 → 补资料\n├── 资料存在但没找到 → 改切片 / metadata / 检索模式\n└── 找到了但写不好 → 回第 1 课改 Skill 输出契约 / Gotchas\n```\n\n**口诀**：先看资料，再看检索，最后看生成。\n\n## 十、课堂练习（60 分钟）\n\n```text\n练习进度：\n- [ ] Step 1 选材料：从三类中选 1 类，找出 5–10 份真实文档\n- [ ] Step 2 分级：逐份标注 L1–L4，L4 直接剔除\n- [ ] Step 3 ima 初步整理：导入碎片资料，提炼摘要和候选标签\n- [ ] Step 4 切片 + 打标签：按建议切片，写好 metadata\n- [ ] Step 5 上传：L1/L2 进腾讯元器，L3 留在 WorkBuddy\n- [ ] Step 6 测试命中率：问 10 个真实问题，记录答对几个\n- [ ] Step 7 诊断 + 改进：先看资料，再看检索，最后看生成\n```\n\n## 十一、课后作业（分层）\n\n| 层级 | 个人层 | 组织层 | 命中率 | 验收 |\n|------|--------|--------|-------|------|\n| 入门 L1（用起来） | ima / WorkBuddy ≥30 份文档 | 腾讯元器 ≥10 份 | ≥60% | 能回答基本项目问题 |\n| 进阶 L2（用得顺） | ima / WorkBuddy ≥80 份文档 | 腾讯元器 ≥25 份 | ≥70% | 有 metadata + 诊断记录 |\n| 高阶 L2+（懂原理） | 完成 1 轮检索模式对比 | 元器进阶或 Dify 演示 | 说明 3 个未命中原因 | 能判断向量/全文/混合检索适用场景 |\n\n下课带走一句话：**「我的知识库现在有 ___ 份文档，命中率从 ___% 提升到了 ___%。」**\n\n## 十二、配套模板与工具讲义\n\n| 材料 | 文件路径 |\n|------|----------|\n| 资料盘点表 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_source_inventory.md` |\n| metadata 字段表 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md` |\n| 10 问命中率测试表 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_eval_questions.md` |\n| ima + WorkBuddy 练习 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md` |\n| 腾讯元器知识库练习 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/yuanqi_kb_lab.md` |\n| 检索模式对比 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/retrieval_mode_comparison.md` |\n| Dify 高阶 RAG 练习 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/dify_advanced_rag_lab.md` |\n| 第 2 → 第 3 课交接包 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/02_to_03_kb_agent_handoff.md` |\n\n## 十三、和前后课的衔接\n\n| 课程 | 角色 | 类比 |\n|------|------|------|\n| 第 1 课 · 技能 | 定义「怎么做」 | 菜谱 |\n| **第 2 课 · 知识库**（本课） | 提供「做事素材」 | 食材库 |\n| 第 3 课 · AI智能体 | 编排技能 + 知识库 | 厨师 |\n\n下课前，请把本课的知识库范围、合规分级、metadata、10 问命中率和检索参数填入 `第 2 → 第 3 课交接包`。第 3 课会直接用它来挂载知识库和建立项目助理测试问题。\n\n## 十四、下一课预告\n\n技能知道「怎么做」，知识库提供了「弹药」——下一步，把它们编排成一个完整的**项目助理**。第 3 课《AI智能体组装》教你把多个技能和知识库挂到同一个智能体上，让它根据用户意图自动选技能、查知识库、给出回答。\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

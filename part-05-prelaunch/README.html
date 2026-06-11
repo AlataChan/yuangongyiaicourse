@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 5 课 · 成果盘点与预发布：让同事真正用起来（学员手册） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 5 课 · 成果盘点与预发布：让同事真正用起来（学员手册） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="README.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-05-prelaunch/README.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="第-5-课-·-成果盘点与预发布让同事真正用起来学员手册">第 5 课 · 成果盘点与预发布：让同事真正用起来（学员手册）</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-05-prelaunch/README.md</code></p><p></p><p>时长 90 分钟　|　课后产出：预发布演示 + 发布计划 + 90 天行动计划</p><p></p><p>这是线上课的最后一课，也是线下工作坊前的「收官演练」。</p></blockquote>
+<hr>
+<h2 id="一、这节课要解决什么">一、这节课要解决什么</h2>
+<p>前四课你已经有了技能、知识库、AI智能体，也按主场景做了深化。但「我能用」和「同事真在用」之间，还差最后一公里。</p>
+<p>第 5 课带你完成三件事：盘点产出是否达标、在同伴面前跑一遍真实演示、把发布渠道与日常化预案落到纸上。下课时，你手上应该有一份可以直接执行的上线方案。</p>
+<p>这是「技能 → 知识库 → AI智能体」主线的收官环节，线下工作坊将在此基础上做跨机构互换与正式部署。</p>
+<h2 id="二、课程模块">二、课程模块</h2>
+<table><thead><tr><th>模块</th><th>时长</th><th>核心任务</th></tr></thead><tbody><tr><td>5.1 成果盘点</td><td>25 分钟</td><td>对照立项书检查三层产出 + L1/L2 分层自评</td></tr><tr><td>5.2 预发布演示</td><td>35 分钟</td><td>每机构 5 分钟真实演示 + 同伴互评</td></tr><tr><td>5.3 发布与日常化预案</td><td>20 分钟</td><td>确定发布渠道 + 完成上线检查清单</td></tr><tr><td>5.4 工作坊预告</td><td>10 分钟</td><td>线下工作坊安排与准备事项</td></tr></tbody></table>
+<h2 id="三、51-成果盘点25-分钟">三、5.1 成果盘点（25 分钟）</h2>
+<h3 id="三层产出对照表">三层产出对照表</h3>
+<p>拿出课前作业填写的<strong>立项书</strong>，逐层核对：</p>
+<table><thead><tr><th>层级</th><th>达标线</th><th>检查项</th></tr></thead><tbody><tr><td>技能层</td><td>≥2 个技能跑通</td><td>触发说明清晰、输出契约完整、Gotchas ≥6 条</td></tr><tr><td>知识库层</td><td>知识库有量有质</td><td>文档数量达标、切片质量抽检通过、检索准确率可接受</td></tr><tr><td>智能体层</td><td>主流程可跑通</td><td>Agent 能正确路由到技能与知识库、不编造、不越界</td></tr></tbody></table>
+<h3 id="l1-l2-分层自评">L1 / L2 分层自评</h3>
+<table><thead><tr><th>层级</th><th>标准</th><th>你的状态</th></tr></thead><tbody><tr><td>L1 入门（用起来）</td><td>≥1 技能跑通 + 知识库可检索 + Agent 能回答基本问题</td><td>☐ 达标 / ☐ 未达标</td></tr><tr><td>L2 进阶（用得顺）</td><td>≥2 技能 + 知识库覆盖主场景 + Agent 路由准确 + 同事能独立使用</td><td>☐ 达标 / ☐ 未达标</td></tr></tbody></table>
+<blockquote><p>未达标不等于失败——把差距写下来，带到线下工作坊补齐。</p></blockquote>
+<h2 id="四、52-预发布演示35-分钟">四、5.2 预发布演示（35 分钟）</h2>
+<h3 id="演示格式">演示格式</h3>
+<p>每个机构 <strong>5 分钟</strong>，包含：</p>
+<pre><code class="language-text">演示内容：
+1. 展示主工作流（从输入到最终输出，跑一遍真实任务）
+2. 回答 1 个真实问题（现场提问，不是预设的）</code></pre>
+<h3 id="同伴互评维度">同伴互评维度</h3>
+<p>观众从三个维度打分并给出一句话建议：</p>
+<table><thead><tr><th>维度</th><th>关注点</th><th>评价</th></tr></thead><tbody><tr><td>可用性</td><td>同事拿到能直接用吗？操作步骤是否清晰？</td><td>★☆☆ ~ ★★★</td></tr><tr><td>准确性</td><td>回答是否基于知识库？有没有编造？</td><td>★☆☆ ~ ★★★</td></tr><tr><td>推广意愿</td><td>你愿意推荐给自己的同事用吗？</td><td>★☆☆ ~ ★★★</td></tr></tbody></table>
+<h2 id="五、53-发布与日常化预案20-分钟">五、5.3 发布与日常化预案（20 分钟）</h2>
+<h3 id="三条发布渠道">三条发布渠道</h3>
+<table><thead><tr><th>渠道</th><th>适用场景</th><th>触达对象</th><th>上线难度</th></tr></thead><tbody><tr><td>飞书 / 企微机器人</td><td>内部日常问答、文书辅助</td><td>机构同事</td><td>低</td></tr><tr><td>公众号自动回复</td><td>对外常见问题自动应答（M3 阶段）</td><td>公众、志愿者</td><td>中</td></tr><tr><td>Web 嵌入（官网）</td><td>嵌入机构官网，提供项目咨询</td><td>外部访客</td><td>中高</td></tr></tbody></table>
+<h3 id="上线检查清单">上线检查清单</h3>
+<pre><code class="language-text">上线前逐项确认：
+- [ ] 技能触发说明已更新到最终版
+- [ ] 知识库文档已完成脱敏审核
+- [ ] Agent 路由测试通过（≥5 条用例）
+- [ ] 敏感信息兜底规则已设置（拒答 / 脱敏）
+- [ ] 指定 1 位「日常维护人」
+- [ ] 确定首批试用同事（≥2 人）
+- [ ] 准备好 2 周效果评估卡</code></pre>
+<h3 id="2-周效果评估卡">2 周效果评估卡</h3>
+<p>试用 2 周后填写：</p>
+<table><thead><tr><th>指标</th><th>数据</th></tr></thead><tbody><tr><td>实际使用次数</td><td>___ 次</td></tr><tr><td>替代手工工作时长</td><td>约 ___ 小时</td></tr><tr><td>回答准确率（抽检 5 条）</td><td>___%</td></tr><tr><td>同事满意度（1–5）</td><td>___ 分</td></tr><tr><td>需要人工修正的比例</td><td>___%</td></tr><tr><td>最常见的失败场景</td><td>____________</td></tr></tbody></table>
+<h2 id="六、54-工作坊预告10-分钟">六、5.4 工作坊预告（10 分钟）</h2>
+<p>线下工作坊是「5+1」中的「+1」，用 5 小时完成：</p>
+<ul><li>案例展示与技能互换：跨机构复用演示与互评</li><li>部署发布：助教驻场，完成正式上线</li><li>跟踪启动：30/60/90 天数据回收计划</li></ul>
+<p>请提前准备：</p>
+<ol><li>笔记本电脑（确保能访问你的 Agent 后台）</li><li>1 份「最想让同事用的工作流」截图</li><li>上线检查清单（本课完成的版本）</li></ol>
+<h3 id="工作坊交接包">工作坊交接包</h3>
+<p>本课下课前，请填写：</p>
+<ul><li>第 5 → 工作坊交接包：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/05_to_workshop_release_review_pack.md</code></li><li>课程产物跟踪表：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/cross_lesson_artifact_tracker.md</code></li></ul>
+<p>线下工作坊会直接使用交接包里的内测任务、反馈记录、演示脚本、Go/No-Go 决策和 30/60/90 天版本计划。</p>
+<h2 id="七、l1-l2-分层自评表">七、L1 / L2 分层自评表</h2>
+<h3 id="l1-入门用起来">L1 入门（用起来）</h3>
+<pre><code class="language-text">自评项目：
+- [ ] 有 ≥1 个可跑通的技能
+- [ ] 知识库已上传核心文档（≥10 份）
+- [ ] Agent 能回答所选场景的基本问题
+- [ ] 跑通过 ≥1 次真实任务替代
+- [ ] 数据合规底线已守住（脱敏完成）</code></pre>
+<h3 id="l2-进阶用得顺">L2 进阶（用得顺）</h3>
+<pre><code class="language-text">自评项目：
+- [ ] 有 ≥2 个技能（含 1 个文书链）
+- [ ] 知识库覆盖主场景，检索准确率可接受
+- [ ] Agent 路由准确，不误触发
+- [ ] ≥3 次真实任务替代，有时间对比记录
+- [ ] 同事能独立使用，无需你在旁边盯着
+- [ ] 上线检查清单已完成</code></pre>
+<h2 id="八、90-天行动计划">八、90 天行动计划</h2>
+<h3 id="30-天试运行">30 天（试运行）</h3>
+<pre><code class="language-text">目标：小范围跑通、收集真实反馈
+- [ ] 完成首批 2–3 位同事试用
+- [ ] 填写 2 周效果评估卡
+- [ ] 根据反馈修正 ≥1 个技能的 Gotchas
+- [ ] 知识库补充 ≥5 份新文档</code></pre>
+<h3 id="60-天扩大使用">60 天（扩大使用）</h3>
+<pre><code class="language-text">目标：从「试用」变成「日常工具」
+- [ ] 试用范围扩大到全机构
+- [ ] 累计替代手工工作 ≥10 次
+- [ ] 新增 ≥1 个技能（覆盖第二场景）
+- [ ] 知识库更新频率建立（如每月 1 次）</code></pre>
+<h3 id="90-天数据回收-+-复盘">90 天（数据回收 + 复盘）</h3>
+<pre><code class="language-text">目标：用数据证明价值、决定下一步
+- [ ] 填写 90 天效果总表
+- [ ] 计算累计节省工时
+- [ ] 同事满意度调查
+- [ ] 决定是否扩展到对外场景（公众号 / 官网）
+- [ ] 输出 1 份「AI 助理运行报告」给管理层</code></pre>
+<h2 id="九、下一步">九、下一步</h2>
+<p>恭喜完成 5 节线上课！线下工作坊见——带上你的 Agent、上线检查清单和 90 天行动计划，我们用 5 小时完成跨机构互换、正式部署和跟踪启动。</p>
+<p>下课带走一句话：<strong>「从今天起，不是我一个人在用 AI，是我的团队在用。」</strong></p>
+      <div class="source-path">Markdown 原文：<code>part-05-prelaunch/README.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#第-5-课-·-成果盘点与预发布让同事真正用起来学员手册">第 5 课 · 成果盘点与预发布：让同事真正用起来（学员手册）</a>
+<a href="#一、这节课要解决什么">一、这节课要解决什么</a>
+<a href="#二、课程模块">二、课程模块</a>
+<a href="#三、51-成果盘点25-分钟">三、5.1 成果盘点（25 分钟）</a>
+<a href="#三层产出对照表">三层产出对照表</a>
+<a href="#l1-l2-分层自评">L1 / L2 分层自评</a>
+<a href="#四、52-预发布演示35-分钟">四、5.2 预发布演示（35 分钟）</a>
+<a href="#演示格式">演示格式</a>
+<a href="#同伴互评维度">同伴互评维度</a>
+<a href="#五、53-发布与日常化预案20-分钟">五、5.3 发布与日常化预案（20 分钟）</a>
+<a href="#三条发布渠道">三条发布渠道</a>
+<a href="#上线检查清单">上线检查清单</a>
+<a href="#2-周效果评估卡">2 周效果评估卡</a>
+<a href="#六、54-工作坊预告10-分钟">六、5.4 工作坊预告（10 分钟）</a>
+<a href="#工作坊交接包">工作坊交接包</a>
+<a href="#七、l1-l2-分层自评表">七、L1 / L2 分层自评表</a>
+<a href="#l1-入门用起来">L1 入门（用起来）</a>
+<a href="#l2-进阶用得顺">L2 进阶（用得顺）</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 第 5 课 · 成果盘点与预发布：让同事真正用起来（学员手册）\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-05-prelaunch/README.md`\n>\n> 时长 90 分钟　|　课后产出：预发布演示 + 发布计划 + 90 天行动计划\n>\n> 这是线上课的最后一课，也是线下工作坊前的「收官演练」。\n\n---\n\n## 一、这节课要解决什么\n\n前四课你已经有了技能、知识库、AI智能体，也按主场景做了深化。但「我能用」和「同事真在用」之间，还差最后一公里。\n\n第 5 课带你完成三件事：盘点产出是否达标、在同伴面前跑一遍真实演示、把发布渠道与日常化预案落到纸上。下课时，你手上应该有一份可以直接执行的上线方案。\n\n这是「技能 → 知识库 → AI智能体」主线的收官环节，线下工作坊将在此基础上做跨机构互换与正式部署。\n\n## 二、课程模块\n\n| 模块 | 时长 | 核心任务 |\n|------|------|---------|\n| 5.1 成果盘点 | 25 分钟 | 对照立项书检查三层产出 + L1/L2 分层自评 |\n| 5.2 预发布演示 | 35 分钟 | 每机构 5 分钟真实演示 + 同伴互评 |\n| 5.3 发布与日常化预案 | 20 分钟 | 确定发布渠道 + 完成上线检查清单 |\n| 5.4 工作坊预告 | 10 分钟 | 线下工作坊安排与准备事项 |\n\n## 三、5.1 成果盘点（25 分钟）\n\n### 三层产出对照表\n\n拿出课前作业填写的**立项书**，逐层核对：\n\n| 层级 | 达标线 | 检查项 |\n|------|--------|--------|\n| 技能层 | ≥2 个技能跑通 | 触发说明清晰、输出契约完整、Gotchas ≥6 条 |\n| 知识库层 | 知识库有量有质 | 文档数量达标、切片质量抽检通过、检索准确率可接受 |\n| 智能体层 | 主流程可跑通 | Agent 能正确路由到技能与知识库、不编造、不越界 |\n\n### L1 / L2 分层自评\n\n| 层级 | 标准 | 你的状态 |\n|------|------|---------|\n| L1 入门（用起来） | ≥1 技能跑通 + 知识库可检索 + Agent 能回答基本问题 | ☐ 达标 / ☐ 未达标 |\n| L2 进阶（用得顺） | ≥2 技能 + 知识库覆盖主场景 + Agent 路由准确 + 同事能独立使用 | ☐ 达标 / ☐ 未达标 |\n\n> 未达标不等于失败——把差距写下来，带到线下工作坊补齐。\n\n## 四、5.2 预发布演示（35 分钟）\n\n### 演示格式\n\n每个机构 **5 分钟**，包含：\n\n```text\n演示内容：\n1. 展示主工作流（从输入到最终输出，跑一遍真实任务）\n2. 回答 1 个真实问题（现场提问，不是预设的）\n```\n\n### 同伴互评维度\n\n观众从三个维度打分并给出一句话建议：\n\n| 维度 | 关注点 | 评价 |\n|------|--------|------|\n| 可用性 | 同事拿到能直接用吗？操作步骤是否清晰？ | ★☆☆ ~ ★★★ |\n| 准确性 | 回答是否基于知识库？有没有编造？ | ★☆☆ ~ ★★★ |\n| 推广意愿 | 你愿意推荐给自己的同事用吗？ | ★☆☆ ~ ★★★ |\n\n## 五、5.3 发布与日常化预案（20 分钟）\n\n### 三条发布渠道\n\n| 渠道 | 适用场景 | 触达对象 | 上线难度 |\n|------|---------|---------|---------|\n| 飞书 / 企微机器人 | 内部日常问答、文书辅助 | 机构同事 | 低 |\n| 公众号自动回复 | 对外常见问题自动应答（M3 阶段） | 公众、志愿者 | 中 |\n| Web 嵌入（官网） | 嵌入机构官网，提供项目咨询 | 外部访客 | 中高 |\n\n### 上线检查清单\n\n```text\n上线前逐项确认：\n- [ ] 技能触发说明已更新到最终版\n- [ ] 知识库文档已完成脱敏审核\n- [ ] Agent 路由测试通过（≥5 条用例）\n- [ ] 敏感信息兜底规则已设置（拒答 / 脱敏）\n- [ ] 指定 1 位「日常维护人」\n- [ ] 确定首批试用同事（≥2 人）\n- [ ] 准备好 2 周效果评估卡\n```\n\n### 2 周效果评估卡\n\n试用 2 周后填写：\n\n| 指标 | 数据 |\n|------|------|\n| 实际使用次数 | ___ 次 |\n| 替代手工工作时长 | 约 ___ 小时 |\n| 回答准确率（抽检 5 条） | ___% |\n| 同事满意度（1–5） | ___ 分 |\n| 需要人工修正的比例 | ___% |\n| 最常见的失败场景 | ____________ |\n\n## 六、5.4 工作坊预告（10 分钟）\n\n线下工作坊是「5+1」中的「+1」，用 5 小时完成：\n\n- 案例展示与技能互换：跨机构复用演示与互评\n- 部署发布：助教驻场，完成正式上线\n- 跟踪启动：30/60/90 天数据回收计划\n\n请提前准备：\n1. 笔记本电脑（确保能访问你的 Agent 后台）\n2. 1 份「最想让同事用的工作流」截图\n3. 上线检查清单（本课完成的版本）\n\n### 工作坊交接包\n\n本课下课前，请填写：\n\n- 第 5 → 工作坊交接包：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/05_to_workshop_release_review_pack.md`\n- 课程产物跟踪表：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/cross_lesson_artifact_tracker.md`\n\n线下工作坊会直接使用交接包里的内测任务、反馈记录、演示脚本、Go/No-Go 决策和 30/60/90 天版本计划。\n\n## 七、L1 / L2 分层自评表\n\n### L1 入门（用起来）\n\n```text\n自评项目：\n- [ ] 有 ≥1 个可跑通的技能\n- [ ] 知识库已上传核心文档（≥10 份）\n- [ ] Agent 能回答所选场景的基本问题\n- [ ] 跑通过 ≥1 次真实任务替代\n- [ ] 数据合规底线已守住（脱敏完成）\n```\n\n### L2 进阶（用得顺）\n\n```text\n自评项目：\n- [ ] 有 ≥2 个技能（含 1 个文书链）\n- [ ] 知识库覆盖主场景，检索准确率可接受\n- [ ] Agent 路由准确，不误触发\n- [ ] ≥3 次真实任务替代，有时间对比记录\n- [ ] 同事能独立使用，无需你在旁边盯着\n- [ ] 上线检查清单已完成\n```\n\n## 八、90 天行动计划\n\n### 30 天（试运行）\n\n```text\n目标：小范围跑通、收集真实反馈\n- [ ] 完成首批 2–3 位同事试用\n- [ ] 填写 2 周效果评估卡\n- [ ] 根据反馈修正 ≥1 个技能的 Gotchas\n- [ ] 知识库补充 ≥5 份新文档\n```\n\n### 60 天（扩大使用）\n\n```text\n目标：从「试用」变成「日常工具」\n- [ ] 试用范围扩大到全机构\n- [ ] 累计替代手工工作 ≥10 次\n- [ ] 新增 ≥1 个技能（覆盖第二场景）\n- [ ] 知识库更新频率建立（如每月 1 次）\n```\n\n### 90 天（数据回收 + 复盘）\n\n```text\n目标：用数据证明价值、决定下一步\n- [ ] 填写 90 天效果总表\n- [ ] 计算累计节省工时\n- [ ] 同事满意度调查\n- [ ] 决定是否扩展到对外场景（公众号 / 官网）\n- [ ] 输出 1 份「AI 助理运行报告」给管理层\n```\n\n## 九、下一步\n\n恭喜完成 5 节线上课！线下工作坊见——带上你的 Agent、上线检查清单和 90 天行动计划，我们用 5 小时完成跨机构互换、正式部署和跟踪启动。\n\n下课带走一句话：**「从今天起，不是我一个人在用 AI，是我的团队在用。」**\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

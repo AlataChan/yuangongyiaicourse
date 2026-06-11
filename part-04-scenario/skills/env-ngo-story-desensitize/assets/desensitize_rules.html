@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>服务故事脱敏规则 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="服务故事脱敏规则 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="desensitize_rules.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="desensitize_rules.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-04-scenario/skills/env-ngo-story-desensitize/assets/desensitize_rules.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="服务故事脱敏规则">服务故事脱敏规则</h1>
+<blockquote><p>适用范围：需公开发布的服务故事、受益人叙事、访谈记录、案例文本。</p></blockquote>
+<h2 id="脱敏对照表">脱敏对照表</h2>
+<table><thead><tr><th>信息类型</th><th>原始示例</th><th>脱敏处理</th><th>输出示例</th></tr></thead><tbody><tr><td><strong>真实姓名</strong></td><td>张三丰</td><td>替换为字母代号，同一人全文统一</td><td>受益人 A</td></tr><tr><td><strong>手机号</strong></td><td>138-1234-5678</td><td>直接删除</td><td>[已删除]</td></tr><tr><td><strong>身份证号</strong></td><td>110105199001011234</td><td>直接删除</td><td>[已删除]</td></tr><tr><td><strong>银行卡号</strong></td><td>6222 0000 1234 5678</td><td>直接删除</td><td>[已删除]</td></tr><tr><td><strong>精确金额</strong></td><td>43,872 元</td><td>量级范围</td><td>约 4 万元</td></tr><tr><td><strong>详细地址</strong></td><td>北京市海淀区中关村南大街 5 号</td><td>模糊到区县</td><td>北京市海淀区某社区</td></tr><tr><td><strong>机构全称</strong></td><td>XX 市绿源环保公益中心</td><td>机构简称或代号</td><td>&lt;机构简称&gt;</td></tr><tr><td><strong>照片中人脸</strong></td><td>清晰正面照描述</td><td>标注需打码</td><td>[建议对人脸打码后发布]</td></tr><tr><td><strong>未成年人信息</strong></td><td>小明，12 岁，XX 小学六年级</td><td>代号 + 删除学校</td><td>学生 B，12 岁</td></tr><tr><td><strong>疾病/残障信息</strong></td><td>张三确诊 XX 病</td><td>模糊描述</td><td>受益人 A 因健康原因</td></tr></tbody></table>
+<h2 id="处理原则">处理原则</h2>
+<ol><li><strong>同一人统一代号</strong>：首次出现分配 A/B/C，后续全文一致。</li><li><strong>删除优先于遮盖</strong>：手机号、证件号不做 <code>138****5678</code> 式部分遮盖，直接删除。</li><li><strong>金额用量级</strong>：千元级→「约 X 千元」，万元级→「约 X 万元」，百万级→「约 X 百万元」。</li><li><strong>不改变事实</strong>：脱敏是保护隐私，不是美化或修改事件经过。</li><li><strong>存疑则标注</strong>：不确定是否需脱敏的内容，标注 <code>[请确认是否需脱敏]</code> 交由用户决定。</li><li><strong>未成年人从严</strong>：涉及未成年人的信息，学校名称、班级、家庭住址一律删除。</li></ol>
+      <div class="source-path">Markdown 原文：<code>part-04-scenario/skills/env-ngo-story-desensitize/assets/desensitize_rules.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="desensitize_rules.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="desensitize_rules.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#服务故事脱敏规则">服务故事脱敏规则</a>
+<a href="#脱敏对照表">脱敏对照表</a>
+<a href="#处理原则">处理原则</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 服务故事脱敏规则\n\n> 适用范围：需公开发布的服务故事、受益人叙事、访谈记录、案例文本。\n\n## 脱敏对照表\n\n| 信息类型 | 原始示例 | 脱敏处理 | 输出示例 |\n|----------|----------|----------|----------|\n| **真实姓名** | 张三丰 | 替换为字母代号，同一人全文统一 | 受益人 A |\n| **手机号** | 138-1234-5678 | 直接删除 | [已删除] |\n| **身份证号** | 110105199001011234 | 直接删除 | [已删除] |\n| **银行卡号** | 6222 0000 1234 5678 | 直接删除 | [已删除] |\n| **精确金额** | 43,872 元 | 量级范围 | 约 4 万元 |\n| **详细地址** | 北京市海淀区中关村南大街 5 号 | 模糊到区县 | 北京市海淀区某社区 |\n| **机构全称** | XX 市绿源环保公益中心 | 机构简称或代号 | \u003c机构简称> |\n| **照片中人脸** | 清晰正面照描述 | 标注需打码 | [建议对人脸打码后发布] |\n| **未成年人信息** | 小明，12 岁，XX 小学六年级 | 代号 + 删除学校 | 学生 B，12 岁 |\n| **疾病/残障信息** | 张三确诊 XX 病 | 模糊描述 | 受益人 A 因健康原因 |\n\n## 处理原则\n\n1. **同一人统一代号**：首次出现分配 A/B/C，后续全文一致。\n2. **删除优先于遮盖**：手机号、证件号不做 `138****5678` 式部分遮盖，直接删除。\n3. **金额用量级**：千元级→「约 X 千元」，万元级→「约 X 万元」，百万级→「约 X 百万元」。\n4. **不改变事实**：脱敏是保护隐私，不是美化或修改事件经过。\n5. **存疑则标注**：不确定是否需脱敏的内容，标注 `[请确认是否需脱敏]` 交由用户决定。\n6. **未成年人从严**：涉及未成年人的信息，学校名称、班级、家庭住址一律删除。\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

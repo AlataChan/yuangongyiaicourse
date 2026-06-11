@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 3 → 第 4 课交接包：项目助理交给场景闭环 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 3 → 第 4 课交接包：项目助理交给场景闭环 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="03_to_04_agent_scenario_handoff.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="03_to_04_agent_scenario_handoff.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>bridge-materials/templates/03_to_04_agent_scenario_handoff.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="第-3-→-第-4-课交接包项目助理交给场景闭环">第 3 → 第 4 课交接包：项目助理交给场景闭环</h1>
+<p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/03_to_04_agent_scenario_handoff.md</code></p>
+<p>用途：第 3 课下课前填写，第 4 课用于选择主场景、判断闭环缺口、决定是否补第二个 Skill。</p>
+<h2 id="1-项目助理边界卡">1. 项目助理边界卡</h2>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>项目助理名称</td><td></td></tr><tr><td>主要服务对象</td><td>本机构同事 / 志愿者 / 合作伙伴 / 公众 / 其他：</td></tr><tr><td>能处理的 3 类问题</td><td>1.  2.  3.</td></tr><tr><td>明确不处理的 3 类问题</td><td>1.  2.  3.</td></tr><tr><td>需要人工审核的情形</td><td></td></tr><tr><td>需要拒答或转人工的情形</td><td></td></tr></tbody></table>
+<h2 id="2-已挂载资产">2. 已挂载资产</h2>
+<h3 id="21-skill-接口清单">2.1 Skill 接口清单</h3>
+<table><thead><tr><th>Skill 名称</th><th>触发条件</th><th>输入要求</th><th>输出契约</th><th>成功标准</th><th>知识库依赖</th><th>不适用场景</th><th>稳定性状态</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>草稿 / 可用 / 稳定</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>草稿 / 可用 / 稳定</td></tr></tbody></table>
+<p>必填 Gotchas：</p>
+<pre><code class="language-text">Skill 1 最容易翻车的 3 点：
+
+Skill 2 最容易翻车的 3 点：</code></pre>
+<p>评测用例：</p>
+<table><thead><tr><th>Skill</th><th>必测问题</th><th>期望输出</th><th>是否通过</th></tr></thead><tbody><tr><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td></td><td></td><td></td><td>是 / 否</td></tr></tbody></table>
+<h3 id="22-知识库接口清单">2.2 知识库接口清单</h3>
+<table><thead><tr><th>知识库名称</th><th>资料范围</th><th>允许回答范围</th><th>Top-K/检索设置</th><th>不能回答什么</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<h2 id="3-路由表">3. 路由表</h2>
+<table><thead><tr><th>用户问题类型</th><th>判定条件</th><th>调用 Skill</th><th>相邻易混 Skill</th><th>优先归属规则</th><th>是否检索知识库</th><th>输出形式</th><th>需要追问的条件</th><th>超边界处理</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td><td>是 / 否</td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>是 / 否</td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>是 / 否</td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td>是 / 否</td><td></td><td></td><td></td></tr></tbody></table>
+<p>兜底规则：</p>
+<pre><code class="language-text">当用户意图不清时：
+
+当 Skill 和知识库都可能适用时：
+
+当知识库没有依据时：</code></pre>
+<h2 id="4-主工作流最小闭环">4. 主工作流最小闭环</h2>
+<p>先只写一条主工作流，不要同时扩三个模块。</p>
+<pre><code class="language-text">用户输入：
+  ↓
+路由判定：
+  ↓
+检索 / 不检索：
+  ↓
+调用 Skill / 直接回答：
+  ↓
+输出结果：
+  ↓
+记录问题并人工复核：</code></pre>
+<h2 id="5-10-问诊断表">5. 10 问诊断表</h2>
+<table><thead><tr><th>#</th><th>测试问题</th><th>覆盖类型</th><th>期望行为</th><th>实际表现</th><th>问题归因</th></tr></thead><tbody><tr><td>1</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>2</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>6</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>7</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>8</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>9</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr><tr><td>10</td><td></td><td>边界 / Skill / 知识库 / 工作流 / 输出</td><td></td><td></td><td></td></tr></tbody></table>
+<p>诊断规则：</p>
+<table><thead><tr><th>问题归因</th><th>第 4 课优先修什么</th></tr></thead><tbody><tr><td>边界错</td><td>改项目助理边界卡</td></tr><tr><td>路由错</td><td>改路由表和触发条件</td></tr><tr><td>知识库错</td><td>回补资料、metadata、检索参数</td></tr><tr><td>Skill 错</td><td>改输出契约、Gotchas、输入要求</td></tr><tr><td>工作流错</td><td>简化步骤，补人工审核点</td></tr></tbody></table>
+<h2 id="6-交给第-4-课的主场景">6. 交给第 4 课的主场景</h2>
+<p>第 4 课只选一个主场景先闭环：</p>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>主场景名称</td><td></td></tr><tr><td>为什么优先做它</td><td></td></tr><tr><td>当前最常失败的问题</td><td></td></tr><tr><td>闭环缺口</td><td>Skill / 知识库 / 路由 / 人工审核 / 其他：</td></tr><tr><td>是否需要补第二个 Skill</td><td>是 / 否 / 待确认</td></tr></tbody></table>
+<p>第 4 课开场要回答：</p>
+<pre><code class="language-text">我最想让项目助理稳定完成的真实任务是：
+
+现在卡住它的最大缺口是：
+
+如果第 4 课只能修一个问题，我会先修：</code></pre>
+      <div class="source-path">Markdown 原文：<code>bridge-materials/templates/03_to_04_agent_scenario_handoff.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="03_to_04_agent_scenario_handoff.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="03_to_04_agent_scenario_handoff.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#第-3-→-第-4-课交接包项目助理交给场景闭环">第 3 → 第 4 课交接包：项目助理交给场景闭环</a>
+<a href="#1-项目助理边界卡">1. 项目助理边界卡</a>
+<a href="#2-已挂载资产">2. 已挂载资产</a>
+<a href="#21-skill-接口清单">2.1 Skill 接口清单</a>
+<a href="#22-知识库接口清单">2.2 知识库接口清单</a>
+<a href="#3-路由表">3. 路由表</a>
+<a href="#4-主工作流最小闭环">4. 主工作流最小闭环</a>
+<a href="#5-10-问诊断表">5. 10 问诊断表</a>
+<a href="#6-交给第-4-课的主场景">6. 交给第 4 课的主场景</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 第 3 → 第 4 课交接包：项目助理交给场景闭环\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/03_to_04_agent_scenario_handoff.md`\n\n用途：第 3 课下课前填写，第 4 课用于选择主场景、判断闭环缺口、决定是否补第二个 Skill。\n\n## 1. 项目助理边界卡\n\n| 项目 | 填写 |\n|------|------|\n| 项目助理名称 | |\n| 主要服务对象 | 本机构同事 / 志愿者 / 合作伙伴 / 公众 / 其他： |\n| 能处理的 3 类问题 | 1.  2.  3. |\n| 明确不处理的 3 类问题 | 1.  2.  3. |\n| 需要人工审核的情形 | |\n| 需要拒答或转人工的情形 | |\n\n## 2. 已挂载资产\n\n### 2.1 Skill 接口清单\n\n| Skill 名称 | 触发条件 | 输入要求 | 输出契约 | 成功标准 | 知识库依赖 | 不适用场景 | 稳定性状态 |\n|------------|----------|----------|----------|----------|------------|------------|------------|\n| | | | | | | | 草稿 / 可用 / 稳定 |\n| | | | | | | | 草稿 / 可用 / 稳定 |\n\n必填 Gotchas：\n\n```text\nSkill 1 最容易翻车的 3 点：\n\nSkill 2 最容易翻车的 3 点：\n```\n\n评测用例：\n\n| Skill | 必测问题 | 期望输出 | 是否通过 |\n|-------|----------|----------|----------|\n| | | | 是 / 否 |\n| | | | 是 / 否 |\n\n### 2.2 知识库接口清单\n\n| 知识库名称 | 资料范围 | 允许回答范围 | Top-K/检索设置 | 不能回答什么 |\n|------------|----------|--------------|----------------|--------------|\n| | | | | |\n| | | | | |\n\n## 3. 路由表\n\n| 用户问题类型 | 判定条件 | 调用 Skill | 相邻易混 Skill | 优先归属规则 | 是否检索知识库 | 输出形式 | 需要追问的条件 | 超边界处理 |\n|--------------|----------|------------|----------------|--------------|----------------|----------|----------------|------------|\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n\n兜底规则：\n\n```text\n当用户意图不清时：\n\n当 Skill 和知识库都可能适用时：\n\n当知识库没有依据时：\n```\n\n## 4. 主工作流最小闭环\n\n先只写一条主工作流，不要同时扩三个模块。\n\n```text\n用户输入：\n  ↓\n路由判定：\n  ↓\n检索 / 不检索：\n  ↓\n调用 Skill / 直接回答：\n  ↓\n输出结果：\n  ↓\n记录问题并人工复核：\n```\n\n## 5. 10 问诊断表\n\n| # | 测试问题 | 覆盖类型 | 期望行为 | 实际表现 | 问题归因 |\n|---|----------|----------|----------|----------|----------|\n| 1 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 2 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 3 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 4 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 5 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 6 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 7 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 8 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 9 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 10 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n\n诊断规则：\n\n| 问题归因 | 第 4 课优先修什么 |\n|----------|------------------|\n| 边界错 | 改项目助理边界卡 |\n| 路由错 | 改路由表和触发条件 |\n| 知识库错 | 回补资料、metadata、检索参数 |\n| Skill 错 | 改输出契约、Gotchas、输入要求 |\n| 工作流错 | 简化步骤，补人工审核点 |\n\n## 6. 交给第 4 课的主场景\n\n第 4 课只选一个主场景先闭环：\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 为什么优先做它 | |\n| 当前最常失败的问题 | |\n| 闭环缺口 | Skill / 知识库 / 路由 / 人工审核 / 其他： |\n| 是否需要补第二个 Skill | 是 / 否 / 待确认 |\n\n第 4 课开场要回答：\n\n```text\n我最想让项目助理稳定完成的真实任务是：\n\n现在卡住它的最大缺口是：\n\n如果第 4 课只能修一个问题，我会先修：\n```\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

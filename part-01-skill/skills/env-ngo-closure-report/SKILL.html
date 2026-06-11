@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>结项报告技能（项目文书链 · 报告） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="结项报告技能（项目文书链 · 报告） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="SKILL.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-01-skill/skills/env-ngo-closure-report/SKILL.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <hr>
+<p>name: env-ngo-closure-report description: &gt;- Load when the user provides project execution &quot;流水账&quot;, activity logs, or raw field notes and needs a structured closure report (背景/活动/产出/成效/反思/缺失项) for an environmental nonprofit. Do not load for grant proposal first drafts, funding application letters, or WeChat / social-media copy only. disable-model-invocation: true</p>
+<hr>
+<h1 id="结项报告技能项目文书链-·-报告">结项报告技能（项目文书链 · 报告）</h1>
+<p>把「项目执行流水账」转成一份结构稳定、可直接交给资助方的结项报告。这是第 1 课课堂演示用的样板技能，学员可直接 Fork 后改成自己机构的版本。</p>
+<h2 id="when-to-use">When To Use</h2>
+<ul><li>用户提供了项目执行记录、活动清单、签到/产出数据、现场说明等「流水账」。</li><li>用户要的是<strong>正式结项报告 / 项目总结报告</strong>，而不是项目申请书或公众号推文。</li><li>触发关键词：结项、结项报告、项目总结、执行流水账、向资助方汇报。</li></ul>
+<p>不要用于：写项目立项书初稿（用 <code>env-ngo-proposal-draft</code>）、写资助申请信（用 <code>env-ngo-grant-letter</code>）、只写传播稿。</p>
+<h2 id="workflow">Workflow</h2>
+<ol><li>读取用户提供的流水账 / 活动记录，抽取「活动 → 产出 → 成效」三类信息。</li><li>对照 <code>assets/closure_report_template.md</code> 的章节结构逐项填充。</li><li>只使用用户输入或机构知识库中<strong>确有出处</strong>的数字与事实。</li><li>任何报告必需但用户未提供的信息，统一汇总进末尾「缺失项清单」，不要编造。</li><li>输出完成后，可运行 <code>scripts/check_sections.mjs</code> 校验六个章节是否齐全。</li></ol>
+<h2 id="required-inputs">Required Inputs</h2>
+<ul><li>项目名称、执行周期、资助方（若有）。</li><li>活动流水：时间、地点、内容、参与规模、产出物。</li><li>可选：成效数据、受益反馈、机构既有结项报告范例（用于对齐风格）。</li></ul>
+<h2 id="output-contract">Output Contract</h2>
+<p>输出 Markdown，必须且仅包含以下六个章节，顺序固定：</p>
+<ol><li><strong>项目背景</strong>（≤200 字）</li><li><strong>主要活动</strong>（按时间或主题列表）</li><li><strong>产出与数据</strong>（只使用用户输入或知识库中的数字）</li><li><strong>成效与反馈</strong></li><li><strong>反思与后续建议</strong></li><li><strong>缺失项清单</strong>：报告必需、但用户未提供的信息</li></ol>
+<p>语言与用户输入一致（默认中文）；篇幅 800–1500 字。</p>
+<h2 id="gotchas">Gotchas</h2>
+<ul><li>用户未提供的数字（参与人数、预算、成效指标）<strong>一律不估算、不编造</strong>，列入「缺失项清单」。</li><li>涉及受益人、志愿者、捐赠人的个人信息，输出前必须脱敏（姓名→A/B，删除手机/证件号）。</li><li>执行方声称但无材料支撑的成效，标注为「项目方表述」而非「已核实」。</li><li>流水账里的金额与产出若相互矛盾，标注冲突并请用户确认，不要静默选一个数。</li><li>不要把本技能模板里的示例数据当成真实项目数据写进报告。</li><li>避免「圆满成功」「取得重大突破」一类无信息量的套话。</li></ul>
+<h2 id="files-to-read">Files To Read</h2>
+<ul><li><code>assets/closure_report_template.md</code>：输出章节模板（必读）。</li><li><code>assets/format_伙伴计划结项结构.md</code>：正式七大块与技能六章节的映射（格式参照，脱敏）。</li><li><code>assets/example_input_流水账.md</code>：虚构脱敏流水账，格式参照机构成长支持类结项模板，演示「流水账 → 报告」。</li></ul>
+<h2 id="scripts-to-run">Scripts To Run</h2>
+<ul><li><code>scripts/check_sections.mjs</code>：校验生成的报告是否含齐六个章节。</li></ul>
+<pre><code class="language-bash">node scripts/check_sections.mjs path/to/generated_report.md</code></pre>
+      <div class="source-path">Markdown 原文：<code>part-01-skill/skills/env-ngo-closure-report/SKILL.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SKILL.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#结项报告技能项目文书链-·-报告">结项报告技能（项目文书链 · 报告）</a>
+<a href="#when-to-use">When To Use</a>
+<a href="#workflow">Workflow</a>
+<a href="#required-inputs">Required Inputs</a>
+<a href="#output-contract">Output Contract</a>
+<a href="#gotchas">Gotchas</a>
+<a href="#files-to-read">Files To Read</a>
+<a href="#scripts-to-run">Scripts To Run</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"---\nname: env-ngo-closure-report\ndescription: >-\n  Load when the user provides project execution \"流水账\", activity logs, or raw\n  field notes and needs a structured closure report (背景/活动/产出/成效/反思/缺失项)\n  for an environmental nonprofit. Do not load for grant proposal first drafts,\n  funding application letters, or WeChat / social-media copy only.\ndisable-model-invocation: true\n---\n\n# 结项报告技能（项目文书链 · 报告）\n\n把「项目执行流水账」转成一份结构稳定、可直接交给资助方的结项报告。这是第 1 课课堂演示用的样板技能，学员可直接 Fork 后改成自己机构的版本。\n\n## When To Use\n\n- 用户提供了项目执行记录、活动清单、签到/产出数据、现场说明等「流水账」。\n- 用户要的是**正式结项报告 / 项目总结报告**，而不是项目申请书或公众号推文。\n- 触发关键词：结项、结项报告、项目总结、执行流水账、向资助方汇报。\n\n不要用于：写项目立项书初稿（用 `env-ngo-proposal-draft`）、写资助申请信（用 `env-ngo-grant-letter`）、只写传播稿。\n\n## Workflow\n\n1. 读取用户提供的流水账 / 活动记录，抽取「活动 → 产出 → 成效」三类信息。\n2. 对照 `assets/closure_report_template.md` 的章节结构逐项填充。\n3. 只使用用户输入或机构知识库中**确有出处**的数字与事实。\n4. 任何报告必需但用户未提供的信息，统一汇总进末尾「缺失项清单」，不要编造。\n5. 输出完成后，可运行 `scripts/check_sections.mjs` 校验六个章节是否齐全。\n\n## Required Inputs\n\n- 项目名称、执行周期、资助方（若有）。\n- 活动流水：时间、地点、内容、参与规模、产出物。\n- 可选：成效数据、受益反馈、机构既有结项报告范例（用于对齐风格）。\n\n## Output Contract\n\n输出 Markdown，必须且仅包含以下六个章节，顺序固定：\n\n1. **项目背景**（≤200 字）\n2. **主要活动**（按时间或主题列表）\n3. **产出与数据**（只使用用户输入或知识库中的数字）\n4. **成效与反馈**\n5. **反思与后续建议**\n6. **缺失项清单**：报告必需、但用户未提供的信息\n\n语言与用户输入一致（默认中文）；篇幅 800–1500 字。\n\n## Gotchas\n\n- 用户未提供的数字（参与人数、预算、成效指标）**一律不估算、不编造**，列入「缺失项清单」。\n- 涉及受益人、志愿者、捐赠人的个人信息，输出前必须脱敏（姓名→A/B，删除手机/证件号）。\n- 执行方声称但无材料支撑的成效，标注为「项目方表述」而非「已核实」。\n- 流水账里的金额与产出若相互矛盾，标注冲突并请用户确认，不要静默选一个数。\n- 不要把本技能模板里的示例数据当成真实项目数据写进报告。\n- 避免「圆满成功」「取得重大突破」一类无信息量的套话。\n\n## Files To Read\n\n- `assets/closure_report_template.md`：输出章节模板（必读）。\n- `assets/format_伙伴计划结项结构.md`：正式七大块与技能六章节的映射（格式参照，脱敏）。\n- `assets/example_input_流水账.md`：虚构脱敏流水账，格式参照机构成长支持类结项模板，演示「流水账 → 报告」。\n\n## Scripts To Run\n\n- `scripts/check_sections.mjs`：校验生成的报告是否含齐六个章节。\n\n```bash\nnode scripts/check_sections.mjs path/to/generated_report.md\n```\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

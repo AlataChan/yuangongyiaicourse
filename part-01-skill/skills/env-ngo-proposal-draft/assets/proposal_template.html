@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>&lt;项目名称&gt; 项目立项书（初稿） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="&lt;项目名称&gt; 项目立项书（初稿） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="proposal_template.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="proposal_template.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-01-skill/skills/env-ngo-proposal-draft/assets/proposal_template.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="项目立项书初稿">&lt;项目名称&gt; 项目立项书（初稿）</h1>
+<blockquote><p>申报机构：&lt;机构简称&gt;　|　拟申报资助方：&lt;资助方&gt;　|　日期：&lt;YYYY-MM-DD&gt;</p></blockquote>
+<h2 id="一、项目摘要">一、项目摘要</h2>
+<p>&lt;150 字内：做什么、为谁做、要达成什么、需要多少资源。&gt;</p>
+<h2 id="二、背景与需求">二、背景与需求</h2>
+<ul><li>议题与现状：&lt;面向的环境问题&gt;</li><li>需求证据：&lt;数据 / 一线观察 / 政策背景，注明来源&gt;</li><li>目标人群：&lt;谁受益、规模估计&gt;</li></ul>
+<h2 id="三、目标与成果指标">三、目标与成果指标</h2>
+<table><thead><tr><th>目标</th><th>成果指标（可衡量）</th><th>验收方式</th></tr></thead><tbody><tr><td>&lt;目标 1&gt;</td><td>&lt;如：覆盖 X 人 / 产出 Y&gt;</td><td>&lt;签到 / 问卷 / 产出物&gt;</td></tr><tr><td>&lt;目标 2&gt;</td><td></td><td></td></tr></tbody></table>
+<h2 id="四、实施方案">四、实施方案</h2>
+<ul><li>阶段一（&lt;时间&gt;）：&lt;活动&gt;</li><li>阶段二（&lt;时间&gt;）：&lt;活动&gt;</li><li>阶段三（&lt;时间&gt;）：&lt;活动&gt;</li></ul>
+<h2 id="五、预算概要">五、预算概要</h2>
+<table><thead><tr><th>科目</th><th>金额</th><th>说明</th></tr></thead><tbody><tr><td>&lt;人员 / 活动 / 物料……&gt;</td><td>&lt;待补 / 金额&gt;</td><td></td></tr></tbody></table>
+<blockquote><p>无预算数据时填「待补」，并移入「缺失项清单」。</p></blockquote>
+<h2 id="六、机构能力与过往案例">六、机构能力与过往案例</h2>
+<ul><li>机构简介：&lt;一句话定位 + 成立背景&gt;</li><li>相关过往案例：&lt;项目名 + 成效，真实可佐证&gt;</li><li>团队与合作网络：&lt;执行力证据&gt;</li></ul>
+<h2 id="七、缺失项清单">七、缺失项清单</h2>
+<ul><li><input type="checkbox" disabled> &lt;如：资助方申报指南 / 评分标准&gt;</li><li><input type="checkbox" disabled> &lt;如：详细预算表&gt;</li><li><input type="checkbox" disabled> &lt;如：合作方确认函&gt;</li></ul>
+      <div class="source-path">Markdown 原文：<code>part-01-skill/skills/env-ngo-proposal-draft/assets/proposal_template.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="proposal_template.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="proposal_template.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#项目立项书初稿">&lt;项目名称&gt; 项目立项书（初稿）</a>
+<a href="#一、项目摘要">一、项目摘要</a>
+<a href="#二、背景与需求">二、背景与需求</a>
+<a href="#三、目标与成果指标">三、目标与成果指标</a>
+<a href="#四、实施方案">四、实施方案</a>
+<a href="#五、预算概要">五、预算概要</a>
+<a href="#六、机构能力与过往案例">六、机构能力与过往案例</a>
+<a href="#七、缺失项清单">七、缺失项清单</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# \u003c项目名称> 项目立项书（初稿）\n\n> 申报机构：\u003c机构简称>　|　拟申报资助方：\u003c资助方>　|　日期：\u003cYYYY-MM-DD>\n\n## 一、项目摘要\n\n\u003c150 字内：做什么、为谁做、要达成什么、需要多少资源。>\n\n## 二、背景与需求\n\n- 议题与现状：\u003c面向的环境问题>\n- 需求证据：\u003c数据 / 一线观察 / 政策背景，注明来源>\n- 目标人群：\u003c谁受益、规模估计>\n\n## 三、目标与成果指标\n\n| 目标 | 成果指标（可衡量） | 验收方式 |\n|------|------------------|----------|\n| \u003c目标 1> | \u003c如：覆盖 X 人 / 产出 Y> | \u003c签到 / 问卷 / 产出物> |\n| \u003c目标 2> | | |\n\n## 四、实施方案\n\n- 阶段一（\u003c时间>）：\u003c活动>\n- 阶段二（\u003c时间>）：\u003c活动>\n- 阶段三（\u003c时间>）：\u003c活动>\n\n## 五、预算概要\n\n| 科目 | 金额 | 说明 |\n|------|------|------|\n| \u003c人员 / 活动 / 物料……> | \u003c待补 / 金额> | |\n\n> 无预算数据时填「待补」，并移入「缺失项清单」。\n\n## 六、机构能力与过往案例\n\n- 机构简介：\u003c一句话定位 + 成立背景>\n- 相关过往案例：\u003c项目名 + 成效，真实可佐证>\n- 团队与合作网络：\u003c执行力证据>\n\n## 七、缺失项清单\n\n- [ ] \u003c如：资助方申报指南 / 评分标准>\n- [ ] \u003c如：详细预算表>\n- [ ] \u003c如：合作方确认函>\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

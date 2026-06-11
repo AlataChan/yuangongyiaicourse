@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知识库 metadata 字段表 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="知识库 metadata 字段表 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="kb_metadata_schema.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="kb_metadata_schema.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-02-knowledge-base/templates/kb_metadata_schema.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="知识库-metadata-字段表">知识库 metadata 字段表</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md</code></p><p></p><p>用途：为知识库资料统一标签，提升检索命中率。metadata 不求多，先保证字段稳定。</p></blockquote>
+<h2 id="推荐字段">推荐字段</h2>
+<table><thead><tr><th>字段</th><th>是否必填</th><th>示例</th><th>用途</th></tr></thead><tbody><tr><td><code>doc_title</code></td><td>必填</td><td>2024 清河巡护项目结项报告</td><td>让 AI 能引用来源</td></tr><tr><td><code>doc_type</code></td><td>必填</td><td>结项报告 / 资助指南 / 案例复盘 / 沟通模板</td><td>区分资料类型</td></tr><tr><td><code>project_name</code></td><td>条件必填</td><td>清河巡护项目</td><td>项目类资料必须填</td></tr><tr><td><code>year</code></td><td>条件必填</td><td>2024</td><td>支持按年份检索</td></tr><tr><td><code>module</code></td><td>必填</td><td>M1 文书 / M2 案例 / M3 传播</td><td>对齐课程主场景</td></tr><tr><td><code>topic_tags</code></td><td>必填</td><td>河流保护、社区动员、志愿者</td><td>支持语义检索和筛选</td></tr><tr><td><code>funder</code></td><td>可选</td><td>XX 基金会</td><td>文书和资助类资料推荐填</td></tr><tr><td><code>privacy_level</code></td><td>必填</td><td>L1 / L2 / L3 / L4</td><td>决定是否能上云</td></tr><tr><td><code>source_owner</code></td><td>可选</td><td>项目部 / 传播部</td><td>后续维护时找负责人</td></tr><tr><td><code>last_reviewed_at</code></td><td>可选</td><td>2026-06-10</td><td>确认资料是否过期</td></tr></tbody></table>
+<h2 id="三类资料的最小-metadata">三类资料的最小 metadata</h2>
+<h3 id="m1-项目文书链">M1 项目文书链</h3>
+<pre><code class="language-text">doc_title:
+doc_type:
+project_name:
+year:
+funder:
+module: M1 文书
+topic_tags:
+privacy_level:</code></pre>
+<h3 id="m2-案例与知识沉淀">M2 案例与知识沉淀</h3>
+<pre><code class="language-text">doc_title:
+doc_type: 案例复盘 / 服务故事 / 方法总结
+project_name:
+year:
+module: M2 案例
+topic_tags:
+privacy_level:</code></pre>
+<h3 id="m3-传播与运营">M3 传播与运营</h3>
+<pre><code class="language-text">doc_title:
+doc_type: 公众号稿 / 活动复盘 / 社群 FAQ / 品牌话术
+year:
+module: M3 传播
+topic_tags:
+privacy_level:</code></pre>
+<h2 id="标签质量自检">标签质量自检</h2>
+<table><thead><tr><th>检查项</th><th>通过标准</th></tr></thead><tbody><tr><td>标签是否太泛</td><td>不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词</td></tr><tr><td>年份是否缺失</td><td>涉及项目、活动、报告的资料尽量填年份</td></tr><tr><td>文档类型是否稳定</td><td>同类文档使用同一个词，如统一写“结项报告”</td></tr><tr><td>合规档位是否明确</td><td>没有档位的资料不得进入腾讯元器</td></tr></tbody></table>
+      <div class="source-path">Markdown 原文：<code>part-02-knowledge-base/templates/kb_metadata_schema.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="kb_metadata_schema.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="kb_metadata_schema.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#知识库-metadata-字段表">知识库 metadata 字段表</a>
+<a href="#推荐字段">推荐字段</a>
+<a href="#三类资料的最小-metadata">三类资料的最小 metadata</a>
+<a href="#m1-项目文书链">M1 项目文书链</a>
+<a href="#m2-案例与知识沉淀">M2 案例与知识沉淀</a>
+<a href="#m3-传播与运营">M3 传播与运营</a>
+<a href="#标签质量自检">标签质量自检</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 知识库 metadata 字段表\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md`\n>\n> 用途：为知识库资料统一标签，提升检索命中率。metadata 不求多，先保证字段稳定。\n\n## 推荐字段\n\n| 字段 | 是否必填 | 示例 | 用途 |\n|------|----------|------|------|\n| `doc_title` | 必填 | 2024 清河巡护项目结项报告 | 让 AI 能引用来源 |\n| `doc_type` | 必填 | 结项报告 / 资助指南 / 案例复盘 / 沟通模板 | 区分资料类型 |\n| `project_name` | 条件必填 | 清河巡护项目 | 项目类资料必须填 |\n| `year` | 条件必填 | 2024 | 支持按年份检索 |\n| `module` | 必填 | M1 文书 / M2 案例 / M3 传播 | 对齐课程主场景 |\n| `topic_tags` | 必填 | 河流保护、社区动员、志愿者 | 支持语义检索和筛选 |\n| `funder` | 可选 | XX 基金会 | 文书和资助类资料推荐填 |\n| `privacy_level` | 必填 | L1 / L2 / L3 / L4 | 决定是否能上云 |\n| `source_owner` | 可选 | 项目部 / 传播部 | 后续维护时找负责人 |\n| `last_reviewed_at` | 可选 | 2026-06-10 | 确认资料是否过期 |\n\n## 三类资料的最小 metadata\n\n### M1 项目文书链\n\n```text\ndoc_title:\ndoc_type:\nproject_name:\nyear:\nfunder:\nmodule: M1 文书\ntopic_tags:\nprivacy_level:\n```\n\n### M2 案例与知识沉淀\n\n```text\ndoc_title:\ndoc_type: 案例复盘 / 服务故事 / 方法总结\nproject_name:\nyear:\nmodule: M2 案例\ntopic_tags:\nprivacy_level:\n```\n\n### M3 传播与运营\n\n```text\ndoc_title:\ndoc_type: 公众号稿 / 活动复盘 / 社群 FAQ / 品牌话术\nyear:\nmodule: M3 传播\ntopic_tags:\nprivacy_level:\n```\n\n## 标签质量自检\n\n| 检查项 | 通过标准 |\n|--------|----------|\n| 标签是否太泛 | 不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词 |\n| 年份是否缺失 | 涉及项目、活动、报告的资料尽量填年份 |\n| 文档类型是否稳定 | 同类文档使用同一个词，如统一写“结项报告” |\n| 合规档位是否明确 | 没有档位的资料不得进入腾讯元器 |\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>机构成长支持类结项报告 · 格式参照（脱敏） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="机构成长支持类结项报告 · 格式参照（脱敏） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="format_伙伴计划结项结构.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="format_伙伴计划结项结构.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="机构成长支持类结项报告-·-格式参照脱敏">机构成长支持类结项报告 · 格式参照（脱敏）</h1>
+<blockquote><p>文件路径：<code>course/part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md</code></p><p></p><p>本文件说明<strong>正式结项模板</strong>与<strong>本课技能六章节输出</strong>的对应关系。  </p><p>格式来源于环保公益领域常见的伙伴计划 / 机构成长支持类进展报告，<strong>不含任何真实机构或可识别数据</strong>。</p></blockquote>
+<hr>
+<h2 id="正式模板常见七大块">正式模板常见七大块</h2>
+<table><thead><tr><th>块序</th><th>正式模板章节</th><th>通常写什么</th></tr></thead><tbody><tr><td>1</td><td>项目基本信息</td><td>区域、周期、预算、执行率、报告人（脱敏后）</td></tr><tr><td>2</td><td>项目目标及完成</td><td>机构成长目标、个人成长目标、完成情况</td></tr><tr><td>3</td><td>项目执行进展</td><td>按产出列活动：时间 / 地点 / 参与人员 / 具体内容</td></tr><tr><td>4</td><td>后续项目活动安排</td><td>下阶段计划（可无）</td></tr><tr><td>5</td><td>社群参与情况反馈</td><td>伙伴网络活动、感受与建议</td></tr><tr><td>6</td><td>项目风险及其影响</td><td>执行风险与应对</td></tr><tr><td>7</td><td>项目传播情况</td><td>传播篇数、渠道、代表性内容</td></tr></tbody></table>
+<hr>
+<h2 id="映射到本技能六章节输出契约">映射到本技能「六章节输出契约」</h2>
+<table><thead><tr><th>技能输出章节</th><th>主要吸收正式模板的哪些块</th></tr></thead><tbody><tr><td>一、项目背景</td><td>块 1（基本信息）+ 块 2 摘要</td></tr><tr><td>二、主要活动</td><td>块 3（活动明细）</td></tr><tr><td>三、产出与数据</td><td>块 3 衡量标准 + 块 2 完成情况中的量化表述</td></tr><tr><td>四、成效与反馈</td><td>块 2 成效 + 块 5 社群反馈</td></tr><tr><td>五、反思与后续建议</td><td>块 6 风险反思 + 块 4 后续安排</td></tr><tr><td>六、缺失项清单</td><td>块 5 / 7 等未量化、未成文的部分</td></tr></tbody></table>
+<blockquote><p><strong>为什么要压缩？</strong> 正式模板面向资助方归档，字段多；技能输出面向「从流水账快速出初稿」，六章足够覆盖审查要点且便于 WorkBuddy 角色封装。</p></blockquote>
+<hr>
+<h2 id="课堂示范案例虚构">课堂示范案例（虚构）</h2>
+<ul><li>机构：<strong>青澜环境政策研究中心</strong>（虚构）  </li><li>项目：<strong>新锐机构成长支持项目（第 1 年）</strong>（虚构）  </li><li>示范输入：<code>example_input_流水账.md</code>  </li><li>示范痛点：流水账散乱、社群反馈与传播数据未量化——与正式模板要求之间的差距，正是技能要补的。</li></ul>
+      <div class="source-path">Markdown 原文：<code>part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="format_伙伴计划结项结构.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="format_伙伴计划结项结构.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#机构成长支持类结项报告-·-格式参照脱敏">机构成长支持类结项报告 · 格式参照（脱敏）</a>
+<a href="#正式模板常见七大块">正式模板常见七大块</a>
+<a href="#映射到本技能六章节输出契约">映射到本技能「六章节输出契约」</a>
+<a href="#课堂示范案例虚构">课堂示范案例（虚构）</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 机构成长支持类结项报告 · 格式参照（脱敏）\n\n> 文件路径：`course/part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md`\n>\n> 本文件说明**正式结项模板**与**本课技能六章节输出**的对应关系。  \n> 格式来源于环保公益领域常见的伙伴计划 / 机构成长支持类进展报告，**不含任何真实机构或可识别数据**。\n\n---\n\n## 正式模板常见七大块\n\n| 块序 | 正式模板章节 | 通常写什么 |\n|------|-------------|-----------|\n| 1 | 项目基本信息 | 区域、周期、预算、执行率、报告人（脱敏后） |\n| 2 | 项目目标及完成 | 机构成长目标、个人成长目标、完成情况 |\n| 3 | 项目执行进展 | 按产出列活动：时间 / 地点 / 参与人员 / 具体内容 |\n| 4 | 后续项目活动安排 | 下阶段计划（可无） |\n| 5 | 社群参与情况反馈 | 伙伴网络活动、感受与建议 |\n| 6 | 项目风险及其影响 | 执行风险与应对 |\n| 7 | 项目传播情况 | 传播篇数、渠道、代表性内容 |\n\n---\n\n## 映射到本技能「六章节输出契约」\n\n| 技能输出章节 | 主要吸收正式模板的哪些块 |\n|-------------|------------------------|\n| 一、项目背景 | 块 1（基本信息）+ 块 2 摘要 |\n| 二、主要活动 | 块 3（活动明细） |\n| 三、产出与数据 | 块 3 衡量标准 + 块 2 完成情况中的量化表述 |\n| 四、成效与反馈 | 块 2 成效 + 块 5 社群反馈 |\n| 五、反思与后续建议 | 块 6 风险反思 + 块 4 后续安排 |\n| 六、缺失项清单 | 块 5 / 7 等未量化、未成文的部分 |\n\n> **为什么要压缩？** 正式模板面向资助方归档，字段多；技能输出面向「从流水账快速出初稿」，六章足够覆盖审查要点且便于 WorkBuddy 角色封装。\n\n---\n\n## 课堂示范案例（虚构）\n\n- 机构：**青澜环境政策研究中心**（虚构）  \n- 项目：**新锐机构成长支持项目（第 1 年）**（虚构）  \n- 示范输入：`example_input_流水账.md`  \n- 示范痛点：流水账散乱、社群反馈与传播数据未量化——与正式模板要求之间的差距，正是技能要补的。\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

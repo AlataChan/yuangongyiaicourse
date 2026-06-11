@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>知识库资料盘点表 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="知识库资料盘点表 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="kb_source_inventory.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="kb_source_inventory.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>part-02-knowledge-base/templates/kb_source_inventory.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="知识库资料盘点表">知识库资料盘点表</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_source_inventory.md</code></p><p></p><p>用途：第 2 课课前或课堂使用，先把散乱资料清点出来，再决定哪些进 ima / WorkBuddy / 腾讯元器。</p></blockquote>
+<h2 id="使用步骤">使用步骤</h2>
+<ol><li>每个机构先填 10-20 份最常用资料，不追求一次盘完整。</li><li>逐份判断合规档位：L1 公开、L2 准公开、L3 内部、L4 敏感。</li><li>L4 直接剔除；L3 仅留个人层；L1/L2 才进入组织层腾讯元器。</li><li>对每份资料写 1 个“它应该回答的问题”，后续作为命中率测试题。</li></ol>
+<h2 id="盘点表">盘点表</h2>
+<table><thead><tr><th>序号</th><th>文件名</th><th>来源位置</th><th>文件类型</th><th>主场景</th><th>合规档位</th><th>处理动作</th><th>目标平台</th><th>它应该回答的问题</th></tr></thead><tbody><tr><td>1</td><td></td><td>云盘 / 微信 / 邮件 / 本地</td><td>Word / PDF / Excel / PPT / 图片 / 音频</td><td>M1 文书 / M2 案例 / M3 传播</td><td>L1 / L2 / L3 / L4</td><td>直接用 / 脱敏 / OCR / 转写 / 剔除</td><td>ima / WorkBuddy / 腾讯元器</td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>9</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>10</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<h2 id="快速判断">快速判断</h2>
+<table><thead><tr><th>情况</th><th>推荐动作</th></tr></thead><tbody><tr><td>公开发布过</td><td>标 L1，可进腾讯元器</td></tr><tr><td>不含敏感信息，但不是公开资料</td><td>标 L2，脱敏和负责人审核后再进腾讯元器</td></tr><tr><td>团队内部工作资料</td><td>标 L3，留在 WorkBuddy 或个人资料夹</td></tr><tr><td>包含受益人、志愿者、捐赠人个人信息</td><td>标 L4，不进入任何知识库</td></tr></tbody></table>
+      <div class="source-path">Markdown 原文：<code>part-02-knowledge-base/templates/kb_source_inventory.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="kb_source_inventory.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="kb_source_inventory.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#知识库资料盘点表">知识库资料盘点表</a>
+<a href="#使用步骤">使用步骤</a>
+<a href="#盘点表">盘点表</a>
+<a href="#快速判断">快速判断</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 知识库资料盘点表\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_source_inventory.md`\n>\n> 用途：第 2 课课前或课堂使用，先把散乱资料清点出来，再决定哪些进 ima / WorkBuddy / 腾讯元器。\n\n## 使用步骤\n\n1. 每个机构先填 10-20 份最常用资料，不追求一次盘完整。\n2. 逐份判断合规档位：L1 公开、L2 准公开、L3 内部、L4 敏感。\n3. L4 直接剔除；L3 仅留个人层；L1/L2 才进入组织层腾讯元器。\n4. 对每份资料写 1 个“它应该回答的问题”，后续作为命中率测试题。\n\n## 盘点表\n\n| 序号 | 文件名 | 来源位置 | 文件类型 | 主场景 | 合规档位 | 处理动作 | 目标平台 | 它应该回答的问题 |\n|------|--------|----------|----------|--------|----------|----------|----------|------------------|\n| 1 | | 云盘 / 微信 / 邮件 / 本地 | Word / PDF / Excel / PPT / 图片 / 音频 | M1 文书 / M2 案例 / M3 传播 | L1 / L2 / L3 / L4 | 直接用 / 脱敏 / OCR / 转写 / 剔除 | ima / WorkBuddy / 腾讯元器 | |\n| 2 | | | | | | | | |\n| 3 | | | | | | | | |\n| 4 | | | | | | | | |\n| 5 | | | | | | | | |\n| 6 | | | | | | | | |\n| 7 | | | | | | | | |\n| 8 | | | | | | | | |\n| 9 | | | | | | | | |\n| 10 | | | | | | | | |\n\n## 快速判断\n\n| 情况 | 推荐动作 |\n|------|----------|\n| 公开发布过 | 标 L1，可进腾讯元器 |\n| 不含敏感信息，但不是公开资料 | 标 L2，脱敏和负责人审核后再进腾讯元器 |\n| 团队内部工作资料 | 标 L3，留在 WorkBuddy 或个人资料夹 |\n| 包含受益人、志愿者、捐赠人个人信息 | 标 L4，不进入任何知识库 |\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 5 → 工作坊交接包：预发布交给发布复盘 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 5 → 工作坊交接包：预发布交给发布复盘 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  font-size: 0.95rem;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  text-align: center;
+  background: rgba(250, 252, 249, 0.7);
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .btn { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+        <a class="btn btn-ghost" href="05_to_workshop_release_review_pack.md">打开 Markdown 原文</a>
+        <a class="btn btn-primary" href="05_to_workshop_release_review_pack.md" download>下载 Markdown</a>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <span>bridge-materials/templates/05_to_workshop_release_review_pack.md</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <h1 id="第-5-→-工作坊交接包预发布交给发布复盘">第 5 → 工作坊交接包：预发布交给发布复盘</h1>
+<p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/05_to_workshop_release_review_pack.md</code></p>
+<p>用途：第 5 课下课前填写，线下工作坊用于演示、同伴评审、版本计划和组织内落地承诺。</p>
+<h2 id="1-发布候选摘要">1. 发布候选摘要</h2>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>项目助理名称</td><td></td></tr><tr><td>当前版本</td><td>v0.1 / v0.2 / 其他：</td></tr><tr><td>主场景</td><td></td></tr><tr><td>内测范围</td><td></td></tr><tr><td>发布状态</td><td>Go / Conditional Go / No-Go</td></tr><tr><td>维护人</td><td></td></tr></tbody></table>
+<p>一句话介绍：</p>
+<pre><code class="language-text">这个项目助理主要帮助 ________ 在 ________ 场景中完成 ________。</code></pre>
+<h2 id="2-内测任务包">2. 内测任务包</h2>
+<table><thead><tr><th>内测对象</th><th>使用任务</th><th>预计耗时</th><th>需要观察什么</th><th>反馈方式</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<p>给内测同事的说明：</p>
+<pre><code class="language-text">你可以让它做：
+
+你暂时不要让它做：
+
+如果回答不对，请记录：
+1. 你问了什么
+2. 它答了什么
+3. 你期待它怎么答</code></pre>
+<h2 id="3-反馈与缺陷回收">3. 反馈与缺陷回收</h2>
+<table><thead><tr><th>#</th><th>反馈来源</th><th>复现输入</th><th>问题描述</th><th>关联 Skill</th><th>失败类型</th><th>级别</th><th>应改哪里</th><th>建议最小修改点</th><th>处理状态</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td></td><td></td><td>触发错 / 格式错 / 事实错 / 边界错</td><td>P0 / P1 / P2</td><td>Skill / 知识库 / 路由 / 工作流 / 权限</td><td></td><td></td></tr><tr><td>2</td><td></td><td></td><td></td><td></td><td>触发错 / 格式错 / 事实错 / 边界错</td><td>P0 / P1 / P2</td><td>Skill / 知识库 / 路由 / 工作流 / 权限</td><td></td><td></td></tr><tr><td>3</td><td></td><td></td><td></td><td></td><td>触发错 / 格式错 / 事实错 / 边界错</td><td>P0 / P1 / P2</td><td>Skill / 知识库 / 路由 / 工作流 / 权限</td><td></td><td></td></tr></tbody></table>
+<h2 id="4-工作坊演示脚本">4. 工作坊演示脚本</h2>
+<p>5 分钟演示建议：</p>
+<pre><code class="language-text">第 1 分钟：说明主场景和目标使用者
+第 2-3 分钟：现场跑一条真实任务
+第 4 分钟：展示人工审核点和边界
+第 5 分钟：说明内测反馈和下一版本计划</code></pre>
+<p>演示任务：</p>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>现场输入</td><td></td></tr><tr><td>期望输出</td><td></td></tr><tr><td>需要展示的知识库引用</td><td></td></tr><tr><td>需要展示的人工审核点</td><td></td></tr><tr><td>备用演示方案</td><td></td></tr></tbody></table>
+<h2 id="5-同伴评审问题">5. 同伴评审问题</h2>
+<p>请同伴只围绕 3 个问题给反馈：</p>
+<table><thead><tr><th>问题</th><th>同伴反馈</th></tr></thead><tbody><tr><td>同事拿到后能不能直接用？</td><td></td></tr><tr><td>哪一步最容易出错或需要人工盯着？</td><td></td></tr><tr><td>下一版本最应该先修什么？</td><td></td></tr></tbody></table>
+<h2 id="6-组织内落地承诺">6. 组织内落地承诺</h2>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>首批使用者</td><td></td></tr><tr><td>试运行周期</td><td></td></tr><tr><td>每周维护频率</td><td></td></tr><tr><td>30 天目标</td><td></td></tr><tr><td>60 天目标</td><td></td></tr><tr><td>90 天目标</td><td></td></tr><tr><td>负责人</td><td></td></tr></tbody></table>
+<p>版本计划：</p>
+<table><thead><tr><th>版本</th><th>时间</th><th>只修什么</th><th>不做什么</th></tr></thead><tbody><tr><td>v0.2</td><td></td><td></td><td></td></tr><tr><td>v0.3</td><td></td><td></td><td></td></tr></tbody></table>
+<p>工作坊结束时要带走的一句话：</p>
+<pre><code class="language-text">接下来 30 天，我们会让 ________ 先在 ________ 场景里稳定使用，由 ________ 负责维护。</code></pre>
+      <div class="source-path">Markdown 原文：<code>bridge-materials/templates/05_to_workshop_release_review_pack.md</code></div>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="05_to_workshop_release_review_pack.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="05_to_workshop_release_review_pack.md" style="margin-top:10px;">查看原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#第-5-→-工作坊交接包预发布交给发布复盘">第 5 → 工作坊交接包：预发布交给发布复盘</a>
+<a href="#1-发布候选摘要">1. 发布候选摘要</a>
+<a href="#2-内测任务包">2. 内测任务包</a>
+<a href="#3-反馈与缺陷回收">3. 反馈与缺陷回收</a>
+<a href="#4-工作坊演示脚本">4. 工作坊演示脚本</a>
+<a href="#5-同伴评审问题">5. 同伴评审问题</a>
+<a href="#6-组织内落地承诺">6. 组织内落地承诺</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <script type="application/json" id="markdown-source">"# 第 5 → 工作坊交接包：预发布交给发布复盘\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/05_to_workshop_release_review_pack.md`\n\n用途：第 5 课下课前填写，线下工作坊用于演示、同伴评审、版本计划和组织内落地承诺。\n\n## 1. 发布候选摘要\n\n| 项目 | 填写 |\n|------|------|\n| 项目助理名称 | |\n| 当前版本 | v0.1 / v0.2 / 其他： |\n| 主场景 | |\n| 内测范围 | |\n| 发布状态 | Go / Conditional Go / No-Go |\n| 维护人 | |\n\n一句话介绍：\n\n```text\n这个项目助理主要帮助 ________ 在 ________ 场景中完成 ________。\n```\n\n## 2. 内测任务包\n\n| 内测对象 | 使用任务 | 预计耗时 | 需要观察什么 | 反馈方式 |\n|----------|----------|----------|--------------|----------|\n| | | | | |\n| | | | | |\n| | | | | |\n\n给内测同事的说明：\n\n```text\n你可以让它做：\n\n你暂时不要让它做：\n\n如果回答不对，请记录：\n1. 你问了什么\n2. 它答了什么\n3. 你期待它怎么答\n```\n\n## 3. 反馈与缺陷回收\n\n| # | 反馈来源 | 复现输入 | 问题描述 | 关联 Skill | 失败类型 | 级别 | 应改哪里 | 建议最小修改点 | 处理状态 |\n|---|----------|----------|----------|------------|----------|------|----------|----------------|----------|\n| 1 | | | | | 触发错 / 格式错 / 事实错 / 边界错 | P0 / P1 / P2 | Skill / 知识库 / 路由 / 工作流 / 权限 | | |\n| 2 | | | | | 触发错 / 格式错 / 事实错 / 边界错 | P0 / P1 / P2 | Skill / 知识库 / 路由 / 工作流 / 权限 | | |\n| 3 | | | | | 触发错 / 格式错 / 事实错 / 边界错 | P0 / P1 / P2 | Skill / 知识库 / 路由 / 工作流 / 权限 | | |\n\n## 4. 工作坊演示脚本\n\n5 分钟演示建议：\n\n```text\n第 1 分钟：说明主场景和目标使用者\n第 2-3 分钟：现场跑一条真实任务\n第 4 分钟：展示人工审核点和边界\n第 5 分钟：说明内测反馈和下一版本计划\n```\n\n演示任务：\n\n| 项目 | 填写 |\n|------|------|\n| 现场输入 | |\n| 期望输出 | |\n| 需要展示的知识库引用 | |\n| 需要展示的人工审核点 | |\n| 备用演示方案 | |\n\n## 5. 同伴评审问题\n\n请同伴只围绕 3 个问题给反馈：\n\n| 问题 | 同伴反馈 |\n|------|----------|\n| 同事拿到后能不能直接用？ | |\n| 哪一步最容易出错或需要人工盯着？ | |\n| 下一版本最应该先修什么？ | |\n\n## 6. 组织内落地承诺\n\n| 项目 | 填写 |\n|------|------|\n| 首批使用者 | |\n| 试运行周期 | |\n| 每周维护频率 | |\n| 30 天目标 | |\n| 60 天目标 | |\n| 90 天目标 | |\n| 负责人 | |\n\n版本计划：\n\n| 版本 | 时间 | 只修什么 | 不做什么 |\n|------|------|----------|----------|\n| v0.2 | | | |\n| v0.3 | | | |\n\n工作坊结束时要带走的一句话：\n\n```text\n接下来 30 天，我们会让 ________ 先在 ________ 场景里稳定使用，由 ________ 负责维护。\n```\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
