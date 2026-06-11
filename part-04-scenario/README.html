@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -205,19 +250,21 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
-        <a class="btn btn-ghost" href="README.md">打开 Markdown 原文</a>
-        <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
     <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <span>part-04-scenario/README.md</span>
+    <a href="index.html">第 4 课 · 场景闭环</a>
+    <span aria-hidden="true">/</span>
+    <span>第 4 课 · 场景深化：按模块定制 + 补齐第 2 个技能（学员手册）</span>
   </nav>
   <main class="layout">
     <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">学员手册</span><span>part-04-scenario/README.md</span></div>
       <h1 id="第-4-课-·-场景深化按模块定制-+-补齐第-2-个技能学员手册">第 4 课 · 场景深化：按模块定制 + 补齐第 2 个技能（学员手册）</h1>
 <blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-04-scenario/README.md</code></p><p></p><p>时长 90 分钟　|　课后产出：≥2 个技能 + 模块化工作流</p><p></p><p>前置：完成第 1–3 课，手上有项目助理（≥1 个技能 + ≥1 个知识库 + 已编排到元器）。</p></blockquote>
 <hr>
@@ -287,13 +334,14 @@ a { color: inherit; }
 <p>第 5 课会直接使用交接包里的场景闭环卡、人工审核点、场景验收测试和缺陷分级，判断是否进入内测预发布。</p>
 <h2 id="九、下一课预告">九、下一课预告</h2>
 <p>两个技能跑通、主场景闭环通过——你的项目助理已经是「能用」的状态了。但从「能用」到「敢给同事用」还差一步：测试、修 Bug、写操作手册、设置权限。第 5 课《成果盘点与预发布》帮你做最后的打磨，让项目助理从你一个人的工具变成团队可以内测的发布候选。</p>
-      <div class="source-path">Markdown 原文：<code>part-04-scenario/README.md</code></div>
+      <div class="source-path">Markdown 原文：<a href="README.md">part-04-scenario/README.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../part-03-agent/README.html"><span>上一份材料</span><strong>第 3 课 · AI智能体编排：组装「项目助理」（学员手册）</strong></a><a href="skills/env-ngo-activity-recap/SKILL.html"><span>下一份材料</span><strong>活动复盘技能（传播运营模块 · M3）</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
       <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看原文</a>
+      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#第-4-课-·-场景深化按模块定制-+-补齐第-2-个技能学员手册">第 4 课 · 场景深化：按模块定制 + 补齐第 2 个技能（学员手册）</a>
 <a href="#一、这节课要解决什么">一、这节课要解决什么</a>

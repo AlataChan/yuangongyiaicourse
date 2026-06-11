@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -205,19 +250,21 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
-        <a class="btn btn-ghost" href="README.md">打开 Markdown 原文</a>
-        <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
     <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <span>part-02-knowledge-base/README.md</span>
+    <a href="index.html">第 2 课 · 知识库</a>
+    <span aria-hidden="true">/</span>
+    <span>第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册）</span>
   </nav>
   <main class="layout">
     <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">学员手册</span><span>part-02-knowledge-base/README.md</span></div>
       <h1 id="第-2-课-·-知识库实战从散乱资料到可检索资产学员手册">第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册）</h1>
 <blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/README.md</code></p><p></p><p>时长 120 分钟　|　课后产出：个人层 + 组织层知识库上线，命中率达标</p><p></p><p>前置：完成第 1 课「技能构建」，手上至少有 1 个跑通的文书技能。</p></blockquote>
 <hr>
@@ -286,13 +333,14 @@ a { color: inherit; }
 <p>下课前，请把本课的知识库范围、合规分级、metadata、10 问命中率和检索参数填入 <code>第 2 → 第 3 课交接包</code>。第 3 课会直接用它来挂载知识库和建立项目助理测试问题。</p>
 <h2 id="十四、下一课预告">十四、下一课预告</h2>
 <p>技能知道「怎么做」，知识库提供了「弹药」——下一步，把它们编排成一个完整的<strong>项目助理</strong>。第 3 课《AI智能体组装》教你把多个技能和知识库挂到同一个智能体上，让它根据用户意图自动选技能、查知识库、给出回答。</p>
-      <div class="source-path">Markdown 原文：<code>part-02-knowledge-base/README.md</code></div>
+      <div class="source-path">Markdown 原文：<a href="README.md">part-02-knowledge-base/README.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../part-01-skill/skills/env-ngo-skill-optimize/assets/skill_health_checklist.html"><span>上一份材料</span><strong>技能体检清单（10 项打分）</strong></a><a href="templates/kb_eval_questions.html"><span>下一份材料</span><strong>知识库 10 问命中率测试表</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
       <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看原文</a>
+      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#第-2-课-·-知识库实战从散乱资料到可检索资产学员手册">第 2 课 · 知识库实战：从散乱资料到可检索资产（学员手册）</a>
 <a href="#一、这节课要解决什么">一、这节课要解决什么</a>

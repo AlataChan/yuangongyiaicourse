@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -205,19 +250,21 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="../../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
-        <a class="btn btn-ghost" href="kb_metadata_schema.md">打开 Markdown 原文</a>
-        <a class="btn btn-primary" href="kb_metadata_schema.md" download>下载 Markdown</a>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
     <a href="../../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <span>part-02-knowledge-base/templates/kb_metadata_schema.md</span>
+    <a href="../index.html">第 2 课 · 知识库</a>
+    <span aria-hidden="true">/</span>
+    <span>知识库 metadata 字段表</span>
   </nav>
   <main class="layout">
     <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">填写模板</span><span>part-02-knowledge-base/templates/kb_metadata_schema.md</span></div>
       <h1 id="知识库-metadata-字段表">知识库 metadata 字段表</h1>
 <blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md</code></p><p></p><p>用途：为知识库资料统一标签，提升检索命中率。metadata 不求多，先保证字段稳定。</p></blockquote>
 <h2 id="推荐字段">推荐字段</h2>
@@ -249,13 +296,14 @@ topic_tags:
 privacy_level:</code></pre>
 <h2 id="标签质量自检">标签质量自检</h2>
 <table><thead><tr><th>检查项</th><th>通过标准</th></tr></thead><tbody><tr><td>标签是否太泛</td><td>不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词</td></tr><tr><td>年份是否缺失</td><td>涉及项目、活动、报告的资料尽量填年份</td></tr><tr><td>文档类型是否稳定</td><td>同类文档使用同一个词，如统一写“结项报告”</td></tr><tr><td>合规档位是否明确</td><td>没有档位的资料不得进入腾讯元器</td></tr></tbody></table>
-      <div class="source-path">Markdown 原文：<code>part-02-knowledge-base/templates/kb_metadata_schema.md</code></div>
+      <div class="source-path">Markdown 原文：<a href="kb_metadata_schema.md">part-02-knowledge-base/templates/kb_metadata_schema.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="kb_eval_questions.html"><span>上一份材料</span><strong>知识库 10 问命中率测试表</strong></a><a href="kb_source_inventory.html"><span>下一份材料</span><strong>知识库资料盘点表</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
       <a class="btn btn-primary" href="kb_metadata_schema.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="kb_metadata_schema.md" style="margin-top:10px;">查看原文</a>
+      <a class="btn btn-ghost" href="kb_metadata_schema.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#知识库-metadata-字段表">知识库 metadata 字段表</a>
 <a href="#推荐字段">推荐字段</a>

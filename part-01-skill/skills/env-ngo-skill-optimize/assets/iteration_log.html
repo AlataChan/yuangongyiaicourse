@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -205,19 +250,21 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="../../../../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
-        <a class="btn btn-ghost" href="iteration_log.md">打开 Markdown 原文</a>
-        <a class="btn btn-primary" href="iteration_log.md" download>下载 Markdown</a>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
     <a href="../../../../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <span>part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.md</span>
+    <a href="../../../index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    <span>技能迭代记录卡（每轮 1 条）</span>
   </nav>
   <main class="layout">
     <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">样板素材</span><span>part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.md</span></div>
       <h1 id="技能迭代记录卡每轮-1-条">技能迭代记录卡（每轮 1 条）</h1>
 <blockquote><p>文件路径：<code>course/part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.md</code></p><p></p><p>用法：每轮优化登记 1 条。原则：<strong>新失败 → 先加 Gotcha；高频失败 → 同步加评测用例；最后才考虑改 Workflow</strong>。</p></blockquote>
 <h2 id="记录模板">记录模板</h2>
@@ -237,13 +284,14 @@ a { color: inherit; }
 <ul><li>触发原因：评测用例 B1 失败（用户原话：「把这段活动记录改成朋友圈文案」）</li><li>病因定位：☑ 触发说明太宽</li><li>修改内容：</li></ul>
 <ol><li><code>SKILL.md</code> description 末尾加「不要用于公众号 / 朋友圈等传播文案」</li></ol>
 <ul><li>优化前 → 后：</li><li>前：传播类请求也套用结项报告六章节</li><li>后：B1 通过，传播请求不再触发</li><li>新增评测用例：B3（「写一条活动预告」）</li><li>健康分变化：7/10 → 8.5/10</li></ul>
-      <div class="source-path">Markdown 原文：<code>part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.md</code></div>
+      <div class="source-path">Markdown 原文：<a href="iteration_log.md">part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="eval_template.html"><span>上一份材料</span><strong>评测用例表模板（三类 × 各 2 条起步）</strong></a><a href="skill_health_checklist.html"><span>下一份材料</span><strong>技能体检清单（10 项打分）</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
       <a class="btn btn-primary" href="iteration_log.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="iteration_log.md" style="margin-top:10px;">查看原文</a>
+      <a class="btn btn-ghost" href="iteration_log.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#技能迭代记录卡每轮-1-条">技能迭代记录卡（每轮 1 条）</a>
 <a href="#记录模板">记录模板</a>

@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 
@@ -226,27 +271,21 @@ a { color: inherit; }
       <h1>课程资料中心</h1>
       <p>这里按课次整理所有课程材料。默认点击“查看页面”在线阅读；需要带回机构填写、复制或二次编辑时，下载 Markdown 原文。</p>
     </div>
-    <section class="resource-section"><h2>跨课关键交付物</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>第 2 课以后关键交付物</td><td><code>bridge-materials/README.md</code></td><td><a href="bridge-materials/README.html">查看页面</a></td><td><a href="bridge-materials/README.md" download>下载 Markdown</a></td></tr>
-<tr><td>第 2 → 第 3 课交接包：知识库交给项目助理</td><td><code>bridge-materials/templates/02_to_03_kb_agent_handoff.md</code></td><td><a href="bridge-materials/templates/02_to_03_kb_agent_handoff.html">查看页面</a></td><td><a href="bridge-materials/templates/02_to_03_kb_agent_handoff.md" download>下载 Markdown</a></td></tr>
-<tr><td>第 3 → 第 4 课交接包：项目助理交给场景闭环</td><td><code>bridge-materials/templates/03_to_04_agent_scenario_handoff.md</code></td><td><a href="bridge-materials/templates/03_to_04_agent_scenario_handoff.html">查看页面</a></td><td><a href="bridge-materials/templates/03_to_04_agent_scenario_handoff.md" download>下载 Markdown</a></td></tr>
-<tr><td>第 4 → 第 5 课交接包：场景闭环交给发布候选</td><td><code>bridge-materials/templates/04_to_05_release_candidate_pack.md</code></td><td><a href="bridge-materials/templates/04_to_05_release_candidate_pack.html">查看页面</a></td><td><a href="bridge-materials/templates/04_to_05_release_candidate_pack.md" download>下载 Markdown</a></td></tr>
-<tr><td>第 5 → 工作坊交接包：预发布交给发布复盘</td><td><code>bridge-materials/templates/05_to_workshop_release_review_pack.md</code></td><td><a href="bridge-materials/templates/05_to_workshop_release_review_pack.html">查看页面</a></td><td><a href="bridge-materials/templates/05_to_workshop_release_review_pack.md" download>下载 Markdown</a></td></tr>
-<tr><td>第 2 课以后课程产物跟踪表</td><td><code>bridge-materials/templates/cross_lesson_artifact_tracker.md</code></td><td><a href="bridge-materials/templates/cross_lesson_artifact_tracker.html">查看页面</a></td><td><a href="bridge-materials/templates/cross_lesson_artifact_tracker.md" download>下载 Markdown</a></td></tr></tbody></table></section>
-<section class="resource-section"><h2>课前作业</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课前作业 ·《项目助理立项书》（机构自填）</td><td><code>part-00-prework/README.md</code></td><td><a href="part-00-prework/README.html">查看页面</a></td><td><a href="part-00-prework/README.md" download>下载 Markdown</a></td></tr>
-<tr><td>《绿源·项目助理立项书》（脱敏范例 · 仅供参考）</td><td><code>part-00-prework/examples/charter_sample_lvyuan.md</code></td><td><a href="part-00-prework/examples/charter_sample_lvyuan.html">查看页面</a></td><td><a href="part-00-prework/examples/charter_sample_lvyuan.md" download>下载 Markdown</a></td></tr>
-<tr><td>课前环境准备 · LLM API 开通指南</td><td><code>part-00-prework/llm-api-setup.md</code></td><td><a href="part-00-prework/llm-api-setup.html">查看页面</a></td><td><a href="part-00-prework/llm-api-setup.md" download>下载 Markdown</a></td></tr>
+    <section class="resource-section"><h2>课前作业</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课前作业 ·《项目助理立项书》（机构自填）</td><td><code>part-00-prework/README.md</code></td><td><a href="part-00-prework/README.html">查看页面</a></td><td><a href="part-00-prework/README.md" download>下载 Markdown</a></td></tr>
 <tr><td>《&lt;机构简称&gt;·项目助理立项书》（A4 单页 · 机构自填）</td><td><code>part-00-prework/templates/project_assistant_charter.md</code></td><td><a href="part-00-prework/templates/project_assistant_charter.html">查看页面</a></td><td><a href="part-00-prework/templates/project_assistant_charter.md" download>下载 Markdown</a></td></tr>
-<tr><td>主场景模块自评清单（M1 / M2 / M3）</td><td><code>part-00-prework/templates/scenario_self_check.md</code></td><td><a href="part-00-prework/templates/scenario_self_check.html">查看页面</a></td><td><a href="part-00-prework/templates/scenario_self_check.md" download>下载 Markdown</a></td></tr></tbody></table></section>
+<tr><td>主场景模块自评清单（M1 / M2 / M3）</td><td><code>part-00-prework/templates/scenario_self_check.md</code></td><td><a href="part-00-prework/templates/scenario_self_check.html">查看页面</a></td><td><a href="part-00-prework/templates/scenario_self_check.md" download>下载 Markdown</a></td></tr>
+<tr><td>《绿源·项目助理立项书》（脱敏范例 · 仅供参考）</td><td><code>part-00-prework/examples/charter_sample_lvyuan.md</code></td><td><a href="part-00-prework/examples/charter_sample_lvyuan.html">查看页面</a></td><td><a href="part-00-prework/examples/charter_sample_lvyuan.md" download>下载 Markdown</a></td></tr>
+<tr><td>课前环境准备 · LLM API 开通指南</td><td><code>part-00-prework/llm-api-setup.md</code></td><td><a href="part-00-prework/llm-api-setup.html">查看页面</a></td><td><a href="part-00-prework/llm-api-setup.md" download>下载 Markdown</a></td></tr></tbody></table></section>
 <section class="resource-section"><h2>第 1 课 · 技能</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>第 1 课 · 技能构建：项目文书链即用能力（学员手册）</td><td><code>part-01-skill/README.md</code></td><td><a href="part-01-skill/README.html">查看页面</a></td><td><a href="part-01-skill/README.md" download>下载 Markdown</a></td></tr>
 <tr><td>结项报告技能（项目文书链 · 报告）</td><td><code>part-01-skill/skills/env-ngo-closure-report/SKILL.md</code></td><td><a href="part-01-skill/skills/env-ngo-closure-report/SKILL.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-closure-report/SKILL.md" download>下载 Markdown</a></td></tr>
+<tr><td>资助信技能（项目文书链 · 资助）</td><td><code>part-01-skill/skills/env-ngo-grant-letter/SKILL.md</code></td><td><a href="part-01-skill/skills/env-ngo-grant-letter/SKILL.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-grant-letter/SKILL.md" download>下载 Markdown</a></td></tr>
+<tr><td>项目书技能（项目文书链 · 提案）</td><td><code>part-01-skill/skills/env-ngo-proposal-draft/SKILL.md</code></td><td><a href="part-01-skill/skills/env-ngo-proposal-draft/SKILL.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-proposal-draft/SKILL.md" download>下载 Markdown</a></td></tr>
+<tr><td>技能优化技能（skillopt · 评测 → 诊断 → 迭代）</td><td><code>part-01-skill/skills/env-ngo-skill-optimize/SKILL.md</code></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/SKILL.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/SKILL.md" download>下载 Markdown</a></td></tr>
 <tr><td>&lt;项目名称&gt; 结项报告</td><td><code>part-01-skill/skills/env-ngo-closure-report/assets/closure_report_template.md</code></td><td><a href="part-01-skill/skills/env-ngo-closure-report/assets/closure_report_template.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-closure-report/assets/closure_report_template.md" download>下载 Markdown</a></td></tr>
 <tr><td>示例输入：项目执行流水账（脱敏样例）</td><td><code>part-01-skill/skills/env-ngo-closure-report/assets/example_input_流水账.md</code></td><td><a href="part-01-skill/skills/env-ngo-closure-report/assets/example_input_流水账.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-closure-report/assets/example_input_流水账.md" download>下载 Markdown</a></td></tr>
 <tr><td>机构成长支持类结项报告 · 格式参照（脱敏）</td><td><code>part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md</code></td><td><a href="part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md" download>下载 Markdown</a></td></tr>
-<tr><td>资助信技能（项目文书链 · 资助）</td><td><code>part-01-skill/skills/env-ngo-grant-letter/SKILL.md</code></td><td><a href="part-01-skill/skills/env-ngo-grant-letter/SKILL.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-grant-letter/SKILL.md" download>下载 Markdown</a></td></tr>
 <tr><td>资助申请信 / 项目摘要（模板）</td><td><code>part-01-skill/skills/env-ngo-grant-letter/assets/grant_letter_template.md</code></td><td><a href="part-01-skill/skills/env-ngo-grant-letter/assets/grant_letter_template.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-grant-letter/assets/grant_letter_template.md" download>下载 Markdown</a></td></tr>
-<tr><td>项目书技能（项目文书链 · 提案）</td><td><code>part-01-skill/skills/env-ngo-proposal-draft/SKILL.md</code></td><td><a href="part-01-skill/skills/env-ngo-proposal-draft/SKILL.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-proposal-draft/SKILL.md" download>下载 Markdown</a></td></tr>
 <tr><td>&lt;项目名称&gt; 项目立项书（初稿）</td><td><code>part-01-skill/skills/env-ngo-proposal-draft/assets/proposal_template.md</code></td><td><a href="part-01-skill/skills/env-ngo-proposal-draft/assets/proposal_template.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-proposal-draft/assets/proposal_template.md" download>下载 Markdown</a></td></tr>
-<tr><td>技能优化技能（skillopt · 评测 → 诊断 → 迭代）</td><td><code>part-01-skill/skills/env-ngo-skill-optimize/SKILL.md</code></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/SKILL.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/SKILL.md" download>下载 Markdown</a></td></tr>
 <tr><td>评测用例表模板（三类 × 各 2 条起步）</td><td><code>part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md</code></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md" download>下载 Markdown</a></td></tr>
 <tr><td>技能迭代记录卡（每轮 1 条）</td><td><code>part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.md</code></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/assets/iteration_log.md" download>下载 Markdown</a></td></tr>
 <tr><td>技能体检清单（10 项打分）</td><td><code>part-01-skill/skills/env-ngo-skill-optimize/assets/skill_health_checklist.md</code></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/assets/skill_health_checklist.html">查看页面</a></td><td><a href="part-01-skill/skills/env-ngo-skill-optimize/assets/skill_health_checklist.md" download>下载 Markdown</a></td></tr></tbody></table></section>
@@ -258,20 +297,26 @@ a { color: inherit; }
 <tr><td>ima + WorkBuddy 知识工作流练习</td><td><code>part-02-knowledge-base/tools/ima_workbuddy_lab.md</code></td><td><a href="part-02-knowledge-base/tools/ima_workbuddy_lab.html">查看页面</a></td><td><a href="part-02-knowledge-base/tools/ima_workbuddy_lab.md" download>下载 Markdown</a></td></tr>
 <tr><td>检索模式对比讲义</td><td><code>part-02-knowledge-base/tools/retrieval_mode_comparison.md</code></td><td><a href="part-02-knowledge-base/tools/retrieval_mode_comparison.html">查看页面</a></td><td><a href="part-02-knowledge-base/tools/retrieval_mode_comparison.md" download>下载 Markdown</a></td></tr>
 <tr><td>腾讯元器知识库练习</td><td><code>part-02-knowledge-base/tools/yuanqi_kb_lab.md</code></td><td><a href="part-02-knowledge-base/tools/yuanqi_kb_lab.html">查看页面</a></td><td><a href="part-02-knowledge-base/tools/yuanqi_kb_lab.md" download>下载 Markdown</a></td></tr></tbody></table></section>
-<section class="resource-section"><h2>第 3 课 · 项目助理 Agent</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>第 3 课 · AI智能体编排：组装「项目助理」（学员手册）</td><td><code>part-03-agent/README.md</code></td><td><a href="part-03-agent/README.html">查看页面</a></td><td><a href="part-03-agent/README.md" download>下载 Markdown</a></td></tr></tbody></table></section>
+<section class="resource-section"><h2>第 3 课 · AI智能体</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>第 3 课 · AI智能体编排：组装「项目助理」（学员手册）</td><td><code>part-03-agent/README.md</code></td><td><a href="part-03-agent/README.html">查看页面</a></td><td><a href="part-03-agent/README.md" download>下载 Markdown</a></td></tr></tbody></table></section>
 <section class="resource-section"><h2>第 4 课 · 场景闭环</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>第 4 课 · 场景深化：按模块定制 + 补齐第 2 个技能（学员手册）</td><td><code>part-04-scenario/README.md</code></td><td><a href="part-04-scenario/README.html">查看页面</a></td><td><a href="part-04-scenario/README.md" download>下载 Markdown</a></td></tr>
 <tr><td>活动复盘技能（传播运营模块 · M3）</td><td><code>part-04-scenario/skills/env-ngo-activity-recap/SKILL.md</code></td><td><a href="part-04-scenario/skills/env-ngo-activity-recap/SKILL.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-activity-recap/SKILL.md" download>下载 Markdown</a></td></tr>
-<tr><td>&lt;活动标题（≤15 字，有画面感）&gt;</td><td><code>part-04-scenario/skills/env-ngo-activity-recap/assets/recap_template.md</code></td><td><a href="part-04-scenario/skills/env-ngo-activity-recap/assets/recap_template.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-activity-recap/assets/recap_template.md" download>下载 Markdown</a></td></tr>
 <tr><td>案例萃取技能（案例库模块 · M2）</td><td><code>part-04-scenario/skills/env-ngo-case-extract/SKILL.md</code></td><td><a href="part-04-scenario/skills/env-ngo-case-extract/SKILL.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-case-extract/SKILL.md" download>下载 Markdown</a></td></tr>
+<tr><td>社群 FAQ 技能（传播运营模块 · M3）</td><td><code>part-04-scenario/skills/env-ngo-community-faq/SKILL.md</code></td><td><a href="part-04-scenario/skills/env-ngo-community-faq/SKILL.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-community-faq/SKILL.md" download>下载 Markdown</a></td></tr>
+<tr><td>服务故事脱敏技能（案例库模块 · M2）</td><td><code>part-04-scenario/skills/env-ngo-story-desensitize/SKILL.md</code></td><td><a href="part-04-scenario/skills/env-ngo-story-desensitize/SKILL.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-story-desensitize/SKILL.md" download>下载 Markdown</a></td></tr>
+<tr><td>&lt;活动标题（≤15 字，有画面感）&gt;</td><td><code>part-04-scenario/skills/env-ngo-activity-recap/assets/recap_template.md</code></td><td><a href="part-04-scenario/skills/env-ngo-activity-recap/assets/recap_template.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-activity-recap/assets/recap_template.md" download>下载 Markdown</a></td></tr>
 <tr><td>&lt;案例标题&gt;</td><td><code>part-04-scenario/skills/env-ngo-case-extract/assets/case_template.md</code></td><td><a href="part-04-scenario/skills/env-ngo-case-extract/assets/case_template.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-case-extract/assets/case_template.md" download>下载 Markdown</a></td></tr>
 <tr><td>示例输入：原始现场记录（脱敏样例）</td><td><code>part-04-scenario/skills/env-ngo-case-extract/assets/example_input_field_notes.md</code></td><td><a href="part-04-scenario/skills/env-ngo-case-extract/assets/example_input_field_notes.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-case-extract/assets/example_input_field_notes.md" download>下载 Markdown</a></td></tr>
-<tr><td>社群 FAQ 技能（传播运营模块 · M3）</td><td><code>part-04-scenario/skills/env-ngo-community-faq/SKILL.md</code></td><td><a href="part-04-scenario/skills/env-ngo-community-faq/SKILL.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-community-faq/SKILL.md" download>下载 Markdown</a></td></tr>
 <tr><td>&lt;项目/社群名称&gt; 常见问题（FAQ）</td><td><code>part-04-scenario/skills/env-ngo-community-faq/assets/faq_template.md</code></td><td><a href="part-04-scenario/skills/env-ngo-community-faq/assets/faq_template.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-community-faq/assets/faq_template.md" download>下载 Markdown</a></td></tr>
-<tr><td>服务故事脱敏技能（案例库模块 · M2）</td><td><code>part-04-scenario/skills/env-ngo-story-desensitize/SKILL.md</code></td><td><a href="part-04-scenario/skills/env-ngo-story-desensitize/SKILL.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-story-desensitize/SKILL.md" download>下载 Markdown</a></td></tr>
 <tr><td>服务故事脱敏规则</td><td><code>part-04-scenario/skills/env-ngo-story-desensitize/assets/desensitize_rules.md</code></td><td><a href="part-04-scenario/skills/env-ngo-story-desensitize/assets/desensitize_rules.html">查看页面</a></td><td><a href="part-04-scenario/skills/env-ngo-story-desensitize/assets/desensitize_rules.md" download>下载 Markdown</a></td></tr></tbody></table></section>
 <section class="resource-section"><h2>第 5 课 · 内测预发布</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>第 5 课 · 成果盘点与预发布：让同事真正用起来（学员手册）</td><td><code>part-05-prelaunch/README.md</code></td><td><a href="part-05-prelaunch/README.html">查看页面</a></td><td><a href="part-05-prelaunch/README.md" download>下载 Markdown</a></td></tr></tbody></table></section>
-<section class="resource-section"><h2>其他材料</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课后测验与课程内容的绑定说明</td><td><code>quiz-binding.md</code></td><td><a href="quiz-binding.html">查看页面</a></td><td><a href="quiz-binding.md" download>下载 Markdown</a></td></tr></tbody></table></section>
+<section class="resource-section"><h2>跨课关键交付物</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>第 2 课以后关键交付物</td><td><code>bridge-materials/README.md</code></td><td><a href="bridge-materials/README.html">查看页面</a></td><td><a href="bridge-materials/README.md" download>下载 Markdown</a></td></tr>
+<tr><td>第 2 → 第 3 课交接包：知识库交给项目助理</td><td><code>bridge-materials/templates/02_to_03_kb_agent_handoff.md</code></td><td><a href="bridge-materials/templates/02_to_03_kb_agent_handoff.html">查看页面</a></td><td><a href="bridge-materials/templates/02_to_03_kb_agent_handoff.md" download>下载 Markdown</a></td></tr>
+<tr><td>第 3 → 第 4 课交接包：项目助理交给场景闭环</td><td><code>bridge-materials/templates/03_to_04_agent_scenario_handoff.md</code></td><td><a href="bridge-materials/templates/03_to_04_agent_scenario_handoff.html">查看页面</a></td><td><a href="bridge-materials/templates/03_to_04_agent_scenario_handoff.md" download>下载 Markdown</a></td></tr>
+<tr><td>第 4 → 第 5 课交接包：场景闭环交给发布候选</td><td><code>bridge-materials/templates/04_to_05_release_candidate_pack.md</code></td><td><a href="bridge-materials/templates/04_to_05_release_candidate_pack.html">查看页面</a></td><td><a href="bridge-materials/templates/04_to_05_release_candidate_pack.md" download>下载 Markdown</a></td></tr>
+<tr><td>第 5 → 工作坊交接包：预发布交给发布复盘</td><td><code>bridge-materials/templates/05_to_workshop_release_review_pack.md</code></td><td><a href="bridge-materials/templates/05_to_workshop_release_review_pack.html">查看页面</a></td><td><a href="bridge-materials/templates/05_to_workshop_release_review_pack.md" download>下载 Markdown</a></td></tr>
+<tr><td>第 2 课以后课程产物跟踪表</td><td><code>bridge-materials/templates/cross_lesson_artifact_tracker.md</code></td><td><a href="bridge-materials/templates/cross_lesson_artifact_tracker.html">查看页面</a></td><td><a href="bridge-materials/templates/cross_lesson_artifact_tracker.md" download>下载 Markdown</a></td></tr></tbody></table></section>
 <section class="resource-section"><h2>课程总索引</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课程关键交付物总览</td><td><code>templates/INDEX.md</code></td><td><a href="templates/INDEX.html">查看页面</a></td><td><a href="templates/INDEX.md" download>下载 Markdown</a></td></tr></tbody></table></section>
+<section class="resource-section"><h2>其他材料</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课后测验与课程内容的绑定说明</td><td><code>quiz-binding.md</code></td><td><a href="quiz-binding.html">查看页面</a></td><td><a href="quiz-binding.md" download>下载 Markdown</a></td></tr></tbody></table></section>
   </main>
   <footer class="site-footer">环境公益 AI 赋能实战营 · 资料中心</footer>
 </body>

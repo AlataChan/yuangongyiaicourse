@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -205,19 +250,21 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="../../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
-        <a class="btn btn-ghost" href="cross_lesson_artifact_tracker.md">打开 Markdown 原文</a>
-        <a class="btn btn-primary" href="cross_lesson_artifact_tracker.md" download>下载 Markdown</a>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
     <a href="../../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <span>bridge-materials/templates/cross_lesson_artifact_tracker.md</span>
+    <a href="../README.html">关键交付物</a>
+    <span aria-hidden="true">/</span>
+    <span>第 2 课以后课程产物跟踪表</span>
   </nav>
   <main class="layout">
     <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">交接包</span><span>bridge-materials/templates/cross_lesson_artifact_tracker.md</span></div>
       <h1 id="第-2-课以后课程产物跟踪表">第 2 课以后课程产物跟踪表</h1>
 <p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/cross_lesson_artifact_tracker.md</code></p>
 <p>用途：从第 2 课开始持续更新，帮助讲师和学员确认课程产物是否能连续进入下一课。</p>
@@ -229,13 +276,14 @@ a { color: inherit; }
 <table><thead><tr><th>术语</th><th>对外主称呼</th><th>备注</th></tr></thead><tbody><tr><td>项目助理</td><td>项目助理</td><td>首次出现可括注 Agent / AI 智能体</td></tr><tr><td>Skill</td><td>技能</td><td>学员材料中优先用“技能”，技术材料可保留 Skill</td></tr><tr><td>知识库</td><td>知识库</td><td>指可检索的机构资料资产</td></tr><tr><td>发布候选</td><td>发布候选</td><td>通过场景验收、准备进入内测的版本</td></tr><tr><td>内测预发布</td><td>内测预发布</td><td>小范围给同事使用，不等同正式上线</td></tr><tr><td>发布复盘</td><td>发布复盘</td><td>工作坊阶段，基于真实演示和反馈制定下一版本</td></tr></tbody></table>
 <h2 id="4-每周更新记录">4. 每周更新记录</h2>
 <table><thead><tr><th>日期</th><th>更新了什么</th><th>影响哪个产物</th><th>是否需要同步到下一课</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
-      <div class="source-path">Markdown 原文：<code>bridge-materials/templates/cross_lesson_artifact_tracker.md</code></div>
+      <div class="source-path">Markdown 原文：<a href="cross_lesson_artifact_tracker.md">bridge-materials/templates/cross_lesson_artifact_tracker.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="05_to_workshop_release_review_pack.html"><span>上一份材料</span><strong>第 5 → 工作坊交接包：预发布交给发布复盘</strong></a><a href="../../templates/INDEX.html"><span>下一份材料</span><strong>课程关键交付物总览</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
       <a class="btn btn-primary" href="cross_lesson_artifact_tracker.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="cross_lesson_artifact_tracker.md" style="margin-top:10px;">查看原文</a>
+      <a class="btn btn-ghost" href="cross_lesson_artifact_tracker.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#第-2-课以后课程产物跟踪表">第 2 课以后课程产物跟踪表</a>
 <a href="#1-产物总览">1. 产物总览</a>

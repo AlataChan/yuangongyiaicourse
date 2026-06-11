@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -205,19 +250,21 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="../../../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
-        <a class="btn btn-ghost" href="SKILL.md">打开 Markdown 原文</a>
-        <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
     <a href="../../../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <span>part-04-scenario/skills/env-ngo-community-faq/SKILL.md</span>
+    <a href="../../index.html">第 4 课 · 场景闭环</a>
+    <span aria-hidden="true">/</span>
+    <span>社群 FAQ 技能（传播运营模块 · M3）</span>
   </nav>
   <main class="layout">
     <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">Skill 样板</span><span>part-04-scenario/skills/env-ngo-community-faq/SKILL.md</span></div>
       <hr>
 <p>name: env-ngo-community-faq description: &gt;- Load when the user provides community chat logs, recurring questions from volunteers or beneficiaries, or wants to build a FAQ document for an environmental nonprofit's community channels. Do not load for closure reports, case extraction, or activity recaps. disable-model-invocation: true</p>
 <hr>
@@ -240,13 +287,14 @@ a { color: inherit; }
 <ul><li>答案必须基于用户提供的信息或知识库内容，<strong>不编造活动时间、报名链接、联系方式</strong>。</li><li>无法确认的答案统一标注 <code>[需机构确认]</code>，不要猜测。</li><li>聊天记录中的个人信息（群昵称、手机号、微信号）必须脱敏。</li><li>合并近似问题（如「怎么报名」和「在哪报名」），避免重复。</li><li>涉及政策法规的回答，标注信息时效（如「截至 2026 年 X 月」）。</li><li>避免官方套话，用社群成员能听懂的语言回答。</li></ul>
 <h2 id="files-to-read">Files To Read</h2>
 <ul><li><code>assets/faq_template.md</code>：FAQ 输出结构模板（必读）。</li></ul>
-      <div class="source-path">Markdown 原文：<code>part-04-scenario/skills/env-ngo-community-faq/SKILL.md</code></div>
+      <div class="source-path">Markdown 原文：<a href="SKILL.md">part-04-scenario/skills/env-ngo-community-faq/SKILL.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../env-ngo-case-extract/SKILL.html"><span>上一份材料</span><strong>案例萃取技能（案例库模块 · M2）</strong></a><a href="../env-ngo-story-desensitize/SKILL.html"><span>下一份材料</span><strong>服务故事脱敏技能（案例库模块 · M2）</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
       <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="SKILL.md" style="margin-top:10px;">查看原文</a>
+      <a class="btn btn-ghost" href="SKILL.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#社群-faq-技能传播运营模块-·-m3">社群 FAQ 技能（传播运营模块 · M3）</a>
 <a href="#when-to-use">When To Use</a>

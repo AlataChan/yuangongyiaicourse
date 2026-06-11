@@ -32,8 +32,8 @@ body {
   font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   line-height: 1.68;
   background:
-    radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.2), transparent 28%),
-    radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
     var(--bg);
 }
 a { color: inherit; }
@@ -104,10 +104,28 @@ a { color: inherit; }
 .doc {
   min-width: 0;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   padding: 38px;
   background: rgba(250, 252, 249, 0.96);
   box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
 }
 .doc h1, .doc h2, .doc h3 {
   font-family: "Noto Serif SC", serif;
@@ -144,12 +162,15 @@ a { color: inherit; }
 }
 .doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
 .doc table {
+  display: block;
   width: 100%;
+  max-width: 100%;
   border-collapse: collapse;
   margin: 18px 0;
-  overflow: hidden;
+  overflow-x: auto;
   border-radius: 12px;
   font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
 }
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
@@ -173,12 +194,35 @@ a { color: inherit; }
 .source-path {
   margin-top: 26px;
   padding: 12px 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--amber-soft);
   color: #725126;
   font-size: 0.9rem;
   overflow-wrap: anywhere;
 }
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px;
@@ -193,6 +237,7 @@ a { color: inherit; }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
 }
 </style>
@@ -205,19 +250,21 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
-        <a class="btn btn-ghost" href="README.md">打开 Markdown 原文</a>
-        <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
     <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <span>bridge-materials/README.md</span>
+    <a href="README.html">关键交付物</a>
+    <span aria-hidden="true">/</span>
+    <span>第 2 课以后关键交付物</span>
   </nav>
   <main class="layout">
     <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">关键交付物说明</span><span>bridge-materials/README.md</span></div>
       <h1 id="第-2-课以后关键交付物">第 2 课以后关键交付物</h1>
 <p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/README.md</code></p>
 <p>本目录用于承接第 2 课以后的跨课产物。它不新增一条学习主线，只负责把上一课已经做出的东西，整理成下一课可以直接使用的输入。</p>
@@ -240,13 +287,14 @@ a { color: inherit; }
 <table><thead><tr><th>交接点</th><th>上一课交出</th><th>下一课使用</th></tr></thead><tbody><tr><td>第 2 → 第 3</td><td>知识库范围、合规分级、metadata、10 问命中率、检索参数</td><td>项目助理挂载知识库、设置回答边界、建立测试问题</td></tr><tr><td>第 3 → 第 4</td><td>项目助理边界卡、Skill/知识库挂载表、路由表、主工作流、10 问诊断</td><td>选择主场景、判断闭环缺口、决定是否补第二个 Skill</td></tr><tr><td>第 4 → 第 5</td><td>场景闭环卡、人工审核点、验收测试、缺陷清单</td><td>形成发布候选、做预发布演示、判断 Go/No-Go</td></tr><tr><td>第 5 → 工作坊</td><td>内测任务包、反馈记录、Go/No-Go 决策、版本计划</td><td>工作坊演示、同伴评审、发布复盘、组织内落地承诺</td></tr></tbody></table>
 <h2 id="讲师使用建议">讲师使用建议</h2>
 <ul><li>第 2 课后只要求学员交 <code>02_to_03_kb_agent_handoff.md</code>，不要提前发完所有模板。</li><li>第 3 课开始时用第 2 课交接包检查知识库是否能挂载，缺少资料的先补资料，不急着调 Agent。</li><li>第 4 课开始时用第 3 课交接包选择一个主场景，避免继续扩功能。</li><li>第 5 课开始时用第 4 课交接包判断是否具备发布候选资格。</li><li>工作坊前只看第 5 课交接包和总跟踪表，不再重新审一遍所有课程作业。</li></ul>
-      <div class="source-path">Markdown 原文：<code>bridge-materials/README.md</code></div>
+      <div class="source-path">Markdown 原文：<a href="README.md">bridge-materials/README.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../part-05-prelaunch/README.html"><span>上一份材料</span><strong>第 5 课 · 成果盘点与预发布：让同事真正用起来（学员手册）</strong></a><a href="templates/02_to_03_kb_agent_handoff.html"><span>下一份材料</span><strong>第 2 → 第 3 课交接包：知识库交给项目助理</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
       <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看原文</a>
+      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#第-2-课以后关键交付物">第 2 课以后关键交付物</a>
 <a href="#使用原则">使用原则</a>
