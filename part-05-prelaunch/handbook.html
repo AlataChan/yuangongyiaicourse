@@ -1,0 +1,1573 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学员手册 · 第 5 课 预发布 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营第 5 课「预发布」学员手册：三层产出盘点、L1/L2 自评、预发布演示指南、发布渠道、上线检查清单、2 周效果评估卡与 90 天行动计划。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --good: #2d8a56;
+      --good-bg: #e6f5ec;
+      --bad: #b83a3a;
+      --bad-bg: #fce8e8;
+      --gold: #a68b3c;
+      --gold-soft: #fdf8ec;
+      --warm: #c46b2e;
+      --warm-soft: #fef0e6;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(166, 139, 60, 0.10), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--forest); background: var(--moss-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--forest-light);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--forest), var(--gold) 55%, var(--warm));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 680px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--moss-soft); }
+
+    /* ---------- Case intro banner ---------- */
+    .case-banner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .case-banner-inner {
+      padding: 24px 28px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, var(--gold-soft), var(--moss-soft));
+      border: 1px solid rgba(166, 139, 60, 0.2);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .case-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--gold);
+      color: #fff;
+      font-size: 22px;
+    }
+    .case-banner-inner h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.08rem;
+      margin: 0 0 6px;
+      color: var(--gold);
+    }
+    .case-banner-inner p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .case-banner-inner strong { color: var(--ink); }
+
+    /* ---------- Checklist cards ---------- */
+    .checklist-group { margin-bottom: 28px; }
+    .checklist-group-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      margin: 0 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .checklist-group-title .cg-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      background: var(--good-bg);
+      color: var(--good);
+    }
+    .cl-interactive { list-style: none; margin: 0; padding: 0; }
+    .cl-interactive li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      margin-bottom: 6px;
+      border-radius: 12px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease;
+      user-select: none;
+    }
+    .cl-interactive li:hover { background: var(--moss-soft); }
+    .cl-interactive li.checked { background: var(--good-bg); border-color: rgba(45, 138, 86, 0.3); }
+    .cl-interactive li .cl-check {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--line);
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      color: transparent;
+      transition: all 160ms ease;
+    }
+    .cl-interactive li.checked .cl-check {
+      background: var(--good);
+      border-color: var(--good);
+      color: #fff;
+    }
+    .cl-interactive li .cl-text { flex: 1; }
+    .cl-interactive li .cl-result {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--good);
+      white-space: nowrap;
+    }
+
+    /* ---------- Charter compare ---------- */
+    .charter-compare {
+      margin-top: 24px;
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .charter-compare h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.08rem;
+      margin: 0 0 16px;
+      color: var(--gold);
+    }
+    .compare-row {
+      display: grid;
+      grid-template-columns: 140px 1fr 40px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.92rem;
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-label { font-weight: 700; color: var(--forest); font-size: 0.86rem; }
+    .compare-orig {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--muted);
+    }
+    .compare-arrow { text-align: center; color: var(--gold); font-weight: 900; font-size: 1.1rem; }
+    .compare-actual {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--good-bg);
+      color: var(--good);
+      font-weight: 600;
+    }
+
+    /* ---------- L1/L2 tier cards ---------- */
+    .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 8px; }
+    .tier-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .tier-card.l1 { border-top: 4px solid var(--good); }
+    .tier-card.l2 { border-top: 4px solid var(--gold); }
+    .tier-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 14px; }
+    .tier-card.l1 h3 { color: var(--good); }
+    .tier-card.l2 h3 { color: var(--gold); }
+    .tier-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 0.92rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .tier-item:last-of-type { border-bottom: none; }
+    .tier-status {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .ts-pass { background: var(--good-bg); color: var(--good); }
+    .ts-warn { background: var(--amber-soft); color: var(--amber); }
+    .ts-pending { background: var(--sky-soft); color: var(--sky); }
+    .tier-conclusion {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+    .tier-card.l1 .tier-conclusion { background: var(--good-bg); color: var(--good); }
+    .tier-card.l2 .tier-conclusion { background: var(--gold-soft); color: var(--gold); }
+
+    /* ---------- Demo guide ---------- */
+    .demo-script {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+    .demo-script h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.06rem;
+      margin: 0 0 16px;
+      color: var(--forest);
+    }
+    .demo-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .demo-step:last-child { border-bottom: none; }
+    .ds-time {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .ds-time-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      background: var(--moss-soft);
+      color: var(--forest);
+    }
+    .ds-time-label { font-size: 0.74rem; font-weight: 700; color: var(--muted); }
+    .ds-content h5 { font-family: "Noto Serif SC", serif; font-size: 0.98rem; margin: 0 0 6px; }
+    .ds-content p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .case-demo-script {
+      padding: 24px 26px;
+      border-radius: var(--radius);
+      background: var(--gold-soft);
+      border: 1px solid rgba(166, 139, 60, 0.2);
+      margin-bottom: 22px;
+    }
+    .case-demo-script h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.02rem;
+      margin: 0 0 12px;
+      color: var(--gold);
+    }
+    .case-demo-script blockquote {
+      margin: 0 0 10px;
+      padding: 12px 16px;
+      border-left: 3px solid var(--gold);
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 0 10px 10px 0;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* ---------- Eval cards ---------- */
+    .eval-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 22px; }
+    .eval-card {
+      padding: 24px 22px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      text-align: center;
+      will-change: transform, opacity;
+    }
+    .eval-icon { font-size: 1.8rem; margin-bottom: 6px; }
+    .eval-card h4 { font-family: "Noto Serif SC", serif; font-size: 1rem; margin: 4px 0 6px; }
+    .eval-card p { margin: 0; color: var(--muted); font-size: 0.84rem; }
+    .eval-scale { margin-top: 10px; display: flex; justify-content: center; gap: 4px; }
+    .eval-scale span {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--line);
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
+    /* ---------- Good/Bad examples ---------- */
+    .example-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 16px 0;
+    }
+    .example-good {
+      border-left: 4px solid var(--good);
+      background: var(--good-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-bad {
+      border-left: 4px solid var(--bad);
+      background: var(--bad-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .example-good .example-label { color: var(--good); }
+    .example-bad .example-label { color: var(--bad); }
+    .example-good p, .example-bad p { margin: 0; font-size: 0.94rem; color: var(--ink); }
+    .example-good blockquote, .example-bad blockquote {
+      margin: 0;
+      padding: 0;
+      font-size: 0.94rem;
+      color: var(--ink);
+      font-style: italic;
+    }
+
+    /* ---------- Channel cards ---------- */
+    .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .channel-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--forest);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .channel-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .channel-card.ch2 { border-left-color: var(--sky); }
+    .channel-card.ch3 { border-left-color: var(--amber); }
+    .channel-icon { font-size: 1.6rem; margin-bottom: 6px; }
+    .channel-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.08rem; margin: 4px 0 8px; }
+    .channel-card p { margin: 0 0 8px; color: var(--muted); font-size: 0.9rem; }
+    .channel-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .badge-internal { background: var(--moss-soft); color: var(--forest); }
+    .badge-external { background: var(--sky-soft); color: var(--sky); }
+    .badge-web { background: var(--amber-soft); color: var(--amber); }
+    .channel-details { margin-top: 10px; font-size: 0.84rem; color: var(--muted); }
+    .channel-details li { margin-bottom: 4px; }
+    .channel-selected {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--gold-soft);
+      color: var(--gold);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    /* ---------- Launch checklist ---------- */
+    .launch-checklist {
+      padding: 32px 30px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .launch-checklist h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.16rem;
+      margin: 0 0 20px;
+      text-align: center;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--forest);
+    }
+    .lc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .lc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease;
+      user-select: none;
+    }
+    .lc-item:hover { background: var(--moss-soft); }
+    .lc-item.checked { background: var(--good-bg); border-color: rgba(45, 138, 86, 0.3); }
+    .lc-item .lc-box {
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--line);
+      border-radius: 6px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      color: transparent;
+      transition: all 160ms ease;
+    }
+    .lc-item.checked .lc-box {
+      background: var(--good);
+      border-color: var(--good);
+      color: #fff;
+    }
+    .lc-num {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      font-size: 0.82rem;
+      color: var(--forest-light);
+      flex-shrink: 0;
+      width: 22px;
+    }
+
+    /* ---------- Eval template ---------- */
+    .eval-template {
+      padding: 32px 30px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .eval-template h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.16rem;
+      margin: 0 0 20px;
+      text-align: center;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--gold);
+      color: var(--gold);
+    }
+    .et-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .et-field {
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+    .et-field-label { font-weight: 700; color: var(--forest); font-size: 0.82rem; display: block; margin-bottom: 4px; }
+    .et-field-value { color: var(--ink); }
+    .et-field-blank { color: var(--line); border-bottom: 1px dashed var(--line); display: inline-block; min-width: 100px; }
+    .et-section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.96rem;
+      margin: 20px 0 12px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--forest);
+    }
+    .et-row {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+    .et-row:last-child { border-bottom: none; }
+    .et-row-label { font-weight: 600; color: var(--muted); }
+    .et-row-value { color: var(--ink); }
+
+    /* ---------- Timeline (90-day) ---------- */
+    .timeline { position: relative; padding-left: 40px; margin-top: 12px; }
+    .timeline::before { content: ""; position: absolute; left: 15px; top: 0; bottom: 0; width: 3px; border-radius: 2px; background: linear-gradient(to bottom, var(--forest), var(--moss), var(--gold)); }
+    .tl-node { position: relative; margin-bottom: 36px; }
+    .tl-node:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -33px;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--forest);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--forest);
+    }
+    .tl-node:nth-child(2) .tl-dot { background: var(--moss); box-shadow: 0 0 0 2px var(--moss); }
+    .tl-node:nth-child(3) .tl-dot { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+    .tl-label { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: 1.2rem; margin-bottom: 4px; }
+    .tl-sub { font-size: 0.86rem; font-weight: 700; color: var(--forest-light); margin-bottom: 8px; }
+    .tl-card {
+      padding: 22px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .tl-card ul { margin: 0; padding-left: 20px; color: var(--muted); font-size: 0.9rem; }
+    .tl-card ul li { margin-bottom: 4px; }
+    .tl-card ul li strong { color: var(--ink); }
+    .tl-case {
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--gold-soft);
+      font-size: 0.84rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ---------- Workshop teaser ---------- */
+    .workshop-teaser {
+      padding: 36px 32px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--panel), var(--moss-soft));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .workshop-teaser h3 { font-family: "Noto Serif SC", serif; font-size: 1.2rem; margin: 0 0 10px; }
+    .workshop-teaser p { color: var(--muted); font-size: 0.96rem; margin: 0 0 16px; }
+    .ws-items { display: flex; flex-wrap: wrap; gap: 10px; }
+    .ws-item {
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    .note {
+      margin-top: 24px;
+      padding: 18px 20px;
+      border-radius: 12px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-size: 0.92rem;
+    }
+
+    /* ---------- Quiz check callout（章节→测验绑定） ---------- */
+    .quiz-check { margin-top: 24px; padding: 13px 18px; border-radius: 10px; background: var(--moss-soft);
+      border: 1px dashed rgba(26, 77, 62, 0.35); font-size: 0.9rem; color: var(--forest); font-weight: 600; }
+    .quiz-check a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.45); font-weight: 700; }
+    .quiz-check a:hover { opacity: 0.78; }
+
+    /* ---------- Closing CTA ---------- */
+    .closing {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 40%, #3a5a2a 70%, #6b5d26);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+      text-align: center;
+    }
+    .closing::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(166, 139, 60, 0.28), transparent 50%); pointer-events: none; }
+    .closing > * { position: relative; }
+    .closing .eyebrow { background: rgba(166, 139, 60, 0.2); color: #e8d48c; margin: 0 auto 14px; }
+    .closing h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 0 0 12px; }
+    .closing p { color: rgba(234, 250, 241, 0.84); margin: 0 auto 22px; max-width: 640px; }
+    .closing .btn-primary { background: var(--moss); color: var(--forest); }
+    .closing .btn-primary:hover { background: #a7e0c4; }
+    .closing .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .closing .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .closing-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .closing-quote {
+      margin: 20px auto 0;
+      font-size: 1.02rem;
+      font-style: italic;
+      color: rgba(234, 250, 241, 0.7);
+      max-width: 540px;
+    }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal fallback ---------- */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .tier-card,
+    html.gsap-fallback .channel-card,
+    html.gsap-fallback .eval-card,
+    html.gsap-fallback .example-good,
+    html.gsap-fallback .example-bad,
+    html.gsap-fallback .launch-checklist,
+    html.gsap-fallback .eval-template,
+    html.gsap-fallback .tl-card,
+    html.gsap-fallback .workshop-teaser,
+    html.gsap-fallback .closing {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .example-pair { grid-template-columns: 1fr; }
+      .tier-grid { grid-template-columns: 1fr; }
+      .channel-grid { grid-template-columns: 1fr; }
+      .eval-grid { grid-template-columns: 1fr; }
+      .lc-grid { grid-template-columns: 1fr; }
+      .et-header { grid-template-columns: 1fr; }
+      .compare-row { grid-template-columns: 1fr; gap: 6px; }
+      .compare-arrow { display: none; }
+      .header-nav .nav-link { display: none; }
+      .case-banner-inner { flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .demo-step { grid-template-columns: 1fr; gap: 8px; }
+      .closing { padding: 32px 24px; }
+      .et-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .tier-card, .channel-card, .eval-card, .example-good, .example-bad,
+      .launch-checklist, .eval-template, .tl-card, .workshop-teaser, .closing { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="学员手册导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#review">产出盘点</a>
+        <a class="nav-link" href="#demo-guide">演示指南</a>
+        <a class="nav-link" href="#launch-checklist">上线清单</a>
+        <a class="nav-cta" href="index.html">课程概览</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="index.html">第 5 课 · 预发布</a>
+    <span aria-hidden="true">/</span>
+    学员手册
+  </nav>
+
+  <main>
+    <!-- ================= 1. Hero ================= -->
+    <section class="hero" aria-labelledby="handbook-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">🏁</span> 第 5 课 · 预发布 · 学员手册</div>
+      <h1 class="reveal" id="handbook-title">90 分钟，<br><span class="grad">从「我能用」到「同事真在用」</span></h1>
+      <p class="hero-lead reveal">
+        这是线上课的最后一课，也是线下工作坊前的收官演练。
+        你已经有了技能、知识库和 AI智能体——今天带你盘点产出是否达标、在同伴面前跑一遍真实演示、把发布渠道与日常化预案落到纸上。
+        下课时，你手上应该有一份可以直接执行的上线方案。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>90 分钟 · 线上课收官</span>
+        <span class="meta-chip"><span class="dot"></span>产出 预发布演示 + 发布计划</span>
+        <span class="meta-chip"><span class="dot"></span>90 天行动计划</span>
+        <span class="meta-chip"><span class="dot"></span>附绿源全程示范</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#review">
+          查看三层产出盘点
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#launch-checklist">跳转上线检查清单</a>
+      </div>
+    </section>
+
+    <!-- ================= Case study banner ================= -->
+    <div class="case-banner reveal">
+      <div class="case-banner-inner">
+        <div class="case-icon" aria-hidden="true">🏞️</div>
+        <div>
+          <h3>收官案例：绿源环保公益中心 -- 最终状态</h3>
+          <p>
+            经过 5 节课的迭代，<strong>绿源</strong>现在拥有：<strong>2 个技能</strong>（结项报告 + 资助申请信）、
+            <strong>68 份知识库文档</strong>（扩容后命中率 72%）、<strong>项目助理已在元器上线</strong>。
+            立项书目标是「帮绿源项目主管从执行流水账自动生成结构化结项报告」——不仅做到了，还多了资助申请信功能。
+            今天，让我们做最后的检查和演示。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= 2. 三层产出盘点（25min） ================= -->
+    <section class="section" id="review" aria-labelledby="review-title">
+      <div class="section-head">
+        <div class="section-num reveal">5.1 成果盘点 · 25 分钟</div>
+        <h2 class="section-title reveal" id="review-title">三层产出盘点</h2>
+        <p class="section-desc reveal">拿出课前作业填写的立项书，逐层核对——技能、知识库、智能体，每一层都有明确的达标线。点击条目可以勾选完成状态。</p>
+      </div>
+
+      <!-- 技能层 -->
+      <div class="checklist-group reveal">
+        <div class="checklist-group-title">
+          🛠 技能层
+          <span class="cg-badge">全部达标</span>
+        </div>
+        <ul class="cl-interactive" data-group="skill">
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">≥2 个技能跑通</span>
+            <span class="cl-result">结项报告 + 资助申请信</span>
+          </li>
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">输出契约明确</span>
+            <span class="cl-result">六章节 + 五段信件</span>
+          </li>
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">路由不冲突</span>
+            <span class="cl-result">自检 5/5 通过</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 知识库层 -->
+      <div class="checklist-group reveal">
+        <div class="checklist-group-title">
+          📚 知识库层
+          <span class="cg-badge">全部达标</span>
+        </div>
+        <ul class="cl-interactive" data-group="kb">
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">WorkBuddy ≥30 份</span>
+            <span class="cl-result">68 份</span>
+          </li>
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">云端 ≥10 份</span>
+            <span class="cl-result">42 份</span>
+          </li>
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">命中率 ≥60%</span>
+            <span class="cl-result">72%</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- AI智能体层 -->
+      <div class="checklist-group reveal">
+        <div class="checklist-group-title">
+          🤖 AI智能体层
+          <span class="cg-badge">全部达标</span>
+        </div>
+        <ul class="cl-interactive" data-group="agent">
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">项目助理调试通过</span>
+            <span class="cl-result">元器上线</span>
+          </li>
+          <li class="checked">
+            <span class="cl-check">✓</span>
+            <span class="cl-text">互测反馈处理</span>
+            <span class="cl-result">修复了 3 个问题</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Charter compare -->
+      <div class="charter-compare reveal">
+        <h4>绿源：立项书目标 vs 实际成果</h4>
+        <div class="compare-row">
+          <div class="compare-label">立项书目标</div>
+          <div class="compare-orig">帮绿源项目主管从执行流水账自动生成结构化结项报告</div>
+          <div class="compare-arrow">→</div>
+          <div class="compare-actual">不仅做到了，还加了资助申请信功能</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-label">成功标准</div>
+          <div class="compare-orig">结项报告从 8h → 2h</div>
+          <div class="compare-arrow">→</div>
+          <div class="compare-actual">实际：从 2 天 → 30 分钟，超额完成</div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q1">Q1</a> · <a href="quiz.html#q7">Q7</a></p>
+    </section>
+
+    <!-- ================= 3. L1/L2 自评表 ================= -->
+    <section class="section" id="self-eval" aria-labelledby="eval-title">
+      <div class="section-head">
+        <div class="section-num reveal">L1 / L2 分层自评</div>
+        <h2 class="section-title reveal" id="eval-title">你到了哪个层级？</h2>
+        <p class="section-desc reveal">L1 是「用起来」，L2 是「用得顺」。未达标不等于失败——把差距写下来，带到线下工作坊补齐。</p>
+      </div>
+
+      <div class="tier-grid">
+        <div class="tier-card l1 reveal">
+          <h3>L1 入门 · 用起来</h3>
+          <div class="tier-item">
+            <span class="tier-status ts-pass">✓</span>
+            <span>≥1 技能跑通</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-status ts-pass">✓</span>
+            <span>知识库 ≥30 / ≥10</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-status ts-pass">✓</span>
+            <span>对话 Bot 跑通</span>
+          </div>
+          <div class="tier-conclusion">绿源已达标 L1</div>
+        </div>
+
+        <div class="tier-card l2 reveal">
+          <h3>L2 进阶 · 用得顺</h3>
+          <div class="tier-item">
+            <span class="tier-status ts-pass">✓</span>
+            <span>≥2 技能 + 输出契约</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-status ts-warn">!</span>
+            <span>知识库 ≥80 / ≥25 -- 绿源 68/42，接近</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-status ts-pass">✓</span>
+            <span>多步工作流 + 1 插件</span>
+          </div>
+          <div class="tier-item">
+            <span class="tier-status ts-pending">?</span>
+            <span>同事真用 + 量化指标 -- 待验证（发布后 2 周确认）</span>
+          </div>
+          <div class="tier-conclusion">绿源接近 L2，发布后 2 周确认</div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q8">Q8</a></p>
+    </section>
+
+    <!-- ================= 4. 预发布演示指南（35min） ================= -->
+    <section class="section" id="demo-guide" aria-labelledby="demo-title">
+      <div class="section-head">
+        <div class="section-num reveal">5.2 预发布演示 · 35 分钟</div>
+        <h2 class="section-title reveal" id="demo-title">预发布演示指南</h2>
+        <p class="section-desc reveal">每个机构 5 分钟。准备好你的演示脚本，让同伴看到你的项目助理真正跑起来。</p>
+      </div>
+
+      <!-- Step 1: 演示脚本 -->
+      <div class="demo-script reveal">
+        <h4>Step 1：准备演示脚本（5 分钟演示 = 3 个环节）</h4>
+        <div class="demo-step">
+          <div class="ds-time">
+            <div class="ds-time-num">60s</div>
+            <div class="ds-time-label">介绍</div>
+          </div>
+          <div class="ds-content">
+            <h5>一句话介绍你的项目助理</h5>
+            <p>是谁、帮谁做什么。不要说「它什么都能做」——聚焦到一个具体任务。</p>
+          </div>
+        </div>
+        <div class="demo-step">
+          <div class="ds-time">
+            <div class="ds-time-num">180s</div>
+            <div class="ds-time-label">核心演示</div>
+          </div>
+          <div class="ds-content">
+            <h5>现场演示主工作流</h5>
+            <p>真实输入 → 真实输出。用真实材料跑一遍完整流程，让观众看到从输入到产出的全过程。</p>
+          </div>
+        </div>
+        <div class="demo-step">
+          <div class="ds-time">
+            <div class="ds-time-num">60s</div>
+            <div class="ds-time-label">迭代展示</div>
+          </div>
+          <div class="ds-content">
+            <h5>展示一个互测反馈和你的修复</h5>
+            <p>说明你在互测中发现了什么问题、怎么解决的。这展示了你的迭代能力。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 绿源的演示脚本 -->
+      <div class="case-demo-script reveal">
+        <h4>绿源的演示脚本</h4>
+        <blockquote>
+          「这是绿源的项目助理，帮我们项目主管从执行流水账生成结项报告和资助申请信。」
+        </blockquote>
+        <blockquote>
+          演示：输入一段清河项目流水账 → 30 秒后输出结项报告初稿 → 指出自动标注的 2 项缺失数据
+        </blockquote>
+        <blockquote>
+          「互测中发现'给资助方的结项报告'会触发错误技能，我通过细化触发描述修复了。」
+        </blockquote>
+      </div>
+
+      <!-- Step 2: 互评维度 -->
+      <h3 class="reveal" style="font-family:'Noto Serif SC',serif; font-size:1.1rem; margin: 28px 0 8px;">Step 2：互评维度（4 分制）</h3>
+
+      <div class="eval-grid">
+        <div class="eval-card reveal">
+          <div class="eval-icon" aria-hidden="true">✅</div>
+          <h4>可用性</h4>
+          <p>界面清晰、响应速度快、同事拿到能直接上手</p>
+          <div class="eval-scale">
+            <span>1</span><span>2</span><span>3</span><span>4</span>
+          </div>
+        </div>
+        <div class="eval-card reveal">
+          <div class="eval-icon" aria-hidden="true">🎯</div>
+          <h4>准确性</h4>
+          <p>信息准确、格式正确、不编造内容</p>
+          <div class="eval-scale">
+            <span>1</span><span>2</span><span>3</span><span>4</span>
+          </div>
+        </div>
+        <div class="eval-card reveal">
+          <div class="eval-icon" aria-hidden="true">📢</div>
+          <h4>推广意愿</h4>
+          <p>你愿不愿意推荐给自己的同事用</p>
+          <div class="eval-scale">
+            <span>1</span><span>2</span><span>3</span><span>4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Good/Bad demo -->
+      <h3 class="reveal" style="font-family:'Noto Serif SC',serif; font-size:1.1rem; margin: 28px 0 8px;">好 Demo vs 坏 Demo</h3>
+      <div class="example-pair">
+        <div class="example-good reveal">
+          <div class="example-label">✅ GOOD DEMO</div>
+          <blockquote>「这是绿源项目助理，专门帮我们项目主管从执行流水账生成结项报告。我现在输入一段清河项目的流水账，30 秒后你会看到一份六章节的初稿，同时它会标注出缺失的数据项。」</blockquote>
+          <p style="margin-top:8px; font-size:0.84rem; color:var(--good);">聚焦具体任务、真实材料、可见产出</p>
+        </div>
+        <div class="example-bad reveal">
+          <div class="example-label">❌ BAD DEMO</div>
+          <blockquote>「这是我的 AI 助手，它什么都能做。你问它什么它都能回答。」</blockquote>
+          <p style="margin-top:8px; font-size:0.84rem; color:var(--bad);">太笼统、没有具体场景、像在推销而不是演示</p>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q2">Q2</a></p>
+    </section>
+
+    <!-- ================= 5. 发布渠道与日常化（20min） ================= -->
+    <section class="section" id="channels" aria-labelledby="channels-title">
+      <div class="section-head">
+        <div class="section-num reveal">5.3 发布与日常化预案 · 20 分钟</div>
+        <h2 class="section-title reveal" id="channels-title">发布渠道与日常化</h2>
+        <p class="section-desc reveal">确定你的 Agent 从哪个渠道触达同事和用户——内部先行，对外按需。</p>
+      </div>
+
+      <div class="channel-grid">
+        <div class="channel-card reveal">
+          <div class="channel-icon" aria-hidden="true">💬</div>
+          <h3>飞书 / 企微机器人</h3>
+          <span class="channel-badge badge-internal">适合内部</span>
+          <p style="margin-top:10px;">同事在日常工具里直接 @项目助理，无需额外切换。</p>
+          <ul class="channel-details">
+            <li><strong>优点：</strong>零学习成本，在熟悉的工具里用</li>
+            <li><strong>设置要点：</strong>权限范围、使用人员</li>
+          </ul>
+          <div class="channel-selected">绿源选择：企微群机器人（5 人团队都用企微）</div>
+        </div>
+        <div class="channel-card ch2 reveal">
+          <div class="channel-icon" aria-hidden="true">📱</div>
+          <h3>公众号自动回复</h3>
+          <span class="channel-badge badge-external">适合 M3 对外</span>
+          <p style="margin-top:10px;">对外 FAQ、项目咨询，公众面向志愿者和公众。</p>
+          <ul class="channel-details">
+            <li><strong>优点：</strong>自动回答高频问题</li>
+            <li><strong>设置要点：</strong>关键词触发、兜底回复</li>
+          </ul>
+        </div>
+        <div class="channel-card ch3 reveal">
+          <div class="channel-icon" aria-hidden="true">🌐</div>
+          <h3>Web 嵌入（官网）</h3>
+          <span class="channel-badge badge-web">适合官网</span>
+          <p style="margin-top:10px;">对外展示项目助理能力，嵌入机构官网。</p>
+          <ul class="channel-details">
+            <li><strong>优点：</strong>对外访客可直接体验</li>
+            <li><strong>设置要点：</strong>嵌入代码、域名白名单</li>
+          </ul>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q3">Q3</a> · <a href="quiz.html#q4">Q4</a> · <a href="quiz.html#q5">Q5</a></p>
+    </section>
+
+    <!-- ================= 6. 上线检查清单 ================= -->
+    <section class="section" id="launch-checklist" aria-labelledby="checklist-title">
+      <div class="section-head">
+        <div class="section-num reveal">上线检查清单</div>
+        <h2 class="section-title reveal" id="checklist-title">上线前逐项确认</h2>
+        <p class="section-desc reveal">10 项全部打勾，才算准备好上线。点击每一项勾选确认。</p>
+      </div>
+
+      <div class="launch-checklist reveal">
+        <h3>上线检查清单</h3>
+        <div class="lc-grid" id="launchGrid">
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">1</span>
+            技能 ≥2 个，路由自检通过
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">2</span>
+            知识库资料已更新至最新版
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">3</span>
+            L3/L4 资料确认未上云
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">4</span>
+            系统提示词已包含「不编造」红线
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">5</span>
+            测试了 ≥10 个真实问题
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">6</span>
+            互测反馈已处理
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">7</span>
+            选定发布渠道，权限已设置
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">8</span>
+            指定 1 名「知识库更新责任人」
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">9</span>
+            编写了简版使用说明（给同事看）
+          </div>
+          <div class="lc-item checked" onclick="this.classList.toggle('checked')">
+            <span class="lc-box">✓</span>
+            <span class="lc-num">10</span>
+            确认了 2 周效果回收方式
+          </div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q9">Q9</a></p>
+    </section>
+
+    <!-- ================= 7. 2周效果评估卡 ================= -->
+    <section class="section" id="eval-card" aria-labelledby="eval-card-title">
+      <div class="section-head">
+        <div class="section-num reveal">2 周效果评估卡</div>
+        <h2 class="section-title reveal" id="eval-card-title">发布 2 周后填写</h2>
+        <p class="section-desc reveal">试用 2 周后，用这张卡回收数据。量化指标 + 质化反馈，两手都要有。</p>
+      </div>
+
+      <div class="eval-template reveal">
+        <h3>2 周效果评估卡</h3>
+        <div class="et-header">
+          <div class="et-field">
+            <span class="et-field-label">机构</span>
+            <span class="et-field-value">绿源环保公益中心</span>
+          </div>
+          <div class="et-field">
+            <span class="et-field-label">项目助理名称</span>
+            <span class="et-field-value">绿源项目助理</span>
+          </div>
+          <div class="et-field">
+            <span class="et-field-label">发布日期</span>
+            <span class="et-field-blank">&nbsp;</span>
+          </div>
+          <div class="et-field">
+            <span class="et-field-label">评估日期（2 周后）</span>
+            <span class="et-field-blank">&nbsp;</span>
+          </div>
+        </div>
+
+        <div class="et-section-title">量化指标</div>
+        <div class="et-row">
+          <div class="et-row-label">对话次数</div>
+          <div class="et-row-value"><span class="et-field-blank">&nbsp;</span> 次/周</div>
+        </div>
+        <div class="et-row">
+          <div class="et-row-label">技能调用次数</div>
+          <div class="et-row-value"><span class="et-field-blank">&nbsp;</span> 次/周</div>
+        </div>
+        <div class="et-row">
+          <div class="et-row-label">结项报告耗时变化</div>
+          <div class="et-row-value"><span class="et-field-blank">&nbsp;</span> → <span class="et-field-blank">&nbsp;</span></div>
+        </div>
+        <div class="et-row">
+          <div class="et-row-label">自选指标</div>
+          <div class="et-row-value"><span class="et-field-blank">&nbsp;</span></div>
+        </div>
+
+        <div class="et-section-title">质化反馈</div>
+        <div class="et-row">
+          <div class="et-row-label">同事评价（1 句话）</div>
+          <div class="et-row-value"><span class="et-field-blank">&nbsp;</span></div>
+        </div>
+        <div class="et-row">
+          <div class="et-row-label">最常用的功能</div>
+          <div class="et-row-value"><span class="et-field-blank">&nbsp;</span></div>
+        </div>
+        <div class="et-row">
+          <div class="et-row-label">最想改进的地方</div>
+          <div class="et-row-value"><span class="et-field-blank">&nbsp;</span></div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q10">Q10</a>（开放题）</p>
+    </section>
+
+    <!-- ================= 8. 90天行动计划 ================= -->
+    <section class="section" id="plan" aria-labelledby="plan-title">
+      <div class="section-head">
+        <div class="section-num reveal">90 天行动计划</div>
+        <h2 class="section-title reveal" id="plan-title">30 / 60 / 90 天，用数据证明价值</h2>
+        <p class="section-desc reveal">不只是上线，更要跑起来——每个阶段都有明确的目标和数据回收点。</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-node reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-label">第 30 天</div>
+          <div class="tl-sub">试运行：小范围跑通、收集真实反馈</div>
+          <div class="tl-card">
+            <ul>
+              <li>收集 <strong>2 周效果评估卡</strong>数据</li>
+              <li>根据反馈调整技能 <strong>Gotchas</strong></li>
+              <li>知识库<strong>首次月度更新</strong></li>
+              <li>完成首批 <strong>2-3 位同事</strong>试用</li>
+            </ul>
+            <div class="tl-case">绿源 30 天：李婷收集评估卡，根据反馈新增 3 条 Gotchas，知识库补充了 5 份新文档</div>
+          </div>
+        </div>
+        <div class="tl-node reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-label">第 60 天</div>
+          <div class="tl-sub">扩大使用：从「试用」变成「日常工具」</div>
+          <div class="tl-card">
+            <ul>
+              <li>分析<strong>月活和调用频次</strong></li>
+              <li>考虑是否需要<strong>第 3 个技能</strong></li>
+              <li>开始让<strong>第 2 位同事</strong>独立使用</li>
+              <li>建立知识库更新频率（如每月 1 次）</li>
+            </ul>
+            <div class="tl-case">绿源 60 天：小王开始独立使用项目助理写资助申请信，月调用 12 次</div>
+          </div>
+        </div>
+        <div class="tl-node reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-label">第 90 天</div>
+          <div class="tl-sub">数据回收 + 复盘：用数据决定下一步</div>
+          <div class="tl-card">
+            <ul>
+              <li>完整<strong>效果评估</strong></li>
+              <li>编写 <strong>1 条成功/失败案例</strong></li>
+              <li>提交<strong>开源案例库</strong></li>
+              <li>决定是否扩展到对外场景（公众号 / 官网）</li>
+              <li>输出 1 份<strong>「AI 助理运行报告」</strong>给管理层</li>
+            </ul>
+            <div class="tl-case">绿源 90 天：累计节省工时 40h+，同事满意度 4.2/5，编写成功案例提交开源库</div>
+          </div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q6">Q6</a></p>
+    </section>
+
+    <!-- ================= 9. 工作坊预告 ================= -->
+    <section class="section" id="workshop-teaser" aria-labelledby="ws-title" style="padding-top: 0;">
+      <div class="section-head">
+        <div class="section-num reveal">5.4 工作坊预告</div>
+        <h2 class="section-title reveal" id="ws-title">线下工作坊预告</h2>
+      </div>
+      <div class="workshop-teaser reveal">
+        <h3>5+1 中的「+1」：5 小时线下集训</h3>
+        <p>
+          案例展示 → 技能互换 → 跨机构复用 → 部署发布 → 结业复盘。
+          你将有机会体验其他机构的技能包，发现可以直接 Fork 的能力。
+        </p>
+        <div class="ws-items">
+          <span class="ws-item">案例展示与技能互换</span>
+          <span class="ws-item">跨机构复用演示与互评</span>
+          <span class="ws-item">助教驻场部署发布</span>
+          <span class="ws-item">30/60/90 天跟踪启动</span>
+          <span class="ws-item">结业复盘</span>
+        </div>
+        <div class="note" style="margin-top:16px;">
+          <strong>请提前准备：</strong>笔记本电脑（确保能访问 Agent 后台）、上线检查清单（本课完成的版本）、90 天行动计划。
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 10. Closing CTA ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="closing reveal">
+        <div class="eyebrow">线上课收官</div>
+        <h2>恭喜完成 5 节线上课！</h2>
+        <p>
+          从技能到知识库，从 AI智能体到场景深化，再到今天的预发布——你已经走完了整条主线。
+          带上你的成果、上线检查清单和 90 天行动计划，我们线下工作坊见。
+        </p>
+        <div class="closing-actions">
+          <a class="btn btn-primary" href="../index.html#workshop">
+            查看工作坊安排
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="../index.html">返回课程首页</a>
+        </div>
+        <div class="closing-quote">
+          「从今天起，不是我一个人在用 AI，是我的团队在用。」
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 第 5 课 · 预发布 · 学员手册</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="index.html">课程概览</a>
+      <a href="#">学员手册</a>
+      <a href="../index.html#workshop">工作坊</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 第 5 课「预发布」学员手册页面交互
+     * @description 交互式勾选清单 + GSAP ScrollTrigger 滚动揭示动画。
+     *              内容默认可见；GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initHandbook() {
+      var root = document.documentElement;
+
+      /* -------- Interactive checklists -------- */
+      document.querySelectorAll(".cl-interactive li").forEach(function(li) {
+        li.addEventListener("click", function() {
+          li.classList.toggle("checked");
+        });
+      });
+
+      /* -------- GSAP fallback -------- */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .tier-card, .channel-card, .eval-card, .example-good, .example-bad, .launch-checklist, .eval-template, .tl-card, .workshop-teaser, .closing",
+          { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      /* -------- Hero entrance -------- */
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /* -------- Case banner entrance -------- */
+      gsap.fromTo(".case-banner",
+        { y: 24, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.5 });
+
+      /* -------- Scroll reveal for generic .reveal elements -------- */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach(function(el) {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      /* -------- Tier cards -------- */
+      gsap.set(".tier-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".tier-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Eval / channel cards -------- */
+      gsap.set(".eval-card, .channel-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".eval-card, .channel-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Good/bad example cards -------- */
+      gsap.set(".example-good, .example-bad", { y: 24, autoAlpha: 0 });
+      ScrollTrigger.batch(".example-good, .example-bad", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.5, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 24, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Timeline cards -------- */
+      gsap.set(".tl-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".tl-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.18, duration: 0.7, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      window.addEventListener("load", function() { ScrollTrigger.refresh(); });
+    })();
+  </script>
+</body>
+</html>

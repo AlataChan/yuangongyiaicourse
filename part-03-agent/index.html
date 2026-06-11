@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 3 课 · AI智能体 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营（5+1）第 3 课「AI智能体编排」：把技能与知识库组装成统一的项目助理。120 分钟，产出项目助理 AI 智能体调试通过。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --amber-deep: #96572a;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(184, 115, 51, 0.16), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(143, 212, 176, 0.14), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--amber-deep); background: var(--amber-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--amber), var(--amber-deep) 45%, var(--forest));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 640px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--amber);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--amber-soft); }
+
+    /* ---------- Architecture diagram ---------- */
+    .arch-diagram {
+      margin-top: 12px;
+      will-change: transform, opacity;
+    }
+    .arch-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .arch-node {
+      width: 100%;
+      max-width: 600px;
+      padding: 22px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      text-align: center;
+      will-change: transform, opacity;
+    }
+    .arch-node h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.1rem;
+      margin: 0 0 6px;
+    }
+    .arch-node p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .arch-node.is-entry { border-top: 4px solid var(--amber); }
+    .arch-node.is-entry h3 { color: var(--amber); }
+    .arch-node.is-intent { border-top: 4px solid var(--forest); }
+    .arch-node.is-intent h3 { color: var(--forest); }
+    .arch-node.is-rag { border-top: 4px solid var(--sky); }
+    .arch-node.is-rag h3 { color: var(--sky); }
+    .arch-node.is-output { border-top: 4px solid var(--moss); background: var(--moss-soft); }
+    .arch-node.is-output h3 { color: var(--forest); }
+
+    .arch-intent-slots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .arch-slot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .arch-slot.slot-doc { background: var(--moss-soft); color: var(--forest); }
+    .arch-slot.slot-case { background: var(--sky-soft); color: var(--sky); }
+    .arch-slot.slot-comms { background: var(--amber-soft); color: var(--amber); }
+    .arch-slot.slot-qa { background: var(--panel); color: var(--muted); border: 1px solid var(--line); }
+
+    .arch-arrow {
+      display: flex;
+      justify-content: center;
+      padding: 6px 0;
+    }
+    .arch-arrow svg { display: block; }
+
+    /* ---------- Step cards ---------- */
+    .step-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 8px; }
+    .step-card {
+      padding: 24px 20px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+      position: relative;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: var(--amber);
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.96rem;
+    }
+    .step-time {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .step-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.08rem; margin: 10px 0 8px; }
+    .step-card p { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.5; }
+
+    /* ---------- Workflow cards ---------- */
+    .wf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .wf-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--amber);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .wf-card.wf-case { border-top-color: var(--sky); }
+    .wf-card.wf-comms { border-top-color: var(--forest); }
+    .wf-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .wf-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--amber); }
+    .wf-card.wf-case .wf-label { color: var(--sky); }
+    .wf-card.wf-comms .wf-label { color: var(--forest-light); }
+    .wf-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.18rem; margin: 8px 0 12px; }
+    .wf-card p { color: var(--muted); font-size: 0.92rem; margin: 0 0 14px; }
+
+    .wf-pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .wf-step {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .wf-step-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--amber);
+    }
+    .wf-card.wf-case .wf-step-icon { background: var(--sky); }
+    .wf-card.wf-comms .wf-step-icon { background: var(--forest); }
+    .wf-step-arrow {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0 0 0 22px;
+    }
+    .wf-step-arrow svg { display: block; }
+
+    /* ---------- Testing section ---------- */
+    .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 12px; }
+    .test-card {
+      padding: 24px 20px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      text-align: center;
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .test-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .test-card.t-pass { border-top: 4px solid #2d8a56; }
+    .test-card.t-miss { border-top: 4px solid var(--amber); }
+    .test-card.t-fail { border-top: 4px solid #b83a3a; }
+    .test-emoji { font-size: 2rem; margin-bottom: 8px; }
+    .test-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.12rem; margin: 6px 0 8px; }
+    .test-card.t-pass h3 { color: #2d8a56; }
+    .test-card.t-miss h3 { color: var(--amber); }
+    .test-card.t-fail h3 { color: #b83a3a; }
+    .test-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .panel-card { padding: 32px 30px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); will-change: transform, opacity; }
+
+    .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--amber-soft); color: var(--amber-deep); font-size: 0.92rem; font-weight: 500; }
+    .note strong { color: var(--forest); }
+
+    /* ---------- Next step ---------- */
+    .next {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 60%, #225c49);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .next::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 84% 0%, rgba(184, 115, 51, 0.25), transparent 46%); pointer-events: none; }
+    .next > * { position: relative; }
+    .next .eyebrow { background: rgba(184, 115, 51, 0.2); color: #e8a96a; }
+    .next h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 14px 0 12px; }
+    .next p { color: rgba(234, 250, 241, 0.84); margin: 0 0 22px; max-width: 640px; }
+    .next .btn-primary { background: var(--moss); color: var(--forest); }
+    .next .btn-primary:hover { background: #a7e0c4; }
+    .next .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .next .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .next-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal default state ----------
+       内容默认可见；勿用 CSS 隐藏 .reveal 后再 gsap.from()（会白屏）。
+       GSAP 可用时用 fromTo 控制起止；不可用或减少动画时保持可见。 */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .arch-node,
+    html.gsap-fallback .step-card,
+    html.gsap-fallback .wf-card,
+    html.gsap-fallback .test-card,
+    html.gsap-fallback .panel-card {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .step-grid { grid-template-columns: repeat(2, 1fr); }
+      .wf-grid { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .step-grid { grid-template-columns: 1fr; }
+      .arch-intent-slots { flex-direction: column; align-items: center; }
+      .next { padding: 32px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .arch-node, .step-card, .wf-card, .test-card, .panel-card { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="第 3 课导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#architecture">项目助理架构</a>
+        <a class="nav-link" href="#workflows">工作流</a>
+        <a class="nav-link" href="#testing">互测</a>
+        <a class="nav-link" href="quiz.html">课后测验</a>
+        <a class="nav-cta" href="../../report/index.html">调研洞察</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../part-02-knowledge-base/index.html">第 2 课 · 知识库</a>
+    <span aria-hidden="true">/</span>
+    第 3 课 · AI智能体
+  </nav>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="lesson-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">③</span> 第 3 课 · AI智能体</div>
+      <h1 class="reveal" id="lesson-title">把技能与知识库<br><span class="grad">编排成「项目助理」</span></h1>
+      <p class="hero-lead reveal">
+        前两课分别解决了「怎么做」（技能）和「有什么」（知识库），但它们各自独立。
+        这节课教你把多个技能和知识库<strong>编排</strong>成一个统一的项目助理——用户只需要开口说一句话，
+        项目助理自动判断意图、选对技能、查对知识库、输出结构化回答。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>时长 120 分钟</span>
+        <span class="meta-chip"><span class="dot"></span>产出 项目助理AI智能体调试通过</span>
+        <span class="meta-chip"><span class="dot"></span>主线第三步：AI智能体</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="handbook.html">
+          打开学员手册
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#architecture">查看项目助理架构</a>
+      </div>
+      <p class="reveal" style="margin:16px 0 0;font-size:0.9rem;color:var(--muted);">
+        课后自测：<a href="quiz.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">课后测验（10 题）→</a>
+        覆盖本课 3 项教学目标（助理架构 / 配置挂载 / 工作流调试），每题标注对应《学员手册》章节。
+      </p>
+    </section>
+
+    <!-- ================= Architecture ================= -->
+    <section class="section" id="architecture" aria-labelledby="arch-title">
+      <div class="section-head">
+        <div class="section-num reveal">项目助理架构</div>
+        <h2 class="section-title reveal" id="arch-title">项目助理 = 统一入口 + 多技能路由 + 知识库增强</h2>
+        <p class="section-desc reveal">用户不需要知道背后有几个技能、几个知识库——只需要一个入口，说清楚自己要什么，项目助理替你分拣、检索、组装。</p>
+      </div>
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <!-- Layer 1: User entry -->
+          <div class="arch-node is-entry reveal">
+            <h3>用户入口</h3>
+            <p>扫码 / 链接 / 嵌入网页——一个统一的对话窗口</p>
+          </div>
+
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--amber)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Layer 2: Intent recognition -->
+          <div class="arch-node is-intent reveal">
+            <h3>意图识别层</h3>
+            <p>用户说了什么 → 应该分到哪个技能？</p>
+            <div class="arch-intent-slots">
+              <span class="arch-slot slot-doc">文书类意图</span>
+              <span class="arch-slot slot-case">案例类意图</span>
+              <span class="arch-slot slot-comms">传播类意图</span>
+              <span class="arch-slot slot-qa">综合问答</span>
+            </div>
+          </div>
+
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--forest)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Layer 3: Skill routing -->
+          <div class="arch-node reveal">
+            <h3>技能路由层</h3>
+            <p>根据意图加载对应技能的 SOP + 输出契约（结项报告 / 项目书 / 案例检索 / 推文...）</p>
+          </div>
+
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--sky)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Layer 4: KB RAG -->
+          <div class="arch-node is-rag reveal">
+            <h3>知识库 RAG 增强</h3>
+            <p>从云端知识库检索相关文档切片，补充事实、案例、数据，减少幻觉</p>
+          </div>
+
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--moss)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Layer 5: Output -->
+          <div class="arch-node is-output reveal">
+            <h3>格式化输出</h3>
+            <p>按技能的输出契约组织回答，标注来源 / 缺失项 / 置信度</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Assembly Steps ================= -->
+    <section class="section" id="steps" aria-labelledby="steps-title">
+      <div class="section-head">
+        <div class="section-num reveal">课堂四步</div>
+        <h2 class="section-title reveal" id="steps-title">四步组装你的项目助理</h2>
+        <p class="section-desc reveal">从注册平台到互测反馈，120 分钟内完成一个可对话的项目助理。</p>
+      </div>
+      <div class="step-grid">
+        <div class="step-card reveal">
+          <div><span class="step-badge">1</span><span class="step-time">25 分钟</span></div>
+          <h3>元器首配</h3>
+          <p>注册腾讯元器，Fork 主模板到自己工作区，自定义机构名称、欢迎语与系统提示词。</p>
+        </div>
+        <div class="step-card reveal">
+          <div><span class="step-badge">2</span><span class="step-time">35 分钟</span></div>
+          <h3>挂载技能与知识库</h3>
+          <p>把第 1 课的技能嵌入触发条件，上传第 2 课的知识库，调试 5 个真实问题。</p>
+        </div>
+        <div class="step-card reveal">
+          <div><span class="step-badge">3</span><span class="step-time">50 分钟</span></div>
+          <h3>升级工作流</h3>
+          <p>按文书链、案例库、传播运营三个模块，各搭建一个多步骤工作流。</p>
+        </div>
+        <div class="step-card reveal">
+          <div><span class="step-badge">4</span><span class="step-time">10 分钟</span></div>
+          <h3>互测反馈</h3>
+          <p>扫码互测，每人问 3 个问题，记录「准 / 不准 / 乱答」。</p>
+        </div>
+      </div>
+      <p class="note reveal">
+        <strong>核心思路</strong>：先让项目助理「能聊」（步骤 1-2），再让它「聊得好」（步骤 3-4）。不必一次做到完美——第 4 课会按你的主场景继续深化。
+      </p>
+    </section>
+
+    <!-- ================= Workflows ================= -->
+    <section class="section" id="workflows" aria-labelledby="wf-title">
+      <div class="section-head">
+        <div class="section-num reveal">三模块工作流</div>
+        <h2 class="section-title reveal" id="wf-title">三模块工作流</h2>
+        <p class="section-desc reveal">当简单的「意图 → 技能 → 回答」不够用时，用工作流把多步骤串起来——每个模块都是一条完整的处理链。</p>
+      </div>
+      <div class="wf-grid">
+        <!-- M1 -->
+        <article class="wf-card wf-doc reveal">
+          <div class="wf-label">模块 M1</div>
+          <h3>文书链工作流</h3>
+          <p>把流水账变成结构化报告的完整处理链。</p>
+          <div class="wf-pipeline">
+            <div class="wf-step"><div class="wf-step-icon">1</div>材料预处理：提取关键信息</div>
+            <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--amber)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wf-step"><div class="wf-step-icon">2</div>知识库检索：同类报告 + 模板</div>
+            <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--amber)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wf-step"><div class="wf-step-icon">3</div>报告生成：六章节输出契约</div>
+            <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--amber)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wf-step"><div class="wf-step-icon">4</div>自检 + 缺失项清单</div>
+          </div>
+        </article>
+        <!-- M2 -->
+        <article class="wf-card wf-case reveal">
+          <div class="wf-label">模块 M2</div>
+          <h3>案例库工作流</h3>
+          <p>从需求到案例卡片的精准检索链。</p>
+          <div class="wf-pipeline">
+            <div class="wf-step"><div class="wf-step-icon">1</div>意图解析：领域 + 类型提取</div>
+            <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--sky)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wf-step"><div class="wf-step-icon">2</div>多维检索：领域 + 类型 + 年份</div>
+            <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--sky)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wf-step"><div class="wf-step-icon">3</div>案例卡片：背景→干预→结果→反思</div>
+          </div>
+        </article>
+        <!-- M3 -->
+        <article class="wf-card wf-comms reveal">
+          <div class="wf-label">模块 M3</div>
+          <h3>传播运营工作流</h3>
+          <p>从素材到合规发布的内容生产链。</p>
+          <div class="wf-pipeline">
+            <div class="wf-step"><div class="wf-step-icon">1</div>素材收集：项目亮点 + 故事</div>
+            <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--forest)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wf-step"><div class="wf-step-icon">2</div>内容生成：按平台调整篇幅语气</div>
+            <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--forest)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="wf-step"><div class="wf-step-icon">3</div>合规检查：脱敏 + 来源校验</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Testing ================= -->
+    <section class="section" id="testing" aria-labelledby="test-title">
+      <div class="section-head">
+        <div class="section-num reveal">互测方法</div>
+        <h2 class="section-title reveal" id="test-title">互测：准 / 不准 / 乱答</h2>
+        <p class="section-desc reveal">和邻座交换项目助理二维码，各问 3 个问题，把回答分成三类——这是发现问题最快的方法。</p>
+      </div>
+      <div class="test-grid">
+        <div class="test-card t-pass reveal">
+          <div class="test-emoji" aria-hidden="true">&#x2705;</div>
+          <h3>准</h3>
+          <p>回答正确、格式对、引用了知识库中的真实信息，技能加载也正确。</p>
+        </div>
+        <div class="test-card t-miss reveal">
+          <div class="test-emoji" aria-hidden="true">&#x26A0;&#xFE0F;</div>
+          <h3>不准</h3>
+          <p>回答了但信息有误，或编造了不存在的数据——说明知识库缺料或检索不到位。</p>
+        </div>
+        <div class="test-card t-fail reveal">
+          <div class="test-emoji" aria-hidden="true">&#x274C;</div>
+          <h3>乱答</h3>
+          <p>答非所问、加载了错误的技能、格式混乱——说明意图识别或触发条件有问题。</p>
+        </div>
+      </div>
+      <div class="panel-card reveal" style="margin-top: 28px;">
+        <h3 style="font-family: 'Noto Serif SC', serif; font-size: 1.1rem; margin-bottom: 12px;">互测操作流程</h3>
+        <ol style="margin: 0; padding-left: 20px; color: var(--muted); font-size: 0.94rem;">
+          <li style="margin-bottom: 8px;"><strong>扫码交换</strong>：和邻座互扫项目助理的二维码</li>
+          <li style="margin-bottom: 8px;"><strong>各问 3 题</strong>：覆盖文书、案例、综合问答等不同场景</li>
+          <li style="margin-bottom: 8px;"><strong>记录分类</strong>：每个回答标注「准 / 不准 / 乱答」</li>
+          <li><strong>反馈交换</strong>：把记录还给对方，课后按反馈修一轮</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ================= Next step ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="next reveal">
+        <div class="eyebrow">下一步 · 第 4 课</div>
+        <h2>项目助理跑通了——下一步，按你的主场景深化</h2>
+        <p>项目助理跑通了——下一步，按你的主场景深化并补齐第 2 个技能。第 4 课教你选定机构最重要的 1-2 个场景，纵深打磨工作流，把准确率从「能用」拉到「好用」。</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="../part-04-scenario/index.html">进入第 4 课 · 场景深化</a>
+          <a class="btn btn-ghost" href="handbook.html">打开第 3 课学员手册</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 第 3 课 · 技能 → 知识库 → AI智能体</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="handbook.html">学员手册</a>
+      <a href="../part-02-knowledge-base/index.html">第 2 课 · 知识库</a>
+      <a href="../../report/index.html">调研洞察</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 第 3 课「AI智能体」页面交互动画
+     * @description 使用 GSAP + ScrollTrigger 驱动入场与滚动揭示，复用课程首页约定：
+     *              内容默认可见，GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initAgentLesson() {
+      var root = document.documentElement;
+
+      /**
+       * GSAP 不可用时的静态兜底：保证全部内容可见。
+       * @returns {void}
+       */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .arch-node, .step-card, .wf-card, .test-card, .panel-card", { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      // ---------- Hero 入场时间线 ----------
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /**
+       * 滚动揭示单个元素。
+       * @param {Element} el 目标元素
+       * @returns {void}
+       */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach(function(el) {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      // ---------- 架构图节点：级联揭示 ----------
+      gsap.set(".arch-node", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".arch-node", {
+        start: "top 90%",
+        onEnter: function(batch) { gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.15, duration: 0.6, overwrite: true }); },
+        onLeaveBack: function(batch) { gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true }); }
+      });
+
+      // ---------- 卡片：批量错峰揭示 ----------
+      gsap.set(".step-card, .wf-card, .test-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".step-card, .wf-card, .test-card", {
+        start: "top 90%",
+        onEnter: function(batch) { gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true }); },
+        onLeaveBack: function(batch) { gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true }); }
+      });
+
+      window.addEventListener("load", function() { ScrollTrigger.refresh(); });
+    })();
+  </script>
+</body>
+</html>

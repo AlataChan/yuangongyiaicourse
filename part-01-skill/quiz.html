@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 1 课 · 课后测验（10 题） | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营 第 1 课「技能」课后测验：10 道自测题，覆盖技能与提示词/知识库/AI智能体的分工、输出契约、数据合规。含答案与解析。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#eef3ef;--paper:#fafcf9;--panel:#f2f7f3;--ink:#14261f;--muted:#5a6f64;
+      --line:#d4e0d8;--forest:#1a4d3e;--forest-light:#2d6b58;--moss:#8fd4b0;--moss-soft:#d8f0e4;
+      --amber:#b87333;--sky:#3d6b8c;--shadow:0 18px 42px rgba(20,38,31,.08);--radius:16px;--max:880px;
+    }
+    *,*::before,*::after{box-sizing:border-box;}
+    html{scroll-behavior:smooth;background:var(--bg);}
+    body{margin:0;color:var(--ink);line-height:1.62;
+      font-family:"Source Sans 3","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      background:radial-gradient(circle at 12% 8%,rgba(143,212,176,.22),transparent 28%),var(--bg);}
+    a{color:inherit;text-decoration:none;}
+    h1,h2,h3,p{margin-top:0;}
+    .site-header{position:sticky;top:0;z-index:30;height:64px;border-bottom:1px solid rgba(212,224,216,.85);
+      background:rgba(238,243,239,.9);backdrop-filter:blur(16px);}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--max);
+      height:100%;margin:0 auto;padding:0 24px;gap:16px;}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:.96rem;}
+    .brand-mark{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:17px;
+      background:var(--forest);color:var(--moss);}
+    .header-nav{display:flex;align-items:center;gap:6px;}
+    .header-nav a{padding:7px 12px;border-radius:999px;color:var(--muted);font-size:.86rem;font-weight:600;}
+    .header-nav a:hover{color:var(--forest);background:var(--moss-soft);}
+    .header-nav a.active{color:var(--forest);background:var(--moss-soft);}
+    .crumb{max-width:var(--max);margin:0 auto;padding:22px 24px 0;font-size:.86rem;color:var(--muted);font-weight:600;}
+    .crumb a{color:var(--forest);border-bottom:1px solid rgba(26,77,62,.3);}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px 24px 72px;}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;
+      background:var(--moss-soft);color:var(--forest);font-size:.82rem;font-weight:700;}
+    h1.title{font-weight:900;line-height:1.16;font-size:clamp(1.7rem,4vw,2.4rem);margin:14px 0 12px;}
+    .lead{color:var(--muted);font-size:1.02rem;max-width:640px;}
+    .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:22px 0 6px;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-weight:700;
+      font-size:.92rem;cursor:pointer;border:1px solid var(--line);background:var(--paper);color:var(--forest);
+      transition:background-color .16s ease,transform .16s ease;}
+    .btn:hover{background:var(--moss-soft);transform:translateY(-1px);}
+    .btn-primary{background:var(--forest);color:#fff;border-color:var(--forest);}
+    .btn-primary:hover{background:var(--forest-light);}
+    .hint{color:var(--muted);font-size:.86rem;margin:6px 0 0;}
+    ol.quiz{list-style:none;counter-reset:q;margin:26px 0 0;padding:0;display:grid;gap:18px;}
+    .q{counter-increment:q;padding:22px 22px 18px;border-radius:var(--radius);background:var(--paper);
+      border:1px solid var(--line);box-shadow:var(--shadow);}
+    .q-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+    .q-num{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:var(--forest);
+      color:#fff;font-weight:700;font-size:.92rem;}
+    .q-num::before{content:counter(q);}
+    .q-type{font-size:.74rem;font-weight:700;letter-spacing:.04em;padding:3px 9px;border-radius:999px;
+      background:var(--panel);color:var(--forest-light);border:1px solid var(--line);}
+    .q-type.multi{color:var(--sky);}
+    .q-type.tf{color:var(--amber);}
+    .q-type.open{color:var(--forest-light);}
+    .bind{margin:22px 0 4px;padding:16px 18px;border-radius:12px;background:var(--moss-soft);
+      border:1px solid var(--line);font-size:.92rem;color:var(--forest);}
+    .bind strong{color:var(--forest);}
+    .bind a{font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);}
+    .bind-cta{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:8px 16px;border-radius:999px;
+      background:var(--forest);color:#fff;font-weight:700;font-size:.88rem;border-bottom:none;}
+    .bind-cta:hover{background:var(--forest-light);}
+    .q-src{display:inline-flex;flex-wrap:wrap;gap:6px;margin-left:auto;}
+    .q-src a{padding:3px 9px;border-radius:999px;background:var(--panel);border:1px solid var(--line);
+      color:var(--forest-light);font-size:.72rem;font-weight:700;white-space:nowrap;}
+    .q-src a:hover{background:var(--moss-soft);color:var(--forest);}
+    @media (max-width:560px){.q-head{flex-wrap:wrap;}.q-src{margin-left:0;width:100%;}}
+    .q-stem{font-weight:600;font-size:1rem;margin:0 0 12px;}
+    ul.opts{list-style:none;margin:0 0 12px;padding:0;display:grid;gap:7px;}
+    ul.opts li{display:flex;gap:9px;font-size:.95rem;color:var(--ink);}
+    ul.opts li .k{font-weight:700;color:var(--forest-light);min-width:1.2em;}
+    details.ans{border-top:1px dashed var(--line);padding-top:10px;margin-top:4px;}
+    details.ans summary{cursor:pointer;font-weight:700;font-size:.9rem;color:var(--forest);list-style:none;
+      display:inline-flex;align-items:center;gap:6px;}
+    details.ans summary::-webkit-details-marker{display:none;}
+    details.ans summary::before{content:"▸";color:var(--forest-light);transition:transform .15s ease;}
+    details.ans[open] summary::before{transform:rotate(90deg);}
+    .ans-body{margin-top:10px;padding:12px 14px;border-radius:10px;background:var(--moss-soft);font-size:.92rem;}
+    .ans-body .key{font-weight:800;color:var(--forest);}
+    .ans-body p{margin:6px 0 0;color:var(--ink);}
+    .note{margin-top:26px;padding:16px 18px;border-radius:12px;background:var(--panel);border:1px solid var(--line);
+      color:var(--muted);font-size:.9rem;}
+    .footer{max-width:var(--max);margin:0 auto;padding:0 24px 48px;color:var(--muted);font-size:.84rem;
+      display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;}
+    .footer a{font-weight:600;}
+    .footer a:hover{color:var(--forest);}
+    @media (max-width:560px){.header-nav a.nav-link{display:none;}}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="第 1 课导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="index.html">第 1 课</a>
+        <a class="nav-link" href="handbook.html">学员手册</a>
+        <a class="active" href="quiz.html">课后测验</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a> / <a href="index.html">第 1 课 · 技能</a> / 课后测验
+  </nav>
+
+  <main class="wrap">
+    <div class="eyebrow">① 第 1 课 · 课后测验</div>
+    <h1 class="title">技能：课后测验（10 题）</h1>
+    <p class="lead">围绕「技能与提示词/知识库/AI智能体的分工、三层加载模型、输出契约、数据合规」自测。先独立作答，再展开核对答案与解析。客观题为主，最后一题为开放简答。</p>
+
+    <div class="toolbar">
+      <button class="btn btn-primary" type="button" data-action="show-all">显示全部答案</button>
+      <button class="btn" type="button" data-action="hide-all">收起全部答案</button>
+    </div>
+    <p class="hint">建议先全部独立作答后再核对。开放题给出参考方向，不唯一。</p>
+
+    <div class="bind">
+      <strong>本测验对应《学员手册》全部 6 个章节，覆盖第 1 课学习目标 ①–⑤。</strong>
+      每题右上角标注其「对应手册章节 + 学习目标」，点击即可跳转复习。建议先学完手册再作答。
+      <br>
+      <a class="bind-cta" href="handbook.html">建议先学完 → 学员手册</a>
+    </div>
+
+    <ol class="quiz">
+      <li class="q" id="q1">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#concepts">手册·概念辨析</a><a href="index.html#objectives">目标①</a></span></div>
+        <p class="q-stem">「技能」与「一次性提示词」最本质的区别是什么？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>技能写得更长</span></li>
+          <li><span class="k">B</span><span>技能把做法、输出格式与边界规则沉淀下来、可复用</span></li>
+          <li><span class="k">C</span><span>一次性提示词不能用中文</span></li>
+          <li><span class="k">D</span><span>技能必须联网才能运行</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：B</span><p>技能是「可复用的能力包」=SOP+模板+边界；提示词是一次性指令，用完即弃。</p></div></details>
+      </li>
+
+      <li class="q" id="q2">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#workbuddy">手册·实操Step2</a><a href="index.html#objectives">目标③</a></span></div>
+        <p class="q-stem">三层加载模型中，决定一个技能「该用才用」的是哪一层？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>触发描述（什么情况下调用）</span></li>
+          <li><span class="k">B</span><span>主说明（步骤与格式）</span></li>
+          <li><span class="k">C</span><span>引用资料（模板与范例）</span></li>
+          <li><span class="k">D</span><span>输出字数</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A</span><p>触发描述写明意图与边界，决定智能体是否在正确场景调用该技能。</p></div></details>
+      </li>
+
+      <li class="q" id="q3">
+        <div class="q-head"><span class="q-num"></span><span class="q-type multi">多选</span>
+          <span class="q-src"><a href="handbook.html#templates">手册·技能样板</a><a href="index.html#objectives">目标②</a></span></div>
+        <p class="q-stem">下列哪些任务适合优先做成技能？（多选）</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>高频重复的任务</span></li>
+          <li><span class="k">B</span><span>输出格式稳定的任务</span></li>
+          <li><span class="k">C</span><span>做错有代价的任务</span></li>
+          <li><span class="k">D</span><span>一生只做一次的临时任务</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A、B、C</span><p>高频、格式稳定、出错代价高的任务最值得封装；一次性任务直接用提示词即可。</p></div></details>
+      </li>
+
+      <li class="q" id="q4">
+        <div class="q-head"><span class="q-num"></span><span class="q-type tf">判断</span>
+          <span class="q-src"><a href="handbook.html#workbuddy">手册·实操Step3</a><a href="index.html#objectives">目标④</a></span></div>
+        <p class="q-stem">「输出契约」指固定的输出结构（如结项报告的六个章节），便于复用与校验。</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>对</span></li>
+          <li><span class="k">B</span><span>错</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：对</span><p>固定输出契约让结果可预期、可校验（如可用脚本检查章节齐全性）。</p></div></details>
+      </li>
+
+      <li class="q" id="q5">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#gotchas">手册·Gotchas</a><a href="index.html#objectives">目标④</a></span></div>
+        <p class="q-stem">结项报告技能中最典型、最该写明的「禁止项」是？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>使用 Markdown 格式</span></li>
+          <li><span class="k">B</span><span>编造未发生的活动或夸大参与人数</span></li>
+          <li><span class="k">C</span><span>分章节输出</span></li>
+          <li><span class="k">D</span><span>标注缺失项</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：B</span><p>禁止编造与夸大是文书技能的底线；标注缺失项、分章节恰恰是应做的。</p></div></details>
+      </li>
+
+      <li class="q" id="q6">
+        <div class="q-head"><span class="q-num"></span><span class="q-type multi">多选</span>
+          <span class="q-src"><a href="handbook.html#workbuddy">手册·实操指南</a><a href="index.html#objectives">目标③</a></span></div>
+        <p class="q-stem">一个最小可用技能（如 WorkBuddy 里的一个「角色」）通常应包含哪些要素？（多选）</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>触发场景</span></li>
+          <li><span class="k">B</span><span>步骤</span></li>
+          <li><span class="k">C</span><span>禁止项 / 边界规则</span></li>
+          <li><span class="k">D</span><span>2–3 份真实范例</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A、B、C、D</span><p>触发场景+步骤+边界+范例，构成一个可跑通的最小技能。</p></div></details>
+      </li>
+
+      <li class="q" id="q7">
+        <div class="q-head"><span class="q-num"></span><span class="q-type tf">判断</span>
+          <span class="q-src"><a href="handbook.html#compliance">手册·数据合规</a><a href="index.html#objectives">目标⑤</a></span></div>
+        <p class="q-stem">上传范例时，可以直接放真实受益人姓名和捐赠金额，方便 AI 学习。</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>对</span></li>
+          <li><span class="k">B</span><span>错</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：错</span><p>必须先脱敏：人名→A/B/C，金额→量级。受益人、捐赠人信息属于敏感数据。</p></div></details>
+      </li>
+
+      <li class="q" id="q8">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#concepts">手册·概念辨析</a><a href="index.html#objectives">目标①</a></span></div>
+        <p class="q-stem">「机构有哪些事实、案例、历年档案」这类内容，应归属于？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>技能</span></li>
+          <li><span class="k">B</span><span>知识库</span></li>
+          <li><span class="k">C</span><span>AI智能体</span></li>
+          <li><span class="k">D</span><span>一次性提示词</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：B</span><p>「怎么做」归技能，「有什么事实」归知识库（第 2 课）。</p></div></details>
+      </li>
+
+      <li class="q" id="q9">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#demo">手册·跑真实任务</a><a href="index.html#objectives">目标④</a></span></div>
+        <p class="q-stem">衡量第 1 课技能是否成功，最直接的指标是？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>技能的字数多少</span></li>
+          <li><span class="k">B</span><span>用真实任务跑通，并记录「原来多久 / 现在多久」</span></li>
+          <li><span class="k">C</span><span>界面好不好看</span></li>
+          <li><span class="k">D</span><span>用了多少个模型</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：B</span><p>「在用中学」：用真实任务跑通并量化省下的时间，才算技能落地。</p></div></details>
+      </li>
+
+      <li class="q" id="q10">
+        <div class="q-head"><span class="q-num"></span><span class="q-type open">简答</span>
+          <span class="q-src"><a href="handbook.html#homework">手册·课后作业</a><a href="index.html#objectives">目标③</a></span></div>
+        <p class="q-stem">用一句话写出你要做的第一个技能：它的「触发场景 + 输出物」分别是什么？</p>
+        <details class="ans"><summary>显示参考方向</summary><div class="ans-body"><span class="key">参考方向（不唯一）</span><p>示例：「当我提供项目执行流水账时，生成一份含背景/活动/产出/成效/反思/附件清单六章节的结项报告。」要点：写清触发条件 + 固定输出契约。</p></div></details>
+      </li>
+    </ol>
+
+    <p class="note">提示：本测验为自评工具，答案可随时展开核对；讲师可在课后用「显示全部答案」一键对照。完整步骤与课后作业见 <a href="handbook.html">学员手册</a>。</p>
+  </main>
+
+  <footer class="footer">
+    <div>环境公益 AI 赋能工程营 · 第 1 课 · 技能 → 知识库 → AI智能体</div>
+    <div>
+      <a href="index.html">返回第 1 课</a>　<a href="../part-02-knowledge-base/index.html">下一课 · 知识库 →</a>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * 课后测验答案的「全部展开 / 全部收起」控制。
+     * 纯原生实现，无外部依赖，离线可用。
+     * @returns {void}
+     */
+    (function initQuizControls() {
+      /** @type {NodeListOf<HTMLDetailsElement>} 页面内所有答案折叠块 */
+      const answers = document.querySelectorAll("details.ans");
+
+      /**
+       * 批量设置所有答案折叠块的展开状态。
+       * @param {boolean} open 为 true 时展开，false 时收起
+       * @returns {void}
+       */
+      function setAll(open) {
+        answers.forEach((el) => { el.open = open; });
+      }
+
+      document.querySelectorAll("[data-action]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          setAll(btn.getAttribute("data-action") === "show-all");
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

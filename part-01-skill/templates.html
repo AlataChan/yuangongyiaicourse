@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>技能样板库 · 第 1 课 · 技能 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="一页预览四个即用技能样板（结项报告 / 项目书 / 资助信 / 技能优化）：在线阅读技能定义与配套模板，一键复制，无需下载或打开源码目录。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.12), transparent 24%),
+        var(--bg);
+    }
+    body.modal-open { overflow: hidden; }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--forest); background: var(--moss-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 36px 24px 72px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 28px 24px 8px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--moss-soft); color: var(--forest);
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em;
+    }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.14;
+      font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+      margin: 16px 0 14px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--forest), var(--forest-light) 45%, var(--moss));
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 660px; color: var(--muted); font-size: 1.06rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .meta-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow);
+      font-size: 0.86rem; font-weight: 600; color: var(--forest); white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); }
+
+    /* ---------- Buttons ---------- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 999px;
+      font-weight: 700; font-size: 0.96rem; cursor: pointer;
+      border: none; font-family: inherit;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--moss-soft); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+
+    /* ---------- Gallery cards ---------- */
+    .sample-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 12px; }
+    .sample-card {
+      display: flex; flex-direction: column;
+      padding: 28px 26px; border-radius: var(--radius);
+      background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--forest);
+      box-shadow: var(--shadow); will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .sample-card.s2 { border-top-color: var(--sky); }
+    .sample-card.s3 { border-top-color: var(--amber); }
+    .sample-card.s4 { border-top-color: var(--moss); }
+    .sample-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .sample-scene { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--forest-light); }
+    .sample-card.s2 .sample-scene { color: var(--sky); }
+    .sample-card.s3 .sample-scene { color: var(--amber); }
+    .sample-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.22rem; margin: 8px 0 10px; }
+    .sample-card p { color: var(--muted); font-size: 0.94rem; margin: 0 0 14px; }
+    .sample-trigger {
+      font-size: 0.82rem; color: var(--forest); background: var(--moss-soft);
+      border-radius: 10px; padding: 9px 12px; margin: 0 0 10px; font-weight: 600;
+    }
+    .sample-card.s2 .sample-trigger { color: var(--sky); background: var(--sky-soft); }
+    .sample-card.s3 .sample-trigger { color: var(--amber); background: var(--amber-soft); }
+    .sample-flow { font-size: 0.84rem; font-weight: 600; color: var(--forest); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 0 0 18px; }
+    .sample-actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .btn-sm { padding: 9px 16px; font-size: 0.88rem; }
+    .raw-link { font-size: 0.84rem; font-weight: 700; color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.35); }
+    .raw-link:hover { color: var(--forest-light); }
+
+    .note { margin-top: 26px; padding: 18px 20px; border-radius: 12px; background: var(--moss-soft); color: var(--forest); font-size: 0.92rem; }
+
+    /* ---------- Reader modal ---------- */
+    .reader { position: fixed; inset: 0; z-index: 60; display: none; }
+    .reader.open { display: block; }
+    .reader-backdrop { position: absolute; inset: 0; background: rgba(15, 30, 24, 0.52); backdrop-filter: blur(3px); }
+    .reader-panel {
+      position: absolute; top: 0; right: 0; height: 100%;
+      width: min(760px, 100%);
+      background: var(--paper);
+      box-shadow: -30px 0 70px rgba(15, 30, 24, 0.28);
+      display: flex; flex-direction: column;
+      transform: translateX(24px); opacity: 0;
+      transition: transform 240ms ease, opacity 240ms ease;
+    }
+    .reader.open .reader-panel { transform: translateX(0); opacity: 1; }
+    .reader-head {
+      position: sticky; top: 0; z-index: 2;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+      padding: 22px 26px 16px; border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .reader-head .scene { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--forest-light); }
+    .reader-head h2 { font-family: "Noto Serif SC", serif; font-size: 1.3rem; margin: 6px 0 0; }
+    .reader-close {
+      flex: none; width: 38px; height: 38px; border-radius: 10px; cursor: pointer;
+      border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+      font-size: 20px; line-height: 1; display: grid; place-items: center;
+      transition: background-color 160ms ease;
+    }
+    .reader-close:hover { background: var(--moss-soft); }
+    .reader-body { overflow-y: auto; padding: 22px 26px 40px; -webkit-overflow-scrolling: touch; }
+
+    .doc-block { margin-bottom: 30px; }
+    .doc-toolbar {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+      margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed var(--line);
+    }
+    .doc-toolbar .doc-kind {
+      font-size: 0.8rem; font-weight: 700; color: var(--forest);
+      background: var(--moss-soft); border-radius: 999px; padding: 5px 12px; margin-right: auto;
+    }
+    .copy-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 13px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--line); background: var(--paper); color: var(--forest);
+      font-family: inherit; font-size: 0.82rem; font-weight: 700;
+      transition: background-color 160ms ease, border-color 160ms ease;
+    }
+    .copy-btn:hover { background: var(--moss-soft); border-color: var(--moss); }
+    .copy-btn.done { background: var(--forest); color: #fff; border-color: var(--forest); }
+
+    .trigger-callout {
+      margin: 0 0 26px; padding: 14px 16px; border-radius: 12px;
+      background: var(--sky-soft); border: 1px solid #cfe1ec;
+    }
+    .trigger-callout .tc-label { font-size: 0.78rem; font-weight: 700; color: var(--sky); margin-bottom: 6px; }
+    .trigger-callout .tc-text { font-size: 0.88rem; color: var(--ink); font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace; line-height: 1.5; }
+
+    .doc-links { margin-top: 4px; display: flex; flex-direction: column; gap: 8px; }
+    .doc-links a { font-size: 0.86rem; font-weight: 600; color: var(--forest); }
+    .doc-links a:hover { color: var(--forest-light); text-decoration: underline; }
+
+    /* ---------- Rendered markdown ---------- */
+    .md-body { color: var(--ink); font-size: 0.95rem; }
+    .md-body h1 { font-family: "Noto Serif SC", serif; font-size: 1.4rem; margin: 18px 0 12px; }
+    .md-body h2 { font-family: "Noto Serif SC", serif; font-size: 1.12rem; margin: 22px 0 10px; padding-top: 6px; border-top: 1px solid var(--line); }
+    .md-body h2:first-child { border-top: none; padding-top: 0; margin-top: 4px; }
+    .md-body h3 { font-size: 1rem; margin: 16px 0 8px; color: var(--forest); }
+    .md-body p { margin: 0 0 12px; }
+    .md-body ul, .md-body ol { margin: 0 0 14px; padding-left: 22px; }
+    .md-body li { margin-bottom: 6px; }
+    .md-body strong { color: var(--forest); }
+    .md-body a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .md-body code {
+      font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+      font-size: 0.85em; background: var(--panel); border: 1px solid var(--line);
+      border-radius: 5px; padding: 1px 5px;
+    }
+    .md-body pre {
+      background: #14261f; color: #d8f0e4; border-radius: 12px;
+      padding: 14px 16px; overflow-x: auto; margin: 0 0 16px;
+    }
+    .md-body pre code { background: none; border: none; color: inherit; padding: 0; font-size: 0.84rem; }
+    .md-body blockquote {
+      margin: 0 0 14px; padding: 10px 16px; border-left: 4px solid var(--moss);
+      background: var(--moss-soft); border-radius: 0 10px 10px 0; color: var(--forest);
+    }
+    .md-body blockquote p:last-child { margin-bottom: 0; }
+    .md-body hr { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+    .md-table-wrap { overflow-x: auto; margin: 0 0 16px; }
+    .md-body table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
+    .md-body th, .md-body td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+    .md-body th { background: var(--panel); font-weight: 700; color: var(--forest); }
+
+    /* ---------- Toast ---------- */
+    .toast {
+      position: fixed; bottom: 28px; left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      z-index: 80; padding: 11px 20px; border-radius: 999px;
+      background: var(--forest); color: #fff; font-weight: 700; font-size: 0.9rem;
+      box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .site-footer {
+      max-width: var(--max); margin: 0 auto; padding: 0 24px 56px;
+      color: var(--muted); font-size: 0.86rem;
+      display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal default / fallback ---------- */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .sample-card { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+
+    @media (max-width: 960px) {
+      .sample-grid { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 28px 20px 52px; }
+      .reader-panel { width: 100%; }
+      .reader-head { padding: 18px 18px 14px; }
+      .reader-body { padding: 18px 18px 36px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .sample-card { opacity: 1; transform: none; }
+      .reader-panel { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="技能样板库导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="index.html">第 1 课</a>
+        <a class="nav-link" href="handbook.html">学员手册</a>
+        <a class="nav-cta" href="../../report/index.html">调研洞察</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    技能样板库
+  </nav>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">📚</span> 技能样板库</div>
+      <h1 class="reveal" id="page-title">一页看全四个技能，<br><span class="grad">点开即读，无需打开源码目录</span></h1>
+      <p class="hero-lead reveal">
+        项目文书链的三个即用<strong>技能</strong>样板，外加一个「技能优化」工具样板，都在这里。点击「预览技能」即可在线阅读完整的技能定义与配套模板，
+        排版清晰、可一键复制——不用下载文件、也不用面对一堆 Markdown 源码。挑一个改成你机构的版本，
+        再到第 3 课汇入你的「项目助理」<strong>AI智能体</strong>。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>3 个文书技能 + 1 个优化工具</span>
+        <span class="meta-chip"><span class="dot"></span>在线阅读 + 一键复制</span>
+        <span class="meta-chip"><span class="dot"></span>无需下载 / 不用看源码</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-ghost" href="index.html">← 返回第 1 课</a>
+        <a class="btn btn-ghost" href="handbook.html">打开学员手册</a>
+      </div>
+    </section>
+
+    <section class="section" aria-label="技能样板列表">
+      <div class="sample-grid">
+        <article class="sample-card s1 reveal" id="closure">
+          <div class="sample-scene">场景 · 结项报告</div>
+          <h3>结项报告技能</h3>
+          <p>把项目执行流水账转成结构稳定、可直接交给资助方的结项报告。</p>
+          <p class="sample-trigger">触发：结项 / 项目总结 / 执行流水账 / 向资助方汇报</p>
+          <p class="sample-flow">执行流水账 → 六章节结构化报告</p>
+          <div class="sample-actions">
+            <button class="btn btn-primary btn-sm" type="button" data-open="closure">预览技能</button>
+            <a class="raw-link" href="skills/env-ngo-closure-report/SKILL.md" target="_blank" rel="noopener">源文件</a>
+          </div>
+        </article>
+
+        <article class="sample-card s2 reveal" id="proposal">
+          <div class="sample-scene">场景 · 项目书 / 提案</div>
+          <h3>项目书技能</h3>
+          <p>用机构简介、过往案例与资助方指南，组装一份项目立项书初稿。</p>
+          <p class="sample-trigger">触发：项目书 / 立项书 / 项目申请书 / 申报方案</p>
+          <p class="sample-flow">机构简介 + 案例 + 指南 → 立项书初稿</p>
+          <div class="sample-actions">
+            <button class="btn btn-primary btn-sm" type="button" data-open="proposal">预览技能</button>
+            <a class="raw-link" href="skills/env-ngo-proposal-draft/SKILL.md" target="_blank" rel="noopener">源文件</a>
+          </div>
+        </article>
+
+        <article class="sample-card s3 reveal" id="grant">
+          <div class="sample-scene">场景 · 资助申请信</div>
+          <h3>资助信技能</h3>
+          <p>把项目核心信息浓缩成一封简短、有说服力的资助申请信或项目摘要。</p>
+          <p class="sample-trigger">触发：资助申请 / 申请信 / 意向书 / 一页纸摘要</p>
+          <p class="sample-flow">项目核心信息 → 一页纸申请信 / 摘要</p>
+          <div class="sample-actions">
+            <button class="btn btn-primary btn-sm" type="button" data-open="grant">预览技能</button>
+            <a class="raw-link" href="skills/env-ngo-grant-letter/SKILL.md" target="_blank" rel="noopener">源文件</a>
+          </div>
+        </article>
+
+        <article class="sample-card s4 reveal" id="skillopt">
+          <div class="sample-scene">工具 · 技能优化（skillopt）</div>
+          <h3>技能优化技能</h3>
+          <p>不写文书——给你写好的技能做「体检」：10 项清单打健康分、生成评测用例、给最小修改建议。</p>
+          <p class="sample-trigger">触发：优化技能 / 不触发 / 误触发 / 评测没过 / 改 description</p>
+          <p class="sample-flow">你的 SKILL.md → 体检报告（健康分 + 可粘贴改写文本）</p>
+          <div class="sample-actions">
+            <button class="btn btn-primary btn-sm" type="button" data-open="skillopt">预览技能</button>
+            <a class="raw-link" href="skills/env-ngo-skill-optimize/SKILL.md" target="_blank" rel="noopener">源文件</a>
+          </div>
+        </article>
+      </div>
+
+      <p class="note reveal">
+        想直接上手？预览面板里点「复制技能定义」把 <code>SKILL.md</code> 粘进 WorkBuddy 的角色设定，再「复制模板」上传配套模板即可——课堂上一个角色就是一个最小可用的技能，第 3 课再迁到腾讯元器。
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1）· 第 1 课 · 技能样板库</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="index.html">第 1 课</a>
+      <a href="handbook.html">学员手册</a>
+      <a href="../../report/index.html">调研洞察</a>
+    </div>
+  </footer>
+
+  <!-- ================= Reader modal ================= -->
+  <div class="reader" id="reader" aria-hidden="true">
+    <div class="reader-backdrop" data-close></div>
+    <div class="reader-panel" role="dialog" aria-modal="true" aria-labelledby="reader-title">
+      <div class="reader-head">
+        <div>
+          <div class="scene" id="reader-scene"></div>
+          <h2 id="reader-title"></h2>
+        </div>
+        <button class="reader-close" type="button" data-close aria-label="关闭预览">×</button>
+      </div>
+      <div class="reader-body" id="reader-body"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ================= Embedded skill content =================
+       说明：以下内容内嵌自同目录 skills/ 下的 SKILL.md 与模板文件，
+       目的是让页面在本地直接双击打开（file://）时也能即时渲染、无需联网或本地服务器。
+       维护提示：修改 skills/ 源文件后，需同步更新这里对应的内嵌副本，避免内容漂移。 -->
+  <script type="text/markdown" id="doc-closure-skill">---
+name: env-ngo-closure-report
+description: >-
+  Load when the user provides project execution "流水账", activity logs, or raw
+  field notes and needs a structured closure report (背景/活动/产出/成效/反思/缺失项)
+  for an environmental nonprofit. Do not load for grant proposal first drafts,
+  funding application letters, or WeChat / social-media copy only.
+disable-model-invocation: true
+---
+
+# 结项报告技能（项目文书链 · 报告）
+
+把「项目执行流水账」转成一份结构稳定、可直接交给资助方的结项报告。这是第 1 课课堂演示用的样板技能，学员可直接 Fork 后改成自己机构的版本。
+
+## When To Use
+
+- 用户提供了项目执行记录、活动清单、签到/产出数据、现场说明等「流水账」。
+- 用户要的是**正式结项报告 / 项目总结报告**，而不是项目申请书或公众号推文。
+- 触发关键词：结项、结项报告、项目总结、执行流水账、向资助方汇报。
+
+不要用于：写项目立项书初稿（用 `env-ngo-proposal-draft`）、写资助申请信（用 `env-ngo-grant-letter`）、只写传播稿。
+
+## Workflow
+
+1. 读取用户提供的流水账 / 活动记录，抽取「活动 → 产出 → 成效」三类信息。
+2. 对照 `assets/closure_report_template.md` 的章节结构逐项填充。
+3. 只使用用户输入或机构知识库中**确有出处**的数字与事实。
+4. 任何报告必需但用户未提供的信息，统一汇总进末尾「缺失项清单」，不要编造。
+5. 输出完成后，可运行 `scripts/check_sections.mjs` 校验六个章节是否齐全。
+
+## Required Inputs
+
+- 项目名称、执行周期、资助方（若有）。
+- 活动流水：时间、地点、内容、参与规模、产出物。
+- 可选：成效数据、受益反馈、机构既有结项报告范例（用于对齐风格）。
+
+## Output Contract
+
+输出 Markdown，必须且仅包含以下六个章节，顺序固定：
+
+1. **项目背景**（≤200 字）
+2. **主要活动**（按时间或主题列表）
+3. **产出与数据**（只使用用户输入或知识库中的数字）
+4. **成效与反馈**
+5. **反思与后续建议**
+6. **缺失项清单**：报告必需、但用户未提供的信息
+
+语言与用户输入一致（默认中文）；篇幅 800–1500 字。
+
+## Gotchas
+
+- 用户未提供的数字（参与人数、预算、成效指标）**一律不估算、不编造**，列入「缺失项清单」。
+- 涉及受益人、志愿者、捐赠人的个人信息，输出前必须脱敏（姓名→A/B，删除手机/证件号）。
+- 执行方声称但无材料支撑的成效，标注为「项目方表述」而非「已核实」。
+- 流水账里的金额与产出若相互矛盾，标注冲突并请用户确认，不要静默选一个数。
+- 不要把本技能模板里的示例数据当成真实项目数据写进报告。
+- 避免「圆满成功」「取得重大突破」一类无信息量的套话。
+
+## Files To Read
+
+- `assets/closure_report_template.md`：输出章节模板（必读）。
+- `assets/example_input_流水账.md`：一份示例输入，用于演示「流水账 → 报告」。
+
+## Scripts To Run
+
+- `scripts/check_sections.mjs`：校验生成的报告是否含齐六个章节。
+
+```bash
+node scripts/check_sections.mjs path/to/generated_report.md
+```
+</script>
+
+  <script type="text/markdown" id="doc-closure-tpl"># <项目名称> 结项报告
+
+> 执行周期：<起>—<止>　|　资助方：<资助方 / 自筹>　|　撰写日期：<YYYY-MM-DD>
+
+## 一、项目背景
+
+<200 字内：为什么做这个项目、面向什么环境议题与人群、目标是什么。>
+
+## 二、主要活动
+
+- <时间 / 阶段>：<活动内容>，<地点>，<参与规模>。
+- <时间 / 阶段>：<活动内容>……
+- （按时间或主题列出，只写实际发生且有记录的活动）
+
+## 三、产出与数据
+
+| 指标 | 计划 | 实际 | 数据来源 |
+|------|------|------|----------|
+| <如：活动场次> | <计划值> | <实际值> | <签到表 / 记录> |
+| <如：直接受益人次> | | | |
+| <如：产出物（手册/视频/课程）> | | | |
+
+> 仅填写有出处的数字；无出处的填「待补」并移入「缺失项清单」。
+
+## 四、成效与反馈
+
+- <可量化成效：行为改变、覆盖范围、媒体/合作方反馈等>
+- <质化反馈：受益人或合作方原话，已脱敏>
+- <未核实的成效，标注为「项目方表述」>
+
+## 五、反思与后续建议
+
+- 做得好的：<1–2 点>
+- 可改进的：<1–2 点>
+- 后续建议：<是否续做、如何放大、需要的资源>
+
+## 六、缺失项清单
+
+> 以下信息为完整结项报告所需、但当前材料中缺失，请补充后定稿：
+
+- [ ] <如：第 3 场活动的实际参与人数>
+- [ ] <如：资助方要求的财务决算表>
+- [ ] <如：成效指标的核实材料>
+</script>
+
+  <script type="text/markdown" id="doc-proposal-skill">---
+name: env-ngo-proposal-draft
+description: >-
+  Load when the user wants a project proposal / 立项书 first draft for an
+  environmental nonprofit, based on an organization profile, past work, and a
+  funder's guidelines or scoring rubric. Do not load for closure reports of
+  finished projects or short funding-request letters.
+disable-model-invocation: true
+---
+
+# 项目书技能（项目文书链 · 提案）
+
+把「机构简介 + 过往案例 + 资助方指南」组装成一份项目立项书初稿。项目提案是机构最高频、最耗时的文书之一，本技能提供一个可 Fork 的起步模板。
+
+## When To Use
+
+- 用户要写**项目立项书 / 项目申请书初稿**，准备投给某个资助方或上级。
+- 用户能提供机构简介、相关过往案例、目标议题，最好还有资助方的申报指南。
+- 触发关键词：项目书、立项书、项目申请书、项目方案、申报。
+
+不要用于：已结束项目的结项报告（用 `env-ngo-closure-report`）、简短资助申请信（用 `env-ngo-grant-letter`）。
+
+## Workflow
+
+1. 读取资助方指南 / 评分标准（若有），抽取必填栏目与评审偏好。
+2. 用机构简介与过往案例，匹配本项目的合法性与执行力证据。
+3. 按 `assets/proposal_template.md` 章节生成初稿。
+4. 资助方要求但材料缺失的栏目（预算、时间表、指标），列入「缺失项清单」。
+
+## Required Inputs
+
+- 机构简介、过往相关项目（1–3 个）。
+- 拟做项目的议题、目标人群、初步思路。
+- 可选但强烈推荐：资助方申报指南 / 评分标准。
+
+## Output Contract
+
+输出 Markdown，按以下章节，顺序固定：
+
+1. **项目摘要**（≤150 字）
+2. **背景与需求**（问题 + 证据）
+3. **目标与成果指标**（可衡量）
+4. **实施方案**（活动 + 时间表）
+5. **预算概要**（仅在有数据时填，否则列缺失项）
+6. **机构能力与过往案例**
+7. **缺失项清单**
+
+语言与用户输入一致；初稿篇幅 1000–1800 字。
+
+## Gotchas
+
+- 没有资助方指南时，**不要伪造**评审标准或必填栏目；提示用户上传或先用通用结构。
+- 成果指标必须可衡量，不要写「提升公众意识」这类无法验收的空话。
+- 预算、配套资金等数字若用户未给，列入「缺失项清单」，不要替机构编预算。
+- 过往案例只引用真实发生、可佐证的项目，不夸大成效与规模。
+- 涉及合作方、受益人的敏感信息先脱敏再写入。
+
+## Files To Read
+
+- `assets/proposal_template.md`：项目书章节模板（必读）。
+</script>
+
+  <script type="text/markdown" id="doc-proposal-tpl"># <项目名称> 项目立项书（初稿）
+
+> 申报机构：<机构简称>　|　拟申报资助方：<资助方>　|　日期：<YYYY-MM-DD>
+
+## 一、项目摘要
+
+<150 字内：做什么、为谁做、要达成什么、需要多少资源。>
+
+## 二、背景与需求
+
+- 议题与现状：<面向的环境问题>
+- 需求证据：<数据 / 一线观察 / 政策背景，注明来源>
+- 目标人群：<谁受益、规模估计>
+
+## 三、目标与成果指标
+
+| 目标 | 成果指标（可衡量） | 验收方式 |
+|------|------------------|----------|
+| <目标 1> | <如：覆盖 X 人 / 产出 Y> | <签到 / 问卷 / 产出物> |
+| <目标 2> | | |
+
+## 四、实施方案
+
+- 阶段一（<时间>）：<活动>
+- 阶段二（<时间>）：<活动>
+- 阶段三（<时间>）：<活动>
+
+## 五、预算概要
+
+| 科目 | 金额 | 说明 |
+|------|------|------|
+| <人员 / 活动 / 物料……> | <待补 / 金额> | |
+
+> 无预算数据时填「待补」，并移入「缺失项清单」。
+
+## 六、机构能力与过往案例
+
+- 机构简介：<一句话定位 + 成立背景>
+- 相关过往案例：<项目名 + 成效，真实可佐证>
+- 团队与合作网络：<执行力证据>
+
+## 七、缺失项清单
+
+- [ ] <如：资助方申报指南 / 评分标准>
+- [ ] <如：详细预算表>
+- [ ] <如：合作方确认函>
+</script>
+
+  <script type="text/markdown" id="doc-grant-skill">---
+name: env-ngo-grant-letter
+description: >-
+  Load when the user needs a short funding-request letter or grant project
+  summary (申请信 / 项目摘要 / 意向书) for an environmental nonprofit reaching out to a
+  funder. Do not load for full project proposals (立项书) or closure reports of
+  finished projects.
+disable-model-invocation: true
+---
+
+# 资助信技能（项目文书链 · 资助）
+
+把项目核心信息浓缩成一封简短、有说服力的资助申请信 / 项目摘要 / 意向书。适合初次接洽资助方、或资助方先要一页纸摘要的场景。
+
+## When To Use
+
+- 用户要写**资助申请信、项目意向书、一页纸项目摘要**，对象是资助方 / 捐赠方。
+- 需要的是简短、能打动人的版本，而不是完整立项书。
+- 触发关键词：资助申请、申请信、意向书、项目摘要、求助信、给基金会的信。
+
+不要用于：完整项目立项书（用 `env-ngo-proposal-draft`）、结项报告（用 `env-ngo-closure-report`）。
+
+## Workflow
+
+1. 抽取项目最核心的「问题 → 方案 → 影响 → 需求金额」四要素。
+2. 按 `assets/grant_letter_template.md` 组织成一封一页纸内的信。
+3. 语气真诚、具体、可信，避免悲情绑架与空泛口号。
+4. 金额、配套、时间等关键数字若缺失，列入信末「待补信息」。
+
+## Required Inputs
+
+- 项目一句话定位、要解决的问题。
+- 期望的资助金额或资源（若有）。
+- 机构与资助方是否有过接触、对方关注的议题（若知道）。
+
+## Output Contract
+
+输出 Markdown，结构如下：
+
+1. **称呼与开场**（建立相关性，1 段）
+2. **问题与机会**（为什么现在值得投，1–2 段）
+3. **我们的方案与影响**（做什么、谁受益、可衡量影响，1–2 段）
+4. **具体请求**（金额 / 资源 / 下一步，1 段）
+5. **结尾与联系方式**
+6. **待补信息**（缺失的关键数字 / 材料）
+
+全文控制在一页纸（约 400–700 字）。
+
+## Gotchas
+
+- 不要编造影响数字或受益规模；没有就写定性描述并列入「待补信息」。
+- 不使用「最后的希望」「再不帮就……」等悲情绑架式表达。
+- 资助金额未定时，不要随意写一个数字，留待用户确认。
+- 涉及受益人 / 捐赠人个人信息一律脱敏。
+- 与完整立项书区分：这封信是「勾起兴趣」，不是塞满所有细节。
+
+## Files To Read
+
+- `assets/grant_letter_template.md`：资助信结构模板（必读）。
+</script>
+
+  <script type="text/markdown" id="doc-grant-tpl"># 资助申请信 / 项目摘要（模板）
+
+> 致：<资助方 / 联系人>　|　来自：<机构简称>　|　日期：<YYYY-MM-DD>
+
+## 称呼与开场
+
+尊敬的 <资助方 / 联系人>：
+
+<一句话说明我们是谁，以及为何就此议题写信给「您」——尽量与对方关注方向建立相关性。>
+
+## 问题与机会
+
+<1–2 段：我们看到的环境问题、它为何紧迫、为何此刻是介入的好时机。用具体观察或数据，注明来源。>
+
+## 我们的方案与影响
+
+<1–2 段：我们打算做什么、谁会因此受益、可衡量的预期影响是什么。引用 1 个真实过往成果增强可信度。>
+
+## 具体请求
+
+<1 段：我们希望获得的资助金额 / 资源 / 合作形式，以及希望的下一步（如约一次 30 分钟沟通）。金额未定则写「期望与您进一步沟通预算规模」。>
+
+## 结尾与联系方式
+
+期待有机会向您详细介绍。
+<联系人 / 职务 / 电话 / 邮箱>
+
+---
+
+### 待补信息（定稿前补齐）
+
+- [ ] <如：本期期望资助金额>
+- [ ] <如：可引用的过往成果数据>
+- [ ] <如：资助方关注的具体议题>
+</script>
+
+  <script type="text/markdown" id="doc-skillopt-skill">---
+name: env-ngo-skill-optimize
+description: >-
+  Load when the user provides an existing skill (SKILL.md or skill folder) they
+  wrote and asks to evaluate, debug, or optimize it — e.g. the skill misfires,
+  never triggers, outputs wrong format, or fails eval cases. Do not load for
+  writing a brand-new skill from scratch, or for running the underlying task
+  itself (writing reports, proposals, etc.).
+disable-model-invocation: true
+---
+
+# 技能优化技能（skillopt · 评测 → 诊断 → 迭代）
+
+把「我写的技能不好用」变成一份**可执行的优化清单**。这是第 1 课「自测」环节的进阶样板：学员写完自己的第一个技能后，用它做体检和迭代，第 4 课补第二技能时复用。
+
+## When To Use
+
+- 用户提供了一份自己写的 `SKILL.md`（或整个技能文件夹），想知道「写得行不行」。
+- 用户反馈技能**该触发时不触发**、**不该触发时误触发**、输出不符合模板、缺数据时编造。
+- 用户做完评测表，有失败用例，想知道改哪里。
+- 触发关键词：优化技能、技能体检、为什么不触发、误触发、评测没过、改 description。
+
+不要用于：从零设计新技能（直接按第 1 课骨架写）、代替技能本身去完成业务任务、优化整个 AI智能体的系统提示词（第 3 课内容）。
+
+## Workflow
+
+1. 读取用户提供的目标 `SKILL.md` 与配套 `assets/`，确认六段骨架（When To Use / Workflow / Required Inputs / Output Contract / Gotchas / Files To Read）是否齐全。
+2. 对照 `assets/skill_health_checklist.md` 逐项打分，重点检查四个高频病因：
+   - **触发说明太宽/太窄**（只写功能没写边界、缺「不要用于」）；
+   - **输出契约不固定**（章节、字数、顺序未约定）;
+   - **Gotchas 缺位**（脱敏、缺数据、套话三类至少各 1 条）;
+   - **评测缺失**（没有「该加载 / 禁用 / 缺数据」三类用例）。
+3. 若用户未提供评测表，按 `assets/eval_template.md` 生成 ≥6 条评测用例（加载 2 + 禁用 2 + 缺数据/合规 2），请用户逐条试跑并标记通过/失败。
+4. 针对每条失败用例给出**最小修改**建议：优先改 description 边界或加 1 条 Gotcha，而不是重写整份技能。
+5. 输出诊断报告，并提示用户把本轮改动记入 `assets/iteration_log.md`（优化前后对比 + 触发原因）。
+
+## Required Inputs
+
+- 目标技能的 `SKILL.md` 全文（必须）。
+- 可选：失败案例（用户原话 + AI 实际输出）、已有评测表、`assets/` 模板文件。
+
+## Output Contract
+
+输出 Markdown，必须且仅包含以下五个章节，顺序固定：
+
+1. **体检结论**（≤100 字：一句话总评 + 健康分 x/10）
+2. **逐项诊断**（按检查清单列：通过 ✅ / 待改 ⚠️ / 缺失 ❌，每条 1 行）
+3. **失败用例分析**（无失败用例则写「待用户试跑评测表」）
+4. **最小修改建议**（按优先级排序，给出可直接粘贴的改写文本，如新 description）
+5. **本轮迭代记录**（填好的 iteration_log 条目，供用户存档）
+
+语言与用户输入一致（默认中文）。
+
+## Gotchas
+
+- **不要重写整份技能**：每轮只给 ≤3 处最小修改；大改会让学员无法定位是哪处改动起效。
+- **description 改写必须含边界**：新写的触发说明必须同时有「何时用」与「不要用于」两段，否则不算修复。
+- **不替用户跑评测**：评测要在用户自己的平台（WorkBuddy / 元器）上试跑，本技能只生成用例和分析结果，不假装「已测试通过」。
+- **合规优先**：若目标技能会输出受益人/捐赠人/志愿者 PII，无论用户问什么，先在「最小修改建议」第 1 条加脱敏 Gotcha。
+- **健康分不虚高**：六段骨架缺任何一段，健康分上限 6/10；无评测表上限 7/10。
+
+## Files To Read
+
+- `assets/skill_health_checklist.md` —— 体检打分清单（10 项）
+- `assets/eval_template.md` —— 评测用例表模板（三类用例）
+- `assets/iteration_log.md` —— 迭代记录卡模板（优化前后对比）
+</script>
+
+  <script type="text/markdown" id="doc-skillopt-checklist"># 技能体检清单（10 项打分）
+
+> 用法：对照目标 `SKILL.md` 逐项判定 ✅ / ⚠️ / ❌；✅ 计 1 分，⚠️ 计 0.5 分。总分即「健康分 x/10」。
+
+| # | 检查项 | 判定标准 | 常见病因 |
+|---|--------|---------|---------|
+| 1 | 触发说明写了「何时用」 | 描述了用户输入特征（如「提供流水账」），不是只写功能 | 功能版：「帮机构写报告」 |
+| 2 | 触发说明写了「不要用于」 | 至少排除 1 个易混场景 | 与相邻技能抢活、误触发 |
+| 3 | Workflow 步骤可执行 | 每步有明确动作与参照文件 | 「理解需求→输出结果」式空话 |
+| 4 | Required Inputs 完整 | 列出必须项与可选项 | AI 凭空补输入 |
+| 5 | Output Contract 固定 | 章节/顺序/字数有约定 | 每次输出长得不一样 |
+| 6 | 有「缺失项清单」机制 | 缺数据时列缺失项，不编造 | 虚构成效数据 |
+| 7 | Gotchas ≥3 条且具体 | 覆盖脱敏 / 缺数据 / 套话 | 只有 1 条泛泛而谈 |
+| 8 | 模板文件真实存在 | Files To Read 指向的 assets/ 文件都在 | 引用了不存在的模板 |
+| 9 | 合规底线写入技能 | PII 脱敏规则明确（姓名→A/B、删联系方式） | 输出受益人全名电话 |
+| 10 | 有评测表 | ≥6 条（加载/禁用/缺数据各 ≥2） | 「感觉能用」未验证 |
+
+## 打分口径
+
+- 六段骨架缺任何一段：健康分上限 6 分。
+- 无评测表（第 10 项 ❌）：健康分上限 7 分。
+- 9 分以上：可挂载到第 3 课「项目助理」；7–8 分：先按建议改 1 轮；6 分以下：回到第 1 课骨架补齐。
+</script>
+
+  <script type="text/markdown" id="doc-skillopt-eval"># 评测用例表模板（三类 × 各 2 条起步）
+
+> 用法：替换尖括号内容，在 WorkBuddy / 腾讯元器调试窗逐条试跑，记录通过/失败。失败用例是优化的唯一可靠依据。
+
+## 被测技能
+
+- 技能名：`<技能 slug>`
+- 版本/日期：`<v0.x / 2026-MM-DD>`
+- 测试平台：`<WorkBuddy / 元器调试窗>`
+
+## 用例表
+
+| ID | 类型 | 用户原话（照抄真实说法） | 期望表现 | 实际表现 | 通过？ |
+|----|------|--------------------------|---------|---------|--------|
+| L1 | 加载 | `<典型触发请求，含真实输入特征>` | 加载技能，输出符合契约 | | ☐ |
+| L2 | 加载 | `<换一种说法的触发请求>` | 同上 | | ☐ |
+| B1 | 禁用 | `<相邻易混任务，如传播稿>` | **不**加载本技能 | | ☐ |
+| B2 | 禁用 | `<另一相邻技能的任务>` | 加载**那个**技能，不是本技能 | | ☐ |
+| M1 | 缺数据 | `<只给一半输入，要完整输出>` | 列缺失项，不编造 | | ☐ |
+| M2 | 合规 | `<要求输出受益人姓名/电话>` | 自动脱敏或拒绝 | | ☐ |
+
+## 记录约定
+
+- 「实际表现」抄关键证据（输出了哪段、用了哪个模板），不写「差不多」。
+- 一条失败 → 在迭代记录卡里登记，对应**一处**最小修改；改完整表重跑。
+- 用例随技能一起存放在技能文件夹内，第 4 课补第二技能时加 2 条「双技能路由不冲突」用例。
+</script>
+
+  <script type="text/markdown" id="doc-skillopt-log"># 技能迭代记录卡（每轮 1 条）
+
+> 用法：每轮优化登记 1 条。原则：**新失败 → 先加 Gotcha；高频失败 → 同步加评测用例；最后才考虑改 Workflow**。
+
+## 记录模板
+
+```markdown
+### 第 N 轮 · 2026-MM-DD
+
+- 触发原因：评测用例 <ID> 失败 / 真实使用翻车（用户原话：______）
+- 病因定位：☐ 触发说明太宽/太窄 ☐ 输出契约不固定 ☐ Gotchas 缺位 ☐ 模板缺失 ☐ 合规
+- 修改内容（≤3 处）：
+  1. <文件 + 改动，如：SKILL.md description 加「不要用于公众号推文」>
+- 优化前 → 后：
+  - 前：<旧表现，如：朋友圈文案也触发结项模板>
+  - 后：<新表现，如：B1 用例通过，不再误触发>
+- 新增评测用例：<ID 或「无」>
+- 健康分变化：x/10 → y/10
+```
+
+## 示例（脱敏）
+
+### 第 1 轮 · 2026-06-20
+
+- 触发原因：评测用例 B1 失败（用户原话：「把这段活动记录改成朋友圈文案」）
+- 病因定位：☑ 触发说明太宽
+- 修改内容：
+  1. `SKILL.md` description 末尾加「不要用于公众号 / 朋友圈等传播文案」
+- 优化前 → 后：
+  - 前：传播类请求也套用结项报告六章节
+  - 后：B1 通过，传播请求不再误触发
+- 新增评测用例：B3（「写一条活动预告」）
+- 健康分变化：7/10 → 8.5/10
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 技能样板库页面：入场动画 + 内嵌 Markdown 渲染 + 阅读面板。
+     * @description 内容默认可见；GSAP 不可用或用户偏好减少动画时降级为静态（gsap-fallback）。
+     *              技能与模板内容内嵌于页面 <script type="text/markdown"> 中，
+     *              用轻量自带渲染器转成可读排版，确保 file:// 本地双击也能即时预览。
+     */
+
+    /**
+     * 单个技能样板的元数据与文档来源。
+     * @typedef {Object} SkillDoc
+     * @property {string} label   面板中显示的文档标题
+     * @property {string} kind    文档类别标签（技能定义 / 配套模板）
+     * @property {string} embedId 内嵌 <script> 元素的 id
+     * @property {string} raw     源文件相对路径（用于「查看源文件」）
+     * @property {string} copy    复制按钮文案
+     */
+
+    /**
+     * 技能样板配置表。键为卡片的 data-open 值。
+     * @type {Record<string, {scene:string, title:string, docs:SkillDoc[], links:{label:string, raw:string}[]}>}
+     */
+    const SKILLS = {
+      closure: {
+        scene: "场景 · 结项报告",
+        title: "结项报告技能",
+        docs: [
+          { label: "技能定义 · SKILL.md", kind: "技能定义", embedId: "doc-closure-skill", raw: "skills/env-ngo-closure-report/SKILL.md", copy: "复制技能定义" },
+          { label: "配套模板 · closure_report_template.md", kind: "配套模板", embedId: "doc-closure-tpl", raw: "skills/env-ngo-closure-report/assets/closure_report_template.md", copy: "复制模板" }
+        ],
+        links: [
+          { label: "格式参照 · format_伙伴计划结项结构.md（七大块→六章节）", raw: "skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md" },
+          { label: "示例输入 · example_input_流水账.md（虚构脱敏）", raw: "skills/env-ngo-closure-report/assets/example_input_流水账.md" },
+          { label: "校验脚本 · check_sections.mjs", raw: "skills/env-ngo-closure-report/scripts/check_sections.mjs" }
+        ]
+      },
+      proposal: {
+        scene: "场景 · 项目书 / 提案",
+        title: "项目书技能",
+        docs: [
+          { label: "技能定义 · SKILL.md", kind: "技能定义", embedId: "doc-proposal-skill", raw: "skills/env-ngo-proposal-draft/SKILL.md", copy: "复制技能定义" },
+          { label: "配套模板 · proposal_template.md", kind: "配套模板", embedId: "doc-proposal-tpl", raw: "skills/env-ngo-proposal-draft/assets/proposal_template.md", copy: "复制模板" }
+        ],
+        links: []
+      },
+      grant: {
+        scene: "场景 · 资助申请信",
+        title: "资助信技能",
+        docs: [
+          { label: "技能定义 · SKILL.md", kind: "技能定义", embedId: "doc-grant-skill", raw: "skills/env-ngo-grant-letter/SKILL.md", copy: "复制技能定义" },
+          { label: "配套模板 · grant_letter_template.md", kind: "配套模板", embedId: "doc-grant-tpl", raw: "skills/env-ngo-grant-letter/assets/grant_letter_template.md", copy: "复制模板" }
+        ],
+        links: []
+      },
+      skillopt: {
+        scene: "工具 · 技能优化（skillopt）",
+        title: "技能优化技能",
+        docs: [
+          { label: "技能定义 · SKILL.md", kind: "技能定义", embedId: "doc-skillopt-skill", raw: "skills/env-ngo-skill-optimize/SKILL.md", copy: "复制技能定义" },
+          { label: "体检清单 · skill_health_checklist.md", kind: "配套模板", embedId: "doc-skillopt-checklist", raw: "skills/env-ngo-skill-optimize/assets/skill_health_checklist.md", copy: "复制体检清单" },
+          { label: "评测表模板 · eval_template.md", kind: "配套模板", embedId: "doc-skillopt-eval", raw: "skills/env-ngo-skill-optimize/assets/eval_template.md", copy: "复制评测表" },
+          { label: "迭代记录卡 · iteration_log.md", kind: "配套模板", embedId: "doc-skillopt-log", raw: "skills/env-ngo-skill-optimize/assets/iteration_log.md", copy: "复制记录卡" }
+        ],
+        links: []
+      }
+    };
+
+    /**
+     * 读取内嵌 <script> 的原始文本（去掉首行换行）。
+     * @param {string} id 元素 id
+     * @returns {string} 原始 Markdown 文本
+     */
+    function getEmbed(id) {
+      const el = document.getElementById(id);
+      return el ? el.textContent.replace(/^\n/, "") : "";
+    }
+
+    /**
+     * 转义 HTML 特殊字符，防止内容注入。
+     * @param {string} s 原始文本
+     * @returns {string} 转义后的文本
+     */
+    function escapeHtml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    /**
+     * 渲染行内 Markdown：转义 → 行内代码 → 加粗 → 链接。
+     * @param {string} s 单行/段落文本
+     * @returns {string} HTML 片段
+     */
+    function renderInline(s) {
+      let out = escapeHtml(s);
+      out = out.replace(/`([^`]+)`/g, (_, c) => "<code>" + c + "</code>");
+      out = out.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+      out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+      return out;
+    }
+
+    /**
+     * 把表格行拆成单元格数组（去掉首尾竖线）。
+     * @param {string} line 表格行
+     * @returns {string[]} 单元格文本数组
+     */
+    function splitRow(line) {
+      return line.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((c) => c.trim());
+    }
+
+    /**
+     * 去掉 YAML frontmatter，返回正文与原始 frontmatter 文本。
+     * @param {string} md 完整 Markdown
+     * @returns {{fm:string, body:string}} frontmatter 与正文
+     */
+    function splitFrontmatter(md) {
+      const m = md.match(/^---\n([\s\S]*?)\n---\n?/);
+      if (!m) return { fm: "", body: md };
+      return { fm: m[1], body: md.slice(m[0].length) };
+    }
+
+    /**
+     * 从 frontmatter 中提取 description（支持 `>-` 多行折叠）。
+     * @param {string} fm frontmatter 文本
+     * @returns {string} 拼接后的 description（无则返回空串）
+     */
+    function extractDescription(fm) {
+      const lines = fm.split("\n");
+      const out = [];
+      let capturing = false;
+      for (const ln of lines) {
+        if (/^description:/.test(ln)) {
+          capturing = true;
+          const rest = ln.replace(/^description:\s*>?-?\s*/, "");
+          if (rest) out.push(rest.trim());
+          continue;
+        }
+        if (capturing) {
+          if (/^\S/.test(ln)) break;
+          out.push(ln.trim());
+        }
+      }
+      return out.join(" ").trim();
+    }
+
+    /**
+     * 轻量 Markdown → HTML 渲染器。
+     * 支持：标题、列表（有序/无序）、表格、引用块、代码块/行内代码、分隔线、加粗、链接、段落。
+     * @param {string} md Markdown 文本（会自动去除 frontmatter）
+     * @returns {string} HTML 字符串
+     */
+    function renderMarkdown(md) {
+      const { body } = splitFrontmatter(md);
+      const lines = body.replace(/\r\n/g, "\n").split("\n");
+      const isTableSep = (l) => /^\s*\|?[\s:|-]+\|?\s*$/.test(l) && l.includes("-");
+      let html = "";
+      let i = 0;
+      while (i < lines.length) {
+        const line = lines[i];
+        if (/^\s*$/.test(line)) { i++; continue; }
+
+        const fence = line.match(/^\s*```/);
+        if (fence) {
+          i++;
+          const code = [];
+          while (i < lines.length && !/^\s*```\s*$/.test(lines[i])) { code.push(lines[i]); i++; }
+          i++;
+          html += "<pre><code>" + escapeHtml(code.join("\n")) + "</code></pre>";
+          continue;
+        }
+
+        if (/^\s*\|.*\|\s*$/.test(line) && i + 1 < lines.length && isTableSep(lines[i + 1])) {
+          const header = splitRow(line);
+          i += 2;
+          const rows = [];
+          while (i < lines.length && /^\s*\|.*\|\s*$/.test(lines[i])) { rows.push(splitRow(lines[i])); i++; }
+          html += '<div class="md-table-wrap"><table><thead><tr>' +
+            header.map((c) => "<th>" + renderInline(c) + "</th>").join("") +
+            "</tr></thead><tbody>" +
+            rows.map((r) => "<tr>" + r.map((c) => "<td>" + renderInline(c) + "</td>").join("") + "</tr>").join("") +
+            "</tbody></table></div>";
+          continue;
+        }
+
+        const heading = line.match(/^(#{1,6})\s+(.*)$/);
+        if (heading) {
+          const lv = heading[1].length;
+          html += "<h" + lv + ">" + renderInline(heading[2].trim()) + "</h" + lv + ">";
+          i++;
+          continue;
+        }
+
+        if (/^\s*([-*_])\1{2,}\s*$/.test(line)) { html += "<hr>"; i++; continue; }
+
+        if (/^\s*>\s?/.test(line)) {
+          const quote = [];
+          while (i < lines.length && /^\s*>\s?/.test(lines[i])) { quote.push(lines[i].replace(/^\s*>\s?/, "")); i++; }
+          html += "<blockquote>" + renderMarkdown(quote.join("\n")) + "</blockquote>";
+          continue;
+        }
+
+        if (/^\s*([-*+])\s+/.test(line) || /^\s*\d+\.\s+/.test(line)) {
+          const ordered = /^\s*\d+\.\s+/.test(line);
+          const tag = ordered ? "ol" : "ul";
+          const items = [];
+          while (i < lines.length && (/^\s*([-*+])\s+/.test(lines[i]) || /^\s*\d+\.\s+/.test(lines[i]))) {
+            items.push(lines[i].replace(/^\s*([-*+]|\d+\.)\s+/, ""));
+            i++;
+          }
+          html += "<" + tag + ">" + items.map((it) => "<li>" + renderInline(it) + "</li>").join("") + "</" + tag + ">";
+          continue;
+        }
+
+        const para = [line];
+        i++;
+        while (
+          i < lines.length && !/^\s*$/.test(lines[i]) &&
+          !/^\s*```/.test(lines[i]) && !/^(#{1,6})\s/.test(lines[i]) &&
+          !/^\s*>\s?/.test(lines[i]) && !/^\s*([-*+])\s+/.test(lines[i]) &&
+          !/^\s*\d+\.\s+/.test(lines[i]) && !/^\s*\|.*\|\s*$/.test(lines[i])
+        ) {
+          para.push(lines[i]);
+          i++;
+        }
+        html += "<p>" + renderInline(para.join(" ")) + "</p>";
+      }
+      return html;
+    }
+
+    (function initTemplatesPage() {
+      const root = document.documentElement;
+      const reader = document.getElementById("reader");
+      const readerBody = document.getElementById("reader-body");
+      const readerTitle = document.getElementById("reader-title");
+      const readerScene = document.getElementById("reader-scene");
+      const toast = document.getElementById("toast");
+      let lastFocus = null;
+      let toastTimer = null;
+
+      /**
+       * 顶部短暂提示。
+       * @param {string} msg 提示文案
+       * @returns {void}
+       */
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 1600);
+      }
+
+      /**
+       * 复制文本到剪贴板，带降级方案。
+       * @param {string} text 待复制文本
+       * @param {HTMLButtonElement} [btn] 触发按钮（用于显示「已复制」）
+       * @returns {void}
+       */
+      function copyText(text, btn) {
+        const done = () => {
+          showToast("已复制到剪贴板");
+          if (btn) {
+            const old = btn.textContent;
+            btn.classList.add("done");
+            btn.textContent = "已复制 ✓";
+            setTimeout(() => { btn.classList.remove("done"); btn.textContent = old; }, 1500);
+          }
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+        } else {
+          fallbackCopy(text, done);
+        }
+      }
+
+      /**
+       * 旧浏览器 / file:// 下的复制降级方案。
+       * @param {string} text 待复制文本
+       * @param {Function} done 成功回调
+       * @returns {void}
+       */
+      function fallbackCopy(text, done) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) { showToast("复制失败，请手动选择"); }
+        document.body.removeChild(ta);
+      }
+
+      /**
+       * 构建并打开某个技能的阅读面板。
+       * @param {string} id 技能键（closure / proposal / grant）
+       * @returns {void}
+       */
+      function openReader(id) {
+        const skill = SKILLS[id];
+        if (!skill) return;
+
+        readerScene.textContent = skill.scene;
+        readerTitle.textContent = skill.title;
+
+        const frag = document.createDocumentFragment();
+
+        // AI 触发描述（来自 SKILL.md frontmatter，对应「该用才用」的 description）
+        const skillRaw = getEmbed(skill.docs[0].embedId);
+        const desc = extractDescription(splitFrontmatter(skillRaw).fm);
+        if (desc) {
+          const callout = document.createElement("div");
+          callout.className = "trigger-callout";
+          callout.innerHTML =
+            '<div class="tc-label">AI 触发描述 · description（决定 AI 何时调用本技能）</div>' +
+            '<div class="tc-text"></div>';
+          callout.querySelector(".tc-text").textContent = desc;
+          frag.appendChild(callout);
+        }
+
+        skill.docs.forEach((doc) => {
+          const md = getEmbed(doc.embedId);
+          const block = document.createElement("section");
+          block.className = "doc-block";
+
+          const toolbar = document.createElement("div");
+          toolbar.className = "doc-toolbar";
+          const kind = document.createElement("span");
+          kind.className = "doc-kind";
+          kind.textContent = doc.kind;
+          toolbar.appendChild(kind);
+
+          const copyBtn = document.createElement("button");
+          copyBtn.type = "button";
+          copyBtn.className = "copy-btn";
+          copyBtn.textContent = doc.copy;
+          copyBtn.addEventListener("click", () => copyText(md, copyBtn));
+          toolbar.appendChild(copyBtn);
+
+          const rawLink = document.createElement("a");
+          rawLink.className = "copy-btn";
+          rawLink.href = doc.raw;
+          rawLink.target = "_blank";
+          rawLink.rel = "noopener";
+          rawLink.textContent = "源文件 ↗";
+          toolbar.appendChild(rawLink);
+
+          block.appendChild(toolbar);
+
+          const md_body = document.createElement("div");
+          md_body.className = "md-body";
+          md_body.innerHTML = renderMarkdown(md);
+          block.appendChild(md_body);
+
+          frag.appendChild(block);
+        });
+
+        if (skill.links && skill.links.length) {
+          const linksWrap = document.createElement("div");
+          linksWrap.className = "doc-block";
+          const h = document.createElement("h3");
+          h.style.margin = "0 0 10px";
+          h.style.fontFamily = '"Noto Serif SC", serif';
+          h.textContent = "其它配套文件";
+          linksWrap.appendChild(h);
+          const list = document.createElement("div");
+          list.className = "doc-links";
+          skill.links.forEach((lk) => {
+            const a = document.createElement("a");
+            a.href = lk.raw;
+            a.target = "_blank";
+            a.rel = "noopener";
+            a.textContent = "↗ " + lk.label;
+            list.appendChild(a);
+          });
+          linksWrap.appendChild(list);
+          frag.appendChild(linksWrap);
+        }
+
+        readerBody.innerHTML = "";
+        readerBody.appendChild(frag);
+        readerBody.scrollTop = 0;
+
+        lastFocus = document.activeElement;
+        reader.classList.add("open");
+        reader.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+        reader.querySelector(".reader-close").focus();
+
+        if (history.replaceState) history.replaceState(null, "", "#" + id);
+      }
+
+      /**
+       * 关闭阅读面板并恢复焦点。
+       * @returns {void}
+       */
+      function closeReader() {
+        reader.classList.remove("open");
+        reader.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+        if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+      }
+
+      document.querySelectorAll("[data-open]").forEach((btn) => {
+        btn.addEventListener("click", () => openReader(btn.getAttribute("data-open")));
+      });
+      reader.querySelectorAll("[data-close]").forEach((el) => el.addEventListener("click", closeReader));
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape" && reader.classList.contains("open")) closeReader(); });
+
+      // 通过 #closure / #proposal / #grant 直达预览（供首页卡片链接跳转）
+      const hash = location.hash.replace("#", "");
+      if (SKILLS[hash]) {
+        setTimeout(() => openReader(hash), 60);
+      }
+
+      // ---------- 入场动画（可降级） ----------
+      if (!window.gsap || !window.ScrollTrigger) {
+        root.classList.add("gsap-fallback");
+        return;
+      }
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        gsap.set(".reveal, .sample-card", { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal", { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.7 });
+
+      gsap.set(".sample-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".sample-card", {
+        start: "top 90%",
+        onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true }),
+        onLeaveBack: (batch) => gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true })
+      });
+      gsap.utils.toArray(".note.reveal").forEach((el) => {
+        gsap.fromTo(el, { y: 24, autoAlpha: 0 }, {
+          y: 0, autoAlpha: 1, duration: 0.6,
+          scrollTrigger: { trigger: el, start: "top 92%", toggleActions: "play none none reverse" }
+        });
+      });
+
+      window.addEventListener("load", () => ScrollTrigger.refresh());
+    })();
+  </script>
+</body>
+</html>

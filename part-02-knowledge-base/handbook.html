@@ -1,0 +1,1656 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学员手册 · 知识库实战 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营第 2 课学员手册：120 分钟知识库实战全流程，覆盖 ima + WorkBuddy、腾讯元器组织知识库、数据合规 4 档、检索模式和命中率诊断。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --good: #2d8a56;
+      --good-bg: #e6f5ec;
+      --bad: #b83a3a;
+      --bad-bg: #fce8e8;
+      /* Compliance tier colors */
+      --tier-green: #2d8a56;
+      --tier-green-soft: #e6f5ec;
+      --tier-yellow: #a08520;
+      --tier-yellow-soft: #fdf8e8;
+      --tier-orange: #c06a20;
+      --tier-orange-soft: #fef0e0;
+      --tier-red: #b83a3a;
+      --tier-red-soft: #fce8e8;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(61, 107, 140, 0.18), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(143, 212, 176, 0.14), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--forest); background: var(--sky-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--sky-soft);
+      color: var(--sky);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--sky);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--sky), var(--forest) 55%, var(--moss));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 680px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--sky);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--sky-soft); }
+
+    /* ---------- Case intro banner ---------- */
+    .case-banner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .case-banner-inner {
+      padding: 24px 28px;
+      border-radius: var(--radius);
+      background: var(--sky-soft);
+      border: 1px solid rgba(61, 107, 140, 0.2);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .case-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--sky);
+      color: #fff;
+      font-size: 22px;
+    }
+    .case-banner-inner h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.08rem;
+      margin: 0 0 6px;
+      color: var(--sky);
+    }
+    .case-banner-inner p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .case-banner-inner strong { color: var(--ink); }
+
+    /* ---------- Good/Bad example cards ---------- */
+    .example-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 16px 0;
+    }
+    .example-good {
+      border-left: 4px solid var(--good);
+      background: var(--good-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-bad {
+      border-left: 4px solid var(--bad);
+      background: var(--bad-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .example-good .example-label { color: var(--good); }
+    .example-bad .example-label { color: var(--bad); }
+    .example-good p, .example-bad p { margin: 0; font-size: 0.94rem; color: var(--ink); }
+    .example-good blockquote, .example-bad blockquote {
+      margin: 0;
+      padding: 0;
+      font-size: 0.94rem;
+      color: var(--ink);
+      font-style: italic;
+    }
+
+    /* ---------- KB Map cards ---------- */
+    .kb-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 8px; }
+    .kb-card {
+      padding: 22px 18px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--sky);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .kb-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .kb-rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--sky);
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .kb-score {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--sky-soft);
+      color: var(--sky);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .kb-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.06rem; margin: 10px 0 6px; }
+    .kb-card p { margin: 0 0 6px; color: var(--muted); font-size: 0.86rem; line-height: 1.5; }
+    .kb-path {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--panel);
+      font-family: "SF Mono", "Menlo", monospace;
+      font-size: 0.74rem;
+      color: var(--sky);
+      font-weight: 600;
+    }
+    .kb-example {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--forest);
+      font-weight: 600;
+    }
+
+    /* ---------- Compliance tier cards (expanded) ---------- */
+    .compliance-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 8px; }
+    .tier-card {
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .tier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .tier-card.t1 { border-top: 5px solid var(--tier-green); }
+    .tier-card.t2 { border-top: 5px solid var(--tier-yellow); }
+    .tier-card.t3 { border-top: 5px solid var(--tier-orange); }
+    .tier-card.t4 { border-top: 5px solid var(--tier-red); }
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .tier-card.t1 .tier-badge { background: var(--tier-green-soft); color: var(--tier-green); }
+    .tier-card.t2 .tier-badge { background: var(--tier-yellow-soft); color: var(--tier-yellow); }
+    .tier-card.t3 .tier-badge { background: var(--tier-orange-soft); color: var(--tier-orange); }
+    .tier-card.t4 .tier-badge { background: var(--tier-red-soft); color: var(--tier-red); }
+    .tier-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.12rem; margin: 10px 0 8px; }
+    .tier-card p { margin: 0 0 8px; color: var(--muted); font-size: 0.9rem; }
+    .tier-items {
+      list-style: none;
+      margin: 0 0 10px;
+      padding: 0;
+    }
+    .tier-items li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .tier-items li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .tier-card.t1 .tier-items li::before { background: var(--tier-green-soft); border: 2px solid var(--tier-green); }
+    .tier-card.t2 .tier-items li::before { background: var(--tier-yellow-soft); border: 2px solid var(--tier-yellow); }
+    .tier-card.t3 .tier-items li::before { background: var(--tier-orange-soft); border: 2px solid var(--tier-orange); }
+    .tier-card.t4 .tier-items li::before { background: var(--tier-red-soft); border: 2px solid var(--tier-red); }
+    .tier-luyuan {
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.86rem;
+      margin-bottom: 10px;
+    }
+    .tier-card.t1 .tier-luyuan { background: var(--tier-green-soft); color: var(--tier-green); }
+    .tier-card.t2 .tier-luyuan { background: var(--tier-yellow-soft); color: var(--tier-yellow); }
+    .tier-card.t3 .tier-luyuan { background: var(--tier-orange-soft); color: var(--tier-orange); }
+    .tier-card.t4 .tier-luyuan { background: var(--tier-red-soft); color: var(--tier-red); }
+    .tier-action {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+    .tier-card.t1 .tier-action { background: var(--tier-green); color: #fff; }
+    .tier-card.t2 .tier-action { background: var(--tier-yellow); color: #fff; }
+    .tier-card.t3 .tier-action { background: var(--tier-orange); color: #fff; }
+    .tier-card.t4 .tier-action { background: var(--tier-red); color: #fff; }
+    .desensitize-example {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.86rem;
+    }
+    .desensitize-example .de-label {
+      font-weight: 700;
+      font-size: 0.78rem;
+      margin-bottom: 4px;
+    }
+    .de-before { color: var(--bad); }
+    .de-after { color: var(--good); }
+
+    /* ---------- Step cards ---------- */
+    .step-block { margin-bottom: 32px; }
+    .step-header {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+    .step-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      background: var(--sky-soft);
+      color: var(--sky);
+    }
+    .step-badge .step-num { font-size: 1.2rem; line-height: 1; }
+    .step-badge .step-label { font-size: 0.68rem; font-weight: 600; font-family: "Source Sans 3", sans-serif; color: var(--sky); }
+    .step-info h3 { font-family: "Noto Serif SC", serif; font-size: 1.18rem; margin: 0 0 6px; }
+    .step-info p { color: var(--muted); font-size: 0.94rem; margin: 0 0 10px; }
+    .step-luyuan {
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: var(--sky-soft);
+      border: 1px solid rgba(61, 107, 140, 0.18);
+      font-size: 0.9rem;
+      color: var(--sky);
+    }
+    .step-luyuan strong { color: var(--forest); }
+    .step-connector {
+      width: 3px;
+      height: 20px;
+      margin-left: 30px;
+      background: linear-gradient(180deg, var(--sky), var(--line));
+      border-radius: 2px;
+    }
+
+    /* ---------- Yuanqi steps (variant) ---------- */
+    .step-badge.yuanqi { background: var(--moss-soft); color: var(--forest); }
+    .step-badge.yuanqi .step-label { color: var(--forest-light); }
+    .step-luyuan.yuanqi {
+      background: var(--moss-soft);
+      border-color: rgba(143, 212, 176, 0.3);
+      color: var(--forest);
+    }
+    .step-connector.yuanqi { background: linear-gradient(180deg, var(--moss), var(--line)); }
+
+    /* ---------- Decision tree ---------- */
+    .diag-tree {
+      max-width: 780px;
+      margin: 12px auto 0;
+      will-change: transform, opacity;
+    }
+    .diag-root {
+      text-align: center;
+      padding: 16px 28px;
+      border-radius: 12px;
+      background: var(--tier-red-soft);
+      color: var(--tier-red);
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 2px solid var(--tier-red);
+    }
+    .diag-connector {
+      display: flex;
+      justify-content: center;
+      padding: 6px 0;
+    }
+    .diag-connector svg { display: block; }
+    .diag-branches {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .diag-branch {
+      padding: 22px 20px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .diag-branch-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+    }
+    .diag-branch.is-search .diag-branch-title { color: var(--sky); border-bottom-color: var(--sky); }
+    .diag-branch.is-gen .diag-branch-title { color: var(--amber); border-bottom-color: var(--amber); }
+    .diag-fix {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .diag-fix:last-child { margin-bottom: 0; }
+    .diag-fix-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .diag-branch.is-search .diag-fix-icon { background: var(--sky); }
+    .diag-branch.is-gen .diag-fix-icon { background: var(--amber); }
+    .diag-fix span { color: var(--muted); font-size: 0.84rem; }
+
+    .diag-case {
+      margin-top: 24px;
+      padding: 22px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .diag-case h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.02rem;
+      margin: 0 0 12px;
+      color: var(--sky);
+    }
+    .diag-case-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    .diag-case-step:last-child { margin-bottom: 0; }
+    .diag-case-num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--sky);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .diag-case-bad {
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--bad-bg);
+      color: var(--bad);
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+    .diag-case-good {
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--good-bg);
+      color: var(--good);
+      font-weight: 600;
+      font-size: 0.86rem;
+    }
+
+    /* ---------- Homework cards ---------- */
+    .hw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 8px; }
+    .hw-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .hw-card.l1 { border-top: 4px solid var(--sky); }
+    .hw-card.l2 { border-top: 4px solid var(--forest); }
+    .hw-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 14px; }
+    .hw-card.l1 h3 { color: var(--sky); }
+    .hw-card.l2 h3 { color: var(--forest); }
+    .hw-list { list-style: none; margin: 0 0 14px; padding: 0; }
+    .hw-list li { position: relative; padding-left: 26px; margin-bottom: 10px; font-size: 0.94rem; color: var(--ink); }
+    .hw-list li::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 50%; }
+    .hw-card.l1 .hw-list li::before { background: var(--sky-soft); border: 2px solid var(--sky); }
+    .hw-card.l2 .hw-list li::before { background: var(--moss-soft); border: 2px solid var(--forest); }
+
+    .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--sky-soft); color: var(--sky); font-size: 0.92rem; font-weight: 500; }
+
+    /* ---------- Quiz check callout（章节→测验绑定） ---------- */
+    .quiz-check { margin-top: 24px; padding: 13px 18px; border-radius: 10px; background: var(--moss-soft);
+      border: 1px dashed rgba(26, 77, 62, 0.35); font-size: 0.9rem; color: var(--forest); font-weight: 600; }
+    .quiz-check a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.45); font-weight: 700; }
+    .quiz-check a:hover { color: var(--forest-light); border-bottom-color: var(--forest-light); }
+    .note strong { color: var(--forest); }
+
+    .progress-bar-wrap {
+      margin-top: 16px;
+      padding: 18px 22px;
+      border-radius: 12px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .progress-bar-wrap h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1rem;
+      margin: 0 0 10px;
+      color: var(--sky);
+    }
+    .progress-track {
+      height: 14px;
+      border-radius: 7px;
+      background: var(--panel);
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 7px;
+      background: linear-gradient(90deg, var(--sky), var(--moss));
+      transition: width 0.5s ease;
+    }
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .progress-labels .current { color: var(--sky); }
+    .progress-labels .target { color: var(--muted); }
+
+    /* ---------- Next step ---------- */
+    .next {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 60%, #225c49);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .next::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 84% 0%, rgba(61, 107, 140, 0.3), transparent 46%); pointer-events: none; }
+    .next > * { position: relative; }
+    .next .eyebrow { background: rgba(61, 107, 140, 0.2); color: #8ec5e8; }
+    .next h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 14px 0 12px; }
+    .next p { color: rgba(234, 250, 241, 0.84); margin: 0 0 22px; max-width: 640px; }
+    .next .btn-primary { background: var(--moss); color: var(--forest); }
+    .next .btn-primary:hover { background: #a7e0c4; }
+    .next .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .next .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .next-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal fallback ---------- */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .step-block,
+    html.gsap-fallback .example-good,
+    html.gsap-fallback .example-bad,
+    html.gsap-fallback .kb-card,
+    html.gsap-fallback .tier-card,
+    html.gsap-fallback .hw-card,
+    html.gsap-fallback .diag-tree,
+    html.gsap-fallback .diag-branch,
+    html.gsap-fallback .diag-case {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .example-pair { grid-template-columns: 1fr; }
+      .kb-grid { grid-template-columns: repeat(3, 1fr); }
+      .compliance-grid { grid-template-columns: 1fr; }
+      .diag-branches { grid-template-columns: 1fr; }
+      .hw-grid { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+      .case-banner-inner { flex-direction: column; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .kb-grid { grid-template-columns: 1fr; }
+      .step-header { grid-template-columns: 1fr; gap: 10px; }
+      .step-badge { width: 52px; height: 52px; border-radius: 13px; }
+      .step-badge .step-num { font-size: 1rem; }
+      .step-connector { margin-left: 24px; }
+      .next { padding: 32px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .step-block, .example-good, .example-bad, .kb-card, .tier-card,
+      .hw-card, .diag-tree, .diag-branch, .diag-case { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="学员手册导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#learning-path">学习路线</a>
+        <a class="nav-link" href="#compliance">合规分级</a>
+        <a class="nav-link" href="#file-types">资料处理</a>
+        <a class="nav-link" href="#tool-route">工具落位</a>
+        <a class="nav-link" href="#workbuddy-steps">ima+WorkBuddy</a>
+        <a class="nav-link" href="#diagnosis">命中率诊断</a>
+        <a class="nav-cta" href="index.html">知识库概览</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../part-01-skill/index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    <a href="index.html">第 2 课 · 知识库</a>
+    <span aria-hidden="true">/</span>
+    学员手册
+  </nav>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="handbook-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">📖</span> 第 2 课 · 知识库 · 学员手册</div>
+      <h1 class="reveal" id="handbook-title">120 分钟，<br><span class="grad">把散乱资料变成技能的「弹药库」</span></h1>
+      <p class="hero-lead reveal">
+        这份手册是你参加第 2 课「知识库实战」的完整指南。你会看到为什么技能离不开知识库、如何按合规 4 档分级资料、
+        怎样用 ima + WorkBuddy 处理个人资料、怎样在腾讯元器上搭建组织层知识库、以及答不好时怎样用诊断树定位问题。
+        手册里继续用「绿源环保公益中心」做全程示范——看看他们怎样从 127 份散落文档中，筛出 53 份有效资料上传。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>120 分钟</span>
+        <span class="meta-chip"><span class="dot"></span>ima + WorkBuddy</span>
+        <span class="meta-chip"><span class="dot"></span>腾讯元器组织知识库</span>
+        <span class="meta-chip"><span class="dot"></span>数据合规 4 档详解</span>
+        <span class="meta-chip"><span class="dot"></span>检索模式与命中率诊断</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#why-kb">
+          为什么需要知识库
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#learning-path">查看学习路线</a>
+      </div>
+    </section>
+
+    <!-- ================= Case study banner ================= -->
+    <div class="case-banner reveal">
+      <div class="case-banner-inner">
+        <div class="case-icon" aria-hidden="true">🏞️</div>
+        <div>
+          <h3>贯穿案例：绿源环保公益中心</h3>
+          <p>
+            上一课，<strong>绿源</strong>构建了一个「结项报告技能」——能把项目执行流水账转成六章节结构化报告。
+            但实际测试后发现：技能生成的报告<strong>数据靠编、措辞泛泛、缺少机构特色</strong>。
+            原因很简单——技能只知道「怎么写」，却没有绿源过往的项目数据和资助方偏好做支撑。
+            这节课，绿源要搭建自己的知识库，给技能装上「弹药」。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Section 1.5: Learning Path ================= -->
+    <section class="section" id="learning-path" aria-labelledby="learning-path-title">
+      <div class="section-head">
+        <div class="section-num reveal">学习路线</div>
+        <h2 class="section-title reveal" id="learning-path-title">这节课按 7 步走，不从工具开始</h2>
+        <p class="section-desc reveal">如果一上来就讲 ima、元器、Dify，学员会以为是在做平台选择。正确顺序是：先明确项目助理要答什么，再判断资料能不能用，最后才决定放进哪个工具。</p>
+      </div>
+      <div class="kb-grid">
+        <article class="kb-card reveal"><div><span class="kb-rank">1</span></div><h3>看清关系</h3><p>技能负责怎么做，知识库负责有什么。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">2</span></div><h3>定范围</h3><p>选 1-2 个栏目，写 10 个测试问题。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">3</span></div><h3>过合规</h3><p>按 L1-L4 判断能不能上云。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">4</span></div><h3>整资料</h3><p>清洗、拆分、补 metadata。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">5</span></div><h3>放工具</h3><p>ima、WorkBuddy、元器、Dify 各司其职。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">6</span></div><h3>跑测试</h3><p>用 10 个真实问题测命中率。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">7</span></div><h3>做诊断</h3><p>先看资料，再看检索，最后看生成。</p></article>
+      </div>
+    </section>
+
+    <!-- ================= Section 2: Why KB (Before/After) ================= -->
+    <section class="section" id="why-kb" aria-labelledby="why-kb-title">
+      <div class="section-head">
+        <div class="section-num reveal">为什么需要知识库</div>
+        <h2 class="section-title reveal" id="why-kb-title">同一个技能，有没有知识库差别多大？</h2>
+        <p class="section-desc reveal">绿源用同一个「结项报告技能」分别测试——没有知识库 vs 有知识库。对比一目了然。</p>
+      </div>
+
+      <div class="example-pair">
+        <div class="example-bad reveal">
+          <div class="example-label">❌ 没有知识库——技能靠「猜」</div>
+          <blockquote>
+            <strong>项目成效：</strong><br>
+            本项目取得了良好的社会效果。通过开展系列环保活动，提升了社区居民的环境意识。共计约 200 人参与活动，产生了积极的社会影响。项目得到了各方的认可和支持。
+          </blockquote>
+          <p style="margin-top: 10px; font-size: 0.84rem; color: var(--bad); font-weight: 600;">
+            问题：「约 200 人」是编造的；「良好效果」「积极影响」全是套话；没有引用任何真实数据。
+          </p>
+        </div>
+        <div class="example-good reveal">
+          <div class="example-label">✅ 有知识库——技能引用真实数据</div>
+          <blockquote>
+            <strong>项目成效：</strong><br>
+            「清河巡护」项目 2024 年度累计开展巡护行动 23 次，覆盖河段 12.6 公里，参与志愿者 87 人次。相比 2023 年同期（15 次巡护、58 人次），巡护频次提升 53%，志愿者参与提升 50%。XX 基金会中期评估评分 4.2/5（详见《2024年清河项目中期评估报告》第 3 章）。
+          </blockquote>
+          <p style="margin-top: 10px; font-size: 0.84rem; color: var(--good); font-weight: 600;">
+            亮点：引用了真实数据、历史对比、资助方评估——全部来自知识库中上传的过往报告。
+          </p>
+        </div>
+      </div>
+
+      <div class="note reveal">
+        <strong>一句话</strong>：技能知道「怎么做」（格式、流程、边界），知识库提供「弹药」（事实、案例、数据）。缺了弹药，技能再好也只能输出套话。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q1">Q1</a></p>
+    </section>
+
+    <!-- ================= Section 3: KB Map (5 categories) ================= -->
+    <section class="section" id="kb-map" aria-labelledby="kb-map-title">
+      <div class="section-head">
+        <div class="section-num reveal">知识库地图</div>
+        <h2 class="section-title reveal" id="kb-map-title">五大栏目：先建哪个？</h2>
+        <p class="section-desc reveal">调研数据告诉我们，学员最需要的五类知识库内容。按「有用」评分排序——先建最高分的 1-2 类，不必一次全建。</p>
+      </div>
+      <div class="kb-grid">
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">1</span><span class="kb-score">4.38</span></div>
+          <h3>沟通模板</h3>
+          <p>捐赠人邮件模板、媒体问答口径、社区沟通话术</p>
+          <div class="kb-path">/templates/communication/</div>
+          <div class="kb-example">绿源：资助方沟通邮件模板.docx</div>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">2</span><span class="kb-score">4.38</span></div>
+          <h3>资助指南</h3>
+          <p>各基金会申请要求、评审标准、往期资助清单</p>
+          <div class="kb-path">/guides/funding/</div>
+          <div class="kb-example">绿源：XX基金会2024申请指南.pdf</div>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">3</span><span class="kb-score">4.29</span></div>
+          <h3>项目管理</h3>
+          <p>项目计划模板、监测评估框架、财务报告格式</p>
+          <div class="kb-path">/sop/project-mgmt/</div>
+          <div class="kb-example">绿源：项目监测评估框架v2.xlsx</div>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">4</span><span class="kb-score">4.17-4.25</span></div>
+          <h3>案例</h3>
+          <p>成功/失败案例复盘、服务故事、传播素材</p>
+          <div class="kb-path">/cases/</div>
+          <div class="kb-example">绿源：清河巡护2023复盘.docx</div>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">5</span><span class="kb-score">4.08</span></div>
+          <h3>志愿者管理</h3>
+          <p>招募流程、培训手册、志愿者反馈表</p>
+          <div class="kb-path">/ops/volunteer/</div>
+          <div class="kb-example">绿源：志愿者培训手册2024版.pdf</div>
+        </article>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q10">Q10</a>（开放题）</p>
+    </section>
+
+    <!-- ================= Section 4: Compliance 4 tiers ================= -->
+    <section class="section" id="compliance" aria-labelledby="compliance-title">
+      <div class="section-head">
+        <div class="section-num reveal">数据合规 4 档</div>
+        <h2 class="section-title reveal" id="compliance-title">上传之前，先给资料分级</h2>
+        <p class="section-desc reveal">把资料喂给 AI 之前，必须先分级。4 档从松到严——拿不准时，宁可往高一档放。这是整个课程的合规底线，也是你向资助方交待的依据。</p>
+      </div>
+
+      <div class="compliance-grid">
+        <!-- L1 公开 -->
+        <div class="tier-card t1 reveal">
+          <div class="tier-badge">✅ L1 公开</div>
+          <h3>可直接上传云端</h3>
+          <ul class="tier-items">
+            <li>公众号文章、年度工作报告</li>
+            <li>公开发布的活动总结、宣传册</li>
+            <li>已公开的政策文件和行业报告</li>
+          </ul>
+          <div class="tier-luyuan">
+            <strong>绿源示例：</strong>「2025年度工作报告.pdf」、公众号推文合集、公开发布的河流巡护数据年报
+          </div>
+          <div class="tier-action">可直接上传云端知识库</div>
+        </div>
+
+        <!-- L2 准公开 -->
+        <div class="tier-card t2 reveal">
+          <div class="tier-badge">⚠️ L2 准公开</div>
+          <h3>脱敏 + 审核后上云</h3>
+          <ul class="tier-items">
+            <li>脱敏后的项目案例和服务故事</li>
+            <li>内部培训资料、操作手册</li>
+            <li>不含敏感信息的项目结项报告</li>
+          </ul>
+          <div class="tier-luyuan">
+            <strong>绿源示例：</strong>项目结项报告（删掉受益人姓名后）、志愿者培训 PPT（删掉联系方式后）
+          </div>
+          <div class="tier-action">负责人审核后上云</div>
+          <div class="desensitize-example">
+            <div class="de-label de-before">脱敏前：</div>
+            <p>志愿者张三（手机：138****1234）在清河社区开展了 3 次入户宣传，帮助居民王大妈解决了垃圾分类问题。</p>
+            <div class="de-label de-after" style="margin-top: 8px;">脱敏后：</div>
+            <p>志愿者 A 在清河社区开展了 3 次入户宣传，帮助居民 B 解决了垃圾分类问题。</p>
+          </div>
+        </div>
+
+        <!-- L3 内部 -->
+        <div class="tier-card t3 reveal">
+          <div class="tier-badge">⚠️ L3 内部</div>
+          <h3>仅 WorkBuddy 本地</h3>
+          <ul class="tier-items">
+            <li>内部会议纪要、周会记录</li>
+            <li>未发布的项目计划和预算草案</li>
+            <li>团队内部讨论的策略文档</li>
+          </ul>
+          <div class="tier-luyuan">
+            <strong>绿源示例：</strong>内部周会纪要、下季度预算草案、新项目孵化讨论记录
+          </div>
+          <div class="tier-action">仅 WorkBuddy 本地，不上云</div>
+        </div>
+
+        <!-- L4 敏感 -->
+        <div class="tier-card t4 reveal">
+          <div class="tier-badge">❌ L4 敏感</div>
+          <h3>禁止上传任何 AI 平台</h3>
+          <ul class="tier-items">
+            <li>捐赠人姓名、联系方式、捐赠金额明细</li>
+            <li>受益人身份证号、家庭住址、健康信息</li>
+            <li>志愿者手机号、身份证、银行卡号</li>
+          </ul>
+          <div class="tier-luyuan">
+            <strong>绿源示例：</strong>捐赠人名单.xlsx、受益家庭登记表、志愿者个人信息汇总表
+          </div>
+          <div class="tier-action">禁止写进任何知识库或技能</div>
+        </div>
+      </div>
+
+      <div class="note reveal">
+        <strong>红线</strong>：受益人、志愿者、捐赠人的姓名与联系方式，输出前一律脱敏（姓名→A/B，删除手机/证件号）。拿不准时，宁可不放——数据泄露没有「撤回」键。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q2">Q2</a> · <a href="quiz.html#q3">Q3</a> · <a href="quiz.html#q4">Q4</a></p>
+    </section>
+
+    <!-- ================= Section 5: File Handling ================= -->
+    <section class="section" id="file-types" aria-labelledby="file-types-title">
+      <div class="section-head">
+        <div class="section-num reveal">资料处理</div>
+        <h2 class="section-title reveal" id="file-types-title">先把资料变干净，再谈上传工具</h2>
+        <p class="section-desc reveal">知识库质量很大程度取决于入库前处理。先把文件变成干净、可引用、可切片的文本，再谈 ima、WorkBuddy 和腾讯元器。</p>
+      </div>
+      <div class="kb-grid">
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">W</span><span class="kb-score">推荐</span></div>
+          <h3>Word / Markdown</h3>
+          <p>保留标题层级，按章节清理。一份文档只讲一个主题，最适合直接入库。</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">P</span><span class="kb-score">先清洗</span></div>
+          <h3>PDF</h3>
+          <p>判断文字 PDF 还是扫描件；扫描件先 OCR，表格页单独转结构化文本。</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">X</span><span class="kb-score">转摘要</span></div>
+          <h3>Excel / CSV</h3>
+          <p>不要整表硬传，先转成字段说明、典型问答和行记录摘要。</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">S</span><span class="kb-score">转讲稿</span></div>
+          <h3>PPT / 图片</h3>
+          <p>PPT 转逐页要点；图片先 OCR 或用 ima 识别，关键信息补文字说明。</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">A</span><span class="kb-score">先转写</span></div>
+          <h3>音频 / 访谈</h3>
+          <p>先转写，再脱敏，再按主题拆分。访谈对象姓名、电话、住址必须删除。</p>
+        </article>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q8">Q8</a></p>
+    </section>
+
+    <!-- ================= Section 6: Tool Route ================= -->
+    <section class="section" id="tool-route" aria-labelledby="tool-route-title">
+      <div class="section-head">
+        <div class="section-num reveal">工具落位</div>
+        <h2 class="section-title reveal" id="tool-route-title">资料处理清楚后，再决定放进哪个工具</h2>
+        <p class="section-desc reveal">工具不是并列选择题，而是分层使用。先把资料分级、清洗和打标签，再让不同工具各司其职。</p>
+      </div>
+
+      <div class="compliance-grid">
+        <div class="tier-card t1 reveal">
+          <div class="tier-badge">初阶个人层</div>
+          <h3>腾讯 ima 知识工作台</h3>
+          <ul class="tier-items">
+            <li>收纳微信文件、网页、PDF、图片、音频</li>
+            <li>快速摘要、问答、萃取候选标签</li>
+            <li>判断哪些资料适合进组织知识库</li>
+          </ul>
+          <div class="tier-action">先把资料用起来</div>
+        </div>
+        <div class="tier-card t2 reveal">
+          <div class="tier-badge">个人执行层</div>
+          <h3>WorkBuddy</h3>
+          <ul class="tier-items">
+            <li>调用个人知识和第 1 课技能</li>
+            <li>处理草稿、内部笔记、L3 资料</li>
+            <li>完成个人任务闭环</li>
+          </ul>
+          <div class="tier-action">跑真实任务</div>
+        </div>
+        <div class="tier-card t3 reveal">
+          <div class="tier-badge">组织主线</div>
+          <h3>腾讯元器</h3>
+          <ul class="tier-items">
+            <li>承载 L1 和审核后的 L2 组织知识库</li>
+            <li>挂载到第 3 课项目助理 AI智能体</li>
+            <li>适合团队共享与统一入口</li>
+          </ul>
+          <div class="tier-action">本期首选平台</div>
+        </div>
+        <div class="tier-card t2 reveal">
+          <div class="tier-badge">高阶理解</div>
+          <h3>元器进阶 / Dify</h3>
+          <ul class="tier-items">
+            <li>观察向量、全文、混合检索差异</li>
+            <li>训练切片、TopK、阈值、rerank 判断</li>
+            <li>服务 L2+ 学员和助教调参</li>
+          </ul>
+          <div class="tier-action">RAG 训练场</div>
+        </div>
+      </div>
+
+      <div class="note reveal">
+        <strong>边界</strong>：腾讯元器是本期组织层主线；Dify 不替代元器，只作为高阶演示和可选自建路线。不要把第 2 课变成工具测评课，所有工具都服务于同一个目标：项目助理能不能答准。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q5">Q5</a></p>
+    </section>
+
+    <!-- ================= Section 7: ima + WorkBuddy Step-by-Step ================= -->
+    <section class="section" id="workbuddy-steps" aria-labelledby="wb-title">
+      <div class="section-head">
+        <div class="section-num reveal">ima + WorkBuddy 个人层</div>
+        <h2 class="section-title reveal" id="wb-title">6 步把个人资料变成可调用知识</h2>
+        <p class="section-desc reveal">ima 负责收纳和初步萃取，WorkBuddy 负责调用知识跑任务。个人层先跑通，组织层才有干净资料可同步。</p>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">1</span>
+            <span class="step-label">清点</span>
+          </div>
+          <div class="step-info">
+            <h3>整理现有资料（清点家底）</h3>
+            <p>把散落在各处的文档集中到一起盘点：云盘、微信文件、邮件附件、本地电脑。记录每份文档的名称、格式和来源。</p>
+            <div class="step-luyuan">
+              <strong>绿源做了一次盘点：</strong>3 个云盘共散落 127 份文档，其中过期或重复的 59 份，实际可用 68 份。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 2 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">2</span>
+            <span class="step-label">分级</span>
+          </div>
+          <div class="step-info">
+            <h3>按 4 档分级</h3>
+            <p>逐份标注 L1-L4，L4 直接剔除。有疑问的材料往高一档放。</p>
+            <div class="step-luyuan">
+              <strong>绿源的分级结果：</strong>38 份 L1（公开）+ 18 份 L2（准公开）+ 9 份 L3（内部）+ 3 份 L4（敏感，剔除）= 65 份可用
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 3 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">3</span>
+            <span class="step-label">脱敏</span>
+          </div>
+          <div class="step-info">
+            <h3>脱敏 L2 资料</h3>
+            <p>L2 资料上云前必须脱敏：人名→A/B/C，金额→量级范围，电话/身份证→删除。</p>
+          </div>
+        </div>
+        <div class="example-pair">
+          <div class="example-bad reveal">
+            <div class="example-label">❌ 脱敏前（原始案例）</div>
+            <blockquote>
+              2024年清河项目由张明（项目经理）负责，获 XX 基金会资助 15 万元。志愿者李华（138****5678）参与了全部 23 次巡护，帮助受益人刘阿姨改善了家门口的排污问题。
+            </blockquote>
+          </div>
+          <div class="example-good reveal">
+            <div class="example-label">✅ 脱敏后（可上传版本）</div>
+            <blockquote>
+              2024年清河项目由项目经理 A 负责，获 XX 基金会资助（10-20 万元区间）。核心志愿者 B 参与了全部 23 次巡护，帮助受益人 C 改善了社区排污问题。
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 4 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">4</span>
+            <span class="step-label">进 ima</span>
+          </div>
+          <div class="step-info">
+            <h3>导入 ima，做初步摘要和标签</h3>
+            <p>把 L1、L2 候选资料导入 ima，先让它回答“这份资料讲什么、能回答哪些问题、哪些内容需要脱敏、适合打什么标签”。</p>
+            <div class="step-luyuan">
+              <strong>绿源让 ima 先整理出 5 大栏目：</strong><br>
+              <code style="display:block; padding: 12px 16px; background: var(--panel); border-radius: 8px; font-size: 0.86rem; margin-top: 8px; line-height: 1.8; border: 1px solid var(--line);">
+                /templates/communication/ &nbsp;← 沟通模板<br>
+                /guides/funding/ &nbsp;← 资助指南<br>
+                /sop/project-mgmt/ &nbsp;← 项目管理<br>
+                /cases/ &nbsp;← 案例<br>
+                /ops/volunteer/ &nbsp;← 志愿者管理
+              </code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 5 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">5</span>
+            <span class="step-label">入 WB</span>
+          </div>
+          <div class="step-info">
+            <h3>在 WorkBuddy 中调用个人知识</h3>
+            <p>按「年份/项目/类型」为资料添加 metadata，再用第 1 课技能跑一次真实任务，检查事实是否被正确引用。</p>
+            <div class="step-luyuan">
+              <strong>绿源跑了一次任务：</strong>用结项报告技能调用 53 份个人资料，生成报告初稿，并标出 6 个需补充来源的数据点。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 6 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">6</span>
+            <span class="step-label">测试</span>
+          </div>
+          <div class="step-info">
+            <h3>测试检索质量</h3>
+            <p>问 3 个你知道答案的真实问题，看知识库能否命中正确文档、给出准确回答。</p>
+            <div class="step-luyuan">
+              <strong>绿源的 3 个测试问题：</strong><br>
+              1. 「2024年清河项目共开展了多少次巡护？」→ 命中 ✅<br>
+              2. 「XX 基金会对结项报告的格式有什么要求？」→ 命中 ✅<br>
+              3. 「2023年社区环教项目的参与人数？」→ 未命中 ❌（该报告尚未上传）
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q7">Q7</a></p>
+    </section>
+
+    <!-- ================= Section 6: Yuanqi Sync ================= -->
+    <section class="section" id="yuanqi-steps" aria-labelledby="yq-title">
+      <div class="section-head">
+        <div class="section-num reveal">腾讯元器知识库同步</div>
+        <h2 class="section-title reveal" id="yq-title">4 步同步到云端</h2>
+        <p class="section-desc reveal">WorkBuddy 本地知识库搭建好之后，把 L1 + 审核通过的 L2 资料同步到腾讯元器云端，让你的项目助理在任何设备上都能检索。</p>
+      </div>
+
+      <!-- Yuanqi Step 1 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge yuanqi">
+            <span class="step-num">1</span>
+            <span class="step-label">创建</span>
+          </div>
+          <div class="step-info">
+            <h3>登录元器，创建知识库空间</h3>
+            <p>访问腾讯元器平台，在「知识库」模块中新建一个专属空间。建议命名为「[机构简称]-知识库」，方便后续管理。</p>
+            <div class="step-luyuan yuanqi">
+              <strong>绿源操作：</strong>创建了「绿源-知识库」空间，选择了「文档问答」类型。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector yuanqi" aria-hidden="true"></div>
+
+      <!-- Yuanqi Step 2 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge yuanqi">
+            <span class="step-num">2</span>
+            <span class="step-label">上传</span>
+          </div>
+          <div class="step-info">
+            <h3>上传 L1 + 审核通过的 L2 资料</h3>
+            <p>只上传已确认合规的资料。L3 和 L4 绝对不能上传到云端。每批上传建议不超过 20 份，避免处理超时。</p>
+            <div class="step-luyuan yuanqi">
+              <strong>绿源操作：</strong>上传了 38 份 L1 + 12 份审核通过的 L2 = 50 份。另外 3 份 L2 因负责人尚未审核，暂不上传。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector yuanqi" aria-hidden="true"></div>
+
+      <!-- Yuanqi Step 3 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge yuanqi">
+            <span class="step-num">3</span>
+            <span class="step-label">参数</span>
+          </div>
+          <div class="step-info">
+            <h3>设置检索参数</h3>
+            <p>调整两个关键参数：<strong>切片大小</strong>（建议 300-800 字，按章节自然分段）和<strong>相似度阈值</strong>（建议从 0.7 起步，偏高宁严）。</p>
+            <div class="step-luyuan yuanqi">
+              <strong>绿源参数：</strong>切片大小 500 字，相似度阈值 0.72。初始设置偏保守，后续根据命中率调整。
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-connector yuanqi" aria-hidden="true"></div>
+
+      <!-- Yuanqi Step 4 -->
+      <div class="step-block reveal">
+        <div class="step-header">
+          <div class="step-badge yuanqi">
+            <span class="step-num">4</span>
+            <span class="step-label">调试</span>
+          </div>
+          <div class="step-info">
+            <h3>调试检索效果</h3>
+            <p>在元器的调试面板中输入测试问题，检查返回的文档片段是否相关。如果命中率不够，参考下一节的诊断树排查。</p>
+            <div class="step-luyuan yuanqi">
+              <strong>绿源调试结果：</strong>10 个测试问题命中 7 个（70%），其中 2 个未命中是因为相关文档未上传，1 个是切片过大导致答案被截断。
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q5">Q5</a></p>
+    </section>
+
+    <!-- ================= Section 9: Retrieval Modes ================= -->
+    <section class="section" id="retrieval" aria-labelledby="retrieval-title">
+      <div class="section-head">
+        <div class="section-num reveal">测试后的诊断工具</div>
+        <h2 class="section-title reveal" id="retrieval-title">先跑 10 问，再理解向量、全文、混合检索</h2>
+        <p class="section-desc reveal">检索模式不是先背的概念，而是命中率不够时用来定位问题的工具。这里把它翻译成三类公益问题：精确事实、语义案例、综合筛选。</p>
+      </div>
+      <div class="hw-grid">
+        <div class="hw-card l1 reveal">
+          <h3>全文检索</h3>
+          <ul class="hw-list">
+            <li>按字面关键词匹配</li>
+            <li>适合人名、项目名、日期、编号、政策条款</li>
+            <li>例：2024 清河项目共开展了多少次巡护？</li>
+          </ul>
+        </div>
+        <div class="hw-card l2 reveal">
+          <h3>向量检索</h3>
+          <ul class="hw-list">
+            <li>按语义相似度匹配</li>
+            <li>适合相似案例、经验总结、换一种说法的提问</li>
+            <li>例：有没有社区居民参与河流保护的案例？</li>
+          </ul>
+        </div>
+      </div>
+      <div class="note reveal">
+        <strong>混合检索</strong>：关键词和语义一起用，通常适合作为大多数公益知识库的默认高阶策略。知识库变大后，还要配合 metadata 过滤，例如先限定年份、项目、资助方、领域，再检索。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q6">Q6</a></p>
+    </section>
+
+    <!-- ================= Section 10: Hit Rate Diagnosis ================= -->
+    <section class="section" id="diagnosis" aria-labelledby="diag-title">
+      <div class="section-head">
+        <div class="section-num reveal">命中率诊断</div>
+        <h2 class="section-title reveal" id="diag-title">答不好？先判断是哪个环节</h2>
+        <p class="section-desc reveal">知识库建好后，问 10 个真实问题测命中率。答不好时按下面的顺序排查——<strong>先看资料，再看检索，最后看生成</strong>。</p>
+      </div>
+
+      <div class="diag-tree reveal">
+        <div class="diag-root">问了一个问题，答得不好</div>
+        <div class="diag-connector" aria-hidden="true">
+          <svg width="200" height="40" viewBox="0 0 200 40">
+            <line x1="100" y1="0" x2="50" y2="40" stroke="var(--line)" stroke-width="2"/>
+            <line x1="100" y1="0" x2="150" y2="40" stroke="var(--line)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="diag-branches">
+          <div class="diag-branch is-search reveal">
+            <div class="diag-branch-title">没找到正确内容 → 先查资料，再查检索</div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">1</div>
+              <div>资料没上传？<span> → 先补对应文档</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">2</div>
+              <div>切片太大？<span> → 减小切片到 300-800 字</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">3</div>
+              <div>没打 metadata？<span> → 补标签（年份、项目名、类型）</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">4</div>
+              <div>检索模式不合适？<span> → 精确事实用全文，案例匹配用向量，综合筛选用混合</span></div>
+            </div>
+          </div>
+          <div class="diag-branch is-gen reveal">
+            <div class="diag-branch-title">检索到了但回答质量差 → 生成问题</div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">1</div>
+              <div>技能提示词太泛？<span> → 回第 1 课改 Gotchas 和输出契约</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">2</div>
+              <div>模型能力不足？<span> → 换更强的模型试试</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 绿源实际诊断案例 -->
+      <div class="diag-case reveal">
+        <h4>绿源的实际诊断过程</h4>
+        <div class="diag-case-step">
+          <div class="diag-case-num">1</div>
+          <div>
+            <strong>提问：</strong>「2024年清河项目参与了多少人？」<br>
+            <div class="diag-case-bad" style="margin-top: 6px;">AI 回答：「约 200 人」——这是编造的！</div>
+          </div>
+        </div>
+        <div class="diag-case-step">
+          <div class="diag-case-num">2</div>
+          <div>
+            <strong>诊断：</strong>检查检索日志 → 没有命中任何相关文档 → 检索问题 → 发现 2024 清河项目结项报告<strong>尚未上传</strong>。
+          </div>
+        </div>
+        <div class="diag-case-step">
+          <div class="diag-case-num">3</div>
+          <div>
+            <strong>修复：</strong>上传《2024年清河巡护项目结项报告》，打好 metadata 标签。
+          </div>
+        </div>
+        <div class="diag-case-step">
+          <div class="diag-case-num">4</div>
+          <div>
+            <strong>重试同一问题：</strong><br>
+            <div class="diag-case-good" style="margin-top: 6px;">AI 回答：「2024年清河巡护项目累计参与 87 人次（来源：结项报告第 3 章）」——正确！</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="note reveal">
+        <strong>口诀</strong>：先看资料，再看检索，最后看生成。多数时候补一份文档、拆细切片或补 metadata，就能明显提升命中率。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q9">Q9</a></p>
+    </section>
+
+    <!-- ================= Section 8: Homework ================= -->
+    <section class="section" id="homework" aria-labelledby="hw-title">
+      <div class="section-head">
+        <div class="section-num reveal">课后作业</div>
+        <h2 class="section-title reveal" id="hw-title">分层目标：选你能达到的那一档</h2>
+        <p class="section-desc reveal">不要求一步到位。L1 是「用起来」，L2 是「用得顺」——大多数学员第一周达到 L1，第二周冲刺 L2。</p>
+      </div>
+
+      <div class="hw-grid">
+        <div class="hw-card l1 reveal">
+          <h3>入门 L1 · 用起来</h3>
+          <ul class="hw-list">
+            <li>WorkBuddy 本地知识库 ≥ 30 份文档</li>
+            <li>云端（腾讯元器）≥ 10 份文档</li>
+            <li>命中率 ≥ 60%（10 个问题答对 6 个）</li>
+            <li>能回答基本项目问题</li>
+          </ul>
+        </div>
+        <div class="hw-card l2 reveal">
+          <h3>进阶 L2 · 用得顺</h3>
+          <ul class="hw-list">
+            <li>WorkBuddy 本地知识库 ≥ 80 份文档</li>
+            <li>云端（腾讯元器）≥ 25 份文档</li>
+            <li>命中率 ≥ 70%（10 个问题答对 7 个）</li>
+            <li>有完整 metadata + 诊断修复记录</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 绿源进度 -->
+      <div class="progress-bar-wrap reveal">
+        <h4>绿源当前进度</h4>
+        <div class="progress-track">
+          <div class="progress-fill" style="width: 66%;"></div>
+        </div>
+        <div class="progress-labels">
+          <span class="current">已上传 53 份 · 命中率 65% — 达到 L1 ✅</span>
+          <span class="target">L2 目标：80 份 · 70%</span>
+        </div>
+        <p style="margin: 10px 0 0; font-size: 0.88rem; color: var(--muted);">
+          绿源已完成 53 份上传，命中率 65%——达到 L1 标准。正在向 L2 冲刺：还需补 27 份文档，并通过诊断树修复 3 个未命中问题。
+        </p>
+      </div>
+
+      <div class="note reveal">
+        <strong>下课带走一句话</strong>：「我的知识库现在有 ___ 份文档，命中率从 ___% 提升到了 ___%。」——用数字说话，这就是你的学习成果。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q10">Q10</a>（开放题）</p>
+    </section>
+
+    <!-- ================= Section 9: Next Step CTA ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="next reveal">
+        <div class="eyebrow">下一步 · 第 3 课</div>
+        <h2>技能 + 知识库就位——下一课，编排成项目助理</h2>
+        <p>技能知道「怎么做」，知识库提供了「弹药」——下一步，把它们编排成一个完整的项目助理。第 3 课教你把多个技能和知识库挂到同一个 AI 智能体上，让它根据用户意图自动选技能、查知识库、给出回答。</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="../part-03-agent/index.html">
+            进入第 3 课 · AI智能体
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="index.html">返回知识库概览</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 第 2 课 · 知识库实战 · 学员手册</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="index.html">知识库概览</a>
+      <a href="#">学员手册</a>
+      <a href="../part-01-skill/index.html">第 1 课</a>
+      <a href="../part-03-agent/index.html">第 3 课</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 第 2 课知识库学员手册页面交互
+     * @description GSAP ScrollTrigger 滚动揭示动画。
+     *              内容默认可见；GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initHandbook() {
+      var root = document.documentElement;
+
+      /* -------- GSAP fallback -------- */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .step-block, .example-good, .example-bad, .kb-card, .tier-card, .hw-card, .diag-tree, .diag-branch, .diag-case",
+          { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      /* -------- Hero entrance -------- */
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /* -------- Case banner entrance -------- */
+      gsap.fromTo(".case-banner",
+        { y: 24, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.5 });
+
+      /* -------- Scroll reveal for generic .reveal elements -------- */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach(function(el) {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      /* -------- Step blocks: staggered reveal -------- */
+      gsap.set(".step-block", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".step-block", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.15, duration: 0.7, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Good/bad example cards: staggered -------- */
+      gsap.set(".example-good, .example-bad", { y: 24, autoAlpha: 0 });
+      ScrollTrigger.batch(".example-good, .example-bad", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.5, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 24, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- KB cards: staggered -------- */
+      gsap.set(".kb-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".kb-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Tier cards -------- */
+      gsap.set(".tier-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".tier-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Homework cards -------- */
+      gsap.set(".hw-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".hw-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Diagnosis tree -------- */
+      gsap.set(".diag-branch, .diag-case", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".diag-branch, .diag-case", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      window.addEventListener("load", function() { ScrollTrigger.refresh(); });
+    })();
+  </script>
+</body>
+</html>

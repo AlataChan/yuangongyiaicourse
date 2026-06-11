@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 4 课 · 场景深化 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营（5+1）第 4 课「场景深化」：按你的主场景深化，补齐第 2 个技能，确保路由不冲突。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.12), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--forest); background: var(--moss-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--forest-light);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--forest), var(--forest-light) 45%, var(--moss));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 640px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--moss-soft); }
+
+    /* ---------- Module cards ---------- */
+    .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .module-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--forest);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .module-card.m2 { border-top-color: var(--sky); }
+    .module-card.m3 { border-top-color: var(--amber); }
+    .module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .module-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--forest-light); }
+    .module-card.m2 .module-tag { color: var(--sky); }
+    .module-card.m3 .module-tag { color: var(--amber); }
+    .module-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.18rem; margin: 8px 0 10px; }
+    .module-card p { color: var(--muted); font-size: 0.92rem; margin: 0 0 14px; }
+    .module-detail { font-size: 0.84rem; font-weight: 600; color: var(--forest); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 0 0 10px; }
+    .module-card.m2 .module-detail { color: var(--sky); }
+    .module-card.m3 .module-detail { color: var(--amber); }
+    .module-skill2 { margin-top: auto; padding: 10px 14px; border-radius: 10px; background: var(--moss-soft); font-size: 0.86rem; font-weight: 600; color: var(--forest); }
+    .module-card.m2 .module-skill2 { background: var(--sky-soft); color: var(--sky); }
+    .module-card.m3 .module-skill2 { background: var(--amber-soft); color: var(--amber); }
+
+    /* ---------- Step cards ---------- */
+    .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 8px; }
+    .step-card {
+      padding: 24px 22px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .step-num {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: var(--forest);
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+    }
+    .step-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.06rem; margin: 0 0 8px; }
+    .step-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+    /* ---------- Panel card ---------- */
+    .panel-card { padding: 32px 30px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); will-change: transform, opacity; }
+
+    /* ---------- Routing check ---------- */
+    .route-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 8px; }
+    .route-box {
+      padding: 24px 22px;
+      border-radius: var(--radius);
+      border: 2px solid var(--line);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .route-box.good { border-color: var(--forest); }
+    .route-box.bad { border-color: #c0392b; }
+    .route-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .route-box.good .route-label { color: var(--forest); }
+    .route-box.bad .route-label { color: #c0392b; }
+    .route-example {
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      margin-bottom: 10px;
+    }
+    .route-box.good .route-example { background: var(--moss-soft); color: var(--forest); }
+    .route-box.bad .route-example { background: #fde8e8; color: #922; }
+    .route-example strong { display: block; font-size: 0.8rem; letter-spacing: 0.03em; margin-bottom: 4px; }
+    .route-example p { margin: 0; font-size: 0.86rem; }
+    .route-note { margin-top: 10px; font-size: 0.86rem; color: var(--muted); }
+
+    .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--moss-soft); color: var(--forest); font-size: 0.92rem; }
+
+    /* ---------- Next step ---------- */
+    .next {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 60%, #225c49);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .next::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 84% 0%, rgba(143, 212, 176, 0.26), transparent 46%); pointer-events: none; }
+    .next > * { position: relative; }
+    .next .eyebrow { background: rgba(143, 212, 176, 0.16); color: var(--moss); }
+    .next h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 14px 0 12px; }
+    .next p { color: rgba(234, 250, 241, 0.84); margin: 0 0 22px; max-width: 640px; }
+    .next .btn-primary { background: var(--moss); color: var(--forest); }
+    .next .btn-primary:hover { background: #a7e0c4; }
+    .next .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .next .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .next-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal default state ---------- */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .module-card,
+    html.gsap-fallback .step-card,
+    html.gsap-fallback .route-box,
+    html.gsap-fallback .panel-card {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .module-grid { grid-template-columns: 1fr; }
+      .route-compare { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .step-grid { grid-template-columns: 1fr; }
+      .next { padding: 32px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .module-card, .step-card, .route-box, .panel-card { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="第 4 课导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#modules">模块深化</a>
+        <a class="nav-link" href="#skill2">第二技能</a>
+        <a class="nav-link" href="#routing">路由自检</a>
+        <a class="nav-link" href="quiz.html">课后测验</a>
+        <a class="nav-cta" href="handbook.html">学员手册</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../part-03-agent/index.html">第 3 课 · AI智能体</a>
+    <span aria-hidden="true">/</span>
+    第 4 课 · 场景深化
+  </nav>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="lesson-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">④</span> 第 4 课 · 场景深化</div>
+      <h1 class="reveal" id="lesson-title">按你的主场景深化<br><span class="grad">补齐第 2 个技能</span></h1>
+      <p class="hero-lead reveal">
+        项目助理「什么都能聊一点」不等于「什么都好用」。
+        这节课按你机构的主场景纵深打磨——补齐第二个技能、确保两个技能不打架，
+        把准确率从「能用」拉到「好用」。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>时长 90 分钟</span>
+        <span class="meta-chip"><span class="dot"></span>产出 ≥2 个技能 + 模块化工作流</span>
+        <span class="meta-chip"><span class="dot"></span>深化你的项目助理</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="handbook.html">
+          打开学员手册
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#modules">查看三模块深化方向</a>
+      </div>
+      <p class="reveal" style="margin:16px 0 0;font-size:0.9rem;color:var(--muted);">
+        课后自测：<a href="quiz.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">课后测验（10 题）→</a>
+        覆盖本课 3 项教学目标（主模块深化 / 凑齐 ≥2 技能 / 模块化互测），每题标注对应《学员手册》章节。
+      </p>
+    </section>
+
+    <!-- ================= Module Deepening ================= -->
+    <section class="section" id="modules" aria-labelledby="modules-title">
+      <div class="section-head">
+        <div class="section-num reveal">模块分流深化</div>
+        <h2 class="section-title reveal" id="modules-title">找到你的模块，对号入座</h2>
+        <p class="section-desc reveal">三个模块痛点不同、深化方向不同。跟着自己的模块走，把最疼的那条链路打磨到位。</p>
+      </div>
+      <div class="module-grid">
+        <article class="module-card m1 reveal">
+          <div class="module-tag">M1 · 文书链</div>
+          <h3>立项→结项链路串联</h3>
+          <p>把项目书的目标、指标、预算映射为结项报告的检查项——两份文书数据对齐，减少「立项时写的指标结项时对不上」。</p>
+          <div class="module-detail">深化重点：两份文书的数据字段对齐</div>
+          <div class="module-skill2">推荐第二技能：资助信 / 项目摘要</div>
+        </article>
+        <article class="module-card m2 reveal">
+          <div class="module-tag">M2 · 案例库</div>
+          <h3>检索命中率优化</h3>
+          <p>调整 Top-K、相似度阈值、文档切片粒度，用 5 个典型查询测覆盖率和精准度，把「搜不到」变成「搜得准」。</p>
+          <div class="module-detail">深化重点：检索参数调优 + 切片粒度</div>
+          <div class="module-skill2">推荐第二技能：案例萃取 / 脱敏</div>
+        </article>
+        <article class="module-card m3 reveal">
+          <div class="module-tag">M3 · 传播运营</div>
+          <h3>tone 一致性</h3>
+          <p>用 3 篇机构历史推文提取语气基准，写进 Output Contract，确保 AI 输出的语气像「我们机构的人写的」。</p>
+          <div class="module-detail">深化重点：语气基准提取 + 写入契约</div>
+          <div class="module-skill2">推荐第二技能：活动复盘 / 社群 FAQ</div>
+        </article>
+      </div>
+      <p class="note reveal">
+        每个模块的第二技能和第一技能形成配合：M1「长文书 + 短文书」、M2「查案例 + 写案例」、M3「对外传播 + 对内沉淀」。选择时优先考虑你机构最高频的场景组合。
+      </p>
+    </section>
+
+    <!-- ================= Second Skill ================= -->
+    <section class="section" id="skill2" aria-labelledby="skill2-title">
+      <div class="section-head">
+        <div class="section-num reveal">构建第二技能</div>
+        <h2 class="section-title reveal" id="skill2-title">构建你的第二个技能</h2>
+        <p class="section-desc reveal">从立项书的「Skill 2」字段出发，按五步构建、在 WorkBuddy 里跑通，重点确认两技能路由不冲突。</p>
+      </div>
+      <div class="step-grid">
+        <div class="step-card reveal">
+          <div class="step-num">1</div>
+          <h3>确认场景</h3>
+          <p>从模块推荐中选一个第二技能场景，或沿用你立项书里已预留的 Skill 2。</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">2</div>
+          <h3>写触发说明</h3>
+          <p>一句「什么情况下用我」+ 明确「不该用我」的相邻场景——和技能 1 的触发说明放一起读，不能打架。</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">3</div>
+          <h3>写输出契约</h3>
+          <p>固定输出结构、字段、字数范围。和技能 1 的输出格式差异越大，路由越不容易混。</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">4</div>
+          <h3>写 6 条 Gotchas</h3>
+          <p>最容易翻车的 6 点。参照第 1 课方法：脱敏、缺数据、套话、格式跑偏、编造、误触发。</p>
+        </div>
+        <div class="step-card reveal">
+          <div class="step-num">5</div>
+          <h3>WorkBuddy 跑通</h3>
+          <p>在 WorkBuddy 里用真实材料跑一遍，确认输出符合契约。然后挂载到项目助理，测试两技能路由。</p>
+        </div>
+      </div>
+      <p class="note reveal">
+        关键原则：两个技能的 description 放在一起读，应该像两个岗位的 JD——各管各的、边界清晰、有交叉时明确「归谁」。
+      </p>
+    </section>
+
+    <!-- ================= Routing Check ================= -->
+    <section class="section" id="routing" aria-labelledby="routing-title">
+      <div class="section-head">
+        <div class="section-num reveal">路由自检</div>
+        <h2 class="section-title reveal" id="routing-title">两技能路由不冲突自检</h2>
+        <p class="section-desc reveal">把两个技能的触发说明放在一起对比——好的触发说明像两个清晰的岗位 JD，坏的触发说明像两个人抢同一件事。</p>
+      </div>
+      <div class="route-compare">
+        <div class="route-box good reveal">
+          <div class="route-label">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            边界清晰 · 不冲突
+          </div>
+          <div class="route-example">
+            <strong>技能 1 · 结项报告</strong>
+            <p>当用户提供项目流水账/活动记录、需要结构化结项报告时加载；不要用于项目立项书或资助申请信。</p>
+          </div>
+          <div class="route-example">
+            <strong>技能 2 · 资助信</strong>
+            <p>当用户提供项目核心信息、需要一页纸资助申请信或项目摘要时加载；不要用于完整项目书或结项报告。</p>
+          </div>
+          <p class="route-note">两个技能各管各的格式和场景，互相用「不要用于」排除了对方的领地。</p>
+        </div>
+        <div class="route-box bad reveal">
+          <div class="route-label">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            边界模糊 · 会打架
+          </div>
+          <div class="route-example">
+            <strong>技能 1</strong>
+            <p>帮公益机构写文书。</p>
+          </div>
+          <div class="route-example">
+            <strong>技能 2</strong>
+            <p>帮公益机构写申请材料。</p>
+          </div>
+          <p class="route-note">两个触发说明都太宽泛——「写文书」和「写申请材料」高度重叠，AI 不知道该调用谁。</p>
+        </div>
+      </div>
+      <div class="panel-card reveal" style="margin-top: 28px;">
+        <h3 style="font-family: 'Noto Serif SC', serif; font-size: 1.1rem; margin-bottom: 14px;">自检清单：逐项检查你的两个技能</h3>
+        <div style="display: grid; grid-template-columns: auto 1fr 1fr; gap: 0; font-size: 0.9rem; border: 1px solid var(--line); border-radius: 10px; overflow: hidden;">
+          <div style="padding: 10px 14px; background: var(--panel); font-weight: 700; border-bottom: 1px solid var(--line);">检查项</div>
+          <div style="padding: 10px 14px; background: var(--panel); font-weight: 700; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line);">技能 1</div>
+          <div style="padding: 10px 14px; background: var(--panel); font-weight: 700; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line);">技能 2</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line);">触发关键词</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">不能和技能 2 重叠</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">不能和技能 1 重叠</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line);">触发意图</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">一句话能区分？</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">一句话能区分？</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line);">输出格式</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">格式差异够大？</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">格式差异够大？</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line);">易混淆说法</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">列 3 条并明确归属</div>
+          <div style="padding: 10px 14px; border-bottom: 1px solid var(--line); border-left: 1px solid var(--line); color: var(--muted);">列 3 条并明确归属</div>
+          <div style="padding: 10px 14px;">兜底规则</div>
+          <div style="padding: 10px 14px; border-left: 1px solid var(--line); color: var(--muted);" colspan="2">不确定时 → 问用户要长报告还是短摘要</div>
+          <div style="padding: 10px 14px; border-left: 1px solid var(--line); color: var(--muted);">兜底是否一致？</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Next step ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="next reveal">
+        <div class="eyebrow">下一步</div>
+        <h2>从「能用」到「敢给同事用」</h2>
+        <p>两个技能跑通、路由不打架——你的项目助理已经「能用」了。第 5 课《上线前检查》帮你做最后一轮测试、修 Bug、写操作手册、设置权限，让项目助理从你一个人的玩具变成团队的工具。</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="../part-05-prelaunch/index.html">
+            前往第 5 课
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="../index.html">返回课程首页</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 第 4 课 · 技能 → 知识库 → AI智能体</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="handbook.html">学员手册</a>
+      <a href="#modules">模块深化</a>
+      <a href="#routing">路由自检</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 第 4 课「场景深化」页面交互动画
+     * @description 使用 GSAP + ScrollTrigger 驱动入场与滚动揭示，复用课程设计系统约定：
+     *              内容默认可见，GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initScenarioLesson() {
+      const root = document.documentElement;
+
+      /**
+       * GSAP 不可用时的静态兜底：保证全部内容可见。
+       * @returns {void}
+       */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .module-card, .step-card, .route-box, .panel-card", { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      // ---------- Hero 入场时间线 ----------
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /**
+       * 滚动揭示单个元素。
+       * @param {Element} el 目标元素
+       * @returns {void}
+       */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach((el) => {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      // ---------- 卡片：批量错峰揭示 ----------
+      gsap.set(".module-card, .step-card, .route-box", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".module-card, .step-card, .route-box", {
+        start: "top 90%",
+        onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true }),
+        onLeaveBack: (batch) => gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true })
+      });
+
+      window.addEventListener("load", () => ScrollTrigger.refresh());
+    })();
+  </script>
+</body>
+</html>

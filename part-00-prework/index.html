@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>课前作业 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营（5+1）课前作业：开课前 1 周下发、第 1 课前提交的异步作业，把「我想做 AI」落到一个可验证的项目助理场景，产出《项目助理立项书》。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.12), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--forest); background: var(--moss-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--forest-light);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--forest), var(--forest-light) 45%, var(--moss));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 640px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--moss-soft); }
+
+    /* ---------- Flow cards ---------- */
+    .flow-track { position: relative; display: flex; flex-direction: column; gap: 0; margin-top: 8px; }
+    .flow-connector {
+      width: 3px;
+      height: 32px;
+      margin-left: 36px;
+      background: linear-gradient(180deg, var(--moss), var(--line));
+      border-radius: 2px;
+    }
+    .flow-card {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 20px;
+      padding: 24px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .flow-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .flow-badge {
+      width: 74px;
+      height: 74px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      background: var(--moss-soft);
+      color: var(--forest);
+    }
+    .flow-badge .flow-step { font-size: 1.3rem; line-height: 1; }
+    .flow-badge .flow-time { font-size: 0.72rem; font-weight: 600; font-family: "Source Sans 3", sans-serif; color: var(--forest-light); white-space: nowrap; }
+    .flow-body h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 6px; }
+    .flow-body .flow-question {
+      display: inline-block;
+      margin: 6px 0 0;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+    .flow-body p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+
+    /* ---------- Charter preview ---------- */
+    .charter-card {
+      padding: 36px 32px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .charter-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      margin: 0 0 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--forest);
+      text-align: center;
+    }
+    .charter-fields { display: grid; gap: 16px; }
+    .charter-field {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .charter-field:last-child { border-bottom: none; }
+    .charter-label {
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--forest);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .charter-label .req { color: var(--amber); font-size: 0.78rem; }
+    .charter-hint { color: var(--muted); font-size: 0.88rem; font-style: italic; }
+    .charter-options { display: flex; flex-wrap: wrap; gap: 8px; }
+    .charter-opt {
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--muted);
+      transition: border-color 160ms, color 160ms, background 160ms;
+      cursor: default;
+    }
+    .charter-opt.active { border-color: var(--forest); color: var(--forest); background: var(--moss-soft); }
+    .charter-note {
+      margin-top: 20px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--moss-soft);
+      font-size: 0.88rem;
+      color: var(--forest);
+    }
+
+    /* ---------- Module cards ---------- */
+    .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .module-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--forest);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .module-card.m2 { border-top-color: var(--sky); }
+    .module-card.m3 { border-top-color: var(--amber); }
+    .module-icon { font-size: 1.7rem; }
+    .module-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.2rem; margin: 12px 0 4px; }
+    .module-prio { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; }
+    .module-card.m1 .module-prio { color: var(--forest-light); }
+    .module-card.m2 .module-prio { color: var(--sky); }
+    .module-card.m3 .module-prio { color: var(--amber); }
+    .module-card ul { margin: 14px 0 0; padding-left: 18px; color: var(--muted); font-size: 0.93rem; }
+    .module-card li { margin-bottom: 6px; }
+    .module-criteria {
+      margin-top: 16px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+    .module-card.m1 .module-criteria { color: var(--forest); }
+    .module-card.m2 .module-criteria { color: var(--sky); }
+    .module-card.m3 .module-criteria { color: var(--amber); }
+
+    .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--moss-soft); color: var(--forest); font-size: 0.92rem; }
+
+    /* ---------- Submit / Office hour ---------- */
+    .verdict-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 8px; }
+    .verdict-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .verdict-card.pass { border-top: 4px solid var(--forest); }
+    .verdict-card.retry { border-top: 4px solid var(--amber); }
+    .verdict-card.sky { border-top: 4px solid var(--sky); }
+    .verdict-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 12px; }
+    .verdict-card.pass h3 { color: var(--forest); }
+    .verdict-card.retry h3 { color: var(--amber); }
+    .verdict-card.sky h3 { color: var(--sky); }
+    .verdict-card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .verdict-list { list-style: none; margin: 0; padding: 0; }
+    .verdict-list li { position: relative; padding-left: 24px; margin-bottom: 10px; font-size: 0.94rem; color: var(--ink); }
+    .verdict-list li::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 50%; }
+    .verdict-card.pass .verdict-list li::before { background: var(--moss-soft); border: 2px solid var(--moss); }
+    .verdict-card.retry .verdict-list li::before { background: var(--amber-soft); border: 2px solid var(--amber); }
+    .verdict-card.sky .verdict-list li::before { background: var(--sky-soft); border: 2px solid var(--sky); }
+    .api-note {
+      margin-top: 20px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: var(--sky-soft);
+      border: 1px solid rgba(61, 107, 140, 0.2);
+      font-size: 0.92rem;
+      color: var(--ink);
+    }
+    .api-note strong { color: var(--sky); }
+
+    /* ---------- Next step ---------- */
+    .next {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 60%, #225c49);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .next::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 84% 0%, rgba(143, 212, 176, 0.26), transparent 46%); pointer-events: none; }
+    .next > * { position: relative; }
+    .next .eyebrow { background: rgba(143, 212, 176, 0.16); color: var(--moss); }
+    .next h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 14px 0 12px; }
+    .next p { color: rgba(234, 250, 241, 0.84); margin: 0 0 22px; max-width: 640px; }
+    .next .btn-primary { background: var(--moss); color: var(--forest); }
+    .next .btn-primary:hover { background: #a7e0c4; }
+    .next .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .next .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .next-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal default state ---------- */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .flow-card,
+    html.gsap-fallback .module-card,
+    html.gsap-fallback .charter-card,
+    html.gsap-fallback .verdict-card {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .module-grid { grid-template-columns: 1fr; }
+      .verdict-grid { grid-template-columns: 1fr; }
+      .charter-field { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .flow-card { grid-template-columns: 1fr; gap: 12px; }
+      .flow-badge { width: 56px; height: 56px; border-radius: 14px; }
+      .flow-badge .flow-step { font-size: 1.1rem; }
+      .flow-connector { margin-left: 24px; }
+      .charter-card { padding: 24px 20px; }
+      .next { padding: 32px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .flow-card, .module-card, .charter-card, .verdict-card { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="课前作业导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#api-setup">API 开通</a>
+        <a class="nav-link" href="#flow">作业三步</a>
+        <a class="nav-link" href="#charter">立项书</a>
+        <a class="nav-link" href="#modules">场景模块</a>
+        <a class="nav-cta" href="../../report/index.html">调研洞察</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    课前作业
+  </nav>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="prework-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">⓪</span> 课前作业 · 异步自填</div>
+      <h1 class="reveal" id="prework-title">把「我想做 AI」<br><span class="grad">落到一个可验证的场景</span></h1>
+      <p class="hero-lead reveal">
+        几乎每家机构都说「我们想做 AI」——但这不是一个可验证的目标。
+        课前作业是一份<strong>异步任务</strong>：开课前 1 周下发、第 1 课前提交，由机构自行填写，
+        产出一份贯穿后续 5 节课的<strong>《项目助理立项书》</strong>。
+        它不占用直播时间，没有考试、没有淘汰——填好它，第 1 课就能直接动手。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>开课前 1 周下发</span>
+        <span class="meta-chip"><span class="dot"></span>第 1 课前提交</span>
+        <span class="meta-chip"><span class="dot"></span>产出《项目助理立项书》</span>
+        <span class="meta-chip"><span class="dot"></span>开通 LLM API（WorkBuddy）</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="templates/project_assistant_charter.md">
+          下载立项书模板
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="templates/scenario_self_check.md">场景自评清单</a>
+        <a class="btn btn-ghost" href="examples/charter_sample_lvyuan.md">脱敏范例</a>
+        <a class="btn btn-ghost" href="llm-api-setup.md">LLM API 开通指南</a>
+        <a class="btn btn-ghost" href="#charter">查看模板字段</a>
+      </div>
+    </section>
+
+    <!-- ================= LLM API Setup ================= -->
+    <section class="section" id="api-setup" aria-labelledby="api-title">
+      <div class="section-head">
+        <div class="section-num reveal">环境准备</div>
+        <h2 class="section-title reveal" id="api-title">开通 LLM 模型 API</h2>
+        <p class="section-desc reveal">
+          第 1 课在 WorkBuddy 上调试技能时需要连接大模型 API。组织层腾讯元器 Bot <strong>不需要</strong>自购 Token——以下准备面向个人层与可选自建路线。
+        </p>
+      </div>
+
+      <div class="verdict-grid">
+        <div class="verdict-card pass reveal">
+          <h3>主线 · 阿里云百炼</h3>
+          <ul class="verdict-list">
+            <li>注册阿里云并完成实名认证</li>
+            <li>在百炼控制台开通大模型推理服务</li>
+            <li>选择华北 2（北京）地域，创建 API Key</li>
+            <li>新用户通常有 90 天免费额度；用尽后按量充值</li>
+            <li>建议机构预留 50–100 元余额用于学习期调试</li>
+          </ul>
+          <p style="margin-top:14px;">
+            <a class="btn btn-ghost" href="https://bailian.console.aliyun.com/?tab=api#/api" target="_blank" rel="noopener noreferrer">打开百炼 API Key 页</a>
+          </p>
+        </div>
+        <div class="verdict-card sky reveal">
+          <h3>辅助 · DeepSeek 开发者平台</h3>
+          <ul class="verdict-list">
+            <li>注册并完成实名认证</li>
+            <li>在 API keys 页创建 Key（仅显示一次，立即保存）</li>
+            <li>充值页面用支付宝 / 微信充值（建议首次 50 元）</li>
+            <li>可作为百炼额度用尽时的备选模型来源</li>
+            <li>WorkBuddy 中 Base URL：<code>https://api.deepseek.com</code></li>
+          </ul>
+          <p style="margin-top:14px;">
+            <a class="btn btn-ghost" href="https://platform.deepseek.com/" target="_blank" rel="noopener noreferrer">打开 DeepSeek 开放平台</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="api-note reveal">
+        <strong>安全提醒：</strong>API Key 是计费凭证，禁止写入立项书、Git 或公开文档。仅由 1–2 位课程接口人保管；发现异常调用请立即在控制台删除 Key。
+      </div>
+
+      <p class="note reveal" style="margin-top:20px;">
+        完整图文步骤、WorkBuddy 配置参数与自检清单见
+        <a href="llm-api-setup.md" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,0.3);">《LLM API 开通指南》</a>。
+      </p>
+    </section>
+
+    <!-- ================= Homework Flow ================= -->
+    <section class="section" id="flow" aria-labelledby="flow-title">
+      <div class="section-head">
+        <div class="section-num reveal">作业三步</div>
+        <h2 class="section-title reveal" id="flow-title">立项书三步，自己掌握节奏</h2>
+        <p class="section-desc reveal">API 开通与立项书可并行完成。立项书按下面三步填写，第 1 课前提交到课程协作空间即可。</p>
+      </div>
+
+      <div class="flow-track">
+        <article class="flow-card reveal">
+          <div class="flow-badge">
+            <span class="flow-step">1</span>
+            <span class="flow-time">自评</span>
+          </div>
+          <div class="flow-body">
+            <h3>选定主场景模块</h3>
+            <p>用三个场景模块（M1 文书链 / M2 案例沉淀 / M3 传播运营）判断主攻方向。拿不准就默认 M1 项目文书链。</p>
+            <div class="flow-question">这件事更接近写文书、管案例、还是做传播？</div>
+          </div>
+        </article>
+
+        <div class="flow-connector" aria-hidden="true"></div>
+
+        <article class="flow-card reveal">
+          <div class="flow-badge">
+            <span class="flow-step">2</span>
+            <span class="flow-time">填写</span>
+          </div>
+          <div class="flow-body">
+            <h3>填《项目助理立项书》</h3>
+            <p>照 A4 单页模板逐字段填写：一句话目标、输入/输出、需要的技能、知识库、上线 2 周成功标准，参考脱敏范例。</p>
+            <div class="flow-question">你手上有什么材料可以直接给助手？期望输出什么？</div>
+          </div>
+        </article>
+
+        <div class="flow-connector" aria-hidden="true"></div>
+
+        <article class="flow-card reveal">
+          <div class="flow-badge">
+            <span class="flow-step">3</span>
+            <span class="flow-time">提交</span>
+          </div>
+          <div class="flow-body">
+            <h3>第 1 课前提交</h3>
+            <p>把立项书回填到课程协作空间。未按时提交不影响参加第 1 课，但需课后补交，否则后续环节缺少锚点。</p>
+            <div class="flow-question">上线两周，怎样算「成了」？给一个数字。</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Charter Preview ================= -->
+    <section class="section" id="charter" aria-labelledby="charter-title">
+      <div class="section-head">
+        <div class="section-num reveal">作业产出</div>
+        <h2 class="section-title reveal" id="charter-title">《项目助理立项书》· A4 单页</h2>
+        <p class="section-desc reveal">一张纸锚定后续 5 课的方向。技能做了没？知识库上传了没？AI智能体调通了没？每课回来对照检查。</p>
+      </div>
+
+      <div class="charter-card reveal">
+        <div class="charter-title">项目助理立项书</div>
+        <div class="charter-fields">
+          <div class="charter-field">
+            <div class="charter-label"><span class="req">*</span> 一句话目标</div>
+            <div class="charter-hint">例：帮我把项目执行流水账变成可提交的结项报告</div>
+          </div>
+          <div class="charter-field">
+            <div class="charter-label"><span class="req">*</span> 主场景模块</div>
+            <div class="charter-options">
+              <span class="charter-opt active">M1 项目文书链</span>
+              <span class="charter-opt">M2 案例与知识沉淀</span>
+              <span class="charter-opt">M3 传播与运营</span>
+            </div>
+          </div>
+          <div class="charter-field">
+            <div class="charter-label"><span class="req">*</span> 输入</div>
+            <div class="charter-hint">例：项目日志（Word）、活动照片清单、资助方模板</div>
+          </div>
+          <div class="charter-field">
+            <div class="charter-label"><span class="req">*</span> 输出</div>
+            <div class="charter-hint">例：六章节结项报告（背景 / 活动 / 产出 / 成效 / 反思 / 缺失项）</div>
+          </div>
+          <div class="charter-field">
+            <div class="charter-label"><span class="req">*</span> 需要的技能（≥1）</div>
+            <div class="charter-hint">例：结项报告技能、项目书技能</div>
+          </div>
+          <div class="charter-field">
+            <div class="charter-label">需要的知识库</div>
+            <div class="charter-hint">例：历年项目书 + 资助方指南 + 机构模板</div>
+          </div>
+          <div class="charter-field">
+            <div class="charter-label"><span class="req">*</span> 上线 2 周成功标准</div>
+            <div class="charter-hint">例：结项报告从 3 天缩短到半天，且不遗漏章节</div>
+          </div>
+        </div>
+        <div class="charter-note">
+          立项书中不要填写真实受益人、捐赠人、志愿者姓名与联系方式。如需提及，请用 A / B / C 代替。
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Scenario Modules ================= -->
+    <section class="section" id="modules" aria-labelledby="modules-title">
+      <div class="section-head">
+        <div class="section-num reveal">场景选择</div>
+        <h2 class="section-title reveal" id="modules-title">3 个可选场景模块</h2>
+        <p class="section-desc reveal">作业里选定一个主场景模块，差异只在技能组合与知识库侧重，最终都汇入同一个「项目助理AI智能体」。</p>
+      </div>
+      <div class="module-grid">
+        <div class="module-card m1 reveal">
+          <div class="module-icon" aria-hidden="true">📝</div>
+          <h3>M1 项目文书链</h3>
+          <div class="module-prio">默认主模块</div>
+          <ul>
+            <li>结项报告 / 项目书 / 资助信技能</li>
+            <li>知识库：资助指南 + 历史项目书 + 机构模板</li>
+            <li>目标：结项报告耗时下降一半以上</li>
+          </ul>
+          <div class="module-criteria">选择条件：文书写作是最高频痛点，或无法判断时默认选此</div>
+        </div>
+        <div class="module-card m2 reveal">
+          <div class="module-icon" aria-hidden="true">🗂️</div>
+          <h3>M2 案例与知识沉淀</h3>
+          <div class="module-prio">首要痛点</div>
+          <ul>
+            <li>案例萃取 / 服务故事脱敏 / 案例检索技能</li>
+            <li>知识库：历年案例 + 标签体系 + 服务故事</li>
+            <li>目标：案例检索命中率达 70% 以上</li>
+          </ul>
+          <div class="module-criteria">选择条件：资料散乱、经验无法复用是最大痛点</div>
+        </div>
+        <div class="module-card m3 reveal">
+          <div class="module-icon" aria-hidden="true">📣</div>
+          <h3>M3 传播与运营</h3>
+          <div class="module-prio">进阶可选</div>
+          <ul>
+            <li>活动复盘 / 公众号稿 / 社群 FAQ 技能</li>
+            <li>知识库：历史推文 + 品牌话术 + 活动日历</li>
+            <li>目标：单场活动复盘文案 20 分钟内完成</li>
+          </ul>
+          <div class="module-criteria">选择条件：传播产出是核心需求，建议同时挂 M1 或 M2 作为基础</div>
+        </div>
+      </div>
+      <p class="note reveal">
+        说不清选哪个？默认 M1 项目文书链——所有机构都要写文书，覆盖面最广。第 4 课还有机会深化第二个模块。
+      </p>
+    </section>
+
+    <!-- ================= Submit & Office hour ================= -->
+    <section class="section" aria-labelledby="submit-title">
+      <div class="section-head">
+        <div class="section-num reveal">提交与答疑</div>
+        <h2 class="section-title reveal" id="submit-title">怎么交 · 哪里问</h2>
+        <p class="section-desc reveal">异步为主、答疑为辅。下面把截止、提交方式与可选答疑一次讲清。</p>
+      </div>
+      <div class="verdict-grid">
+        <div class="verdict-card pass reveal">
+          <h3>提交方式</h3>
+          <ul class="verdict-list">
+            <li>下发时间：开课前 1 周随作业包发出</li>
+            <li>截止时间：第 1 课开课前</li>
+            <li>提交渠道：课程协作空间（在线表单 / 文档模板回填，具体链接随作业包下发）</li>
+            <li>未按时提交不影响参加第 1 课，但需课后补交</li>
+          </ul>
+        </div>
+        <div class="verdict-card retry reveal">
+          <h3>可选集中答疑（60 min）</h3>
+          <ul class="verdict-list">
+            <li>开课前 1 周内安排 1 次线上集中答疑，自愿参加</li>
+            <li>用途：解答立项书填写疑问、帮拿不准主场景模块的机构当场判断</li>
+            <li>这不是 1v1 门诊，缺席不影响开课，疑问也可在课程社群异步提出</li>
+          </ul>
+          <p style="margin-top:12px;">第 1 课开场会用 15–20 分钟做作业快览 + 共性问题点评，不要求每家现场逐一陈述。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Next step ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="next reveal">
+        <div class="eyebrow">下一步</div>
+        <h2>填好立项书？开始构建你的第一个技能</h2>
+        <p>立项书确认了「做什么」和「怎样算成功」，第 1 课就开始动手——从立项书里写下的那个场景出发，构建并跑通你的第一个可复用的文书技能。</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="../part-01-skill/index.html">
+            进入第 1 课 · 技能
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="templates/project_assistant_charter.md">下载立项书模板</a>
+          <a class="btn btn-ghost" href="examples/charter_sample_lvyuan.md">看脱敏范例</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 课前作业 · 技能 → 知识库 → AI智能体</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="llm-api-setup.md">LLM API 开通指南</a>
+      <a href="templates/project_assistant_charter.md">立项书模板</a>
+      <a href="templates/scenario_self_check.md">自评清单</a>
+      <a href="examples/charter_sample_lvyuan.md">脱敏范例</a>
+      <a href="#charter">模板字段</a>
+      <a href="../../report/index.html">调研洞察</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 课前作业页面交互动画
+     * @description 使用 GSAP + ScrollTrigger 驱动入场与滚动揭示，复用课程首页约定：
+     *              内容默认可见，GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initPreworkPage() {
+      var root = document.documentElement;
+
+      /**
+       * GSAP 不可用时的静态兜底：保证全部内容可见。
+       * @returns {void}
+       */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .flow-card, .module-card, .charter-card, .verdict-card", { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      // ---------- Hero 入场时间线 ----------
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /**
+       * 滚动揭示单个元素。
+       * @param {Element} el 目标元素
+       * @returns {void}
+       */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach(function(el) {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      // ---------- 作业流程卡片：依次错峰揭示 ----------
+      gsap.set(".flow-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".flow-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      // ---------- 场景模块卡片：批量错峰揭示 ----------
+      gsap.set(".module-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".module-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      // ---------- 提交/答疑卡片：批量揭示 ----------
+      gsap.set(".verdict-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".verdict-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      window.addEventListener("load", function() { ScrollTrigger.refresh(); });
+    })();
+  </script>
+</body>
+</html>

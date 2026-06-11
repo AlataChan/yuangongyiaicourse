@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.*
+*.csv
+*.xlsx
+*.xls
+*.pptx
+*.ppt
+110_remaining_materials_plan.md

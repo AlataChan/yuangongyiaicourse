@@ -1,0 +1,931 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 2 课 · 知识库 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营（5+1）第 2 课「知识库」：从散乱资料到可检索资产。覆盖 ima + WorkBuddy 个人知识、腾讯元器组织知识库、检索模式和命中率诊断。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+      /* Compliance tier colors */
+      --tier-green: #2d8a56;
+      --tier-green-soft: #e6f5ec;
+      --tier-yellow: #a08520;
+      --tier-yellow-soft: #fdf8e8;
+      --tier-orange: #c06a20;
+      --tier-orange-soft: #fef0e0;
+      --tier-red: #b83a3a;
+      --tier-red-soft: #fce8e8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(61, 107, 140, 0.18), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(143, 212, 176, 0.14), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--forest); background: var(--sky-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--sky-soft);
+      color: var(--sky);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--sky);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--sky), var(--forest) 55%, var(--moss));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 640px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--sky);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--sky-soft); }
+
+    /* ---------- Concept cards (skill vs kb) ---------- */
+    .concept-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 8px; }
+    .concept-card {
+      padding: 26px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .concept-card.is-skill { border-top: 4px solid var(--forest); }
+    .concept-card.is-kb { border-top: 4px solid var(--sky); }
+    .concept-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--forest-light); }
+    .concept-card.is-kb .concept-tag { color: var(--sky); }
+    .concept-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.18rem; margin: 8px 0 8px; }
+    .concept-card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .concept-card .concept-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .concept-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .concept-card.is-skill .concept-pill { background: var(--moss-soft); color: var(--forest); }
+    .concept-card.is-kb .concept-pill { background: var(--sky-soft); color: var(--sky); }
+
+    /* ---------- KB Map cards ---------- */
+    .kb-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 8px; }
+    .kb-card {
+      padding: 22px 18px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--sky);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .kb-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .kb-rank {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--sky);
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+    .kb-score {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--sky-soft);
+      color: var(--sky);
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .kb-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.06rem; margin: 10px 0 8px; }
+    .kb-card p { margin: 0; color: var(--muted); font-size: 0.86rem; line-height: 1.5; }
+
+    /* ---------- Compliance tier cards ---------- */
+    .compliance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 8px; }
+    .tier-card {
+      padding: 24px 20px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .tier-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .tier-card.t1 { border-top: 4px solid var(--tier-green); }
+    .tier-card.t2 { border-top: 4px solid var(--tier-yellow); }
+    .tier-card.t3 { border-top: 4px solid var(--tier-orange); }
+    .tier-card.t4 { border-top: 4px solid var(--tier-red); }
+    .tier-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .tier-card.t1 .tier-badge { background: var(--tier-green-soft); color: var(--tier-green); }
+    .tier-card.t2 .tier-badge { background: var(--tier-yellow-soft); color: var(--tier-yellow); }
+    .tier-card.t3 .tier-badge { background: var(--tier-orange-soft); color: var(--tier-orange); }
+    .tier-card.t4 .tier-badge { background: var(--tier-red-soft); color: var(--tier-red); }
+    .tier-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.08rem; margin: 10px 0 6px; }
+    .tier-card p { margin: 0 0 8px; color: var(--muted); font-size: 0.88rem; }
+    .tier-action {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .tier-card.t1 .tier-action { background: var(--tier-green-soft); color: var(--tier-green); }
+    .tier-card.t2 .tier-action { background: var(--tier-yellow-soft); color: var(--tier-yellow); }
+    .tier-card.t3 .tier-action { background: var(--tier-orange-soft); color: var(--tier-orange); }
+    .tier-card.t4 .tier-action { background: var(--tier-red-soft); color: var(--tier-red); }
+
+    /* ---------- Materials cards ---------- */
+    .mat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .mat-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--sky);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .mat-card.m2 { border-top-color: var(--forest); }
+    .mat-card.m3 { border-top-color: var(--amber); }
+    .mat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .mat-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--sky); }
+    .mat-card.m2 .mat-label { color: var(--forest-light); }
+    .mat-card.m3 .mat-label { color: var(--amber); }
+    .mat-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.18rem; margin: 8px 0 10px; }
+    .mat-card p { color: var(--muted); font-size: 0.92rem; margin: 0 0 12px; }
+    .mat-tips {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--forest);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 0;
+    }
+
+    /* ---------- Diagnosis section ---------- */
+    .diag-tree {
+      max-width: 680px;
+      margin: 12px auto 0;
+      will-change: transform, opacity;
+    }
+    .diag-root {
+      text-align: center;
+      padding: 14px 24px;
+      border-radius: 12px;
+      background: var(--tier-red-soft);
+      color: var(--tier-red);
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: 2px solid var(--tier-red);
+    }
+    .diag-connector {
+      display: flex;
+      justify-content: center;
+      padding: 6px 0;
+    }
+    .diag-connector svg { display: block; }
+    .diag-branches {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .diag-branch {
+      padding: 20px 18px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .diag-branch-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin: 0 0 10px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--line);
+    }
+    .diag-branch.is-search .diag-branch-title { color: var(--sky); border-bottom-color: var(--sky); }
+    .diag-branch.is-gen .diag-branch-title { color: var(--amber); border-bottom-color: var(--amber); }
+    .diag-fix {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    .diag-fix:last-child { margin-bottom: 0; }
+    .diag-fix-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .diag-branch.is-search .diag-fix-icon { background: var(--sky); }
+    .diag-branch.is-gen .diag-fix-icon { background: var(--amber); }
+    .diag-fix span { color: var(--muted); font-size: 0.84rem; }
+
+    .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--sky-soft); color: var(--sky); font-size: 0.92rem; font-weight: 500; }
+    .note strong { color: var(--forest); }
+
+    /* ---------- Next step ---------- */
+    .next {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 60%, #225c49);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .next::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 84% 0%, rgba(61, 107, 140, 0.3), transparent 46%); pointer-events: none; }
+    .next > * { position: relative; }
+    .next .eyebrow { background: rgba(61, 107, 140, 0.2); color: #8ec5e8; }
+    .next h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 14px 0 12px; }
+    .next p { color: rgba(234, 250, 241, 0.84); margin: 0 0 22px; max-width: 640px; }
+    .next .btn-primary { background: var(--moss); color: var(--forest); }
+    .next .btn-primary:hover { background: #a7e0c4; }
+    .next .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .next .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .next-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal default state ----------
+       内容默认可见；勿用 CSS 隐藏 .reveal 后再 gsap.from()（会白屏）。
+       GSAP 可用时用 fromTo 控制起止；不可用或减少动画时保持可见。 */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .concept-card,
+    html.gsap-fallback .kb-card,
+    html.gsap-fallback .tier-card,
+    html.gsap-fallback .mat-card,
+    html.gsap-fallback .diag-tree,
+    html.gsap-fallback .diag-branch {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .concept-grid { grid-template-columns: 1fr; }
+      .kb-grid { grid-template-columns: repeat(3, 1fr); }
+      .compliance-grid { grid-template-columns: repeat(2, 1fr); }
+      .mat-grid { grid-template-columns: 1fr; }
+      .diag-branches { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .kb-grid { grid-template-columns: 1fr; }
+      .compliance-grid { grid-template-columns: 1fr; }
+      .next { padding: 32px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .concept-card, .kb-card, .tier-card, .mat-card, .diag-tree, .diag-branch { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="第 2 课导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#learning-path">学习路线</a>
+        <a class="nav-link" href="#kb-map">知识库地图</a>
+        <a class="nav-link" href="#compliance">合规分级</a>
+        <a class="nav-link" href="#materials">资料处理</a>
+        <a class="nav-link" href="#tool-route">工具落位</a>
+        <a class="nav-link" href="#retrieval">检索模式</a>
+        <a class="nav-link" href="quiz.html">课后测验</a>
+        <a class="nav-cta" href="../../report/index.html">调研洞察</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../part-01-skill/index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    第 2 课 · 知识库
+  </nav>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="lesson-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">②</span> 第 2 课 · 知识库</div>
+      <h1 class="reveal" id="lesson-title">让散乱的资料<br><span class="grad">变成 AI 能检索的资产</span></h1>
+      <p class="hero-lead reveal">
+        约 50% 的环境公益机构把「资料散落各处、案例难以复用」列为最大痛点。
+        这节课带你把散落在云盘、微信、邮件附件里的项目档案、资助指南、历年案例，
+        整理成 AI 能准确检索的<strong>知识库</strong>。先用 ima 和 WorkBuddy 处理个人资料，
+        再用腾讯元器搭建组织层项目助理知识库，高阶部分理解检索机制与调参方法。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>时长 120 分钟</span>
+        <span class="meta-chip"><span class="dot"></span>产出 ima / WorkBuddy + 腾讯元器知识库</span>
+        <span class="meta-chip"><span class="dot"></span>主线第二步：知识库</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="handbook.html">
+          打开学员手册
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#learning-path">查看学习路线</a>
+      </div>
+      <p class="reveal" style="margin:16px 0 0;font-size:0.9rem;color:var(--muted);">
+        课后自测：<a href="quiz.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">课后测验（10 题）→</a>
+        覆盖本课 5 项教学目标（知识库本质 / 工具选型 / 合规分级 / 检索模式 / 命中率诊断），每题标注对应《学员手册》章节。
+      </p>
+    </section>
+
+    <!-- ================= Learning Path ================= -->
+    <section class="section" id="learning-path" aria-labelledby="learning-path-title">
+      <div class="section-head">
+        <div class="section-num reveal">学习路线</div>
+        <h2 class="section-title reveal" id="learning-path-title">先想清楚，再动工具：7 步走完一轮知识库</h2>
+        <p class="section-desc reveal">这节课不是平台功能课。先确定项目助理要回答什么，再处理资料，最后才选择工具、测试和调优。</p>
+      </div>
+      <div class="kb-grid">
+        <article class="kb-card reveal"><div><span class="kb-rank">1</span></div><h3>看清关系</h3><p>技能定义做法，知识库提供事实。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">2</span></div><h3>定范围</h3><p>选 1-2 类资料，写 10 个测试问题。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">3</span></div><h3>过合规</h3><p>按 L1-L4 判断哪些能用、能否上云。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">4</span></div><h3>整资料</h3><p>清洗、切片、打 metadata。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">5</span></div><h3>放工具</h3><p>ima、WorkBuddy、元器、Dify 各归其位。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">6</span></div><h3>跑 10 问</h3><p>用真实问题测命中率。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">7</span></div><h3>做诊断</h3><p>先看资料，再看检索，最后看生成。</p></article>
+      </div>
+    </section>
+
+    <!-- ================= Concept: KB vs Skill ================= -->
+    <section class="section" id="concept" aria-labelledby="concept-title">
+      <div class="section-head">
+        <div class="section-num reveal">概念辨析</div>
+        <h2 class="section-title reveal" id="concept-title">先分清：知识库 vs 技能</h2>
+        <p class="section-desc reveal">它们不是竞争关系，而是搭档——技能定义「做事方法」，知识库储备「做事素材」，第 3 课把二者编排进同一个项目助理。</p>
+      </div>
+      <div class="concept-grid">
+        <div class="concept-card is-skill reveal">
+          <div class="concept-tag">第 1 课 · 技能</div>
+          <h3>怎么做</h3>
+          <p>把流程、输出格式与边界规则封装下来，相当于机构的 SOP + 模板 + 规则。更新频率低——流程变了才改。</p>
+          <div class="concept-meta">
+            <span class="concept-pill">输出契约</span>
+            <span class="concept-pill">触发说明</span>
+            <span class="concept-pill">Gotchas</span>
+          </div>
+        </div>
+        <div class="concept-card is-kb reveal">
+          <div class="concept-tag">本课重点 · 知识库</div>
+          <h3>有什么</h3>
+          <p>历年项目档案、资助指南、案例等可检索的事实与数据。更新频率高——有新材料就补。</p>
+          <div class="concept-meta">
+            <span class="concept-pill">项目档案</span>
+            <span class="concept-pill">资助指南</span>
+            <span class="concept-pill">案例库</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= KB Map ================= -->
+    <section class="section" id="kb-map" aria-labelledby="kb-map-title">
+      <div class="section-head">
+        <div class="section-num reveal">知识库地图</div>
+        <h2 class="section-title reveal" id="kb-map-title">从调研痛点出发的知识库地图</h2>
+        <p class="section-desc reveal">调研数据告诉我们，学员最需要的五类知识库内容——按「有用」评分排序，先建最高分的 1-2 类。</p>
+      </div>
+      <div class="kb-grid">
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">1</span><span class="kb-score">4.38</span></div>
+          <h3>沟通模板</h3>
+          <p>捐赠人邮件模板、媒体问答口径、社区沟通话术</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">2</span><span class="kb-score">4.38</span></div>
+          <h3>资助指南</h3>
+          <p>各基金会申请要求、评审标准、往期资助清单</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">3</span><span class="kb-score">4.29</span></div>
+          <h3>项目管理</h3>
+          <p>项目计划模板、监测评估框架、财务报告格式</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">4</span><span class="kb-score">4.17-4.25</span></div>
+          <h3>案例</h3>
+          <p>成功/失败案例复盘、服务故事、传播素材</p>
+        </article>
+        <article class="kb-card reveal">
+          <div><span class="kb-rank">5</span><span class="kb-score">4.08</span></div>
+          <h3>志愿者管理</h3>
+          <p>招募流程、培训手册、志愿者反馈表</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Compliance ================= -->
+    <section class="section" id="compliance" aria-labelledby="compliance-title">
+      <div class="section-head">
+        <div class="section-num reveal">数据合规</div>
+        <h2 class="section-title reveal" id="compliance-title">数据合规 4 档</h2>
+        <p class="section-desc reveal">把资料喂给 AI 之前，必须先分级——从 L1 到 L4，限制越来越严。拿不准时，宁可往高一档放。</p>
+      </div>
+      <div class="compliance-grid">
+        <div class="tier-card t1 reveal">
+          <div class="tier-badge">L1 公开</div>
+          <h3>可直接用</h3>
+          <p>公众号文章、年报、公开活动总结</p>
+          <div class="tier-action">上传云端知识库</div>
+        </div>
+        <div class="tier-card t2 reveal">
+          <div class="tier-badge">L2 准公开</div>
+          <h3>审核后可用</h3>
+          <p>脱敏后的案例、内部培训资料</p>
+          <div class="tier-action">确认脱敏后上传</div>
+        </div>
+        <div class="tier-card t3 reveal">
+          <div class="tier-badge">L3 内部</div>
+          <h3>仅限本地</h3>
+          <p>会议纪要、未发布计划、内部预算</p>
+          <div class="tier-action">仅 WorkBuddy 本地</div>
+        </div>
+        <div class="tier-card t4 reveal">
+          <div class="tier-badge">L4 敏感</div>
+          <h3>禁止使用</h3>
+          <p>捐赠人手机、受益人身份证、志愿者隐私</p>
+          <div class="tier-action">禁止写进任何知识库</div>
+        </div>
+      </div>
+      <p class="note reveal">
+        <strong>红线</strong>：受益人、志愿者、捐赠人的姓名与联系方式，输出前一律脱敏（姓名→A/B，删除手机/证件号）。拿不准时，宁可不放。
+      </p>
+    </section>
+
+    <!-- ================= Three Materials ================= -->
+    <section class="section" id="materials" aria-labelledby="materials-title">
+      <div class="section-head">
+        <div class="section-num reveal">三类材料</div>
+        <h2 class="section-title reveal" id="materials-title">三类材料实操</h2>
+        <p class="section-desc reveal">课堂上按材料类型分三组实操——每类有不同的来源、切片方式和 metadata 要求。</p>
+      </div>
+      <div class="mat-grid">
+        <article class="mat-card m1 reveal">
+          <div class="mat-label">类型 A</div>
+          <h3>历年项目档案</h3>
+          <p>云盘里的结项报告、季度总结、活动记录。按「一个项目 = 一份文档」整理。</p>
+          <p class="mat-tips">切片 300-800 字 / 按章节拆分<br>标签：项目名、年份、资助方、领域</p>
+        </article>
+        <article class="mat-card m2 reveal">
+          <div class="mat-label">类型 B</div>
+          <h3>PDF 报告与资助指南</h3>
+          <p>基金会申请指南、行业报告、政策文件。PDF 转文本后清理乱码、修复表格。</p>
+          <p class="mat-tips">按章节自然分段 / 保留标题层级<br>标签：发布机构、年份、文档类型</p>
+        </article>
+        <article class="mat-card m3 reveal">
+          <div class="mat-label">类型 C</div>
+          <h3>案例与服务故事</h3>
+          <p>传播稿、项目复盘、受益人故事（已脱敏）。统一格式：背景→干预→结果→反思。</p>
+          <p class="mat-tips">一个案例 = 一个切片 / 保持完整<br>标签：案例类型、领域、年份</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= Tool Route ================= -->
+    <section class="section" id="tool-route" aria-labelledby="tool-route-title">
+      <div class="section-head">
+        <div class="section-num reveal">工具落位</div>
+        <h2 class="section-title reveal" id="tool-route-title">资料处理清楚后，再决定放进哪个工具</h2>
+        <p class="section-desc reveal">工具不是起点。只有资料已经分级、清洗、打好标签后，ima、WorkBuddy、腾讯元器和 Dify 的分工才会清楚。</p>
+      </div>
+      <div class="compliance-grid">
+        <div class="tier-card t1 reveal">
+          <div class="tier-badge">初阶个人层</div>
+          <h3>腾讯 ima 知识工作台</h3>
+          <p>快速收纳、阅读、问答、萃取微信文件、网页、PDF、图片和音频，把碎片资料先变成可问答素材。</p>
+          <div class="tier-action">资料收纳与初步萃取</div>
+        </div>
+        <div class="tier-card t2 reveal">
+          <div class="tier-badge">个人执行层</div>
+          <h3>WorkBuddy</h3>
+          <p>调用个人知识和第 1 课技能完成真实任务，适合草稿、个人辅助和 L3 内部资料。</p>
+          <div class="tier-action">个人任务执行</div>
+        </div>
+        <div class="tier-card t3 reveal">
+          <div class="tier-badge">组织主线</div>
+          <h3>腾讯元器</h3>
+          <p>把 L1 和审核后的 L2 资料建成组织层知识库，挂载到第 3 课项目助理 AI智能体。</p>
+          <div class="tier-action">本期首选平台</div>
+        </div>
+        <div class="tier-card t4 reveal">
+          <div class="tier-badge">高阶理解</div>
+          <h3>元器进阶 / Dify</h3>
+          <p>用来解释向量检索、全文检索、混合检索、rerank 和 metadata 过滤，不作为全员主线验收。</p>
+          <div class="tier-action">RAG 训练场</div>
+        </div>
+      </div>
+      <p class="note reveal">
+        <strong>课程口径</strong>：ima 解决个人资料先用起来，WorkBuddy 解决个人任务能跑通，腾讯元器解决组织项目助理能上线，Dify 解决高阶学员看清 RAG 原理。
+      </p>
+    </section>
+
+    <!-- ================= Retrieval Modes ================= -->
+    <section class="section" id="retrieval" aria-labelledby="retrieval-title">
+      <div class="section-head">
+        <div class="section-num reveal">测试后的诊断工具</div>
+        <h2 class="section-title reveal" id="retrieval-title">先跑 10 问，再理解向量、全文、混合检索</h2>
+        <p class="section-desc reveal">检索模式不是先背的概念，而是命中率不够时用来定位问题的工具。</p>
+      </div>
+      <div class="mat-grid">
+        <article class="mat-card m1 reveal">
+          <div class="mat-label">精确事实</div>
+          <h3>全文检索更稳</h3>
+          <p>适合人名、项目名、编号、日期、政策条款等字面匹配问题。</p>
+          <p class="mat-tips">例：「2024 清河项目巡护次数是多少？」</p>
+        </article>
+        <article class="mat-card m2 reveal">
+          <div class="mat-label">语义匹配</div>
+          <h3>向量检索更稳</h3>
+          <p>适合换一种说法问同一件事，或寻找相似案例、经验、方法。</p>
+          <p class="mat-tips">例：「哪些案例适合讲社区参与成效？」</p>
+        </article>
+        <article class="mat-card m3 reveal">
+          <div class="mat-label">综合筛选</div>
+          <h3>混合检索默认优先</h3>
+          <p>适合关键词和语义都重要的问题；大知识库还要配合 metadata 过滤。</p>
+          <p class="mat-tips">例：「找一个湿地教育且有志愿者数据的案例」</p>
+        </article>
+      </div>
+      <p class="note reveal">
+        <strong>判断标准</strong>：不是哪个检索模式更高级，而是哪一种更容易把正确材料排到前面。缺资料、切片差、metadata 缺失时，换检索模式也救不了。
+      </p>
+    </section>
+
+    <!-- ================= Hit Rate Diagnosis ================= -->
+    <section class="section" id="diagnosis" aria-labelledby="diagnosis-title">
+      <div class="section-head">
+        <div class="section-num reveal">命中率诊断</div>
+        <h2 class="section-title reveal" id="diagnosis-title">答不好？先判断是哪个环节</h2>
+        <p class="section-desc reveal">知识库建好后，问 10 个真实问题测命中率。答不好时，按下面的诊断树排查——先检索，再生成。</p>
+      </div>
+      <div class="diag-tree reveal">
+        <div class="diag-root">答不好</div>
+        <div class="diag-connector" aria-hidden="true">
+          <svg width="200" height="40" viewBox="0 0 200 40">
+            <line x1="100" y1="0" x2="50" y2="40" stroke="var(--line)" stroke-width="2"/>
+            <line x1="100" y1="0" x2="150" y2="40" stroke="var(--line)" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="diag-branches">
+          <div class="diag-branch is-search reveal">
+            <div class="diag-branch-title">没找到正确内容：先查资料，再查检索</div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">1</div>
+              <div>资料没上传<span> → 先补充对应文档</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">2</div>
+              <div>切片太大<span> → 拆细到 300-800 字</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">3</div>
+              <div>缺 metadata<span> → 补标签（年份、项目名、类型）</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">4</div>
+              <div>检索模式不合适<span> → 精确事实用全文，案例匹配用向量</span></div>
+            </div>
+          </div>
+          <div class="diag-branch is-gen reveal">
+            <div class="diag-branch-title">生成问题（找到了但答得不好）</div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">1</div>
+              <div>提示词不够具体<span> → 回第 1 课改 Output Contract / Gotchas</span></div>
+            </div>
+            <div class="diag-fix">
+              <div class="diag-fix-icon">2</div>
+              <div>模型能力不足<span> → 换更强的模型</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note reveal">
+        <strong>口诀</strong>：先排查检索，再排查生成。检索问题更常见，也更容易修——多数时候切片和标签改一轮就能提升 10-20% 的命中率。
+      </p>
+    </section>
+
+    <!-- ================= Next step ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="next reveal">
+        <div class="eyebrow">下一步 · 第 3 课</div>
+        <h2>技能 + 知识库 → 编排成项目助理</h2>
+        <p>技能知道怎么做，知识库提供弹药——下一步，把它们编排成一个完整的项目助理。第 3 课教你把多个技能和知识库挂到同一个 AI 智能体上，让它根据意图自动选技能、查知识库、给出回答。</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="../part-03-agent/index.html">进入第 3 课 · AI智能体</a>
+          <a class="btn btn-ghost" href="handbook.html">打开第 2 课学员手册</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 第 2 课 · 技能 → 知识库 → AI智能体</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="handbook.html">学员手册</a>
+      <a href="../part-01-skill/index.html">第 1 课 · 技能</a>
+      <a href="../../report/index.html">调研洞察</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 第 2 课「知识库」页面交互动画
+     * @description 使用 GSAP + ScrollTrigger 驱动入场与滚动揭示，复用课程首页约定：
+     *              内容默认可见，GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initKBLesson() {
+      const root = document.documentElement;
+
+      /**
+       * GSAP 不可用时的静态兜底：保证全部内容可见。
+       * @returns {void}
+       */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .concept-card, .kb-card, .tier-card, .mat-card, .diag-tree, .diag-branch", { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      // ---------- Hero 入场时间线 ----------
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /**
+       * 滚动揭示单个元素。
+       * @param {Element} el 目标元素
+       * @returns {void}
+       */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach((el) => {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      // ---------- 卡片：批量错峰揭示 ----------
+      gsap.set(".concept-card, .kb-card, .tier-card, .mat-card, .diag-branch", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".concept-card, .kb-card, .tier-card, .mat-card, .diag-branch", {
+        start: "top 90%",
+        onEnter: (batch) => gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true }),
+        onLeaveBack: (batch) => gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true })
+      });
+
+      window.addEventListener("load", () => ScrollTrigger.refresh());
+    })();
+  </script>
+</body>
+</html>

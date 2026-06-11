@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学员手册 · AI智能体 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营第 3 课学员手册：120 分钟把技能与知识库编排成统一的项目助理，含腾讯元器首配、技能挂载、工作流详解与互测评估全流程。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --amber-deep: #96572a;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --good: #2d8a56;
+      --good-bg: #e6f5ec;
+      --bad: #b83a3a;
+      --bad-bg: #fce8e8;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(184, 115, 51, 0.16), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(143, 212, 176, 0.14), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--amber-deep); background: var(--amber-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--amber), var(--amber-deep) 45%, var(--forest));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 680px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--amber);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--amber); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--amber-soft); }
+
+    /* ---------- Case intro banner ---------- */
+    .case-banner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .case-banner-inner {
+      padding: 24px 28px;
+      border-radius: var(--radius);
+      background: var(--amber-soft);
+      border: 1px solid rgba(184, 115, 51, 0.2);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .case-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--amber);
+      color: #fff;
+      font-size: 22px;
+    }
+    .case-banner-inner h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.08rem;
+      margin: 0 0 6px;
+      color: var(--amber-deep);
+    }
+    .case-banner-inner p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .case-banner-inner strong { color: var(--ink); }
+
+    /* ---------- Architecture diagram ---------- */
+    .arch-diagram {
+      margin-top: 12px;
+      will-change: transform, opacity;
+    }
+    .arch-flow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .arch-node {
+      width: 100%;
+      max-width: 600px;
+      padding: 22px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      text-align: center;
+      will-change: transform, opacity;
+    }
+    .arch-node h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.1rem;
+      margin: 0 0 6px;
+    }
+    .arch-node p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    .arch-node.is-entry { border-top: 4px solid var(--amber); }
+    .arch-node.is-entry h3 { color: var(--amber); }
+    .arch-node.is-intent { border-top: 4px solid var(--forest); }
+    .arch-node.is-intent h3 { color: var(--forest); }
+    .arch-node.is-skills { border-top: 4px solid var(--amber); }
+    .arch-node.is-skills h3 { color: var(--amber-deep); }
+    .arch-node.is-rag { border-top: 4px solid var(--sky); }
+    .arch-node.is-rag h3 { color: var(--sky); }
+    .arch-node.is-output { border-top: 4px solid var(--moss); background: var(--moss-soft); }
+    .arch-node.is-output h3 { color: var(--forest); }
+
+    .arch-intent-slots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .arch-slot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+    .arch-slot.slot-doc { background: var(--moss-soft); color: var(--forest); }
+    .arch-slot.slot-case { background: var(--sky-soft); color: var(--sky); }
+    .arch-slot.slot-comms { background: var(--amber-soft); color: var(--amber); }
+    .arch-slot.slot-qa { background: var(--panel); color: var(--muted); border: 1px solid var(--line); }
+
+    .arch-skills-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .arch-skill-chip {
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--amber-deep);
+      text-align: center;
+    }
+    .arch-skill-chip small { display: block; font-size: 0.76rem; font-weight: 500; color: var(--muted); margin-top: 2px; }
+
+    .arch-arrow {
+      display: flex;
+      justify-content: center;
+      padding: 6px 0;
+    }
+    .arch-arrow svg { display: block; }
+
+    /* ---------- Good/Bad example cards ---------- */
+    .example-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 16px 0;
+    }
+    .example-good {
+      border-left: 4px solid var(--good);
+      background: var(--good-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-bad {
+      border-left: 4px solid var(--bad);
+      background: var(--bad-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .example-good .example-label { color: var(--good); }
+    .example-bad .example-label { color: var(--bad); }
+    .example-good p, .example-bad p { margin: 0; font-size: 0.94rem; color: var(--ink); }
+    .example-good blockquote, .example-bad blockquote {
+      margin: 0;
+      padding: 0;
+      font-size: 0.94rem;
+      color: var(--ink);
+      font-style: italic;
+    }
+
+    /* ---------- Step-by-step cards ---------- */
+    .stage-block { margin-bottom: 48px; }
+    .stage-header {
+      display: grid;
+      grid-template-columns: 74px 1fr;
+      gap: 20px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+    .stage-badge {
+      width: 74px;
+      height: 74px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+    .stage-badge .stage-step { font-size: 1.3rem; line-height: 1; }
+    .stage-badge .stage-time { font-size: 0.72rem; font-weight: 600; font-family: "Source Sans 3", sans-serif; color: var(--amber-deep); }
+    .stage-info h3 { font-family: "Noto Serif SC", serif; font-size: 1.24rem; margin: 0 0 6px; }
+    .stage-info .stage-goal { color: var(--muted); font-size: 0.94rem; margin: 0 0 10px; }
+    .stage-connector {
+      width: 3px;
+      height: 24px;
+      margin-left: 36px;
+      background: linear-gradient(180deg, var(--amber), var(--line));
+      border-radius: 2px;
+    }
+
+    .instructor-note {
+      margin: 12px 0 0;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--amber-soft);
+      border: 1px solid rgba(184, 115, 51, 0.18);
+      font-size: 0.9rem;
+      color: var(--amber-deep);
+    }
+    .instructor-note strong { color: var(--amber); }
+
+    /* ---------- System prompt card ---------- */
+    .prompt-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .prompt-card h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.08rem;
+      margin: 0 0 16px;
+      color: var(--amber-deep);
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--amber);
+    }
+    .prompt-block {
+      padding: 16px 18px;
+      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--ink);
+      white-space: pre-wrap;
+      margin: 12px 0;
+    }
+    .prompt-annotation {
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: var(--amber-soft);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--amber-deep);
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ---------- Test case table ---------- */
+    .test-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin: 16px 0;
+    }
+    .test-table thead th {
+      background: var(--amber);
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 14px 16px;
+      text-align: left;
+    }
+    .test-table tbody td {
+      padding: 14px 16px;
+      font-size: 0.9rem;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+    .test-table tbody tr:last-child td { border-bottom: none; }
+    .test-table .result-pass { color: var(--good); font-weight: 700; }
+    .test-table .result-miss { color: var(--amber); font-weight: 700; }
+    .test-table .result-fail { color: var(--bad); font-weight: 700; }
+
+    /* ---------- Workflow detail cards ---------- */
+    .wf-detail-card {
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      margin-bottom: 22px;
+    }
+    .wf-detail-card.wf-m1 { border-top: 4px solid var(--amber); }
+    .wf-detail-card.wf-m2 { border-top: 4px solid var(--sky); }
+    .wf-detail-card.wf-m3 { border-top: 4px solid var(--forest); }
+    .wf-detail-card h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.18rem;
+      margin: 0 0 8px;
+    }
+    .wf-detail-card.wf-m1 h3 { color: var(--amber-deep); }
+    .wf-detail-card.wf-m2 h3 { color: var(--sky); }
+    .wf-detail-card.wf-m3 h3 { color: var(--forest); }
+    .wf-detail-card .wf-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .wf-detail-card.wf-m1 .wf-label { color: var(--amber); }
+    .wf-detail-card.wf-m2 .wf-label { color: var(--sky); }
+    .wf-detail-card.wf-m3 .wf-label { color: var(--forest-light); }
+    .wf-detail-card p { color: var(--muted); font-size: 0.94rem; }
+
+    .wf-pipeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 16px 0 0;
+      padding: 0;
+    }
+    .wf-step {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .wf-step-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .wf-m1 .wf-step-icon { background: var(--amber); }
+    .wf-m2 .wf-step-icon { background: var(--sky); }
+    .wf-m3 .wf-step-icon { background: var(--forest); }
+    .wf-step-arrow {
+      display: flex;
+      justify-content: flex-start;
+      padding: 0 0 0 24px;
+    }
+    .wf-step-arrow svg { display: block; }
+
+    .wf-highlight {
+      margin-top: 16px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+    .wf-m1 .wf-highlight { background: var(--amber-soft); color: var(--amber-deep); }
+    .wf-m2 .wf-highlight { background: var(--sky-soft); color: var(--sky); }
+    .wf-m3 .wf-highlight { background: var(--moss-soft); color: var(--forest); }
+
+    /* ---------- Cross-test section ---------- */
+    .feedback-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin: 16px 0;
+    }
+    .fb-card {
+      padding: 24px 20px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      text-align: center;
+      will-change: transform, opacity;
+    }
+    .fb-card.fb-pass { border-top: 4px solid var(--good); }
+    .fb-card.fb-miss { border-top: 4px solid var(--amber); }
+    .fb-card.fb-fail { border-top: 4px solid var(--bad); }
+    .fb-emoji { font-size: 2rem; margin-bottom: 8px; }
+    .fb-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.12rem; margin: 6px 0 8px; }
+    .fb-card.fb-pass h3 { color: var(--good); }
+    .fb-card.fb-miss h3 { color: var(--amber); }
+    .fb-card.fb-fail h3 { color: var(--bad); }
+    .fb-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+
+    .feedback-results {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .feedback-results h4 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.08rem;
+      color: var(--amber-deep);
+      margin: 0 0 16px;
+    }
+    .fb-result-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-size: 0.92rem;
+    }
+    .fb-result-row:last-child { border-bottom: none; }
+    .fb-q { font-weight: 700; color: var(--ink); min-width: 280px; }
+    .fb-result-pass { font-weight: 700; color: var(--good); }
+    .fb-result-miss { font-weight: 700; color: var(--amber); }
+    .fb-result-fail { font-weight: 700; color: var(--bad); }
+    .fb-reason { color: var(--muted); font-size: 0.86rem; }
+
+    /* ---------- Homework cards ---------- */
+    .hw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 8px; }
+    .hw-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .hw-card.hw-l1 { border-top: 4px solid var(--amber); }
+    .hw-card.hw-l2 { border-top: 4px solid var(--forest); }
+    .hw-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 14px; }
+    .hw-card.hw-l1 h3 { color: var(--amber-deep); }
+    .hw-card.hw-l2 h3 { color: var(--forest); }
+    .hw-card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .hw-list { list-style: none; margin: 0 0 14px; padding: 0; }
+    .hw-list li { position: relative; padding-left: 26px; margin-bottom: 10px; font-size: 0.94rem; color: var(--ink); }
+    .hw-list li::before { content: ""; position: absolute; left: 0; top: 7px; width: 12px; height: 12px; border-radius: 50%; }
+    .hw-card.hw-l1 .hw-list li::before { background: var(--amber-soft); border: 2px solid var(--amber); }
+    .hw-card.hw-l2 .hw-list li::before { background: var(--moss-soft); border: 2px solid var(--forest); }
+
+    .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--amber-soft); color: var(--amber-deep); font-size: 0.92rem; }
+
+    /* ---------- Quiz check callout（章节→测验绑定） ---------- */
+    .quiz-check { margin-top: 24px; padding: 13px 18px; border-radius: 10px; background: var(--moss-soft);
+      border: 1px dashed rgba(26, 77, 62, 0.35); font-size: 0.9rem; color: var(--forest); font-weight: 600; }
+    .quiz-check a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.45); font-weight: 700; }
+    .quiz-check a:hover { color: var(--forest-light); border-bottom-color: var(--forest-light); }
+    .note strong { color: var(--amber); }
+
+    .panel-card {
+      padding: 32px 30px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+
+    /* ---------- Next step ---------- */
+    .next {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 60%, #225c49);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .next::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 84% 0%, rgba(184, 115, 51, 0.25), transparent 46%); pointer-events: none; }
+    .next > * { position: relative; }
+    .next .eyebrow { background: rgba(184, 115, 51, 0.2); color: #e8a96a; }
+    .next h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 14px 0 12px; }
+    .next p { color: rgba(234, 250, 241, 0.84); margin: 0 0 22px; max-width: 640px; }
+    .next .btn-primary { background: var(--moss); color: var(--forest); }
+    .next .btn-primary:hover { background: #a7e0c4; }
+    .next .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .next .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .next-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal default state ---------- */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .stage-block,
+    html.gsap-fallback .example-good,
+    html.gsap-fallback .example-bad,
+    html.gsap-fallback .arch-node,
+    html.gsap-fallback .prompt-card,
+    html.gsap-fallback .wf-detail-card,
+    html.gsap-fallback .fb-card,
+    html.gsap-fallback .feedback-results,
+    html.gsap-fallback .hw-card,
+    html.gsap-fallback .panel-card {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .example-pair { grid-template-columns: 1fr; }
+      .feedback-grid { grid-template-columns: 1fr; }
+      .hw-grid { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+      .case-banner-inner { flex-direction: column; }
+      .fb-result-row { flex-direction: column; gap: 4px; }
+      .fb-q { min-width: auto; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .stage-header { grid-template-columns: 1fr; gap: 12px; }
+      .stage-badge { width: 56px; height: 56px; border-radius: 14px; }
+      .stage-badge .stage-step { font-size: 1.1rem; }
+      .stage-connector { margin-left: 24px; }
+      .arch-intent-slots { flex-direction: column; align-items: center; }
+      .arch-skills-row { flex-direction: column; align-items: center; }
+      .next { padding: 32px 24px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .stage-block, .example-good, .example-bad, .arch-node,
+      .prompt-card, .wf-detail-card, .fb-card, .feedback-results, .hw-card, .panel-card { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="学员手册导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#architecture">项目助理架构</a>
+        <a class="nav-link" href="#setup">元器首配</a>
+        <a class="nav-link" href="#workflows">工作流</a>
+        <a class="nav-cta" href="index.html">课程概览</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../part-02-knowledge-base/index.html">第 2 课 · 知识库</a>
+    <span aria-hidden="true">/</span>
+    <a href="index.html">第 3 课 · AI智能体</a>
+    <span aria-hidden="true">/</span>
+    学员手册
+  </nav>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="handbook-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">📖</span> 第 3 课 · AI智能体 · 学员手册</div>
+      <h1 class="reveal" id="handbook-title">120 分钟，<br><span class="grad">把技能与知识库编排成「项目助理」</span></h1>
+      <p class="hero-lead reveal">
+        前两课分别解决了「怎么做」（技能）和「有什么」（知识库），但它们各自独立。
+        这节课教你把多个技能和知识库<strong>编排</strong>成一个统一的<strong>项目助理</strong>——用户只需要开口说一句话，
+        项目助理自动判断意图、选对技能、查对知识库、输出结构化回答。
+        手册里继续用绿源做全程示范——绿源目前已有 1 个技能（结项报告生成）和 1 个知识库（53 篇文档，65% 命中率）。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>120 分钟</span>
+        <span class="meta-chip"><span class="dot"></span>产出 项目助理AI智能体调试通过</span>
+        <span class="meta-chip"><span class="dot"></span>7 个操作步骤逐一详解</span>
+        <span class="meta-chip"><span class="dot"></span>附绿源全程示范</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#setup">
+          开始元器首配
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#architecture">先看项目助理架构</a>
+      </div>
+    </section>
+
+    <!-- ================= Case study banner ================= -->
+    <div class="case-banner reveal">
+      <div class="case-banner-inner">
+        <div class="case-icon" aria-hidden="true">🏞️</div>
+        <div>
+          <h3>贯穿案例：绿源环保公益中心 · 第 3 课进度</h3>
+          <p>
+            经过前两课，<strong>绿源</strong>已经完成：技能层面有 <strong>1 个结项报告生成技能</strong>（输入流水账 → 输出六章节结项报告）；
+            知识库层面上传了 <strong>53 篇文档</strong>，首轮测试 <strong>65% 命中率</strong>。
+            但两者各自独立——用户得自己记住什么场景用什么工具。
+            这节课的目标：把它们<strong>编排成一个统一的项目助理</strong>，用户只需要说一句话。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Section 2: Architecture ================= -->
+    <section class="section" id="architecture" aria-labelledby="arch-title">
+      <div class="section-head">
+        <div class="section-num reveal">项目助理 = 什么？</div>
+        <h2 class="section-title reveal" id="arch-title">项目助理 = 统一入口 + 意图路由 + 按需加载技能 + 知识库增强</h2>
+        <p class="section-desc reveal">用户不需要知道背后有几个技能、几个知识库——只需要一个入口，说清楚自己要什么，项目助理替你分拣、检索、组装。</p>
+      </div>
+
+      <!-- Architecture diagram -->
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-node is-entry reveal">
+            <h3>用户入口（企微 / 飞书 / 调试窗）</h3>
+            <p>一个统一的对话窗口，用户只需要说一句话</p>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--amber)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="arch-node is-intent reveal">
+            <h3>意图识别</h3>
+            <p>用户说了什么 → 应该分到哪个技能？</p>
+            <div class="arch-intent-slots">
+              <span class="arch-slot slot-doc">文书类意图</span>
+              <span class="arch-slot slot-case">案例类意图</span>
+              <span class="arch-slot slot-comms">传播类意图</span>
+              <span class="arch-slot slot-qa">综合问答</span>
+            </div>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--forest)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="arch-node is-skills reveal">
+            <h3>技能路由层</h3>
+            <p>根据意图加载对应技能的 SOP + 输出契约</p>
+            <div class="arch-skills-row">
+              <div class="arch-skill-chip">技能 1<small>结项报告</small></div>
+              <div class="arch-skill-chip">技能 2<small>项目书</small></div>
+              <div class="arch-skill-chip">技能 3<small>案例检索</small></div>
+            </div>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--sky)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="arch-node is-rag reveal">
+            <h3>知识库 RAG 增强</h3>
+            <p>从云端知识库检索相关文档切片，补充事实、案例、数据，减少幻觉</p>
+          </div>
+          <div class="arch-arrow" aria-hidden="true">
+            <svg width="24" height="32" viewBox="0 0 24 32"><path d="M12 0 L12 24 M6 18 L12 26 L18 18" stroke="var(--moss)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="arch-node is-output reveal">
+            <h3>格式化输出 + 缺失项提示</h3>
+            <p>按技能的输出契约组织回答，标注来源 / 缺失项 / 置信度</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Good/Bad comparison -->
+      <div class="example-pair" style="margin-top: 28px;">
+        <div class="example-bad reveal">
+          <div class="example-label">&#10060; 错误做法</div>
+          <p>把所有功能塞进一段超长系统提示词，没有分技能，什么都能答但什么都答不好。用户问结项报告和问天气预报得到的回答风格一样。</p>
+        </div>
+        <div class="example-good reveal">
+          <div class="example-label">&#9989; 正确做法</div>
+          <p>统一入口 + 意图路由 + 按需加载技能 + 知识库增强。用户说「帮我写结项报告」时加载结项技能 + 检索历史报告；问「去年做了哪些项目」时走知识库检索。</p>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q1">Q1</a> · <a href="quiz.html#q2">Q2</a></p>
+    </section>
+
+    <!-- ================= Section 3: Setup ================= -->
+    <section class="section" id="setup" aria-labelledby="setup-title">
+      <div class="section-head">
+        <div class="section-num reveal">腾讯元器首配</div>
+        <h2 class="section-title reveal" id="setup-title">Step-by-Step：从注册到系统提示词（25 分钟）</h2>
+        <p class="section-desc reveal">四步完成项目助理的基础搭建。不从零开始——Fork 课程提供的母版，替换机构信息即可。</p>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="stage-block reveal">
+        <div class="stage-header">
+          <div class="stage-badge">
+            <span class="stage-step">1</span>
+            <span class="stage-time">5 min</span>
+          </div>
+          <div class="stage-info">
+            <h3>注册 & 创建工作空间</h3>
+            <p class="stage-goal">访问腾讯元器平台（yuanqi.tencent.com），用微信扫码注册/登录，创建专属工作空间。</p>
+          </div>
+        </div>
+        <div class="instructor-note reveal">
+          <strong>绿源示例：</strong>工作空间名 = "绿源项目助理"。命名建议：「机构简称 + 项目助理」，方便后续识别。
+        </div>
+      </div>
+
+      <div class="stage-connector" aria-hidden="true"></div>
+
+      <!-- Step 2 -->
+      <div class="stage-block reveal">
+        <div class="stage-header">
+          <div class="stage-badge">
+            <span class="stage-step">2</span>
+            <span class="stage-time">5 min</span>
+          </div>
+          <div class="stage-info">
+            <h3>Fork 项目助理母版</h3>
+            <p class="stage-goal">从课程提供的「环境公益项目助理 · 主模板」Fork 一份到自己工作区。不从零开始，模板里已有系统提示词框架。</p>
+          </div>
+        </div>
+        <div class="instructor-note reveal">
+          <strong>绿源示例：</strong>Fork 完成后，看到预设的系统提示词框架，里面有占位符 &lt;机构简称&gt; 等着你替换。
+        </div>
+      </div>
+
+      <div class="stage-connector" aria-hidden="true"></div>
+
+      <!-- Step 3 -->
+      <div class="stage-block reveal">
+        <div class="stage-header">
+          <div class="stage-badge">
+            <span class="stage-step">3</span>
+            <span class="stage-time">8 min</span>
+          </div>
+          <div class="stage-info">
+            <h3>修改机构信息</h3>
+            <p class="stage-goal">替换占位符、修改欢迎语、调整 tone（亲切但专业）。</p>
+          </div>
+        </div>
+        <div class="example-pair">
+          <div class="example-bad reveal">
+            <div class="example-label">&#10060; 通用欢迎语</div>
+            <blockquote>你好，我是AI助手。</blockquote>
+          </div>
+          <div class="example-good reveal">
+            <div class="example-label">&#9989; 绿源定制欢迎语</div>
+            <blockquote>你好！我是绿源的项目助理。我可以帮你生成结项报告、查找过往项目资料。请告诉我你需要什么？</blockquote>
+          </div>
+        </div>
+        <div class="instructor-note reveal">
+          <strong>要点：</strong>占位符替换清单——把模板里的 &lt;机构简称&gt; 全部替换为 "绿源"。欢迎语要具体说出能做什么，让用户知道该怎么开口。
+        </div>
+      </div>
+
+      <div class="stage-connector" aria-hidden="true"></div>
+
+      <!-- Step 4: System prompt -->
+      <div class="stage-block reveal">
+        <div class="stage-header">
+          <div class="stage-badge">
+            <span class="stage-step">4</span>
+            <span class="stage-time">7 min</span>
+          </div>
+          <div class="stage-info">
+            <h3>设置系统提示词</h3>
+            <p class="stage-goal">系统提示词是项目助理的「大脑」——定义它是谁、能做什么、不能做什么。</p>
+          </div>
+        </div>
+
+        <div class="prompt-card reveal">
+          <h4>绿源系统提示词模板（带注解）</h4>
+          <div class="prompt-block">你是「绿源环保公益中心」的项目助理。</div>
+          <div class="prompt-annotation">&#128204; 角色定位：明确告诉 AI「你是谁」，限定身份边界</div>
+
+          <div class="prompt-block">## 你能做什么
+- 当用户提供项目流水账/活动记录，需要结项报告时 → 调用「结项报告」技能
+- 当用户询问过往项目数据、资助方偏好时 → 检索知识库
+- 当用户的问题不属于以上场景 → 坦诚告知能力边界</div>
+          <div class="prompt-annotation">&#128204; 能力声明 + 意图路由规则：每一条对应一个处理路径</div>
+
+          <div class="prompt-block">## 你不能做什么
+- 不编造没有的数据
+- 不透露捐赠人/受益人个人信息
+- 不回答与机构工作无关的问题</div>
+          <div class="prompt-annotation">&#128204; 红线规则：这三条是安全底线，防止幻觉、隐私泄露和跑题</div>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q3">Q3</a> · <a href="quiz.html#q8">Q8</a></p>
+    </section>
+
+    <!-- ================= Section 4: Mount Skills & KB ================= -->
+    <section class="section" id="mount" aria-labelledby="mount-title">
+      <div class="section-head">
+        <div class="section-num reveal">挂载技能与知识库</div>
+        <h2 class="section-title reveal" id="mount-title">连接已有资产，调试 5 个真实问题（35 分钟）</h2>
+        <p class="section-desc reveal">把第 1 课的技能和第 2 课的知识库挂载到项目助理上，然后用 5 个真实问题验证效果。</p>
+      </div>
+
+      <!-- Step 5: Skill mounting -->
+      <div class="stage-block reveal">
+        <div class="stage-header">
+          <div class="stage-badge">
+            <span class="stage-step">5</span>
+            <span class="stage-time">10 min</span>
+          </div>
+          <div class="stage-info">
+            <h3>上传技能配置</h3>
+            <p class="stage-goal">把第 1 课的技能触发条件嵌入系统提示词。关键是触发条件要精准——太宽会误触发，太窄会漏触发。</p>
+          </div>
+        </div>
+        <div class="example-pair">
+          <div class="example-bad reveal">
+            <div class="example-label">&#10060; 触发条件太宽</div>
+            <blockquote>用户问任何关于报告的问题都用结项报告技能</blockquote>
+            <p style="margin-top: 8px; font-size: 0.86rem; color: var(--bad);">问题：「去年的年报在哪里？」也会误触发结项报告技能</p>
+          </div>
+          <div class="example-good reveal">
+            <div class="example-label">&#9989; 触发条件精准</div>
+            <blockquote>当用户<strong>提供了项目执行流水账/活动记录</strong>且<strong>明确需要结项报告</strong>时 → 加载结项报告技能</blockquote>
+            <p style="margin-top: 8px; font-size: 0.86rem; color: var(--good);">两个条件同时满足才触发，避免误判</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stage-connector" aria-hidden="true"></div>
+
+      <!-- Step 6: KB mounting -->
+      <div class="stage-block reveal">
+        <div class="stage-header">
+          <div class="stage-badge">
+            <span class="stage-step">6</span>
+            <span class="stage-time">10 min</span>
+          </div>
+          <div class="stage-info">
+            <h3>上传知识库</h3>
+            <p class="stage-goal">从第 2 课的云端知识库关联过来，设置检索参数（Top-K、相似度阈值），在系统提示词里加一句「回答前先查阅知识库，优先使用知识库中的真实信息，不要编造」。</p>
+          </div>
+        </div>
+        <div class="instructor-note reveal">
+          <strong>绿源配置：</strong>关联已有的 53 篇文档知识库。初始参数：Top-K = 5，相似度阈值 = 0.7。后续根据调试结果微调。
+        </div>
+      </div>
+
+      <div class="stage-connector" aria-hidden="true"></div>
+
+      <!-- Step 7: Debug 5 questions -->
+      <div class="stage-block reveal">
+        <div class="stage-header">
+          <div class="stage-badge">
+            <span class="stage-step">7</span>
+            <span class="stage-time">15 min</span>
+          </div>
+          <div class="stage-info">
+            <h3>调试 5 个真实问题</h3>
+            <p class="stage-goal">用 5 个覆盖不同场景的问题测试项目助理，验证意图路由、技能加载和知识库检索是否工作正常。</p>
+          </div>
+        </div>
+      </div>
+
+      <table class="test-table reveal">
+        <thead>
+          <tr>
+            <th style="width: 40px;">#</th>
+            <th>测试问题</th>
+            <th>期望行为</th>
+            <th>绿源实际结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>附件是清河项目的流水账，帮我写结项报告</td>
+            <td>加载结项技能 + 检索知识库</td>
+            <td class="result-pass">&#9989; 正确加载技能，检索到清河历史数据</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>我们 2024 年做了哪些项目？</td>
+            <td>检索知识库回答</td>
+            <td class="result-pass">&#9989; 列出 4 个项目，来源标注正确</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>帮我写一篇公众号推文</td>
+            <td>礼貌拒绝（不在能力范围）</td>
+            <td class="result-pass">&#9989; 回复「目前暂不支持推文生成，建议...」</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>张捐赠人的电话是多少？</td>
+            <td>拒绝透露敏感信息</td>
+            <td class="result-pass">&#9989; 拒绝并说明「无法提供个人隐私信息」</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>帮我订个机票</td>
+            <td>告知不在服务范围</td>
+            <td class="result-pass">&#9989; 告知「我是项目助理，不支持订票服务」</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note reveal">
+        <strong>调试技巧：</strong>如果测试中发现问题，先检查三个地方：1）系统提示词的意图路由规则是否覆盖了该场景；2）知识库中是否有对应的文档；3）技能的触发条件是否太宽或太窄。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q4">Q4</a></p>
+    </section>
+
+    <!-- ================= Section 5: Workflows ================= -->
+    <section class="section" id="workflows" aria-labelledby="wf-title">
+      <div class="section-head">
+        <div class="section-num reveal">三模块工作流详解</div>
+        <h2 class="section-title reveal" id="wf-title">从「能聊」到「聊得好」——三个工作流管道</h2>
+        <p class="section-desc reveal">当简单的「意图 → 技能 → 回答」不够用时，用工作流把多步骤串起来。每个模块是一条完整的处理链。</p>
+      </div>
+
+      <!-- M1 -->
+      <div class="wf-detail-card wf-m1 reveal">
+        <div class="wf-label">模块 M1</div>
+        <h3>项目文书链</h3>
+        <p>绿源的主攻方向。把流水账变成结构化报告的完整管道。</p>
+        <div class="wf-pipeline">
+          <div class="wf-step"><div class="wf-step-icon">1</div>用户输入（流水账）→ 信息抽取：提取活动、时间、人数、产出</div>
+          <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--amber)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wf-step"><div class="wf-step-icon">2</div>知识库检索：查找历史项目书 + 资助方偏好模板</div>
+          <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--amber)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wf-step"><div class="wf-step-icon">3</div>结项报告技能生成：按六章节输出契约填充</div>
+          <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--amber)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wf-step"><div class="wf-step-icon">4</div>输出：结构化报告 + 缺失项清单</div>
+        </div>
+        <div class="wf-highlight">
+          <strong>绿源完整数据流：</strong>李婷上传清河项目 12 周流水账 → 系统抽取 38 次活动、覆盖人数 2400+ → 检索到去年 SEE 基金会结项报告模板 → 生成六章节报告 → 标注缺失项「成效分析缺量化指标，建议补充前后对比数据」。
+        </div>
+      </div>
+
+      <!-- M2 -->
+      <div class="wf-detail-card wf-m2 reveal">
+        <div class="wf-label">模块 M2</div>
+        <h3>案例库</h3>
+        <p>从原始记录到结构化案例卡片的处理链。</p>
+        <div class="wf-pipeline">
+          <div class="wf-step"><div class="wf-step-icon">1</div>用户输入（原始记录）→ 脱敏规则：隐去真实姓名、地址等</div>
+          <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--sky)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wf-step"><div class="wf-step-icon">2</div>案例结构化技能：按「背景→干预→结果→反思」组织</div>
+          <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--sky)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wf-step"><div class="wf-step-icon">3</div>输出：写入知识库 + 输出案例卡片</div>
+        </div>
+        <div class="wf-highlight">
+          适合已运营 3 年以上、积累了大量案例但从未系统整理的机构。绿源计划在第 4 课深化此模块。
+        </div>
+      </div>
+
+      <!-- M3 -->
+      <div class="wf-detail-card wf-m3 reveal">
+        <div class="wf-label">模块 M3</div>
+        <h3>传播运营</h3>
+        <p>从活动素材到合规发布内容的生产链。</p>
+        <div class="wf-pipeline">
+          <div class="wf-step"><div class="wf-step-icon">1</div>用户输入（活动素材）→ OCR / 信息抽取</div>
+          <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--forest)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wf-step"><div class="wf-step-icon">2</div>知识库检索：查找历史推文 tone 和风格参考</div>
+          <div class="wf-step-arrow" aria-hidden="true"><svg width="12" height="16" viewBox="0 0 12 16"><path d="M6 0 L6 10 M2 7 L6 13 L10 7" stroke="var(--forest)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="wf-step"><div class="wf-step-icon">3</div>输出：复盘报告 / 公众号稿 + 合规检查清单</div>
+        </div>
+        <div class="wf-highlight">
+          适合有专职传播岗、每周至少发 1 篇公众号的机构。建议搭配 M1 或 M2 作为基础。
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q5">Q5</a> · <a href="quiz.html#q6">Q6</a> · <a href="quiz.html#q10">Q10</a>（开放题）</p>
+    </section>
+
+    <!-- ================= Section 6: Cross-testing ================= -->
+    <section class="section" id="cross-test" aria-labelledby="ct-title">
+      <div class="section-head">
+        <div class="section-num reveal">互测评估</div>
+        <h2 class="section-title reveal" id="ct-title">互测：准 / 不准 / 乱答（10 分钟）</h2>
+        <p class="section-desc reveal">把你的项目助理分享给另一组学员，对方问 5 个问题，每个回答标记为三类之一——这是发现问题最快的方法。</p>
+      </div>
+
+      <!-- Three category cards -->
+      <div class="feedback-grid">
+        <div class="fb-card fb-pass reveal">
+          <div class="fb-emoji" aria-hidden="true">&#x1F7E2;</div>
+          <h3>准</h3>
+          <p>回答正确且有用，格式对，引用了知识库中的真实信息。</p>
+        </div>
+        <div class="fb-card fb-miss reveal">
+          <div class="fb-emoji" aria-hidden="true">&#x1F7E1;</div>
+          <h3>不准</h3>
+          <p>方向对但细节有误，或编造了不存在的数据。说明知识库缺料或检索不到位。</p>
+        </div>
+        <div class="fb-card fb-fail reveal">
+          <div class="fb-emoji" aria-hidden="true">&#x1F534;</div>
+          <h3>乱答</h3>
+          <p>答非所问或编造回答。说明意图识别或触发条件有问题。</p>
+        </div>
+      </div>
+
+      <!-- Luyuan feedback example -->
+      <div class="feedback-results reveal" style="margin-top: 22px;">
+        <h4>绿源收到的互测反馈示例</h4>
+        <div class="fb-result-row">
+          <span class="fb-q">Q1「你们清河项目做了多久？」</span>
+          <span class="fb-result-pass">&#x1F7E2; 准</span>
+          <span class="fb-reason">准确回答「2024年3月-12月」，与知识库中的项目时间吻合</span>
+        </div>
+        <div class="fb-result-row">
+          <span class="fb-q">Q2「帮我写个活动通知」</span>
+          <span class="fb-result-miss">&#x1F7E1; 不准</span>
+          <span class="fb-reason">不该处理但尝试了——说明系统提示词缺少「活动通知不在能力范围」的边界声明</span>
+        </div>
+        <div class="fb-result-row">
+          <span class="fb-q">Q3「去年花了多少钱？」</span>
+          <span class="fb-result-fail">&#x1F534; 乱答</span>
+          <span class="fb-reason">编造了金额——知识库中没有财务数据，应拒绝而非编造</span>
+        </div>
+      </div>
+
+      <div class="panel-card reveal" style="margin-top: 22px;">
+        <h3 style="font-family: 'Noto Serif SC', serif; font-size: 1.1rem; margin-bottom: 12px;">互测操作流程</h3>
+        <ol style="margin: 0; padding-left: 20px; color: var(--muted); font-size: 0.94rem;">
+          <li style="margin-bottom: 8px;"><strong>扫码分享</strong>：把你的项目助理二维码分享给另一组学员</li>
+          <li style="margin-bottom: 8px;"><strong>对方问 5 个问题</strong>：覆盖技能触发、知识库检索、边界拒绝等不同场景</li>
+          <li style="margin-bottom: 8px;"><strong>标记每个回答</strong>：&#x1F7E2; 准 / &#x1F7E1; 不准 / &#x1F534; 乱答</li>
+          <li><strong>交换反馈</strong>：把记录还给对方，课后按反馈调一轮系统提示词</li>
+        </ol>
+      </div>
+
+      <div class="note reveal">
+        <strong>互测后修复优先级：</strong>先修「乱答」（意图路由问题）→ 再修「不准」（知识库缺料或触发条件偏差）→ 最后优化「准」的回答质量。绿源需要：1）补充财务边界声明；2）在系统提示词中明确「活动通知」不在能力范围。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q7">Q7</a></p>
+    </section>
+
+    <!-- ================= Section 7: Homework ================= -->
+    <section class="section" id="homework" aria-labelledby="hw-title">
+      <div class="section-head">
+        <div class="section-num reveal">课后作业</div>
+        <h2 class="section-title reveal" id="hw-title">分层作业，按你的进度选择</h2>
+        <p class="section-desc reveal">下课带走一句话：「我的项目助理已经能处理 _____ 类问题，互测中 ___/___ （准/总）。」</p>
+      </div>
+
+      <div class="hw-grid">
+        <div class="hw-card hw-l1 reveal">
+          <h3>L1 入门（用起来）</h3>
+          <ul class="hw-list">
+            <li>对话 Bot + 挂载 1 个以上知识库</li>
+            <li>自己问 10 个问题</li>
+            <li>准确率目标：60% 以上</li>
+          </ul>
+          <p>验收标准：10 个问题中至少 6 个标记为「准」。</p>
+        </div>
+        <div class="hw-card hw-l2 reveal">
+          <h3>L2 进阶（用得顺）</h3>
+          <ul class="hw-list">
+            <li>包含 3 步以上工作流 + 1 个以上插件</li>
+            <li>找 3 个同事进行内测</li>
+            <li>收集反馈并修一轮</li>
+          </ul>
+          <p>验收标准：3 人内测后，根据反馈至少修改 2 处系统提示词或触发条件。</p>
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q9">Q9</a></p>
+    </section>
+
+    <!-- ================= Section 8: Next Step CTA ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="next reveal">
+        <div class="eyebrow">下一步 · 第 4 课</div>
+        <h2>项目助理跑通了——下一步，深化场景并补齐第 2 个技能</h2>
+        <p>项目助理「什么都能聊一点」不等于「什么都好用」。第 4 课教你选定机构最重要的 1-2 个场景（比如结项报告 + 案例检索），纵深打磨——补齐第 2 个技能、调优工作流、把准确率从「能用」拉到「好用」。</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="../part-04-scenario/index.html">
+            进入第 4 课 · 场景深化
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="index.html">返回课程概览</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 第 3 课 · AI智能体 · 学员手册</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="index.html">课程概览</a>
+      <a href="#">学员手册</a>
+      <a href="../part-04-scenario/index.html">第 4 课</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 第 3 课「AI智能体」学员手册页面交互
+     * @description GSAP ScrollTrigger 滚动揭示动画。
+     *              内容默认可见；GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initHandbook() {
+      var root = document.documentElement;
+
+      /* -------- GSAP fallback -------- */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .stage-block, .example-good, .example-bad, .arch-node, .prompt-card, .wf-detail-card, .fb-card, .feedback-results, .hw-card, .panel-card",
+          { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      /* -------- Hero entrance -------- */
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /* -------- Case banner entrance -------- */
+      gsap.fromTo(".case-banner",
+        { y: 24, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.5 });
+
+      /* -------- Scroll reveal for generic .reveal elements -------- */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach(function(el) {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      /* -------- Architecture nodes: cascade -------- */
+      gsap.set(".arch-node", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".arch-node", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.15, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Stage blocks: staggered reveal -------- */
+      gsap.set(".stage-block", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".stage-block", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.15, duration: 0.7, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Good/bad example cards -------- */
+      gsap.set(".example-good, .example-bad", { y: 24, autoAlpha: 0 });
+      ScrollTrigger.batch(".example-good, .example-bad", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.5, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 24, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Workflow detail cards -------- */
+      gsap.set(".wf-detail-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".wf-detail-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Feedback cards -------- */
+      gsap.set(".fb-card", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".fb-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Homework cards -------- */
+      gsap.set(".hw-card", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".hw-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      window.addEventListener("load", function() { ScrollTrigger.refresh(); });
+    })();
+  </script>
+</body>
+</html>

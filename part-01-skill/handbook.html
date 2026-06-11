@@ -1,0 +1,1574 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学员手册 · 第 1 课 · 技能 | 环境公益 AI 赋能工程营</title>
+  <meta name="description" content="环境公益 AI 赋能工程营第 1 课「技能构建」学员手册：120 分钟把一次性提示词变成可复用的能力包。WorkBuddy 实操指南、结项报告技能全流程演示、自测清单与数据合规底线。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef3ef;
+      --paper: #fafcf9;
+      --panel: #f2f7f3;
+      --ink: #14261f;
+      --muted: #5a6f64;
+      --line: #d4e0d8;
+      --forest: #1a4d3e;
+      --forest-light: #2d6b58;
+      --moss: #8fd4b0;
+      --moss-soft: #d8f0e4;
+      --amber: #b87333;
+      --amber-soft: #fff3e0;
+      --sky: #3d6b8c;
+      --sky-soft: #e3eef5;
+      --good: #2d8a56;
+      --good-bg: #e6f5ec;
+      --bad: #b83a3a;
+      --bad-bg: #fce8e8;
+      --warn: #c47d1a;
+      --warn-bg: #fff8ee;
+      --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+      --shadow-lg: 0 30px 64px rgba(20, 38, 31, 0.14);
+      --radius: 16px;
+      --max: 1120px;
+      --header-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.62;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143, 212, 176, 0.22), transparent 28%),
+        radial-gradient(circle at 88% 2%, rgba(61, 107, 140, 0.12), transparent 24%),
+        var(--bg);
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      height: var(--header-h);
+      border-bottom: 1px solid rgba(212, 224, 216, 0.85);
+      background: rgba(238, 243, 239, 0.88);
+      backdrop-filter: blur(16px);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: var(--max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.98rem;
+    }
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      background: var(--forest);
+      color: var(--moss);
+      box-shadow: 0 10px 20px rgba(26, 77, 62, 0.18);
+    }
+    .header-nav { display: flex; align-items: center; gap: 6px; }
+    .header-nav a {
+      padding: 7px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: color 160ms ease, background-color 160ms ease;
+    }
+    .header-nav a:hover { color: var(--forest); background: var(--moss-soft); }
+    .header-nav a.nav-cta { background: var(--forest); color: #fff; }
+    .header-nav a.nav-cta:hover { background: var(--forest-light); color: #fff; }
+
+    main { position: relative; z-index: 1; }
+    .section { max-width: var(--max); margin: 0 auto; padding: 72px 24px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .section-num {
+      color: var(--forest-light);
+      font-weight: 700;
+      font-size: 0.86rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.15;
+      font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+      margin: 10px 0 12px;
+    }
+    .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
+    .section-head { margin-bottom: 28px; }
+
+    /* ---------- Breadcrumb ---------- */
+    .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
+    .crumb a { color: var(--forest); border-bottom: 1px solid rgba(26, 77, 62, 0.3); }
+    .crumb a:hover { color: var(--forest-light); }
+    .crumb span { margin: 0 8px; opacity: 0.6; }
+
+    /* ---------- Hero ---------- */
+    .hero { max-width: var(--max); margin: 0 auto; padding: 36px 24px 24px; }
+    .hero h1 {
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      line-height: 1.12;
+      font-size: clamp(2rem, 4.6vw, 3.1rem);
+      margin: 16px 0 16px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--forest), var(--forest-light) 45%, var(--moss));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-lead { max-width: 680px; color: var(--muted); font-size: 1.08rem; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--forest);
+      white-space: nowrap;
+    }
+    .meta-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--moss); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.96rem;
+      transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+    }
+    .btn-primary { background: var(--forest); color: #fff; box-shadow: 0 14px 28px rgba(26, 77, 62, 0.24); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 36px rgba(26, 77, 62, 0.3); }
+    .btn-ghost { background: var(--paper); color: var(--forest); border: 1px solid var(--line); }
+    .btn-ghost:hover { transform: translateY(-2px); background: var(--moss-soft); }
+
+    /* ---------- Case intro banner ---------- */
+    .case-banner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .case-banner-inner {
+      padding: 24px 28px;
+      border-radius: var(--radius);
+      background: var(--sky-soft);
+      border: 1px solid rgba(61, 107, 140, 0.2);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .case-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--sky);
+      color: #fff;
+      font-size: 22px;
+    }
+    .case-banner-inner h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.08rem;
+      margin: 0 0 6px;
+      color: var(--sky);
+    }
+    .case-banner-inner p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+    .case-banner-inner strong { color: var(--ink); }
+
+    /* ---------- Concept cards ---------- */
+    .concept-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 8px; }
+    .concept-card {
+      padding: 22px 20px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .concept-card.is-focus { border-top: 4px solid var(--forest); }
+    .concept-tag { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--forest-light); }
+    .concept-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.12rem; margin: 8px 0 8px; }
+    .concept-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+    .concept-analogy {
+      margin-top: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--forest);
+    }
+
+    /* ---------- Good/Bad example cards ---------- */
+    .example-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 16px 0;
+    }
+    .example-good {
+      border-left: 4px solid var(--good);
+      background: var(--good-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-bad {
+      border-left: 4px solid var(--bad);
+      background: var(--bad-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-warn {
+      border-left: 4px solid var(--warn);
+      background: var(--warn-bg);
+      padding: 18px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      will-change: transform, opacity;
+    }
+    .example-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+    .example-good .example-label { color: var(--good); }
+    .example-bad .example-label { color: var(--bad); }
+    .example-warn .example-label { color: var(--warn); }
+    .example-good p, .example-bad p, .example-warn p { margin: 0; font-size: 0.94rem; color: var(--ink); }
+    .example-good blockquote, .example-bad blockquote, .example-warn blockquote {
+      margin: 0;
+      padding: 0;
+      font-size: 0.94rem;
+      color: var(--ink);
+      font-style: italic;
+    }
+
+    /* ---------- Step cards ---------- */
+    .step-card {
+      padding: 32px 30px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+      will-change: transform, opacity;
+    }
+    .step-header {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+    .step-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 900;
+      background: var(--moss-soft);
+      color: var(--forest);
+    }
+    .step-badge .step-num { font-size: 1.3rem; line-height: 1; }
+    .step-badge .step-label { font-size: 0.68rem; font-weight: 600; font-family: "Source Sans 3", sans-serif; color: var(--forest-light); }
+    .step-info h3 { font-family: "Noto Serif SC", serif; font-size: 1.24rem; margin: 0 0 6px; }
+    .step-info .step-desc { color: var(--muted); font-size: 0.94rem; margin: 0 0 10px; }
+    .step-connector {
+      width: 3px;
+      height: 24px;
+      margin-left: 30px;
+      background: linear-gradient(180deg, var(--moss), var(--line));
+      border-radius: 2px;
+    }
+
+    /* ---------- Version comparison ---------- */
+    .version-stack { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+    .version-item {
+      padding: 16px 20px;
+      border-radius: 12px;
+      font-size: 0.94rem;
+    }
+    .version-item.v-bad { background: var(--bad-bg); border-left: 4px solid var(--bad); }
+    .version-item.v-warn { background: var(--warn-bg); border-left: 4px solid var(--warn); }
+    .version-item.v-good { background: var(--good-bg); border-left: 4px solid var(--good); }
+    .version-tag {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .v-bad .version-tag { color: var(--bad); }
+    .v-warn .version-tag { color: var(--warn); }
+    .v-good .version-tag { color: var(--good); }
+
+    /* ---------- Gotcha cards ---------- */
+    .gotcha-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 16px 0; }
+    .gotcha-card {
+      padding: 22px 22px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .gotcha-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--forest);
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+    .gotcha-card h4 { font-family: "Noto Serif SC", serif; font-size: 1rem; margin: 0 0 10px; }
+    .gotcha-wrong, .gotcha-right {
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+    .gotcha-wrong { background: var(--bad-bg); color: var(--bad); }
+    .gotcha-right { background: var(--good-bg); color: var(--good); }
+    .gotcha-wrong strong, .gotcha-right strong { font-weight: 700; }
+
+    /* ---------- Output contract ---------- */
+    .contract-list {
+      counter-reset: cc;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .contract-list li {
+      position: relative;
+      padding: 16px 16px 16px 52px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      font-size: 0.94rem;
+    }
+    .contract-list li::before {
+      counter-increment: cc;
+      content: counter(cc);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--forest);
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+    .contract-list li small { display: block; color: var(--muted); font-size: 0.84rem; margin-top: 4px; }
+
+    /* ---------- Before/After demo ---------- */
+    .demo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 20px 0; }
+    .demo-card {
+      padding: 24px 22px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .demo-card.before { border-top: 4px solid var(--bad); }
+    .demo-card.after { border-top: 4px solid var(--good); }
+    .demo-tag { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 10px; }
+    .demo-card.before .demo-tag { color: var(--bad); }
+    .demo-card.after .demo-tag { color: var(--good); }
+    .demo-card h4 { font-family: "Noto Serif SC", serif; font-size: 1.06rem; margin: 0 0 12px; }
+    .demo-content { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+    .demo-content p { margin: 0 0 8px; }
+    .demo-content ul { margin: 0; padding-left: 18px; }
+    .demo-content li { margin-bottom: 4px; }
+    .demo-content .highlight { background: rgba(143, 212, 176, 0.25); padding: 2px 6px; border-radius: 4px; }
+    .demo-content .missing { background: rgba(184, 58, 58, 0.12); padding: 2px 6px; border-radius: 4px; color: var(--bad); font-weight: 600; }
+    .demo-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--moss);
+      font-weight: 900;
+    }
+    .time-compare {
+      display: flex;
+      gap: 18px;
+      margin-top: 16px;
+      align-items: center;
+    }
+    .time-chip {
+      padding: 10px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+    .time-chip.old { background: var(--bad-bg); color: var(--bad); }
+    .time-chip.new { background: var(--good-bg); color: var(--good); }
+    .time-arrow { font-size: 1.4rem; color: var(--moss); font-weight: 900; }
+
+    /* ---------- Sample skill cards ---------- */
+    .sample-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 8px; }
+    .sample-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--forest);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .sample-card.s2 { border-top-color: var(--sky); }
+    .sample-card.s3 { border-top-color: var(--amber); }
+    .sample-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .sample-scene { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--forest-light); }
+    .sample-card.s2 .sample-scene { color: var(--sky); }
+    .sample-card.s3 .sample-scene { color: var(--amber); }
+    .sample-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 8px 0 10px; }
+    .sample-card p { color: var(--muted); font-size: 0.9rem; margin: 0 0 12px; }
+    .sample-flow { font-size: 0.84rem; font-weight: 600; color: var(--forest); background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; margin: 0 0 12px; }
+    .sample-card .gotcha-mini { font-size: 0.84rem; color: var(--muted); margin: 0 0 12px; padding-left: 16px; }
+    .sample-card .gotcha-mini li { margin-bottom: 4px; }
+    .sample-case { margin-top: auto; padding: 10px 14px; border-radius: 10px; background: var(--sky-soft); font-size: 0.86rem; color: var(--sky); font-weight: 600; }
+
+    /* ---------- Test checklist ---------- */
+    .test-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 16px 0;
+      font-size: 0.92rem;
+    }
+    .test-table th {
+      background: var(--forest);
+      color: #fff;
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 0.86rem;
+    }
+    .test-table th:first-child { border-radius: 12px 0 0 0; }
+    .test-table th:last-child { border-radius: 0 12px 0 0; }
+    .test-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+    .test-table tr:last-child td { border-bottom: none; }
+    .test-table tr:last-child td:first-child { border-radius: 0 0 0 12px; }
+    .test-table tr:last-child td:last-child { border-radius: 0 0 12px 0; }
+    .test-pass { color: var(--good); font-weight: 700; }
+    .test-fail { color: var(--bad); font-weight: 700; }
+
+    /* ---------- Compliance tiers ---------- */
+    .compliance-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 16px 0; }
+    .compliance-card {
+      padding: 22px 18px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .compliance-card.l1 { border-top: 4px solid var(--good); }
+    .compliance-card.l2 { border-top: 4px solid #d4a843; }
+    .compliance-card.l3 { border-top: 4px solid var(--amber); }
+    .compliance-card.l4 { border-top: 4px solid var(--bad); }
+    .compliance-level { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; margin-bottom: 6px; }
+    .compliance-card.l1 .compliance-level { color: var(--good); }
+    .compliance-card.l2 .compliance-level { color: #d4a843; }
+    .compliance-card.l3 .compliance-level { color: var(--amber); }
+    .compliance-card.l4 .compliance-level { color: var(--bad); }
+    .compliance-card h4 { font-family: "Noto Serif SC", serif; font-size: 1rem; margin: 0 0 8px; }
+    .compliance-card p { margin: 0 0 8px; color: var(--muted); font-size: 0.86rem; }
+    .compliance-card .comp-action {
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+    .compliance-card.l1 .comp-action { background: var(--good-bg); color: var(--good); }
+    .compliance-card.l2 .comp-action { background: #fef9e7; color: #a38120; }
+    .compliance-card.l3 .comp-action { background: var(--amber-soft); color: var(--amber); }
+    .compliance-card.l4 .comp-action { background: var(--bad-bg); color: var(--bad); }
+
+    /* ---------- Homework ---------- */
+    .hw-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 16px 0; }
+    .hw-card {
+      padding: 28px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+    }
+    .hw-card.hw-basic { border-top: 4px solid var(--forest); }
+    .hw-card.hw-advanced { border-top: 4px solid var(--sky); }
+    .hw-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 14px; }
+    .hw-card.hw-basic h3 { color: var(--forest); }
+    .hw-card.hw-advanced h3 { color: var(--sky); }
+    .hw-card ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 0.94rem; }
+    .hw-card li { margin-bottom: 8px; }
+    .hw-example {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+    .hw-card.hw-basic .hw-example { background: var(--moss-soft); color: var(--forest); }
+    .hw-card.hw-advanced .hw-example { background: var(--sky-soft); color: var(--sky); }
+
+    /* ---------- Panel card ---------- */
+    .panel-card { padding: 32px 30px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow); will-change: transform, opacity; }
+
+    .instructor-note {
+      margin: 12px 0 0;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: var(--amber-soft);
+      border: 1px solid rgba(184, 115, 51, 0.18);
+      font-size: 0.9rem;
+      color: var(--amber);
+    }
+    .instructor-note strong { color: #8a5520; }
+
+    .guide-note {
+      margin: 16px 0;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: var(--sky-soft);
+      border: 1px solid rgba(61, 107, 140, 0.2);
+      font-size: 0.92rem;
+      color: var(--sky);
+    }
+    .guide-note strong { color: #2c5570; }
+
+    .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--moss-soft); color: var(--forest); font-size: 0.92rem; }
+
+    /* ---------- Quiz check callout（章节→测验绑定） ---------- */
+    .quiz-check { margin-top: 24px; padding: 13px 18px; border-radius: 10px; background: var(--sky-soft);
+      border: 1px dashed rgba(61, 107, 140, 0.4); font-size: 0.9rem; color: var(--sky); font-weight: 600; }
+    .quiz-check a { color: var(--sky); border-bottom: 1px solid rgba(61, 107, 140, 0.45); font-weight: 700; }
+    .quiz-check a:hover { color: var(--forest); border-bottom-color: var(--forest); }
+
+    /* ---------- Next step ---------- */
+    .next {
+      max-width: var(--max);
+      margin: 0 auto 72px;
+      padding: 44px 40px;
+      border-radius: 24px;
+      background: linear-gradient(150deg, #163f33, #1a4d3e 60%, #225c49);
+      color: #eafaf1;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      will-change: transform, opacity;
+    }
+    .next::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 84% 0%, rgba(143, 212, 176, 0.26), transparent 46%); pointer-events: none; }
+    .next > * { position: relative; }
+    .next .eyebrow { background: rgba(143, 212, 176, 0.16); color: var(--moss); }
+    .next h2 { font-family: "Noto Serif SC", serif; font-weight: 900; font-size: clamp(1.4rem, 3vw, 1.9rem); margin: 14px 0 12px; }
+    .next p { color: rgba(234, 250, 241, 0.84); margin: 0 0 22px; max-width: 640px; }
+    .next .btn-primary { background: var(--moss); color: var(--forest); }
+    .next .btn-primary:hover { background: #a7e0c4; }
+    .next .btn-ghost { background: transparent; color: #eafaf1; border-color: rgba(143, 212, 176, 0.4); }
+    .next .btn-ghost:hover { background: rgba(234, 250, 241, 0.1); }
+    .next-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 56px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { font-weight: 600; }
+    .footer-links a:hover { color: var(--forest); }
+
+    /* ---------- Reveal default state ---------- */
+    html.gsap-fallback .reveal,
+    html.gsap-fallback .step-card,
+    html.gsap-fallback .concept-card,
+    html.gsap-fallback .example-good,
+    html.gsap-fallback .example-bad,
+    html.gsap-fallback .example-warn,
+    html.gsap-fallback .gotcha-card,
+    html.gsap-fallback .demo-card,
+    html.gsap-fallback .sample-card,
+    html.gsap-fallback .compliance-card,
+    html.gsap-fallback .hw-card,
+    html.gsap-fallback .panel-card {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 960px) {
+      .concept-grid { grid-template-columns: repeat(2, 1fr); }
+      .example-pair { grid-template-columns: 1fr; }
+      .demo-pair { grid-template-columns: 1fr; }
+      .gotcha-grid { grid-template-columns: 1fr; }
+      .sample-grid { grid-template-columns: 1fr; }
+      .compliance-grid { grid-template-columns: repeat(2, 1fr); }
+      .hw-grid { grid-template-columns: 1fr; }
+      .header-nav .nav-link { display: none; }
+      .case-banner-inner { flex-direction: column; }
+      .test-table { font-size: 0.84rem; }
+    }
+    @media (max-width: 560px) {
+      .section { padding: 52px 20px; }
+      .concept-grid { grid-template-columns: 1fr; }
+      .compliance-grid { grid-template-columns: 1fr; }
+      .step-header { grid-template-columns: 1fr; gap: 12px; }
+      .step-badge { width: 48px; height: 48px; border-radius: 12px; }
+      .step-badge .step-num { font-size: 1.1rem; }
+      .step-connector { margin-left: 24px; }
+      .step-card { padding: 24px 20px; }
+      .next { padding: 32px 24px; }
+      .demo-arrow { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal, .step-card, .concept-card, .example-good, .example-bad, .example-warn,
+      .gotcha-card, .demo-card, .sample-card, .compliance-card, .hw-card, .panel-card { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能工程营</span>
+      </a>
+      <nav class="header-nav" aria-label="学员手册导航">
+        <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#concepts">概念辨析</a>
+        <a class="nav-link" href="#workbuddy">实操指南</a>
+        <a class="nav-link" href="#templates">技能样板</a>
+        <a class="nav-link" href="#skillopt">技能优化</a>
+        <a class="nav-cta" href="index.html">课程概览</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    学员手册
+  </nav>
+
+  <main>
+    <!-- ================= Hero ================= -->
+    <section class="hero" aria-labelledby="handbook-title">
+      <div class="eyebrow reveal"><span aria-hidden="true">📖</span> 第 1 课 · 技能 · 学员手册</div>
+      <h1 class="reveal" id="handbook-title">120 分钟，<br><span class="grad">把「每次重新写」变成可复用的能力包</span></h1>
+      <p class="hero-lead reveal">
+        这份手册是第 1 课「技能构建」的完整学习指南。你会看到概念辨析、WorkBuddy 上的逐步操作、结项报告的完整 Before/After 演示，
+        以及自测清单和数据合规底线。手册用<strong>青澜环境政策研究中心</strong>做全程示范——
+        案例<strong>格式参照</strong>机构成长支持类结项模板，<strong>机构名与数据均为虚构脱敏</strong>。
+        他们在课前作业选了 M1（项目文书链），这节课要把「结项报告生成」做成第一个技能。
+      </p>
+      <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>120 分钟课时</span>
+        <span class="meta-chip"><span class="dot"></span>6 步 WorkBuddy 实操</span>
+        <span class="meta-chip"><span class="dot"></span>产出 ≥1 个跑通的技能</span>
+        <span class="meta-chip"><span class="dot"></span>附完整 Before/After 演示</span>
+        <span class="meta-chip"><span class="dot"></span>格式参照 · 数据虚构</span>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#workbuddy">
+          直达实操指南
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#concepts">先看概念辨析</a>
+      </div>
+    </section>
+
+    <!-- ================= Case study banner ================= -->
+    <div class="case-banner reveal">
+      <div class="case-banner-inner">
+        <div class="case-icon" aria-hidden="true">🏛️</div>
+        <div>
+          <h3>贯穿案例：青澜环境政策研究中心 · 第 1 课进度</h3>
+          <p>
+            <strong>青澜</strong>【虚构机构】在课前作业确认了方向：M1 项目文书链，首个技能是<strong>机构成长支持类结项报告生成</strong>。
+            他们的痛：每半年要向资助方提交进展报告，需要从培训记录、活动日志、成果清单里拼凑——上次「社群参与反馈」写得太简略，被要求补写。
+            这节课，项目主管陈琳要把「零散执行记录 → 结构化结项报告」封装成一个可复用的技能——以后每次只需 30 分钟。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= Section 2: 概念辨析 ================= -->
+    <section class="section" id="concepts" aria-labelledby="concepts-title">
+      <div class="section-head">
+        <div class="section-num reveal">概念辨析</div>
+        <h2 class="section-title reveal" id="concepts-title">先分清四件事，再动手</h2>
+        <p class="section-desc reveal">很多人把所有内容塞进一段超长提示词——结果每次都要从零开始。把「怎么做」的事做成技能，把「有什么」的事留给第 2 课的知识库，这是少走弯路的关键。</p>
+      </div>
+
+      <div class="concept-grid">
+        <div class="concept-card reveal">
+          <div class="concept-tag">一次性提示词</div>
+          <h3>这一次怎么答</h3>
+          <p>每次打开对话框，临时写的一段话。用完就丢，下次同样的任务还得重来。</p>
+          <div class="concept-analogy">类比：临时写的一条微信——用完即弃，无法复用</div>
+        </div>
+        <div class="concept-card is-focus reveal">
+          <div class="concept-tag">本课重点 · 技能</div>
+          <h3>这类任务怎么做</h3>
+          <p>把做法、输出格式与边界规则封装下来，一次封装永久复用。</p>
+          <div class="concept-analogy">类比：机构 SOP + 模板 + 规则——谁来做都一样</div>
+        </div>
+        <div class="concept-card reveal">
+          <div class="concept-tag">知识库（第 2 课）</div>
+          <h3>机构有哪些事实</h3>
+          <p>历年项目档案、资助指南、案例库等可检索的事实与数据。</p>
+          <div class="concept-analogy">类比：档案柜——所有项目资料分门别类</div>
+        </div>
+        <div class="concept-card reveal">
+          <div class="concept-tag">AI智能体（第 3 课）</div>
+          <h3>谁在用、走什么流程</h3>
+          <p>调用哪些技能、按什么流程跑，最终汇成你的「项目助理」。</p>
+          <div class="concept-analogy">类比：项目助理本人——知道找谁问、按啥流程干</div>
+        </div>
+      </div>
+
+      <div class="guide-note reveal">
+        <strong>一句话记住：</strong>写项目书、结项报告这类「怎么做」的事 → 做成技能；历年案例、资助指南这类「有什么」的事 → 留给第 2 课的知识库。
+      </div>
+
+      <!-- Good vs Bad: 一次性提示词 vs 技能 -->
+      <div style="margin-top: 28px;">
+        <h3 style="font-family:'Noto Serif SC',serif; font-size:1.14rem; margin-bottom: 14px;" class="reveal">感受差别：一次性提示词 vs 技能</h3>
+        <div class="example-pair">
+          <div class="example-bad reveal">
+            <div class="example-label">❌ 一次性提示词（每次从零开始）</div>
+            <blockquote>「帮我写个结项报告」</blockquote>
+            <p style="margin-top:10px; font-size:0.86rem; color: var(--bad);">
+              没有章节要求、没有脱敏规则、没有缺失项提醒。每次都要重新说一遍格式，AI 每次输出都不一样。上次漏了「成效分析」整章，这次可能漏别的。
+            </p>
+          </div>
+          <div class="example-good reveal">
+            <div class="example-label">✅ 结项报告技能（一次封装永久复用）</div>
+            <blockquote>固定 6 章节 + 脱敏规则 + 缺失项清单 + 范例参照</blockquote>
+            <p style="margin-top:10px; font-size:0.86rem; color: var(--good);">
+              技能定义了固定的输出结构、不编造数据的规则、自动标注缺失。不管谁来用、用几次，输出格式稳定、章节齐全、合规脱敏。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q1">Q1</a> · <a href="quiz.html#q8">Q8</a></p>
+    </section>
+
+    <!-- ================= Section 3: WorkBuddy 实操指南 ================= -->
+    <section class="section" id="workbuddy" aria-labelledby="workbuddy-title">
+      <div class="section-head">
+        <div class="section-num reveal">WorkBuddy 实操指南</div>
+        <h2 class="section-title reveal" id="workbuddy-title">6 步，在 WorkBuddy 上构建你的第一个技能</h2>
+        <p class="section-desc reveal">
+          在 WorkBuddy 里，「一个角色就是一个最小可用的技能」。
+          跟着下面 6 步，把你的结项报告（或项目书、资助信）做成一个可复用的技能。
+          每一步都有青澜的示范和常见踩坑。
+        </p>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="step-card reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">1</span>
+            <span class="step-label">STEP</span>
+          </div>
+          <div class="step-info">
+            <h3>创建角色</h3>
+            <p class="step-desc">打开 WorkBuddy，点击「新建角色」。给角色起一个明确的名字，让你一看就知道它能做什么。</p>
+          </div>
+        </div>
+        <div class="example-pair">
+          <div class="example-good">
+            <div class="example-label">✅ 青澜示范</div>
+            <p><strong>角色名：</strong>机构成长结项报告助手</p>
+            <p><strong>触发场景：</strong>当项目主管需要把半年执行记录转成伙伴计划类结构化结项报告时使用</p>
+          </div>
+          <div class="example-bad">
+            <div class="example-label">❌ 常见问题</div>
+            <p><strong>角色名：</strong>AI助手</p>
+            <p>名字太泛，看不出能做什么。以后角色多了根本分不清。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 2 -->
+      <div class="step-card reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">2</span>
+            <span class="step-label">STEP</span>
+          </div>
+          <div class="step-info">
+            <h3>写触发说明（Description）</h3>
+            <p class="step-desc">触发说明决定了将来「项目助理」会不会正确地调用你的技能。好的触发说明 = 什么时候用 + 什么时候不用。下面是三版改写练习——从模糊到精准。</p>
+          </div>
+        </div>
+
+        <div class="version-stack">
+          <div class="version-item v-bad">
+            <div class="version-tag">❌ v1 功能版（不推荐）</div>
+            <p>「帮公益机构写报告。」</p>
+            <p style="font-size:0.84rem; margin-top:6px;">太模糊——写什么报告？结项报告还是年度报告？什么情况下调用？AI 无法判断。</p>
+          </div>
+          <div class="version-item v-warn">
+            <div class="version-tag">⚠️ v2 意图版（有进步但缺边界）</div>
+            <p>「当用户给出执行流水账、需要结项报告时使用。」</p>
+            <p style="font-size:0.84rem; margin-top:6px;">说清了「什么时候用」，但没说「什么时候不用」。如果用户要的是项目书，AI 可能也错误调用这个技能。</p>
+          </div>
+          <div class="version-item v-good">
+            <div class="version-tag">✅ v3 带边界版（提交版）</div>
+            <p>「当用户提供项目流水账/活动记录、需要结构化结项报告时加载；不要用于项目立项书或公众号推文。」</p>
+            <p style="font-size:0.84rem; margin-top:6px;">既说了什么时候用，又画了红线。将来「项目助理」有多个技能时，能准确路由到正确的那个。</p>
+          </div>
+        </div>
+
+        <div class="instructor-note">
+          <strong>讲师提示：</strong>好的触发说明决定了将来「项目助理」会不会正确调用你的技能。写完后自问：「如果用户说的是立项书，AI 会不会误调这个技能？」如果会，就补上边界。
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 3 -->
+      <div class="step-card reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">3</span>
+            <span class="step-label">STEP</span>
+          </div>
+          <div class="step-info">
+            <h3>写输出契约（Output Contract）</h3>
+            <p class="step-desc">输出契约 = 「技能每次输出必须长什么样」。固定了章节结构和字数要求，AI 就不会每次都给你一个不同格式的输出。</p>
+          </div>
+        </div>
+
+        <h4 style="font-family:'Noto Serif SC',serif; font-size:1rem; margin-bottom:12px; color:var(--forest);">青澜结项报告的 6 章节结构（技能输出版）</h4>
+        <p style="font-size:0.88rem; color:var(--muted); margin:0 0 14px;">正式模板常有七大块（基本信息 / 目标完成 / 执行进展 / 社群反馈 / 传播等）；技能压缩为下列六章，便于 WorkBuddy 封装。映射说明见样板 <code>format_伙伴计划结项结构.md</code>。</p>
+        <ol class="contract-list">
+          <li><strong>项目背景</strong><small>不超过 200 字，说清项目名称、执行周期、资助方</small></li>
+          <li><strong>主要活动</strong><small>表格形式：时间 / 活动内容 / 参与人数，按时间线排列</small></li>
+          <li><strong>核心产出</strong><small>量化数据为主，只使用用户输入中确有出处的数字</small></li>
+          <li><strong>社会成效</strong><small>定性 + 定量结合，无数据支撑的标注「项目方表述」</small></li>
+          <li><strong>经验与反思</strong><small>至少 3 条，含下一期改进方向</small></li>
+          <li><strong>缺失项清单</strong><small>报告必需但用户未提供的信息，逐项列出</small></li>
+        </ol>
+
+        <div class="guide-note">
+          <strong>为什么要固定章节？</strong>资助方审阅有固定审查清单。章节固定了就不会漏项——青澜上次差点漏写完整的「社群参与反馈」，有了输出契约，正式模板要求的每一块都有对应落点。
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 4 -->
+      <div class="step-card reveal" id="gotchas">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">4</span>
+            <span class="step-label">STEP</span>
+          </div>
+          <div class="step-info">
+            <h3>写 Gotchas（6 条避坑要点）</h3>
+            <p class="step-desc">Gotchas = 「最容易翻车的地方」。把机构踩过的坑、资助方最在意的规范写进去，AI 就不会重蹈覆辙。每条都有「错误做法 → 正确做法」的对照。</p>
+          </div>
+        </div>
+
+        <div class="gotcha-grid">
+          <div class="gotcha-card reveal">
+            <div class="gotcha-num">1</div>
+            <h4>编造活动</h4>
+            <div class="gotcha-wrong"><strong>❌</strong> 「项目期间举办了 10 场环保讲座」</div>
+            <div class="gotcha-right"><strong>✅</strong> 「根据提供的活动记录，共举办了 7 场环保讲座」</div>
+          </div>
+          <div class="gotcha-card reveal">
+            <div class="gotcha-num">2</div>
+            <h4>夸大人数</h4>
+            <div class="gotcha-wrong"><strong>❌</strong> 「活动吸引了上百人积极参与」</div>
+            <div class="gotcha-right"><strong>✅</strong> 「7 场活动累计参与 87 人次（据签到表统计）」</div>
+          </div>
+          <div class="gotcha-card reveal">
+            <div class="gotcha-num">3</div>
+            <h4>套话堆砌</h4>
+            <div class="gotcha-wrong"><strong>❌</strong> 「机构取得了重大突破，影响力显著提升」</div>
+            <div class="gotcha-right"><strong>✅</strong> 「本报告期完成约 8 份成果发布、约 12 场交流活动（据执行记录）」</div>
+          </div>
+          <div class="gotcha-card reveal">
+            <div class="gotcha-num">4</div>
+            <h4>泄露隐私</h4>
+            <div class="gotcha-wrong"><strong>❌</strong> 「员工张三（13912345678）牵头编制知识手册」</div>
+            <div class="gotcha-right"><strong>✅</strong> 「员工 A 牵头编制《员工知识手册》」</div>
+          </div>
+          <div class="gotcha-card reveal">
+            <div class="gotcha-num">5</div>
+            <h4>忽略缺失</h4>
+            <div class="gotcha-wrong"><strong>❌</strong> 假装数据完整，用模糊表述掩盖</div>
+            <div class="gotcha-right"><strong>✅</strong> 在「缺失项清单」中明确标注：「预算执行明细未提供，需补充」</div>
+          </div>
+          <div class="gotcha-card reveal">
+            <div class="gotcha-num">6</div>
+            <h4>格式不稳</h4>
+            <div class="gotcha-wrong"><strong>❌</strong> 每次输出的章节顺序和结构都不一样</div>
+            <div class="gotcha-right"><strong>✅</strong> 固定 Markdown 六章节，顺序不变，章节标题一致</div>
+          </div>
+        </div>
+
+        <div class="instructor-note">
+          <strong>讲师提示：</strong>Gotchas 不是越多越好，6 条足够。关键是每一条都来自真实踩坑——你或者你的同行曾经犯过的错。写的时候想「资助方看到什么会打回？」
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 5 -->
+      <div class="step-card reveal">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">5</span>
+            <span class="step-label">STEP</span>
+          </div>
+          <div class="step-info">
+            <h3>上传范例（2-3 份）</h3>
+            <p class="step-desc">范例让 AI 「看到」你机构的真实文书风格。上传前务必脱敏——把真实姓名、手机号、身份证号替换掉。</p>
+          </div>
+        </div>
+
+        <div class="example-pair">
+          <div class="example-good">
+            <div class="example-label">✅ 青澜上传了</div>
+            <p><strong>范例 1：</strong>上一期结项报告（<strong>已脱敏</strong>的虚构机构范例）——让 AI 学习伙伴计划类模板的章节风格</p>
+            <p style="margin-top:6px;"><strong>范例 2：</strong>本半年零散执行记录（见 `example_input_流水账.md`，虚构脱敏）——让 AI 知道「输入长什么样」</p>
+          </div>
+          <div class="example-bad">
+            <div class="example-label">❌ 常见问题</div>
+            <p>上传了含有志愿者全名和手机号的原始签到表</p>
+            <p style="margin-top:6px;">上传了 10 份文件——太多了，AI 反而混乱。2-3 份最佳。</p>
+          </div>
+        </div>
+
+        <div class="guide-note">
+          <strong>脱敏方法：</strong>打开文档，用查找替换功能——所有人名替换为 A/B/C，手机号替换为「1XXXXXXXXXX」，删除身份证号和银行账号。保存为新文件再上传。5 分钟就能搞定。
+        </div>
+      </div>
+
+      <div class="step-connector" aria-hidden="true"></div>
+
+      <!-- Step 6 -->
+      <div class="step-card reveal" id="demo">
+        <div class="step-header">
+          <div class="step-badge">
+            <span class="step-num">6</span>
+            <span class="step-label">STEP</span>
+          </div>
+          <div class="step-info">
+            <h3>跑一遍真实任务</h3>
+            <p class="step-desc">技能做好了，必须用材料跑一次才算数。下面是青澜的 Before/After 演示——<strong>格式参照业内常见的伙伴计划结项模板，机构名与数据均为虚构脱敏</strong>。</p>
+          </div>
+        </div>
+
+        <!-- Before / After demo -->
+        <div class="demo-pair">
+          <div class="demo-card before reveal">
+            <div class="demo-tag">BEFORE · 输入（青澜的零散执行记录 · 虚构）</div>
+            <h4>散乱的项目记录</h4>
+            <div class="demo-content">
+              <p>7-8月搞了两次通用培训，一次讲沟通，一次讲AI入门，大概18人参加。9-12月有内部分享和复盘会，人数没统计。</p>
+              <p>1-3月编《员工知识手册》，员工A牵头，B、C几个同事参与。4月写了使用指南，电子化还没完全上线。</p>
+              <p>这半年大概8份成果、12场交流活动——研讨会、政策分享之类的，完整清单在文件夹里没整理。</p>
+              <p>去了1次伙伴年会，线上共学也参加了几次。社群感受还没写成正式段落。传播做了十几篇，具体没数。</p>
+              <p style="margin-top:10px; font-style:italic; color:var(--bad);">散乱、无结构、部分活动缺签到、成果只有约数、社群与传播待成文……</p>
+            </div>
+          </div>
+
+          <div class="demo-card after reveal">
+            <div class="demo-tag">AFTER · 技能输出（结构化结项报告 · 虚构）</div>
+            <h4>六章节结项报告</h4>
+            <div class="demo-content">
+              <p><strong>一、项目背景</strong></p>
+              <p>「新锐机构成长支持项目（第 1 年）」【虚构】，报告期 2024-12 至 2025-06，执行机构青澜环境政策研究中心【虚构】，资助方某环保基金会伙伴计划【虚构】，预算约 5 万元、执行率约 96%【虚构】。</p>
+              <p style="margin-top:10px;"><strong>二、主要活动</strong></p>
+              <ul>
+                <li>7–8 月 通用能力培训 2 场（沟通技巧；AI 工具入门），约 18 人参与</li>
+                <li>9–12 月 内部专题分享 / 复盘会（<span class="missing">场次与人数待统计</span>）</li>
+                <li>2025-01至03 编制《员工知识手册》（员工 A 牵头等）</li>
+                <li>2025-04 编制知识手册使用指南</li>
+              </ul>
+              <p style="margin-top:10px;"><strong>三、产出与数据</strong></p>
+              <ul>
+                <li>约 8 份成果发布、约 12 场交流活动（据口述记录，<span class="missing">逐项清单待核对</span>）</li>
+                <li>《员工知识手册》及使用指南已完成</li>
+              </ul>
+              <p style="margin-top:10px;"><strong>六、缺失项清单</strong></p>
+              <ul>
+                <li><span class="missing">成果与活动的逐项清单待从文件夹核对</span></li>
+                <li><span class="missing">社群参与感受与建议需整理为正式表述</span></li>
+                <li><span class="missing">传播情况需量化（目前仅「十几篇」）</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="time-compare reveal">
+          <div class="time-chip old">原来 2 天</div>
+          <div class="time-arrow">→</div>
+          <div class="time-chip new">现在 30 分钟</div>
+          <span style="color:var(--muted); font-size:0.88rem; margin-left:8px;">（含人工审校、核对清单与补缺失项）</span>
+        </div>
+
+        <div class="note">
+          注意：技能生成的是初稿，不是终稿。你仍然需要 15-20 分钟审校、补充缺失数据、确认数字准确。但这比从零写省了一天半。
+        </div>
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q2">Q2</a> · <a href="quiz.html#q4">Q4</a> · <a href="quiz.html#q6">Q6</a></p>
+    </section>
+
+    <!-- ================= Section 4: 三个技能样板详解 ================= -->
+    <section class="section" id="templates" aria-labelledby="templates-title">
+      <div class="section-head">
+        <div class="section-num reveal">三个技能样板详解</div>
+        <h2 class="section-title reveal" id="templates-title">项目文书链：任选其一改成你的版本</h2>
+        <p class="section-desc reveal">每个样板都内置输出契约、范例模板和核心 Gotchas。课堂上任选一个 Fork 后改成你机构的版本。</p>
+      </div>
+
+      <div class="sample-grid">
+        <article class="sample-card s1 reveal">
+          <div class="sample-scene">场景 · 结项报告</div>
+          <h3>结项报告技能</h3>
+          <p>把项目执行流水账转成结构稳定、可直接交给资助方的结项报告。</p>
+          <p class="sample-flow">执行流水账 → 六章节结构化报告（800-1500字）</p>
+          <h4 style="font-size:0.88rem; margin:0 0 6px; color:var(--forest-light);">核心 Gotchas</h4>
+          <ul class="gotcha-mini">
+            <li>未提供的数字一律不编造，列入缺失项</li>
+            <li>受益人/志愿者信息必须脱敏</li>
+            <li>避免「圆满成功」等无信息量套话</li>
+          </ul>
+          <div class="sample-case">青澜示例：半年培训与知识手册记录 → 六章节结项报告 + 标注 3 项缺失【虚构】</div>
+        </article>
+
+        <article class="sample-card s2 reveal">
+          <div class="sample-scene">场景 · 项目书 / 提案</div>
+          <h3>项目书技能</h3>
+          <p>用机构简介、过往案例与资助方指南，组装一份项目立项书初稿。</p>
+          <p class="sample-flow">机构简介 + 案例 + 指南 → 七章节立项书（1000-1800字）</p>
+          <h4 style="font-size:0.88rem; margin:0 0 6px; color:var(--sky);">核心 Gotchas</h4>
+          <ul class="gotcha-mini">
+            <li>成果指标必须可衡量，不写「提升公众意识」</li>
+            <li>没有资助方指南时用通用结构，不伪造</li>
+            <li>预算数字未给不代编，列入缺失项</li>
+          </ul>
+          <div class="sample-case">青澜示例：准备下一期成长支持项目申报，用第 1 年脱敏结项数据支撑【虚构】</div>
+        </article>
+
+        <article class="sample-card s3 reveal">
+          <div class="sample-scene">场景 · 资助申请信</div>
+          <h3>资助信技能</h3>
+          <p>把项目核心信息浓缩成一封简短、有说服力的资助申请信。</p>
+          <p class="sample-flow">项目核心信息 → 一页纸申请信（400-700字）</p>
+          <h4 style="font-size:0.88rem; margin:0 0 6px; color:var(--amber);">核心 Gotchas</h4>
+          <ul class="gotcha-mini">
+            <li>不用「最后的希望」等悲情绑架式表达</li>
+            <li>金额未定不随意编数字</li>
+            <li>目的是「勾起兴趣」而非塞满细节</li>
+          </ul>
+          <div class="sample-case">青澜示例：给某环保基金会写 500 字进展摘要，附政策研究产出清单【虚构】</div>
+        </article>
+      </div>
+
+      <div class="note reveal">
+        课堂上不必真的建文件夹：在 WorkBuddy 里「一个角色就是一个最小可用的技能」——把输出契约和 Gotchas 粘进去、上传 2-3 份范例即可。第 3 课再迁到腾讯元器。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q3">Q3</a></p>
+    </section>
+
+    <!-- ================= Section 5: 自测清单 ================= -->
+    <section class="section" id="selftest" aria-labelledby="selftest-title">
+      <div class="section-head">
+        <div class="section-num reveal">自测清单</div>
+        <h2 class="section-title reveal" id="selftest-title">5 条测试用例，确保技能靠谱</h2>
+        <p class="section-desc reveal">技能跑通后，用下面的测试表验证：该加载时加载、不该加载时别误触发、缺数据时不编造。至少覆盖 5 种场景。</p>
+      </div>
+
+      <div class="panel-card reveal">
+        <table class="test-table">
+          <thead>
+            <tr>
+              <th style="width:35%;">用户说</th>
+              <th style="width:40%;">期望表现</th>
+              <th style="width:25%;">判定</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>「附件是流水账，帮我写结项报告」</td>
+              <td>加载结项技能，输出六章节 + 缺失项清单</td>
+              <td><span class="test-pass">✅ 应触发 · 输出完整</span></td>
+            </tr>
+            <tr>
+              <td>「把这段改成朋友圈文案」</td>
+              <td>不加载结项技能（这不是结项报告场景）</td>
+              <td><span class="test-fail">❌ 不应触发</span></td>
+            </tr>
+            <tr>
+              <td>「没有成效数据，先给我完整报告」</td>
+              <td>列出缺失项，不编造成效数据</td>
+              <td><span class="test-pass">✅ 应触发 · 标注缺失</span></td>
+            </tr>
+            <tr>
+              <td>「报告里写上受益人全名和电话」</td>
+              <td>自动脱敏或拒绝——不输出真实个人信息</td>
+              <td><span class="test-pass">✅ 应触发 · 拒绝隐私</span></td>
+            </tr>
+            <tr>
+              <td>「按资助方模板写项目书初稿」</td>
+              <td>加载项目书技能，不是结项报告技能</td>
+              <td><span class="test-fail">❌ 不应触发结项技能</span></td>
+            </tr>
+            <tr>
+              <td>「上季度做了 2 场培训，帮我写机构成长结项」</td>
+              <td>加载结项技能，基于仅有的信息生成框架，大量标注缺失</td>
+              <td><span class="test-pass">✅ 应触发 · 标注大量缺失</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="guide-note reveal">
+        <strong>自测小技巧：</strong>打开 WorkBuddy，把上面 6 句话逐条输入你创建的角色，看 AI 的反应是否符合「期望表现」。不符合的地方，说明触发说明或 Gotchas 需要调整。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q5">Q5</a></p>
+    </section>
+
+    <!-- ================= Section 5b: 技能优化（skillopt） ================= -->
+    <section class="section" id="skillopt" aria-labelledby="skillopt-title">
+      <div class="section-head">
+        <div class="section-num reveal">技能优化 · skillopt</div>
+        <h2 class="section-title reveal" id="skillopt-title">评测之后怎么改：四步优化循环</h2>
+        <p class="section-desc reveal">自测发现失败用例只是开始，怎么改才是重点。固定循环：<strong>评测 → 定位病因 → 最小修改 → 重跑评测</strong>。</p>
+      </div>
+
+      <div class="panel-card reveal">
+        <table class="test-table">
+          <thead>
+            <tr>
+              <th style="width:24%;">病因</th>
+              <th style="width:32%;">症状</th>
+              <th style="width:44%;">最小修改</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>触发说明太宽 / 太窄</td>
+              <td>误触发，或该用不用</td>
+              <td>改 description：补「不要用于 ××」边界</td>
+            </tr>
+            <tr>
+              <td>输出契约不固定</td>
+              <td>每次输出长得不一样</td>
+              <td>固定章节、顺序、字数</td>
+            </tr>
+            <tr>
+              <td>Gotchas 缺位</td>
+              <td>编造数据、套话、漏脱敏</td>
+              <td>每个失败用例对应加 1 条 Gotcha</td>
+            </tr>
+            <tr>
+              <td>模板缺失</td>
+              <td>AI 自由发挥格式</td>
+              <td>把机构真实模板放进 assets/</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note reveal">
+        <strong>两条铁律：</strong>① 每轮只改 ≤3 处——大改之后你不知道是哪处起的效；② 新失败先加 Gotcha，不重写技能；高频失败再同步加评测用例。
+      </div>
+
+      <div class="guide-note reveal">
+        <strong>让 AI 帮你体检：</strong>样板库里有一个工具型技能「<a href="templates.html#skillopt" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,0.3);">技能优化（skillopt）</a>」——把你的 SKILL.md 发给它，它会按 10 项清单打健康分、生成评测用例、给出可直接粘贴的改写文本。每轮改动记入迭代记录卡；<strong>健康分 ≥9</strong> 的技能才挂载到第 3 课的「项目助理」。
+      </div>
+    </section>
+
+    <!-- ================= Section 6: 数据合规底线 ================= -->
+    <section class="section" id="compliance" aria-labelledby="compliance-title">
+      <div class="section-head">
+        <div class="section-num reveal">数据合规底线</div>
+        <h2 class="section-title reveal" id="compliance-title">把资料喂给 AI 前，先分级</h2>
+        <p class="section-desc reveal">不是所有资料都能直接上传到技能或知识库。用四级分类法，确保不越线。</p>
+      </div>
+
+      <div class="compliance-grid">
+        <div class="compliance-card l1 reveal">
+          <div class="compliance-level">L1 公开</div>
+          <h4>可直接使用</h4>
+          <p>公众号文章、年度报告（已发布版）、公开的政策文件、媒体报道</p>
+          <div class="comp-action">可用 — 放心上传到技能和知识库</div>
+        </div>
+        <div class="compliance-card l2 reveal">
+          <div class="compliance-level">L2 准公开</div>
+          <h4>审核后使用</h4>
+          <p>脱敏后的项目案例、内部培训资料、往届结项报告（去除个人信息后）</p>
+          <div class="comp-action">审核后用 — 确认已脱敏，再上传</div>
+        </div>
+        <div class="compliance-card l3 reveal">
+          <div class="compliance-level">L3 内部</div>
+          <h4>仅限本地</h4>
+          <p>团队会议纪要、未发布的项目计划、内部财务预算草案、合作备忘录</p>
+          <div class="comp-action">仅本地 — 不上传到云端 AI 平台</div>
+        </div>
+        <div class="compliance-card l4 reveal">
+          <div class="compliance-level">L4 敏感</div>
+          <h4>禁止写入</h4>
+          <p>捐赠人手机号与身份证、受益人真实姓名与住址、志愿者银行账户、未公开的举报内容</p>
+          <div class="comp-action">禁止 — 不写进技能、知识库或任何云端</div>
+        </div>
+      </div>
+
+      <div class="example-pair" style="margin-top:20px;">
+        <div class="example-good reveal">
+          <div class="example-label">✅ 青澜的做法</div>
+          <p>上传结项报告前，把人员分工表中的姓名替换为「员工 A/B」，删除联系方式列。内部会议纪要只在本地使用，不上传到 WorkBuddy。</p>
+        </div>
+        <div class="example-bad reveal">
+          <div class="example-label">❌ 常见踩坑</div>
+          <p>把含有 20 名志愿者全名和手机号的签到表直接上传到 AI 平台。把捐赠人的转账截图当作「范例」上传。</p>
+        </div>
+      </div>
+
+      <div class="note reveal">
+        <strong>红线：</strong>受益人、志愿者、捐赠人的姓名与联系方式，输出前一律脱敏（姓名→A/B，删除手机/证件号）。这条规则贯穿整个课程每一节课。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q7">Q7</a></p>
+    </section>
+
+    <!-- ================= Section 7: 课后作业 ================= -->
+    <section class="section" id="homework" aria-labelledby="homework-title">
+      <div class="section-head">
+        <div class="section-num reveal">课后作业</div>
+        <h2 class="section-title reveal" id="homework-title">分层作业：入门 vs 进阶</h2>
+        <p class="section-desc reveal">选一个层级完成。下课带走一句话：「我的 _____ 技能，把 _____ 从 ___ 小时变成了 ___ 分钟。」</p>
+      </div>
+
+      <div class="hw-grid">
+        <div class="hw-card hw-basic reveal">
+          <h3>L1 入门 · 用起来</h3>
+          <ul>
+            <li>完成 ≥1 个跑通的文书技能（结项报告 / 项目书 / 资助信三选一）</li>
+            <li>用机构真实材料跑通 ≥1 次真实任务</li>
+            <li>输出基本符合模板结构</li>
+            <li>记录「原来多久 / 现在多久」</li>
+          </ul>
+          <div class="hw-example">
+            <strong>青澜 L1 交付：</strong>「我的机构成长结项报告技能，把半年进展报告从 2 天变成了 30 分钟。」【虚构示范】
+          </div>
+        </div>
+        <div class="hw-card hw-advanced reveal">
+          <h3>L2 进阶 · 用得顺</h3>
+          <ul>
+            <li>完成 ≥2 个技能（含至少 1 个文书链技能）</li>
+            <li>每个技能都有完整的输出契约 + 6 条 Gotchas</li>
+            <li>用真实材料跑通 ≥3 次替代任务</li>
+            <li>完成 5 条以上自测用例</li>
+          </ul>
+          <div class="hw-example">
+            <strong>青澜 L2 交付：</strong>结项报告技能 + 资助申请信技能都跑通，分别用脱敏执行记录和项目摘要测试了 3 次，自测表全部通过。【虚构示范】
+          </div>
+        </div>
+      </div>
+
+      <div class="instructor-note reveal">
+        <strong>提交方式：</strong>在课程群里发一条消息，格式：「我的 [技能名] 技能，把 [任务名] 从 [原来时间] 变成了 [现在时间]。」附上技能生成的一份输出截图即可。
+      </div>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q9">Q9</a> · <a href="quiz.html#q10">Q10</a>（开放题）</p>
+    </section>
+
+    <!-- ================= Section 8: Next Step CTA ================= -->
+    <section class="section" style="padding-top:0;">
+      <div class="next reveal">
+        <div class="eyebrow">下一课预告</div>
+        <h2>技能知道怎么做——下一课为它补上弹药</h2>
+        <p>技能知道「怎么做」，但要答得准，还需要机构自己的资料。第 2 课《知识库实战》教你把散落在云盘、文档里的项目档案、资助指南、历年案例，整理成 AI 能准确检索的知识库——你这节课做的技能，下节课就有了「弹药」。</p>
+        <div class="next-actions">
+          <a class="btn btn-primary" href="../part-02-knowledge-base/index.html">
+            进入第 2 课 · 知识库
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="index.html">返回第 1 课概览</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>环境公益 AI 赋能工程营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 第 1 课 · 技能构建 · 学员手册</div>
+    <div class="footer-links">
+      <a href="../index.html">课程首页</a>
+      <a href="index.html">课程概览</a>
+      <a href="#">学员手册</a>
+      <a href="../part-02-knowledge-base/index.html">第 2 课</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    /**
+     * @file 第 1 课「技能构建」学员手册页面交互
+     * @description GSAP ScrollTrigger 滚动揭示动画，复用课程约定：
+     *              内容默认可见；GSAP 不可用或用户偏好减少动画时降级为静态展示（gsap-fallback）。
+     */
+    (function initSkillHandbook() {
+      var root = document.documentElement;
+
+      /* -------- GSAP fallback -------- */
+      function applyStaticFallback() {
+        root.classList.add("gsap-fallback");
+      }
+
+      if (!window.gsap || !window.ScrollTrigger) {
+        applyStaticFallback();
+        return;
+      }
+
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.defaults({ ease: "power2.out", duration: 0.65 });
+
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduceMotion) {
+        gsap.set(".reveal, .step-card, .concept-card, .example-good, .example-bad, .example-warn, .gotcha-card, .demo-card, .sample-card, .compliance-card, .hw-card, .panel-card",
+          { autoAlpha: 1, y: 0 });
+        return;
+      }
+
+      /* -------- Hero entrance -------- */
+      gsap.timeline({ defaults: { ease: "power3.out" } })
+        .fromTo(".hero .reveal",
+          { y: 32, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.8 });
+
+      /* -------- Case banner entrance -------- */
+      gsap.fromTo(".case-banner",
+        { y: 24, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, duration: 0.7, delay: 0.5 });
+
+      /* -------- Scroll reveal for generic .reveal elements -------- */
+      function revealOnScroll(el) {
+        gsap.fromTo(el,
+          { y: 30, autoAlpha: 0 },
+          {
+            y: 0, autoAlpha: 1, duration: 0.7,
+            scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none reverse" }
+          });
+      }
+
+      gsap.utils.toArray(".reveal").forEach(function(el) {
+        if (el.closest(".hero")) return;
+        revealOnScroll(el);
+      });
+
+      /* -------- Step cards: staggered reveal -------- */
+      gsap.set(".step-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".step-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.15, duration: 0.7, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Concept cards: stagger -------- */
+      gsap.set(".concept-card", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".concept-card", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Good/bad example cards: staggered -------- */
+      gsap.set(".example-good, .example-bad, .example-warn", { y: 24, autoAlpha: 0 });
+      ScrollTrigger.batch(".example-good, .example-bad, .example-warn", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.5, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 24, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Gotcha cards: stagger -------- */
+      gsap.set(".gotcha-card", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".gotcha-card", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.5, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Demo cards -------- */
+      gsap.set(".demo-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".demo-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.7, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Sample cards: stagger -------- */
+      gsap.set(".sample-card", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".sample-card", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Compliance cards: stagger -------- */
+      gsap.set(".compliance-card", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".compliance-card", {
+        start: "top 92%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.5, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      /* -------- Homework cards -------- */
+      gsap.set(".hw-card", { y: 30, autoAlpha: 0 });
+      ScrollTrigger.batch(".hw-card", {
+        start: "top 90%",
+        onEnter: function(batch) {
+          gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true });
+        },
+        onLeaveBack: function(batch) {
+          gsap.set(batch, { y: 30, autoAlpha: 0, overwrite: true });
+        }
+      });
+
+      window.addEventListener("load", function() { ScrollTrigger.refresh(); });
+    })();
+  </script>
+</body>
+</html>
