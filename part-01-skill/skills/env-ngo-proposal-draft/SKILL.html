@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -303,7 +343,16 @@ a { color: inherit; }
 <a href="#files-to-read">Files To Read</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"---\nname: env-ngo-proposal-draft\ndescription: >-\n  Load when the user wants a project proposal / 立项书 first draft for an\n  environmental nonprofit, based on an organization profile, past work, and a\n  funder's guidelines or scoring rubric. Do not load for closure reports of\n  finished projects or short funding-request letters.\ndisable-model-invocation: true\n---\n\n# 项目书技能（项目文书链 · 提案）\n\n把「机构简介 + 过往案例 + 资助方指南」组装成一份项目立项书初稿。项目提案是机构最高频、最耗时的文书之一，本技能提供一个可 Fork 的起步模板。\n\n## When To Use\n\n- 用户要写**项目立项书 / 项目申请书初稿**，准备投给某个资助方或上级。\n- 用户能提供机构简介、相关过往案例、目标议题，最好还有资助方的申报指南。\n- 触发关键词：项目书、立项书、项目申请书、项目方案、申报。\n\n不要用于：已结束项目的结项报告（用 `env-ngo-closure-report`）、简短资助申请信（用 `env-ngo-grant-letter`）。\n\n## Workflow\n\n1. 读取资助方指南 / 评分标准（若有），抽取必填栏目与评审偏好。\n2. 用机构简介与过往案例，匹配本项目的合法性与执行力证据。\n3. 按 `assets/proposal_template.md` 章节生成初稿。\n4. 资助方要求但材料缺失的栏目（预算、时间表、指标），列入「缺失项清单」。\n\n## Required Inputs\n\n- 机构简介、过往相关项目（1–3 个）。\n- 拟做项目的议题、目标人群、初步思路。\n- 可选但强烈推荐：资助方申报指南 / 评分标准。\n\n## Output Contract\n\n输出 Markdown，按以下章节，顺序固定：\n\n1. **项目摘要**（≤150 字）\n2. **背景与需求**（问题 + 证据）\n3. **目标与成果指标**（可衡量）\n4. **实施方案**（活动 + 时间表）\n5. **预算概要**（仅在有数据时填，否则列缺失项）\n6. **机构能力与过往案例**\n7. **缺失项清单**\n\n语言与用户输入一致；初稿篇幅 1000–1800 字。\n\n## Gotchas\n\n- 没有资助方指南时，**不要伪造**评审标准或必填栏目；提示用户上传或先用通用结构。\n- 成果指标必须可衡量，不要写「提升公众意识」这类无法验收的空话。\n- 预算、配套资金等数字若用户未给，列入「缺失项清单」，不要替机构编预算。\n- 过往案例只引用真实发生、可佐证的项目，不夸大成效与规模。\n- 涉及合作方、受益人的敏感信息先脱敏再写入。\n\n## Files To Read\n\n- `assets/proposal_template.md`：项目书章节模板（必读）。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -302,7 +342,16 @@ a { color: inherit; }
 <a href="#交付物">交付物</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# Dify 高阶 RAG 练习\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/dify_advanced_rag_lab.md`\n>\n> 用途：L2+ 学员或助教使用。Dify 不替代本期主线腾讯元器，主要用于看清 RAG 检索机制。\n\n## 定位\n\n| 项目 | 课程口径 |\n|------|----------|\n| 腾讯元器 | 本期组织层主线，优先用于项目助理上线 |\n| Dify | 高阶训练场，用于理解检索模式、索引、rerank、metadata 过滤 |\n| 自建知识库 | 仅作为 L2+ 或后续代建路线，不要求全员掌握 |\n\n## 练习目标\n\n完成一次同资料、同问题、不同检索设置的对比：\n\n1. 上传 5-10 份已脱敏资料。\n2. 建立同一知识库的三种测试配置：\n   - 向量检索\n   - 全文检索\n   - 混合检索\n3. 使用同一组 10 个问题测试。\n4. 记录每种配置的命中率、错误类型和可解释原因。\n\n## 记录表\n\n| 配置 | 命中率 | 最常见错误 | 适合的问题 | 不适合的问题 |\n|------|--------|------------|------------|--------------|\n| 向量检索 | | | | |\n| 全文检索 | | | | |\n| 混合检索 | | | | |\n\n## 复盘问题\n\n1. 哪些问题全文检索更稳？为什么？\n2. 哪些问题向量检索更稳？为什么？\n3. 混合检索有没有引入更多无关片段？\n4. metadata 过滤是否减少了错误引用？\n5. 哪些失败其实不是检索问题，而是资料缺失或提示词问题？\n\n## 交付物\n\n```text\n我用 ___ 份资料做了 Dify 检索模式对比；\n向量检索命中率 ___%；\n全文检索命中率 ___%；\n混合检索命中率 ___%；\n最适合我机构知识库的默认策略是 ___；\n原因是 ___。\n```\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

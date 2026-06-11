@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -296,7 +336,16 @@ a { color: inherit; }
 <a href="#自评结果">自评结果</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 主场景模块自评清单（M1 / M2 / M3）\n\n> 文件路径：`course/part-00-prework/templates/scenario_self_check.md`\n>\n> 用法：逐条勾选符合项，哪个模块勾选最多即为你的主场景模块，填入立项书。\n> **说不清或并列时，默认 M1 项目文书链**（覆盖面最广，所有机构都要写文书）；第 4 课还可深化第二个模块。\n\n## M1 项目文书链\n\n- [ ] 立项书 / 结项报告 / 资助申请占用团队时间最多\n- [ ] 每年要向 ≥2 家资助方提交格式不同的文书\n- [ ] 文书常由 1–2 人从零写起，没有可复用模板\n- [ ] 对三个模块暂无明确偏好\n\n**对应首选技能**：结项报告生成 或 项目书撰写\n\n## M2 案例与知识沉淀\n\n- [ ] 「经验沉淀 / 案例管理」是机构首要痛点\n- [ ] 项目资料散落在云盘、微信群、个人电脑，找不到、难复用\n- [ ] 一线服务记录（走访、访谈、活动）很多，但没人整理成案例\n- [ ] 同事离职后经验就丢了\n\n**对应首选技能**：案例萃取与检索 或 服务案例脱敏\n\n## M3 传播与运营\n\n- [ ] 活动频次高，每次都要写复盘 / 公众号 / 朋友圈多版本文案\n- [ ] 公众号 / 社群运营占用大量人力\n- [ ] 社群里重复回答同样的问题（FAQ 场景明显）\n- [ ] 传播文风需要保持一致但常走样\n\n**对应首选技能**：活动复盘文案 或 社群 FAQ\n\n---\n\n## 自评结果\n\n| 模块 | 勾选数 |\n|------|--------|\n| M1 | __ / 4 |\n| M2 | __ / 4 |\n| M3 | __ / 4 |\n\n**我的主场景模块**：M__（并列或拿不准 → 默认 M1，或参加可选集中答疑当场判断）\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

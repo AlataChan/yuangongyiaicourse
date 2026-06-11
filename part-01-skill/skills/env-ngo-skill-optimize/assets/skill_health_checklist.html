@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -283,7 +323,16 @@ a { color: inherit; }
 <a href="#打分口径">打分口径</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 技能体检清单（10 项打分）\n\n> 文件路径：`course/part-01-skill/skills/env-ngo-skill-optimize/assets/skill_health_checklist.md`\n>\n> 用法：对照目标 `SKILL.md` 逐项判定 ✅ / ⚠️ / ❌；✅ 计 1 分，⚠️ 计 0.5 分。总分即「健康分 x/10」。\n\n| # | 检查项 | 判定标准 | 常见病因 |\n|---|--------|---------|---------|\n| 1 | 触发说明写了「何时用」 | 描述了用户输入特征（如「提供流水账」），不是只写功能 | 功能版：「帮机构写报告」 |\n| 2 | 触发说明写了「不要用于」 | 至少排除 1 个易混场景 | 与相邻技能抢活、误触发 |\n| 3 | Workflow 步骤可执行 | 每步有明确动作与参照文件 | 「理解需求→输出结果」式空话 |\n| 4 | Required Inputs 完整 | 列出必须项与可选项 | AI 凭空补输入 |\n| 5 | Output Contract 固定 | 章节/顺序/字数有约定 | 每次输出长得不一样 |\n| 6 | 有「缺失项清单」机制 | 缺数据时列缺失项，不编造 | 虚构成效数据 |\n| 7 | Gotchas ≥3 条且具体 | 覆盖脱敏 / 缺数据 / 套话 | 只有 1 条泛泛而谈 |\n| 8 | 模板文件真实存在 | Files To Read 指向的 assets/ 文件都在 | 引用了不存在的模板 |\n| 9 | 合规底线写入技能 | PII 脱敏规则明确（姓名→A/B、删联系方式） | 输出受益人全名电话 |\n| 10 | 有评测表 | ≥6 条（加载/禁用/缺数据各 ≥2） | 「感觉能用」未验证 |\n\n## 打分口径\n\n- 六段骨架缺任何一段：健康分上限 6 分。\n- 无评测表（第 10 项 ❌）：健康分上限 7 分。\n- 9 分以上：可挂载到第 3 课「项目助理」；7–8 分：先按建议改 1 轮；6 分以下：回到第 1 课骨架补齐。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

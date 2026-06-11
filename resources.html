@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 
     .resources { max-width: 1080px; margin: 0 auto; padding: 38px 24px 80px; }
@@ -318,6 +358,15 @@ a { color: inherit; }
 <section class="resource-section"><h2>课程总索引</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课程关键交付物总览</td><td><code>templates/INDEX.md</code></td><td><a href="templates/INDEX.html">查看页面</a></td><td><a href="templates/INDEX.md" download>下载 Markdown</a></td></tr></tbody></table></section>
 <section class="resource-section"><h2>其他材料</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课后测验与课程内容的绑定说明</td><td><code>quiz-binding.md</code></td><td><a href="quiz-binding.html">查看页面</a></td><td><a href="quiz-binding.md" download>下载 Markdown</a></td></tr></tbody></table></section>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · 资料中心</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · 资料中心</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="./assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
 </body>
 </html>

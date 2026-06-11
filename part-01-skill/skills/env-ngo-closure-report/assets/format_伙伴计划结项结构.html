@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -292,7 +332,16 @@ a { color: inherit; }
 <a href="#课堂示范案例虚构">课堂示范案例（虚构）</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 机构成长支持类结项报告 · 格式参照（脱敏）\n\n> 文件路径：`course/part-01-skill/skills/env-ngo-closure-report/assets/format_伙伴计划结项结构.md`\n>\n> 本文件说明**正式结项模板**与**本课技能六章节输出**的对应关系。  \n> 格式来源于环保公益领域常见的伙伴计划 / 机构成长支持类进展报告，**不含任何真实机构或可识别数据**。\n\n---\n\n## 正式模板常见七大块\n\n| 块序 | 正式模板章节 | 通常写什么 |\n|------|-------------|-----------|\n| 1 | 项目基本信息 | 区域、周期、预算、执行率、报告人（脱敏后） |\n| 2 | 项目目标及完成 | 机构成长目标、个人成长目标、完成情况 |\n| 3 | 项目执行进展 | 按产出列活动：时间 / 地点 / 参与人员 / 具体内容 |\n| 4 | 后续项目活动安排 | 下阶段计划（可无） |\n| 5 | 社群参与情况反馈 | 伙伴网络活动、感受与建议 |\n| 6 | 项目风险及其影响 | 执行风险与应对 |\n| 7 | 项目传播情况 | 传播篇数、渠道、代表性内容 |\n\n---\n\n## 映射到本技能「六章节输出契约」\n\n| 技能输出章节 | 主要吸收正式模板的哪些块 |\n|-------------|------------------------|\n| 一、项目背景 | 块 1（基本信息）+ 块 2 摘要 |\n| 二、主要活动 | 块 3（活动明细） |\n| 三、产出与数据 | 块 3 衡量标准 + 块 2 完成情况中的量化表述 |\n| 四、成效与反馈 | 块 2 成效 + 块 5 社群反馈 |\n| 五、反思与后续建议 | 块 6 风险反思 + 块 4 后续安排 |\n| 六、缺失项清单 | 块 5 / 7 等未量化、未成文的部分 |\n\n> **为什么要压缩？** 正式模板面向资助方归档，字段多；技能输出面向「从流水账快速出初稿」，六章足够覆盖审查要点且便于 WorkBuddy 角色封装。\n\n---\n\n## 课堂示范案例（虚构）\n\n- 机构：**青澜环境政策研究中心**（虚构）  \n- 项目：**新锐机构成长支持项目（第 1 年）**（虚构）  \n- 示范输入：`example_input_流水账.md`  \n- 示范痛点：流水账散乱、社群反馈与传播数据未量化——与正式模板要求之间的差距，正是技能要补的。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

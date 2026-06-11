@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -320,7 +360,16 @@ a { color: inherit; }
 <a href="#6-组织内落地承诺">6. 组织内落地承诺</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 第 5 → 工作坊交接包：预发布交给发布复盘\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/05_to_workshop_release_review_pack.md`\n\n用途：第 5 课下课前填写，线下工作坊用于演示、同伴评审、版本计划和组织内落地承诺。\n\n## 1. 发布候选摘要\n\n| 项目 | 填写 |\n|------|------|\n| 项目助理名称 | |\n| 当前版本 | v0.1 / v0.2 / 其他： |\n| 主场景 | |\n| 内测范围 | |\n| 发布状态 | Go / Conditional Go / No-Go |\n| 维护人 | |\n\n一句话介绍：\n\n```text\n这个项目助理主要帮助 ________ 在 ________ 场景中完成 ________。\n```\n\n## 2. 内测任务包\n\n| 内测对象 | 使用任务 | 预计耗时 | 需要观察什么 | 反馈方式 |\n|----------|----------|----------|--------------|----------|\n| | | | | |\n| | | | | |\n| | | | | |\n\n给内测同事的说明：\n\n```text\n你可以让它做：\n\n你暂时不要让它做：\n\n如果回答不对，请记录：\n1. 你问了什么\n2. 它答了什么\n3. 你期待它怎么答\n```\n\n## 3. 反馈与缺陷回收\n\n| # | 反馈来源 | 复现输入 | 问题描述 | 关联 Skill | 失败类型 | 级别 | 应改哪里 | 建议最小修改点 | 处理状态 |\n|---|----------|----------|----------|------------|----------|------|----------|----------------|----------|\n| 1 | | | | | 触发错 / 格式错 / 事实错 / 边界错 | P0 / P1 / P2 | Skill / 知识库 / 路由 / 工作流 / 权限 | | |\n| 2 | | | | | 触发错 / 格式错 / 事实错 / 边界错 | P0 / P1 / P2 | Skill / 知识库 / 路由 / 工作流 / 权限 | | |\n| 3 | | | | | 触发错 / 格式错 / 事实错 / 边界错 | P0 / P1 / P2 | Skill / 知识库 / 路由 / 工作流 / 权限 | | |\n\n## 4. 工作坊演示脚本\n\n5 分钟演示建议：\n\n```text\n第 1 分钟：说明主场景和目标使用者\n第 2-3 分钟：现场跑一条真实任务\n第 4 分钟：展示人工审核点和边界\n第 5 分钟：说明内测反馈和下一版本计划\n```\n\n演示任务：\n\n| 项目 | 填写 |\n|------|------|\n| 现场输入 | |\n| 期望输出 | |\n| 需要展示的知识库引用 | |\n| 需要展示的人工审核点 | |\n| 备用演示方案 | |\n\n## 5. 同伴评审问题\n\n请同伴只围绕 3 个问题给反馈：\n\n| 问题 | 同伴反馈 |\n|------|----------|\n| 同事拿到后能不能直接用？ | |\n| 哪一步最容易出错或需要人工盯着？ | |\n| 下一版本最应该先修什么？ | |\n\n## 6. 组织内落地承诺\n\n| 项目 | 填写 |\n|------|------|\n| 首批使用者 | |\n| 试运行周期 | |\n| 每周维护频率 | |\n| 30 天目标 | |\n| 60 天目标 | |\n| 90 天目标 | |\n| 负责人 | |\n\n版本计划：\n\n| 版本 | 时间 | 只修什么 | 不做什么 |\n|------|------|----------|----------|\n| v0.2 | | | |\n| v0.3 | | | |\n\n工作坊结束时要带走的一句话：\n\n```text\n接下来 30 天，我们会让 ________ 先在 ________ 场景里稳定使用，由 ________ 负责维护。\n```\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

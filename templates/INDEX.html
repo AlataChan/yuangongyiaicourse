@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -292,7 +332,16 @@ a { color: inherit; }
 <a href="#命名说明">命名说明</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 课程关键交付物总览\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/templates/INDEX.md`\n\n本文件是软索引：实际模板仍放在各课目录或 `course/bridge-materials/` 中。学员不需要一次打开所有模板，只需要按课程进度使用对应交付物。\n\n## 第 2 课以后交付物接力\n\n| 时点 | 本课必填 | 下一课怎么用 | 文件路径 |\n|------|----------|--------------|----------|\n| 第 2 课下课前 | 知识库交接包 | 第 3 课挂载知识库、设置边界、跑 10 问回归测试 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/02_to_03_kb_agent_handoff.md` |\n| 第 3 课下课前 | 项目助理交接包 | 第 4 课选择主场景、判断闭环缺口、决定是否补第二个 Skill | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/03_to_04_agent_scenario_handoff.md` |\n| 第 4 课下课前 | 发布候选交接包 | 第 5 课做预发布演示、缺陷分级、Go/No-Go 判断 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/04_to_05_release_candidate_pack.md` |\n| 第 5 课下课前 | 工作坊复盘交接包 | 线下工作坊做真实演示、同伴评审、版本计划和组织内落地承诺 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/05_to_workshop_release_review_pack.md` |\n| 第 2 课以后持续更新 | 课程产物跟踪表 | 讲师和学员持续确认三层能力与发布链路是否齐套 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/cross_lesson_artifact_tracker.md` |\n\n## 已有分课模板\n\n| 课程 | 文件 | 用途 |\n|------|------|------|\n| 第 2 课 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_source_inventory.md` | 资料盘点 |\n| 第 2 课 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md` | metadata 字段设计 |\n| 第 2 课 | `/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_eval_questions.md` | 10 问命中率测试 |\n\n## 使用方式\n\n1. 每课只打开当前课对应交接包。\n2. 完成后，把链接或填写结果记录到课程产物跟踪表。\n3. 下一课开场先检查上一课交接包，再继续做新内容。\n4. 若交接包没有完成，先补齐交接信息，不急着进入新工具操作。\n\n## 命名说明\n\n对学员统一称为“关键交付物”或“交接包”，避免使用内部课程设计术语。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -308,7 +348,16 @@ a { color: inherit; }
 <a href="#修改检查清单">修改检查清单</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="./assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 课后测验与课程内容的绑定说明\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/quiz-binding.md`  \n> 维护者索引：改题、改手册、改首页目标时，请同步三处。\n\n## 绑定模型（回答「quiz 跟谁强相关？」）\n\n测验**不单独依附** `index.html` 或 `handbook.html` 之一，而是 **三角绑定**：\n\n| 层级 | 文件 | 角色 |\n|------|------|------|\n| **深度教学内容** | `handbook.html` | **主锚点**：每题标注 `手册·章节` 并链到 `#anchor` |\n| **学习目标入口** | `index.html` | **目标锚点**：每题标注 `目标①` 或首页区块（如 `#compliance`） |\n| **课纲验收** | `102_detailed_course_design.md` | 设计依据；改课纲时需回溯 quiz 是否仍覆盖 |\n\n**学习路径（推荐）：** `index` 看目标 → `handbook` 深学 → 章节末「检验理解」→ `quiz.html#qN` 自测。\n\n## 页面内双向链接约定\n\n### quiz.html → 手册 / 首页\n\n- 顶部 `.bind` 区块：说明覆盖范围 +「建议先学完 → 学员手册」\n- 每题 `.q-src`：两个链接（手册章节 + index 目标/区块）\n- 每题 `id=\"q1\"` … `q10`，供手册反向链接\n\n### handbook.html → quiz\n\n- 各章末 `.quiz-check`：`检验理解 → 课后测验 Qx · Qy`\n\n### index.html → quiz\n\n- 导航「课后测验」\n- 学习目标区：「课后测验（10 题）→」，注明覆盖目标 ①–⑤\n\n## 各课文件位置\n\n| 课次 | quiz | handbook | index |\n|------|------|----------|-------|\n| 第 1 课 技能 | `part-01-skill/quiz.html` | `handbook.html` | `index.html` |\n| 第 2 课 知识库 | `part-02-knowledge-base/quiz.html` | `handbook.html` | `index.html` |\n| 第 3 课 AI智能体 | `part-03-agent/quiz.html` | `handbook.html` | `index.html` |\n| 第 4 课 场景深化 | `part-04-scenario/quiz.html` | `handbook.html` | `index.html` |\n| 第 5 课 预发布 | `part-05-prelaunch/quiz.html` | `handbook.html` | `index.html` |\n\n课前 `part-00-prework` **不设测验**（立项书产出评估，见 102/104）。\n\n## 第 1 课映射示例（维护模板）\n\n| 题号 | 手册锚点 | index 目标 | 考查要点 |\n|------|----------|------------|----------|\n| Q1 | `#concepts` | 目标① | 技能 vs 提示词 |\n| Q2 | `#workbuddy` | 目标③ | 三层加载·触发层 |\n| Q3 | `#templates` | 目标② | 哪些任务值得做技能 |\n| Q4 | `#workbuddy` | 目标④ | 输出契约 |\n| Q5 | `#gotchas` | 目标④ | 禁止编造 |\n| Q6 | `#workbuddy` | 目标③ | 最小技能四要素 |\n| Q7 | `#compliance` | 目标⑤ | 脱敏上传 |\n| Q8 | `#concepts` | 目标① | 知识库分工 |\n| Q9 | `#demo` | 目标④ | 跑通真实任务 |\n| Q10 | `#homework` | 目标③ | 开放·省时记录（简答） |\n\n第 2–5 课完整逐题表见各 `quiz.html` 内 `.q-src` 链接（单一事实源，避免本文件双份维护漂移）。\n\n## 修改检查清单\n\n- [ ] 改 `handbook.html` 章节 → 同步 `quiz.html` 对应 `.q-src` 与题干\n- [ ] 改 `index.html` 学习目标 → 同步 `quiz.html` 目标链接与 `.bind` 文案\n- [ ] 改题号/增删题 → 同步 `handbook.html` 各章 `.quiz-check`\n- [ ] 改 `102` 课验收指标 → 抽查 10 题是否仍覆盖\n\n---\n\n**版本**：v1.0（2026-06-07）· 测验强绑定至手册+首页目标；课前无 quiz。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

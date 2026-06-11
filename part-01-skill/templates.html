@@ -327,6 +327,52 @@
       .reveal, .sample-card { opacity: 1; transform: none; }
       .reader-panel { transition: none; }
     }
+  
+    .site-footer .org-footer,
+    .footer .org-footer {
+      flex-basis: 100%;
+      width: 100%;
+      max-width: 1080px;
+      margin: 18px auto 0;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 24px;
+      align-items: center;
+      border: 1px solid rgba(143, 212, 176, 0.22);
+      border-radius: 16px;
+      background: #10241d;
+      color: rgba(234, 250, 241, 0.86);
+      text-align: left;
+    }
+    .site-footer .org-footer-logo,
+    .footer .org-footer-logo {
+      width: 138px;
+      max-width: 100%;
+      display: block;
+    }
+    .site-footer .org-footer h2,
+    .footer .org-footer h2 {
+      margin: 0 0 8px;
+      color: #fff;
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+    .site-footer .org-footer p,
+    .footer .org-footer p {
+      margin: 0;
+      color: rgba(234, 250, 241, 0.78);
+      font-size: 0.92rem;
+      line-height: 1.76;
+    }
+    @media (max-width: 760px) {
+      .site-footer .org-footer,
+      .footer .org-footer { grid-template-columns: 1fr; padding: 22px 18px; }
+      .site-footer .org-footer-logo,
+      .footer .org-footer-logo { width: 120px; }
+    }
+
   </style>
 </head>
 <body>
@@ -438,6 +484,14 @@
       <a href="handbook.html">学员手册</a>
       <a href="../index.html#insights">调研洞察</a>
     </div>
+  
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+      <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+      <div>
+        <h2>元公益工作室</h2>
+        <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+      </div>
+    </section>
   </footer>
 
   <!-- ================= Reader modal ================= -->

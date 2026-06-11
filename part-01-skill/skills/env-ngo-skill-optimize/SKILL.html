@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -305,7 +345,16 @@ a { color: inherit; }
 <a href="#files-to-read">Files To Read</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"---\nname: env-ngo-skill-optimize\ndescription: >-\n  Load when the user provides an existing skill (SKILL.md or skill folder) they\n  wrote and asks to evaluate, debug, or optimize it — e.g. the skill misfires,\n  never triggers, outputs wrong format, or fails eval cases. Do not load for\n  writing a brand-new skill from scratch, or for running the underlying task\n  itself (writing reports, proposals, etc.).\ndisable-model-invocation: true\n---\n\n# 技能优化技能（skillopt · 评测 → 诊断 → 迭代）\n\n把「我写的技能不好用」变成一份**可执行的优化清单**。这是第 1 课「自测」环节的进阶样板：学员写完自己的第一个技能后，用它做体检和迭代，第 4 课补第二技能时复用。\n\n## When To Use\n\n- 用户提供了一份自己写的 `SKILL.md`（或整个技能文件夹），想知道「写得行不行」。\n- 用户反馈技能**该触发时不触发**、**不该触发时误触发**、输出不符合模板、缺数据时编造。\n- 用户做完评测表，有失败用例，想知道改哪里。\n- 触发关键词：优化技能、技能体检、为什么不触发、误触发、评测没过、改 description。\n\n不要用于：从零设计新技能（直接按第 1 课骨架写）、代替技能本身去完成业务任务、优化整个 AI智能体的系统提示词（第 3 课内容）。\n\n## Workflow\n\n1. 读取用户提供的目标 `SKILL.md` 与配套 `assets/`，确认六段骨架（When To Use / Workflow / Required Inputs / Output Contract / Gotchas / Files To Read）是否齐全。\n2. 对照 `assets/skill_health_checklist.md` 逐项打分，重点检查四个高频病因：\n   - **触发说明太宽/太窄**（只写功能没写边界、缺「不要用于」）；\n   - **输出契约不固定**（章节、字数、顺序未约定）;\n   - **Gotchas 缺位**（脱敏、缺数据、套话三类至少各 1 条）;\n   - **评测缺失**（没有「该加载 / 禁用 / 缺数据」三类用例）。\n3. 若用户未提供评测表，按 `assets/eval_template.md` 生成 ≥6 条评测用例（加载 2 + 禁用 2 + 缺数据/合规 2），请用户逐条试跑并标记通过/失败。\n4. 针对每条失败用例给出**最小修改**建议：优先改 description 边界或加 1 条 Gotcha，而不是重写整份技能。\n5. 输出诊断报告，并提示用户把本轮改动记入 `assets/iteration_log.md`（优化前后对比 + 触发原因）。\n\n## Required Inputs\n\n- 目标技能的 `SKILL.md` 全文（必须）。\n- 可选：失败案例（用户原话 + AI 实际输出）、已有评测表、`assets/` 模板文件。\n\n## Output Contract\n\n输出 Markdown，必须且仅包含以下五个章节，顺序固定：\n\n1. **体检结论**（≤100 字：一句话总评 + 健康分 x/10）\n2. **逐项诊断**（按检查清单列：通过 ✅ / 待改 ⚠️ / 缺失 ❌，每条 1 行）\n3. **失败用例分析**（无失败用例则写「待用户试跑评测表」）\n4. **最小修改建议**（按优先级排序，给出可直接粘贴的改写文本，如新 description）\n5. **本轮迭代记录**（填好的 iteration_log 条目，供用户存档）\n\n语言与用户输入一致（默认中文）。\n\n## Gotchas\n\n- **不要重写整份技能**：每轮只给 ≤3 处最小修改；大改会让学员无法定位是哪处改动起效。\n- **description 改写必须含边界**：新写的触发说明必须同时有「何时用」与「不要用于」两段，否则不算修复。\n- **不替用户跑评测**：评测要在用户自己的平台（WorkBuddy / 元器）上试跑，本技能只生成用例和分析结果，不假装「已测试通过」。\n- **合规优先**：若目标技能会输出受益人/捐赠人/志愿者 PII，无论用户问什么，先在「最小修改建议」第 1 条加脱敏 Gotcha。\n- **健康分不虚高**：六段骨架缺任何一段，健康分上限 6/10；无评测表上限 7/10。\n\n## Files To Read\n\n- `assets/skill_health_checklist.md` —— 体检打分清单（10 项）\n- `assets/eval_template.md` —— 评测用例表模板（三类用例）\n- `assets/iteration_log.md` —— 迭代记录卡模板（优化前后对比）\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

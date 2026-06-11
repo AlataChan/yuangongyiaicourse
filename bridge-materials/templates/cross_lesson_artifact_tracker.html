@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -292,7 +332,16 @@ a { color: inherit; }
 <a href="#4-每周更新记录">4. 每周更新记录</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 第 2 课以后课程产物跟踪表\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/cross_lesson_artifact_tracker.md`\n\n用途：从第 2 课开始持续更新，帮助讲师和学员确认课程产物是否能连续进入下一课。\n\n## 1. 产物总览\n\n| 阶段 | 必备产物 | 文件/链接 | 当前状态 | 阻塞点 | 负责人 |\n|------|----------|-----------|----------|--------|--------|\n| 第 2 课 | 知识库交接包 | | 未开始 / 进行中 / 已完成 | | |\n| 第 3 课 | 项目助理交接包 | | 未开始 / 进行中 / 已完成 | | |\n| 第 4 课 | 发布候选交接包 | | 未开始 / 进行中 / 已完成 | | |\n| 第 5 课 | 工作坊复盘交接包 | | 未开始 / 进行中 / 已完成 | | |\n\n## 2. 三层能力状态\n\n| 能力 | 当前版本 | 是否可用 | 边界是否变更 | 输出契约/资料范围是否变更 | 项目助理是否已同步 | 主要问题 | 下一步 |\n|------|----------|----------|--------------|--------------------------|----------------------|----------|--------|\n| Skill | | 是 / 否 | 是 / 否 | 是 / 否 | 是 / 否 | | |\n| 知识库 | | 是 / 否 | 是 / 否 | 是 / 否 | 是 / 否 | | |\n| 项目助理 | | 是 / 否 | 是 / 否 | 是 / 否 | 是 / 否 | | |\n| 场景闭环 | | 是 / 否 | 是 / 否 | 是 / 否 | 是 / 否 | | |\n| 内测发布 | | 是 / 否 | 是 / 否 | 是 / 否 | 是 / 否 | | |\n\n## 3. 术语统一\n\n| 术语 | 对外主称呼 | 备注 |\n|------|------------|------|\n| 项目助理 | 项目助理 | 首次出现可括注 Agent / AI 智能体 |\n| Skill | 技能 | 学员材料中优先用“技能”，技术材料可保留 Skill |\n| 知识库 | 知识库 | 指可检索的机构资料资产 |\n| 发布候选 | 发布候选 | 通过场景验收、准备进入内测的版本 |\n| 内测预发布 | 内测预发布 | 小范围给同事使用，不等同正式上线 |\n| 发布复盘 | 发布复盘 | 工作坊阶段，基于真实演示和反馈制定下一版本 |\n\n## 4. 每周更新记录\n\n| 日期 | 更新了什么 | 影响哪个产物 | 是否需要同步到下一课 |\n|------|------------|--------------|------------------------|\n| | | | |\n| | | | |\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

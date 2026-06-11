@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -314,7 +354,16 @@ privacy_level:</code></pre>
 <a href="#标签质量自检">标签质量自检</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 知识库 metadata 字段表\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md`\n>\n> 用途：为知识库资料统一标签，提升检索命中率。metadata 不求多，先保证字段稳定。\n\n## 推荐字段\n\n| 字段 | 是否必填 | 示例 | 用途 |\n|------|----------|------|------|\n| `doc_title` | 必填 | 2024 清河巡护项目结项报告 | 让 AI 能引用来源 |\n| `doc_type` | 必填 | 结项报告 / 资助指南 / 案例复盘 / 沟通模板 | 区分资料类型 |\n| `project_name` | 条件必填 | 清河巡护项目 | 项目类资料必须填 |\n| `year` | 条件必填 | 2024 | 支持按年份检索 |\n| `module` | 必填 | M1 文书 / M2 案例 / M3 传播 | 对齐课程主场景 |\n| `topic_tags` | 必填 | 河流保护、社区动员、志愿者 | 支持语义检索和筛选 |\n| `funder` | 可选 | XX 基金会 | 文书和资助类资料推荐填 |\n| `privacy_level` | 必填 | L1 / L2 / L3 / L4 | 决定是否能上云 |\n| `source_owner` | 可选 | 项目部 / 传播部 | 后续维护时找负责人 |\n| `last_reviewed_at` | 可选 | 2026-06-10 | 确认资料是否过期 |\n\n## 三类资料的最小 metadata\n\n### M1 项目文书链\n\n```text\ndoc_title:\ndoc_type:\nproject_name:\nyear:\nfunder:\nmodule: M1 文书\ntopic_tags:\nprivacy_level:\n```\n\n### M2 案例与知识沉淀\n\n```text\ndoc_title:\ndoc_type: 案例复盘 / 服务故事 / 方法总结\nproject_name:\nyear:\nmodule: M2 案例\ntopic_tags:\nprivacy_level:\n```\n\n### M3 传播与运营\n\n```text\ndoc_title:\ndoc_type: 公众号稿 / 活动复盘 / 社群 FAQ / 品牌话术\nyear:\nmodule: M3 传播\ntopic_tags:\nprivacy_level:\n```\n\n## 标签质量自检\n\n| 检查项 | 通过标准 |\n|--------|----------|\n| 标签是否太泛 | 不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词 |\n| 年份是否缺失 | 涉及项目、活动、报告的资料尽量填年份 |\n| 文档类型是否稳定 | 同类文档使用同一个词，如统一写“结项报告” |\n| 合规档位是否明确 | 没有档位的资料不得进入腾讯元器 |\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

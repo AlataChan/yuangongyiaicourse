@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -303,7 +343,16 @@ a { color: inherit; }
 <a href="#files-to-read">Files To Read</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"---\nname: env-ngo-case-extract\ndescription: >-\n  Load when the user provides raw field data, activity logs, beneficiary\n  feedback, or monitoring records and needs a structured case study for\n  an environmental nonprofit. Do not load for closure reports (use\n  env-ngo-closure-report), grant letters, or social-media copy.\ndisable-model-invocation: true\n---\n\n# 案例萃取技能（案例库模块 · M2）\n\n把散落在活动记录、访谈记录、监测数据中的「好故事」，萃取成一份结构规范、可进入机构案例库的标准案例。这是第 4 课「场景深化」的 M2 样板技能，学员可 Fork 后改成自己机构的版本。\n\n## When To Use\n\n- 用户提供了某次活动、某个受益人或某段项目周期的原始记录（现场笔记、访谈录音文字稿、照片说明、监测数据截取等）。\n- 用户想要的是**一份可入库的标准案例**，而不是结项报告、公众号推文或资助申请信。\n- 触发关键词：案例萃取、写案例、提炼案例、案例库、典型案例、经验总结。\n\n不要用于：写结项报告（用 `env-ngo-closure-report`）、写传播故事/推文（用 `env-ngo-activity-recap`）、写资助信（用 `env-ngo-grant-letter`）。\n\n## Workflow\n\n1. 读取用户提供的原始记录，识别「问题 → 干预 → 变化」主线。\n2. 对照 `assets/case_template.md` 的结构逐项填充。\n3. 只使用用户输入或知识库中**确有出处**的事实与数据。\n4. 所有涉及个人信息的内容在输出前脱敏（姓名→代号，删除手机/证件号，金额→量级）。\n5. 缺少但案例所需的信息统一汇总进末尾「待补项」。\n\n## Required Inputs\n\n- 项目/活动名称、时间段、地点。\n- 原始记录：活动日志、访谈文字稿、监测数据、照片说明等（至少一种）。\n- 可选：机构已有案例范本（用于对齐风格）、受益人/利益相关方引述。\n\n## Output Contract\n\n输出 Markdown，必须且仅包含以下七个部分，顺序固定：\n\n1. **案例标题**（≤20 字，点出议题与变化）\n2. **背景与问题**（≤200 字：在哪里、面对什么环境议题、为什么需要干预）\n3. **干预措施**（做了什么、怎么做的、谁参与了）\n4. **关键产出**（量化数据表格，仅填有出处的数字）\n5. **变化与成效**（受益者/生态/社区层面的可观测变化）\n6. **经验与启示**（可复制的做法、踩过的坑）\n7. **待补项**（案例所需但当前缺失的信息）\n\n语言与用户输入一致（默认中文）；篇幅 600–1200 字。\n\n## Gotchas\n\n- 用户未提供的数据（面积、人次、金额）**一律不估算、不编造**，列入「待补项」。\n- 涉及受益人、志愿者、捐赠人的个人信息，**必须脱敏**（姓名→A/B/C，删手机号/身份证号，金额→量级范围）。\n- 项目方的自我评价标注为「项目方表述」，与经第三方核实的成效区分。\n- 不要使用「圆满完成」「取得显著成效」等套话，用具体事实替代。\n- 不要把本技能模板中的示例数据写进正式案例。\n- 若原始记录存在数据矛盾（如两处参与人数不一致），标注冲突并请用户确认。\n\n## Files To Read\n\n- `assets/case_template.md`：案例输出结构模板（必读）。\n- `assets/example_input_field_notes.md`：示例原始记录，用于演示「散记 → 案例」。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

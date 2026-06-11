@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -321,7 +361,16 @@ Skill / 知识库 / 工作流：
 <a href="#7-发布候选判断">7. 发布候选判断</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 第 4 → 第 5 课交接包：场景闭环交给发布候选\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/04_to_05_release_candidate_pack.md`\n\n用途：第 4 课下课前填写，第 5 课用于判断是否进入内测预发布。\n\n## 1. 场景闭环卡\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 目标使用者 | |\n| 真实输入 | 用户会提供什么材料或问题 |\n| 项目助理处理 | 调用哪些 Skill / 知识库 / 工作流 |\n| 输出结果 | 交付什么格式 |\n| 人工审核点 | 哪一步必须由人确认 |\n| 成功标准 | 什么情况算这条链路跑通 |\n\n## 2. 闭环链路\n\n```text\n输入：\n  ↓\n项目助理判断：\n  ↓\nSkill / 知识库 / 工作流：\n  ↓\n人工审核：\n  ↓\n最终产出：\n  ↓\n反馈写回：\n```\n\n反馈写回规则：\n\n| 反馈类型 | 写回哪里 | 谁负责 |\n|----------|----------|--------|\n| 输出格式问题 | Skill 输出契约 / Gotchas | |\n| 事实缺失 | 知识库资料 / metadata | |\n| 路由错误 | Agent 路由表 | |\n| 合规风险 | 边界卡 / 拒答规则 | |\n\n## 3. 能力缺口判断\n\n| 缺口 | 是否存在 | 处理方式 |\n|------|----------|----------|\n| 需要第二个 Skill | 是 / 否 | |\n| 需要补知识库资料 | 是 / 否 | |\n| 需要改路由 | 是 / 否 | |\n| 需要加人工审核点 | 是 / 否 | |\n| 需要限制使用范围 | 是 / 否 | |\n\n判断原则：只有当主场景闭环需要，才补第二个 Skill；不要为了“数量好看”加能力。\n\n## 4. Skill 稳定性检查\n\n| Skill | 当前状态 | 必测用例数 | 通过数 | 主要问题 | 是否允许进入内测 |\n|-------|----------|------------|--------|----------|------------------|\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n\n## 5. 场景验收测试\n\n至少覆盖 5 类测试。\n\n| # | 测试类型 | 测试问题/任务 | 命中的 Skill | 是否需要知识库 | 期望结果 | 实际结果 | 是否符合输出契约 | 失败写回哪里 | 是否通过 |\n|---|----------|---------------|---------------|----------------|----------|----------|------------------|--------------|----------|\n| 1 | 正常任务 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 2 | 知识库检索 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 3 | Skill 触发 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 4 | 缺信息 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 5 | 敏感信息/越界 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n\n## 6. 缺陷分级\n\n| 级别 | 定义 | 例子 | 发布判断 |\n|------|------|------|----------|\n| P0 | 会造成错误承诺、隐私风险、严重误导 | 编造资助结果、泄露个人信息 | 必须修复后才能内测 |\n| P1 | 影响主场景完成，但可人工绕过 | 路由偶发错误、格式经常不对 | 修复或写清绕行方式 |\n| P2 | 不影响主流程的小问题 | 文案不够自然、按钮说明不清 | 可带入内测观察 |\n\n缺陷清单：\n\n| # | 缺陷描述 | 级别 | 责任人 | 修复方式 | 状态 |\n|---|----------|------|--------|----------|------|\n| 1 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 2 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 3 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n\n## 7. 发布候选判断\n\n| 判断项 | 标准 | 当前状态 |\n|--------|------|----------|\n| P0 缺陷 | 0 个未修复 | 通过 / 不通过 |\n| 主场景验收 | 至少 4/5 通过 | 通过 / 不通过 |\n| 人工审核点 | 已明确 | 通过 / 不通过 |\n| 合规边界 | 已写入拒答/转人工规则 | 通过 / 不通过 |\n| 内测对象 | 已确定 2-3 人 | 通过 / 不通过 |\n\n结论：\n\n```text\n□ Go：进入第 5 课内测预发布\n□ Conditional Go：允许内测，但必须先处理以下事项：\n□ No-Go：暂不内测，先回到第 4 课修闭环\n```\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

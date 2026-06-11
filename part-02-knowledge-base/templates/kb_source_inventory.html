@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -288,7 +328,16 @@ a { color: inherit; }
 <a href="#快速判断">快速判断</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 知识库资料盘点表\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_source_inventory.md`\n>\n> 用途：第 2 课课前或课堂使用，先把散乱资料清点出来，再决定哪些进 ima / WorkBuddy / 腾讯元器。\n\n## 使用步骤\n\n1. 每个机构先填 10-20 份最常用资料，不追求一次盘完整。\n2. 逐份判断合规档位：L1 公开、L2 准公开、L3 内部、L4 敏感。\n3. L4 直接剔除；L3 仅留个人层；L1/L2 才进入组织层腾讯元器。\n4. 对每份资料写 1 个“它应该回答的问题”，后续作为命中率测试题。\n\n## 盘点表\n\n| 序号 | 文件名 | 来源位置 | 文件类型 | 主场景 | 合规档位 | 处理动作 | 目标平台 | 它应该回答的问题 |\n|------|--------|----------|----------|--------|----------|----------|----------|------------------|\n| 1 | | 云盘 / 微信 / 邮件 / 本地 | Word / PDF / Excel / PPT / 图片 / 音频 | M1 文书 / M2 案例 / M3 传播 | L1 / L2 / L3 / L4 | 直接用 / 脱敏 / OCR / 转写 / 剔除 | ima / WorkBuddy / 腾讯元器 | |\n| 2 | | | | | | | | |\n| 3 | | | | | | | | |\n| 4 | | | | | | | | |\n| 5 | | | | | | | | |\n| 6 | | | | | | | | |\n| 7 | | | | | | | | |\n| 8 | | | | | | | | |\n| 9 | | | | | | | | |\n| 10 | | | | | | | | |\n\n## 快速判断\n\n| 情况 | 推荐动作 |\n|------|----------|\n| 公开发布过 | 标 L1，可进腾讯元器 |\n| 不含敏感信息，但不是公开资料 | 标 L2，脱敏和负责人审核后再进腾讯元器 |\n| 团队内部工作资料 | 标 L3，留在 WorkBuddy 或个人资料夹 |\n| 包含受益人、志愿者、捐赠人个人信息 | 标 L4，不进入任何知识库 |\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

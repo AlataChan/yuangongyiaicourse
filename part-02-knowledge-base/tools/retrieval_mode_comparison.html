@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -295,7 +335,16 @@ a { color: inherit; }
 <a href="#学员要记住">学员要记住</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 检索模式对比讲义\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/retrieval_mode_comparison.md`\n>\n> 用途：第 2 课高阶讲解。帮助学员理解为什么同一个知识库有时答得准、有时答不准。\n\n## 三种检索方式\n\n| 检索方式 | 简单理解 | 擅长 | 不擅长 |\n|----------|----------|------|--------|\n| 全文检索 | 按关键词找字面匹配 | 人名、项目名、日期、编号、政策条款 | 换一种说法就可能找不到 |\n| 向量检索 | 按语义相似度找相关内容 | 近义表达、案例匹配、经验总结 | 精确数字、编号、短关键词 |\n| 混合检索 | 关键词 + 语义一起用 | 大多数公益知识库默认选择 | 需要更认真做 rerank 和阈值 |\n\n## 公益场景例子\n\n| 用户问题 | 推荐方式 | 理由 |\n|----------|----------|------|\n| 2024 清河项目共开展了多少次巡护？ | 全文检索 | 需要精确命中年份、项目名、次数 |\n| 有没有类似“社区居民参与河流保护”的案例？ | 向量检索 | 用户可能不用原文关键词，但语义相近 |\n| 找一个湿地教育项目中有志愿者数据的案例 | 混合检索 | “湿地教育”和“志愿者数据”都重要 |\n| 查 2023 年以后 XX 基金会的申请要求 | 全文检索 + metadata 过滤 | 先限定年份和资助方，再查条款 |\n\n## 调参顺序\n\n1. 先看资料是否存在：缺资料，任何检索方式都救不了。\n2. 再看切片：一片过大，答案容易淹没；一片过小，上下文不够。\n3. 再看 metadata：年份、项目、资助方、领域标签能显著缩小检索范围。\n4. 再调检索模式：精确事实偏全文，语义案例偏向量，综合问题偏混合。\n5. 最后看生成提示词：找到资料后仍答不好，才回到第 1 课改技能。\n\n## 课堂练习\n\n用同一批资料分别测试三类问题：\n\n| 问题 | 全文检索结果 | 向量检索结果 | 混合检索结果 | 最适合方式 |\n|------|--------------|--------------|--------------|------------|\n| 精确事实题 | | | | |\n| 案例匹配题 | | | | |\n| 综合筛选题 | | | | |\n\n## 学员要记住\n\n检索模式不是越高级越好。真正的目标是：把正确材料排到前面，并让 AI 有足够上下文回答。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -283,7 +323,16 @@ a { color: inherit; }
       <nav class="toc" aria-label="本文目录"><a href="#示例输入原始现场记录脱敏样例">示例输入：原始现场记录（脱敏样例）</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 示例输入：原始现场记录（脱敏样例）\n\n> 这是课堂演示用的**虚构**现场记录，用于练习「散记 → 标准案例」。\n> 请勿把其中的数字当成真实项目数据。\n\n项目：城市河流守望者计划（虚构示例）\n时间：2026-01 — 2026-04\n地点：某市滨河社区\n\n- 1 月中旬：和街道合作招募「河流守望者」志愿者，报名 45 人，实际参加培训 32 人。\n- 2 月起：每周日早晨巡河 1 次，志愿者轮值 4–6 人/次，记录水质目测、垃圾分布、排污口状态。\n- 2 月 28 日：发现某排污口异常，拍照上报街道环保站，3 天后得到回复已整改。\n- 3 月：联合学校做了 2 场「小河长」自然教育活动，参与小学生约 80 人。\n- 3 月底：整理前 8 周巡河数据，制作了一份「河流健康简报」发到社区群，阅读量未统计。\n- 4 月：受邀在区环保局座谈会上分享经验，简报被区环保局公众号转载。\n\n备注：\n- 巡河期间有志愿者全程拍照记录，姓名待脱敏。\n- 水质检测仪数据只有 3 月份的完整记录，1–2 月靠目测。\n- 项目方自评「社区居民对河流关注度明显提升」，但没有做前后对比调查。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

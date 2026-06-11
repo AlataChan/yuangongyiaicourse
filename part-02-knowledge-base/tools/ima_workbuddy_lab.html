@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -299,7 +339,16 @@ ___ 份只适合留在 WorkBuddy；
 <a href="#常见误区">常见误区</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# ima + WorkBuddy 知识工作流练习\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md`\n>\n> 用途：第 2 课初阶练习。目标不是精通工具，而是把个人散乱资料变成可被任务调用的知识。\n\n## 适用范围\n\n| 适合放入 ima / WorkBuddy | 不适合放入 |\n|--------------------------|------------|\n| 个人常读 PDF、网页、公开报告、已脱敏案例 | L4 敏感信息 |\n| 需要快速摘要、问答、萃取的微信文件 | 未经授权的内部原始资料 |\n| L3 内部资料的个人辅助阅读 | 需要组织共享的正式知识库唯一版本 |\n\n## 课堂任务\n\n1. 选择 5 份资料：至少包含 1 份 PDF、1 份 Word 或 Markdown、1 份网页或图片资料。\n2. 导入 ima，分别提问：\n   - 这份资料讲了什么？\n   - 里面有哪些可复用案例？\n   - 哪些内容适合进入组织知识库？\n   - 哪些内容需要脱敏？\n3. 让 ima 输出候选标签：\n   - 文档类型\n   - 年份\n   - 项目名\n   - 领域标签\n   - 合规档位建议\n4. 在 WorkBuddy 中调用整理后的资料，跑一次第 1 课技能任务。\n5. 记录一次任务结果：哪些事实被正确引用，哪些仍需要进腾讯元器。\n\n## 课堂输出\n\n```text\n我用 ima 整理了 ___ 份资料；\n其中 ___ 份适合进入腾讯元器；\n___ 份只适合留在 WorkBuddy；\n我用 WorkBuddy 完成了 ___ 任务；\n需要补充或脱敏的资料是：___。\n```\n\n## 常见误区\n\n| 误区 | 修正 |\n|------|------|\n| 把 ima 当正式组织知识库 | ima 更适合作个人资料收纳、阅读和初步萃取 |\n| 资料一导入就上云 | 先做 L1-L4 分级，L2 脱敏审核后再上云 |\n| 只问“总结一下” | 要追问“哪些事实可引用、哪些内容需脱敏、适合打什么标签” |\n| 只看回答是否顺畅 | 还要检查是否能指出来源和边界 |\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

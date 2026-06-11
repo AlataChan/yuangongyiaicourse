@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -299,7 +339,16 @@ a { color: inherit; }
 <a href="#待补信息定稿前补齐">待补信息（定稿前补齐）</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 资助申请信 / 项目摘要（模板）\n\n> 致：\u003c资助方 / 联系人>　|　来自：\u003c机构简称>　|　日期：\u003cYYYY-MM-DD>\n\n## 称呼与开场\n\n尊敬的 \u003c资助方 / 联系人>：\n\n\u003c一句话说明我们是谁，以及为何就此议题写信给「您」——尽量与对方关注方向建立相关性。>\n\n## 问题与机会\n\n\u003c1–2 段：我们看到的环境问题、它为何紧迫、为何此刻是介入的好时机。用具体观察或数据，注明来源。>\n\n## 我们的方案与影响\n\n\u003c1–2 段：我们打算做什么、谁会因此受益、可衡量的预期影响是什么。引用 1 个真实过往成果增强可信度。>\n\n## 具体请求\n\n\u003c1 段：我们希望获得的资助金额 / 资源 / 合作形式，以及希望的下一步（如约一次 30 分钟沟通）。金额未定则写「期望与您进一步沟通预算规模」。>\n\n## 结尾与联系方式\n\n期待有机会向您详细介绍。\n\u003c联系人 / 职务 / 电话 / 邮箱>\n\n---\n\n### 待补信息（定稿前补齐）\n\n- [ ] \u003c如：本期期望资助金额>\n- [ ] \u003c如：可引用的过往成果数据>\n- [ ] \u003c如：资助方关注的具体议题>\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);

@@ -227,18 +227,58 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   padding: 24px;
   color: var(--muted);
-  text-align: center;
   background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
 }
 @media (max-width: 920px) {
   .layout { grid-template-columns: 1fr; }
   .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
 }
 @media (max-width: 560px) {
   .header-inner { align-items: flex-start; flex-direction: column; }
   .doc { padding: 26px 20px; border-radius: 14px; }
   .doc-nav { grid-template-columns: 1fr; }
   .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
 }
 </style>
 </head>
@@ -335,7 +375,16 @@ Skill 2 最容易翻车的 3 点：</code></pre>
 <a href="#6-交给第-4-课的主场景">6. 交给第 4 课的主场景</a></nav>
     </aside>
   </main>
-  <footer class="site-footer">环境公益 AI 赋能实战营 · Markdown 页面化材料</footer>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
   <script type="application/json" id="markdown-source">"# 第 3 → 第 4 课交接包：项目助理交给场景闭环\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/03_to_04_agent_scenario_handoff.md`\n\n用途：第 3 课下课前填写，第 4 课用于选择主场景、判断闭环缺口、决定是否补第二个 Skill。\n\n## 1. 项目助理边界卡\n\n| 项目 | 填写 |\n|------|------|\n| 项目助理名称 | |\n| 主要服务对象 | 本机构同事 / 志愿者 / 合作伙伴 / 公众 / 其他： |\n| 能处理的 3 类问题 | 1.  2.  3. |\n| 明确不处理的 3 类问题 | 1.  2.  3. |\n| 需要人工审核的情形 | |\n| 需要拒答或转人工的情形 | |\n\n## 2. 已挂载资产\n\n### 2.1 Skill 接口清单\n\n| Skill 名称 | 触发条件 | 输入要求 | 输出契约 | 成功标准 | 知识库依赖 | 不适用场景 | 稳定性状态 |\n|------------|----------|----------|----------|----------|------------|------------|------------|\n| | | | | | | | 草稿 / 可用 / 稳定 |\n| | | | | | | | 草稿 / 可用 / 稳定 |\n\n必填 Gotchas：\n\n```text\nSkill 1 最容易翻车的 3 点：\n\nSkill 2 最容易翻车的 3 点：\n```\n\n评测用例：\n\n| Skill | 必测问题 | 期望输出 | 是否通过 |\n|-------|----------|----------|----------|\n| | | | 是 / 否 |\n| | | | 是 / 否 |\n\n### 2.2 知识库接口清单\n\n| 知识库名称 | 资料范围 | 允许回答范围 | Top-K/检索设置 | 不能回答什么 |\n|------------|----------|--------------|----------------|--------------|\n| | | | | |\n| | | | | |\n\n## 3. 路由表\n\n| 用户问题类型 | 判定条件 | 调用 Skill | 相邻易混 Skill | 优先归属规则 | 是否检索知识库 | 输出形式 | 需要追问的条件 | 超边界处理 |\n|--------------|----------|------------|----------------|--------------|----------------|----------|----------------|------------|\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n\n兜底规则：\n\n```text\n当用户意图不清时：\n\n当 Skill 和知识库都可能适用时：\n\n当知识库没有依据时：\n```\n\n## 4. 主工作流最小闭环\n\n先只写一条主工作流，不要同时扩三个模块。\n\n```text\n用户输入：\n  ↓\n路由判定：\n  ↓\n检索 / 不检索：\n  ↓\n调用 Skill / 直接回答：\n  ↓\n输出结果：\n  ↓\n记录问题并人工复核：\n```\n\n## 5. 10 问诊断表\n\n| # | 测试问题 | 覆盖类型 | 期望行为 | 实际表现 | 问题归因 |\n|---|----------|----------|----------|----------|----------|\n| 1 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 2 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 3 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 4 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 5 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 6 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 7 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 8 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 9 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 10 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n\n诊断规则：\n\n| 问题归因 | 第 4 课优先修什么 |\n|----------|------------------|\n| 边界错 | 改项目助理边界卡 |\n| 路由错 | 改路由表和触发条件 |\n| 知识库错 | 回补资料、metadata、检索参数 |\n| Skill 错 | 改输出契约、Gotchas、输入要求 |\n| 工作流错 | 简化步骤，补人工审核点 |\n\n## 6. 交给第 4 课的主场景\n\n第 4 课只选一个主场景先闭环：\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 为什么优先做它 | |\n| 当前最常失败的问题 | |\n| 闭环缺口 | Skill / 知识库 / 路由 / 人工审核 / 其他： |\n| 是否需要补第二个 Skill | 是 / 否 / 待确认 |\n\n第 4 课开场要回答：\n\n```text\n我最想让项目助理稳定完成的真实任务是：\n\n现在卡住它的最大缺口是：\n\n如果第 4 课只能修一个问题，我会先修：\n```\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
