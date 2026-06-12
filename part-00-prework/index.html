@@ -507,8 +507,9 @@
       </a>
       <nav class="header-nav" aria-label="课前作业导航">
         <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#concepts">概念速读</a>
         <a class="nav-link" href="#api-setup">API 开通</a>
-        <a class="nav-link" href="#flow">作业三步</a>
+        <a class="nav-link" href="#flow">课前四步</a>
         <a class="nav-link" href="#charter">立项书</a>
         <a class="nav-link" href="#modules">场景模块</a>
         <a class="nav-cta" href="../index.html#insights">调研洞察</a>
@@ -529,21 +530,23 @@
       <h1 class="reveal" id="prework-title">把「我想做 AI」<br><span class="grad">落到一个可验证的场景</span></h1>
       <p class="hero-lead reveal">
         几乎每家机构都说「我们想做 AI」——但这不是一个可验证的目标。
-        课前作业是一份<strong>异步任务</strong>：开课前 1 周下发、第 1 课前提交，由机构自行填写，
+        课前作业是一份<strong>异步任务</strong>：先用 25–35 分钟读懂 LLM、上下文、知识库和 Agent 的基本关系，再由机构自行填写，
         产出一份贯穿后续 5 节课的<strong>《项目助理立项书》</strong>。
         它不占用直播时间，没有考试、没有淘汰——填好它，第 1 课就能直接动手。
       </p>
       <div class="hero-meta reveal">
+        <span class="meta-chip"><span class="dot"></span>AI 基础概念速读</span>
         <span class="meta-chip"><span class="dot"></span>开课前 1 周下发</span>
         <span class="meta-chip"><span class="dot"></span>第 1 课前提交</span>
         <span class="meta-chip"><span class="dot"></span>产出《项目助理立项书》</span>
         <span class="meta-chip"><span class="dot"></span>开通 LLM API（WorkBuddy）</span>
       </div>
       <div class="hero-actions reveal">
-        <a class="btn btn-primary" href="templates/project_assistant_charter.html">
-          打开立项书模板
+        <a class="btn btn-primary" href="ai-basics-reading.html">
+          开始 AI 基础概念速读
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
+        <a class="btn btn-ghost" href="templates/project_assistant_charter.html">打开立项书模板</a>
         <a class="btn btn-ghost" href="templates/scenario_self_check.html">场景自评清单</a>
         <a class="btn btn-ghost" href="examples/charter_sample_lvyuan.html">脱敏范例</a>
         <a class="btn btn-ghost" href="llm-api-setup.html">LLM API 开通指南</a>
@@ -551,10 +554,48 @@
       </div>
     </section>
 
+    <!-- ================= AI Basics ================= -->
+    <section class="section" id="concepts" aria-labelledby="concepts-title">
+      <div class="section-head">
+        <div class="section-num reveal">第一步 · 概念准备</div>
+        <h2 class="section-title reveal" id="concepts-title">先读懂项目助理 Agent 的工作方式</h2>
+        <p class="section-desc reveal">
+          这份速读不是技术百科，而是第 1–3 课的共同语言：LLM 怎么用上下文工作，为什么上下文越满越容易混淆，知识库为什么要切片、检索和重排，以及 Agent 为什么必须有权限和人工审核边界。
+        </p>
+      </div>
+
+      <div class="verdict-grid">
+        <div class="verdict-card pass reveal">
+          <h3>读完要理解的 4 组关系</h3>
+          <ul class="verdict-list">
+            <li>LLM 会生成，不等于会查证；项目事实必须来自可靠资料</li>
+            <li>256k / 1M 是总上下文窗口，不代表越塞越稳定</li>
+            <li>embedding 按语义找资料，切片通常不建议超过 3000 中文字</li>
+            <li>Skill 管「怎么做」，知识库管「依据什么」，Agent 管「如何编排」</li>
+          </ul>
+          <p style="margin-top:14px;">
+            <a class="btn btn-primary" href="ai-basics-reading.html">阅读 AI 基础概念速读</a>
+          </p>
+        </div>
+        <div class="verdict-card sky reveal">
+          <h3>带着 3 个答案去填立项书</h3>
+          <ul class="verdict-list">
+            <li>我的项目助理 Agent 主要服务对象是谁？</li>
+            <li>它最需要查找或引用哪三类资料？</li>
+            <li>它不应该接触或输出哪三类信息？</li>
+            <li>如果做成 Skill，最需要写清哪三条规则？</li>
+          </ul>
+          <p style="margin-top:14px;">
+            <a class="btn btn-ghost" href="ai-basics-reading.html#四、带着这-3-个答案去填立项书">查看课前自测</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= LLM API Setup ================= -->
     <section class="section" id="api-setup" aria-labelledby="api-title">
       <div class="section-head">
-        <div class="section-num reveal">环境准备</div>
+        <div class="section-num reveal">第二步 · 环境准备</div>
         <h2 class="section-title reveal" id="api-title">开通 LLM 模型 API</h2>
         <p class="section-desc reveal">
           第 1 课在 WorkBuddy 上调试技能时需要连接大模型 API。组织层腾讯元器 Bot <strong>不需要</strong>自购 Token——以下准备面向个人层与可选自建路线。
@@ -603,21 +644,21 @@
     <!-- ================= Homework Flow ================= -->
     <section class="section" id="flow" aria-labelledby="flow-title">
       <div class="section-head">
-        <div class="section-num reveal">作业三步</div>
-        <h2 class="section-title reveal" id="flow-title">立项书三步，自己掌握节奏</h2>
-        <p class="section-desc reveal">API 开通与立项书可并行完成。立项书按下面三步填写，第 1 课前提交到课程协作空间即可。</p>
+        <div class="section-num reveal">课前四步</div>
+        <h2 class="section-title reveal" id="flow-title">从概念到立项，自己掌握节奏</h2>
+        <p class="section-desc reveal">先读概念速读，再完成 API 环境准备，最后填写并提交立项书。第 1 课会直接从你的立项书进入 Skill 构建。</p>
       </div>
 
       <div class="flow-track">
         <article class="flow-card reveal">
           <div class="flow-badge">
             <span class="flow-step">1</span>
-            <span class="flow-time">自评</span>
+            <span class="flow-time">速读</span>
           </div>
           <div class="flow-body">
-            <h3>选定主场景模块</h3>
-            <p>用三个场景模块（M1 文书链 / M2 案例沉淀 / M3 传播运营）判断主攻方向。拿不准就默认 M1 项目文书链。</p>
-            <div class="flow-question">这件事更接近写文书、管案例、还是做传播？</div>
+            <h3>读 AI 基础概念速读</h3>
+            <p>先理解 LLM、上下文窗口、幻觉风险、embedding、rerank、Agent、API 和 MCP 的基本关系。</p>
+            <div class="flow-question">项目助理为什么不能只靠一句提示词？</div>
           </div>
         </article>
 
@@ -626,6 +667,20 @@
         <article class="flow-card reveal">
           <div class="flow-badge">
             <span class="flow-step">2</span>
+            <span class="flow-time">环境</span>
+          </div>
+          <div class="flow-body">
+            <h3>开通 LLM API</h3>
+            <p>按指南完成百炼 API Key，DeepSeek 可作为备选。组织层腾讯元器 Bot 不需要自购 Token。</p>
+            <div class="flow-question">第 1 课 WorkBuddy 调试时能否正常调用模型？</div>
+          </div>
+        </article>
+
+        <div class="flow-connector" aria-hidden="true"></div>
+
+        <article class="flow-card reveal">
+          <div class="flow-badge">
+            <span class="flow-step">3</span>
             <span class="flow-time">填写</span>
           </div>
           <div class="flow-body">
@@ -639,7 +694,7 @@
 
         <article class="flow-card reveal">
           <div class="flow-badge">
-            <span class="flow-step">3</span>
+            <span class="flow-step">4</span>
             <span class="flow-time">提交</span>
           </div>
           <div class="flow-body">
@@ -799,6 +854,7 @@
     <div>环境公益 AI 赋能实战营（5+1：5 节线上课 + 1 天线下工作坊 5 小时）· 课前作业 · 技能 → 知识库 → AI智能体</div>
     <div class="footer-links">
       <a href="../index.html">课程首页</a>
+      <a href="ai-basics-reading.html">AI 基础概念速读</a>
       <a href="llm-api-setup.html">LLM API 开通指南</a>
       <a href="templates/project_assistant_charter.html">立项书模板</a>
       <a href="templates/scenario_self_check.html">自评清单</a>
