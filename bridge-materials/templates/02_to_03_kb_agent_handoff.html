@@ -309,42 +309,51 @@ a { color: inherit; }
 <p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/02_to_03_kb_agent_handoff.md</code></p>
 <p>用途：第 2 课下课前填写，第 3 课开课时作为项目助理挂载知识库的输入。</p>
 <h2 id="1-基本信息">1. 基本信息</h2>
-<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>机构名称</td><td></td></tr><tr><td>主场景</td><td>M1 文书链 / M2 案例库 / M3 传播运营 / 其他：</td></tr><tr><td>知识库名称</td><td></td></tr><tr><td>知识库平台</td><td>腾讯元器 / ima / WorkBuddy / Dify / 其他：</td></tr><tr><td>维护人</td><td></td></tr><tr><td>本次版本日期</td><td></td></tr></tbody></table>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>机构名称</td><td></td></tr><tr><td>主场景</td><td>M1 文书链 / M2 案例库 / M3 传播运营 / 其他：</td></tr><tr><td>知识库名称</td><td></td></tr><tr><td>知识库位置</td><td>组织层知识库 / 个人知识库 / 工作台 / 高阶 RAG 工具 / 其他：</td></tr><tr><td>维护人</td><td></td></tr><tr><td>本次版本日期</td><td></td></tr></tbody></table>
 <h2 id="2-知识库范围">2. 知识库范围</h2>
 <table><thead><tr><th>知识库栏目</th><th>包含哪些资料</th><th>可以回答什么</th><th>不回答什么</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
 <h2 id="3-合规分级摘要">3. 合规分级摘要</h2>
-<table><thead><tr><th>等级</th><th>数量</th><th>处理方式</th><th>是否进入组织层知识库</th></tr></thead><tbody><tr><td>L1 公开</td><td></td><td>可直接使用</td><td>是 / 否</td></tr><tr><td>L2 准公开</td><td></td><td>已脱敏并审核</td><td>是 / 否</td></tr><tr><td>L3 内部</td><td></td><td>仅个人层使用</td><td>否</td></tr><tr><td>L4 敏感</td><td></td><td>剔除，不进入任何知识库或技能</td><td>否</td></tr></tbody></table>
+<table><thead><tr><th>等级</th><th>数量</th><th>处理方式</th><th>是否进入组织层知识库</th></tr></thead><tbody><tr><td>L1 公开</td><td></td><td>可直接使用</td><td>是 / 否</td></tr><tr><td>L2 准公开</td><td></td><td>已脱敏并审核</td><td>是 / 否</td></tr><tr><td>L3 内部</td><td></td><td>仅个人知识库 / 工作台使用</td><td>否</td></tr><tr><td>L4 敏感</td><td></td><td>剔除，不进入任何知识库或技能</td><td>否</td></tr></tbody></table>
 <p>合规备注：</p>
 <pre><code class="language-text">哪些资料被剔除：
 
 哪些资料需要后续脱敏：
 
 谁负责最终审核：</code></pre>
-<h2 id="4-资料与-metadata">4. 资料与 metadata</h2>
-<table><thead><tr><th>资料类型</th><th>份数</th><th>主要来源</th><th>必填 metadata</th></tr></thead><tbody><tr><td>项目档案</td><td></td><td></td><td></td></tr><tr><td>资助指南</td><td></td><td></td><td></td></tr><tr><td>案例/服务故事</td><td></td><td></td><td></td></tr><tr><td>沟通模板</td><td></td><td></td><td></td></tr><tr><td>其他</td><td></td><td></td><td></td></tr></tbody></table>
-<p>当前 metadata 字段：</p>
-<pre><code class="language-text">字段 1：
-字段 2：
-字段 3：
-字段 4：
+<h2 id="4-资料、frontmatter-与-metadata">4. 资料、frontmatter 与 metadata</h2>
+<table><thead><tr><th>资料类型</th><th>份数</th><th>主要来源</th><th>清洗状态</th><th>frontmatter 完整率</th><th>必填 metadata</th></tr></thead><tbody><tr><td>项目档案</td><td></td><td></td><td>未清洗 / 草稿 / 已审核</td><td></td><td></td></tr><tr><td>资助指南</td><td></td><td></td><td>未清洗 / 草稿 / 已审核</td><td></td><td></td></tr><tr><td>案例/服务故事</td><td></td><td></td><td>未清洗 / 草稿 / 已审核</td><td></td><td></td></tr><tr><td>沟通模板</td><td></td><td></td><td>未清洗 / 草稿 / 已审核</td><td></td><td></td></tr><tr><td>其他</td><td></td><td></td><td>未清洗 / 草稿 / 已审核</td><td></td><td></td></tr></tbody></table>
+<p>当前 frontmatter / metadata 字段：</p>
+<pre><code class="language-text">doc_title：
+doc_type：
+project_name：
+year：
+topic_tags：
+privacy_level：
 audience_scope（内部同事可问 / 公开用户可问 / 仅维护人可看）：
-retrieval_hint（事实查找 / 案例匹配 / 条款引用 / 综合判断）：</code></pre>
+retrieval_hint（事实查找 / 案例匹配 / 条款引用 / 综合判断）：
+canonical_questions：
+summary：
+last_reviewed_at：</code></pre>
+<p>清洗工具与提示词：</p>
+<pre><code class="language-text">本轮使用的清洗工具：
+使用过的 LLM-wiki 提示词：
+仍需人工复核的字段：</code></pre>
 <h2 id="5-检索参数与测试结果">5. 检索参数与测试结果</h2>
-<table><thead><tr><th>项目</th><th>当前设置</th><th>是否需要第 3 课继续调</th></tr></thead><tbody><tr><td>Top-K</td><td></td><td>是 / 否</td></tr><tr><td>相似度阈值</td><td></td><td>是 / 否</td></tr><tr><td>检索模式</td><td>向量 / 全文 / 混合 / 平台默认</td><td>是 / 否</td></tr><tr><td>metadata 过滤</td><td></td><td>是 / 否</td></tr></tbody></table>
+<table><thead><tr><th>项目</th><th>当前设置</th><th>是否需要第 3 课继续调</th></tr></thead><tbody><tr><td>Top-K</td><td></td><td>是 / 否</td></tr><tr><td>相似度阈值</td><td></td><td>是 / 否</td></tr><tr><td>检索模式</td><td>向量 / 全文 / 混合 / 平台默认</td><td>是 / 否</td></tr><tr><td>frontmatter / metadata 过滤</td><td></td><td>是 / 否</td></tr></tbody></table>
 <p>10 问命中率：</p>
 <table><thead><tr><th>#</th><th>测试问题</th><th>期望来源</th><th>结果</th><th>未命中原因</th></tr></thead><tbody><tr><td>1</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>2</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>3</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>4</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>5</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>6</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>7</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>8</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>9</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr><tr><td>10</td><td></td><td></td><td>命中 / 半命中 / 未命中</td><td></td></tr></tbody></table>
 <p>命中率：<code>___ / 10</code></p>
 <h2 id="6-与-skill-的连接">6. 与 Skill 的连接</h2>
 <table><thead><tr><th>已有 Skill</th><th>需要知识库支持的字段</th><th>知识库提供什么事实</th><th>Skill 仍需控制什么格式</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr></tbody></table>
 <h3 id="61-输出契约与证据映射">6.1 输出契约与证据映射</h3>
-<table><thead><tr><th>Skill 输出章节/字段</th><th>需要的证据类型</th><th>推荐 doc_type</th><th>必填 metadata</th><th>retrieval_hint</th><th>无依据时输出策略</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td>事实查找 / 案例匹配 / 条款引用 / 综合判断</td><td>缺失提示 / 追问 / 转人工</td></tr><tr><td></td><td></td><td></td><td></td><td>事实查找 / 案例匹配 / 条款引用 / 综合判断</td><td>缺失提示 / 追问 / 转人工</td></tr></tbody></table>
+<table><thead><tr><th>Skill 输出章节/字段</th><th>需要的证据类型</th><th>推荐 doc_type</th><th>必填 frontmatter / metadata</th><th>retrieval_hint</th><th>无依据时输出策略</th></tr></thead><tbody><tr><td></td><td></td><td></td><td></td><td>事实查找 / 案例匹配 / 条款引用 / 综合判断</td><td>缺失提示 / 追问 / 转人工</td></tr><tr><td></td><td></td><td></td><td></td><td>事实查找 / 案例匹配 / 条款引用 / 综合判断</td><td>缺失提示 / 追问 / 转人工</td></tr></tbody></table>
 <p>如果回答不好，先按这个顺序排查：</p>
 <pre><code class="language-text">资料不存在 → 补资料
-资料存在但没找到 → 改切片 / metadata / 检索参数
+资料存在但没找到 → 改清洗质量 / 切片 / frontmatter / metadata / 检索参数
 找到了但写不好 → 回到 Skill 改输出契约 / Gotchas</code></pre>
 <h2 id="7-第-3-课挂载准备">7. 第 3 课挂载准备</h2>
 <p>进入第 3 课前，确认以下内容：</p>
-<ul><li><input type="checkbox" disabled> 有 1 个组织层知识库可挂载。</li><li><input type="checkbox" disabled> L1/L2 资料已完成审核。</li><li><input type="checkbox" disabled> L3 资料不会上传组织层知识库。</li><li><input type="checkbox" disabled> L4 资料已剔除。</li><li><input type="checkbox" disabled> 有 10 个真实测试问题。</li><li><input type="checkbox" disabled> 已记录当前命中率。</li><li><input type="checkbox" disabled> 已知道哪几个 Skill 需要调用这个知识库。</li></ul>
+<ul><li><input type="checkbox" disabled> 有 1 个组织层知识库可挂载。</li><li><input type="checkbox" disabled> L1/L2 资料已完成审核。</li><li><input type="checkbox" disabled> L3 资料不会上传组织层知识库。</li><li><input type="checkbox" disabled> L4 资料已剔除。</li><li><input type="checkbox" disabled> 关键资料已完成清洗，至少有基础 frontmatter。</li><li><input type="checkbox" disabled> 有 10 个真实测试问题。</li><li><input type="checkbox" disabled> 已记录当前命中率。</li><li><input type="checkbox" disabled> 已知道哪几个 Skill 需要调用这个知识库。</li></ul>
 <p>第 3 课开场要交给项目助理的三句话：</p>
 <pre><code class="language-text">这个知识库主要回答：
 
@@ -364,7 +373,7 @@ retrieval_hint（事实查找 / 案例匹配 / 条款引用 / 综合判断）：
 <a href="#1-基本信息">1. 基本信息</a>
 <a href="#2-知识库范围">2. 知识库范围</a>
 <a href="#3-合规分级摘要">3. 合规分级摘要</a>
-<a href="#4-资料与-metadata">4. 资料与 metadata</a>
+<a href="#4-资料、frontmatter-与-metadata">4. 资料、frontmatter 与 metadata</a>
 <a href="#5-检索参数与测试结果">5. 检索参数与测试结果</a>
 <a href="#6-与-skill-的连接">6. 与 Skill 的连接</a>
 <a href="#61-输出契约与证据映射">6.1 输出契约与证据映射</a>
@@ -381,7 +390,7 @@ retrieval_hint（事实查找 / 案例匹配 / 条款引用 / 综合判断）：
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# 第 2 → 第 3 课交接包：知识库交给项目助理\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/02_to_03_kb_agent_handoff.md`\n\n用途：第 2 课下课前填写，第 3 课开课时作为项目助理挂载知识库的输入。\n\n## 1. 基本信息\n\n| 项目 | 填写 |\n|------|------|\n| 机构名称 | |\n| 主场景 | M1 文书链 / M2 案例库 / M3 传播运营 / 其他： |\n| 知识库名称 | |\n| 知识库平台 | 腾讯元器 / ima / WorkBuddy / Dify / 其他： |\n| 维护人 | |\n| 本次版本日期 | |\n\n## 2. 知识库范围\n\n| 知识库栏目 | 包含哪些资料 | 可以回答什么 | 不回答什么 |\n|------------|--------------|--------------|------------|\n| | | | |\n| | | | |\n| | | | |\n\n## 3. 合规分级摘要\n\n| 等级 | 数量 | 处理方式 | 是否进入组织层知识库 |\n|------|------|----------|----------------------|\n| L1 公开 | | 可直接使用 | 是 / 否 |\n| L2 准公开 | | 已脱敏并审核 | 是 / 否 |\n| L3 内部 | | 仅个人层使用 | 否 |\n| L4 敏感 | | 剔除，不进入任何知识库或技能 | 否 |\n\n合规备注：\n\n```text\n哪些资料被剔除：\n\n哪些资料需要后续脱敏：\n\n谁负责最终审核：\n```\n\n## 4. 资料与 metadata\n\n| 资料类型 | 份数 | 主要来源 | 必填 metadata |\n|----------|------|----------|---------------|\n| 项目档案 | | | |\n| 资助指南 | | | |\n| 案例/服务故事 | | | |\n| 沟通模板 | | | |\n| 其他 | | | |\n\n当前 metadata 字段：\n\n```text\n字段 1：\n字段 2：\n字段 3：\n字段 4：\naudience_scope（内部同事可问 / 公开用户可问 / 仅维护人可看）：\nretrieval_hint（事实查找 / 案例匹配 / 条款引用 / 综合判断）：\n```\n\n## 5. 检索参数与测试结果\n\n| 项目 | 当前设置 | 是否需要第 3 课继续调 |\n|------|----------|------------------------|\n| Top-K | | 是 / 否 |\n| 相似度阈值 | | 是 / 否 |\n| 检索模式 | 向量 / 全文 / 混合 / 平台默认 | 是 / 否 |\n| metadata 过滤 | | 是 / 否 |\n\n10 问命中率：\n\n| # | 测试问题 | 期望来源 | 结果 | 未命中原因 |\n|---|----------|----------|------|------------|\n| 1 | | | 命中 / 半命中 / 未命中 | |\n| 2 | | | 命中 / 半命中 / 未命中 | |\n| 3 | | | 命中 / 半命中 / 未命中 | |\n| 4 | | | 命中 / 半命中 / 未命中 | |\n| 5 | | | 命中 / 半命中 / 未命中 | |\n| 6 | | | 命中 / 半命中 / 未命中 | |\n| 7 | | | 命中 / 半命中 / 未命中 | |\n| 8 | | | 命中 / 半命中 / 未命中 | |\n| 9 | | | 命中 / 半命中 / 未命中 | |\n| 10 | | | 命中 / 半命中 / 未命中 | |\n\n命中率：`___ / 10`\n\n## 6. 与 Skill 的连接\n\n| 已有 Skill | 需要知识库支持的字段 | 知识库提供什么事实 | Skill 仍需控制什么格式 |\n|------------|----------------------|--------------------|-------------------------|\n| | | | |\n| | | | |\n\n### 6.1 输出契约与证据映射\n\n| Skill 输出章节/字段 | 需要的证据类型 | 推荐 doc_type | 必填 metadata | retrieval_hint | 无依据时输出策略 |\n|---------------------|----------------|--------------|---------------|----------------|------------------|\n| | | | | 事实查找 / 案例匹配 / 条款引用 / 综合判断 | 缺失提示 / 追问 / 转人工 |\n| | | | | 事实查找 / 案例匹配 / 条款引用 / 综合判断 | 缺失提示 / 追问 / 转人工 |\n\n如果回答不好，先按这个顺序排查：\n\n```text\n资料不存在 → 补资料\n资料存在但没找到 → 改切片 / metadata / 检索参数\n找到了但写不好 → 回到 Skill 改输出契约 / Gotchas\n```\n\n## 7. 第 3 课挂载准备\n\n进入第 3 课前，确认以下内容：\n\n- [ ] 有 1 个组织层知识库可挂载。\n- [ ] L1/L2 资料已完成审核。\n- [ ] L3 资料不会上传组织层知识库。\n- [ ] L4 资料已剔除。\n- [ ] 有 10 个真实测试问题。\n- [ ] 已记录当前命中率。\n- [ ] 已知道哪几个 Skill 需要调用这个知识库。\n\n第 3 课开场要交给项目助理的三句话：\n\n```text\n这个知识库主要回答：\n\n这个知识库不能回答：\n\n当知识库没有依据时，项目助理应该：\n```\n"</script>
+  <script type="application/json" id="markdown-source">"# 第 2 → 第 3 课交接包：知识库交给项目助理\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/02_to_03_kb_agent_handoff.md`\n\n用途：第 2 课下课前填写，第 3 课开课时作为项目助理挂载知识库的输入。\n\n## 1. 基本信息\n\n| 项目 | 填写 |\n|------|------|\n| 机构名称 | |\n| 主场景 | M1 文书链 / M2 案例库 / M3 传播运营 / 其他： |\n| 知识库名称 | |\n| 知识库位置 | 组织层知识库 / 个人知识库 / 工作台 / 高阶 RAG 工具 / 其他： |\n| 维护人 | |\n| 本次版本日期 | |\n\n## 2. 知识库范围\n\n| 知识库栏目 | 包含哪些资料 | 可以回答什么 | 不回答什么 |\n|------------|--------------|--------------|------------|\n| | | | |\n| | | | |\n| | | | |\n\n## 3. 合规分级摘要\n\n| 等级 | 数量 | 处理方式 | 是否进入组织层知识库 |\n|------|------|----------|----------------------|\n| L1 公开 | | 可直接使用 | 是 / 否 |\n| L2 准公开 | | 已脱敏并审核 | 是 / 否 |\n| L3 内部 | | 仅个人知识库 / 工作台使用 | 否 |\n| L4 敏感 | | 剔除，不进入任何知识库或技能 | 否 |\n\n合规备注：\n\n```text\n哪些资料被剔除：\n\n哪些资料需要后续脱敏：\n\n谁负责最终审核：\n```\n\n## 4. 资料、frontmatter 与 metadata\n\n| 资料类型 | 份数 | 主要来源 | 清洗状态 | frontmatter 完整率 | 必填 metadata |\n|----------|------|----------|----------|--------------------|---------------|\n| 项目档案 | | | 未清洗 / 草稿 / 已审核 | | |\n| 资助指南 | | | 未清洗 / 草稿 / 已审核 | | |\n| 案例/服务故事 | | | 未清洗 / 草稿 / 已审核 | | |\n| 沟通模板 | | | 未清洗 / 草稿 / 已审核 | | |\n| 其他 | | | 未清洗 / 草稿 / 已审核 | | |\n\n当前 frontmatter / metadata 字段：\n\n```text\ndoc_title：\ndoc_type：\nproject_name：\nyear：\ntopic_tags：\nprivacy_level：\naudience_scope（内部同事可问 / 公开用户可问 / 仅维护人可看）：\nretrieval_hint（事实查找 / 案例匹配 / 条款引用 / 综合判断）：\ncanonical_questions：\nsummary：\nlast_reviewed_at：\n```\n\n清洗工具与提示词：\n\n```text\n本轮使用的清洗工具：\n使用过的 LLM-wiki 提示词：\n仍需人工复核的字段：\n```\n\n## 5. 检索参数与测试结果\n\n| 项目 | 当前设置 | 是否需要第 3 课继续调 |\n|------|----------|------------------------|\n| Top-K | | 是 / 否 |\n| 相似度阈值 | | 是 / 否 |\n| 检索模式 | 向量 / 全文 / 混合 / 平台默认 | 是 / 否 |\n| frontmatter / metadata 过滤 | | 是 / 否 |\n\n10 问命中率：\n\n| # | 测试问题 | 期望来源 | 结果 | 未命中原因 |\n|---|----------|----------|------|------------|\n| 1 | | | 命中 / 半命中 / 未命中 | |\n| 2 | | | 命中 / 半命中 / 未命中 | |\n| 3 | | | 命中 / 半命中 / 未命中 | |\n| 4 | | | 命中 / 半命中 / 未命中 | |\n| 5 | | | 命中 / 半命中 / 未命中 | |\n| 6 | | | 命中 / 半命中 / 未命中 | |\n| 7 | | | 命中 / 半命中 / 未命中 | |\n| 8 | | | 命中 / 半命中 / 未命中 | |\n| 9 | | | 命中 / 半命中 / 未命中 | |\n| 10 | | | 命中 / 半命中 / 未命中 | |\n\n命中率：`___ / 10`\n\n## 6. 与 Skill 的连接\n\n| 已有 Skill | 需要知识库支持的字段 | 知识库提供什么事实 | Skill 仍需控制什么格式 |\n|------------|----------------------|--------------------|-------------------------|\n| | | | |\n| | | | |\n\n### 6.1 输出契约与证据映射\n\n| Skill 输出章节/字段 | 需要的证据类型 | 推荐 doc_type | 必填 frontmatter / metadata | retrieval_hint | 无依据时输出策略 |\n|---------------------|----------------|--------------|----------------------------|----------------|------------------|\n| | | | | 事实查找 / 案例匹配 / 条款引用 / 综合判断 | 缺失提示 / 追问 / 转人工 |\n| | | | | 事实查找 / 案例匹配 / 条款引用 / 综合判断 | 缺失提示 / 追问 / 转人工 |\n\n如果回答不好，先按这个顺序排查：\n\n```text\n资料不存在 → 补资料\n资料存在但没找到 → 改清洗质量 / 切片 / frontmatter / metadata / 检索参数\n找到了但写不好 → 回到 Skill 改输出契约 / Gotchas\n```\n\n## 7. 第 3 课挂载准备\n\n进入第 3 课前，确认以下内容：\n\n- [ ] 有 1 个组织层知识库可挂载。\n- [ ] L1/L2 资料已完成审核。\n- [ ] L3 资料不会上传组织层知识库。\n- [ ] L4 资料已剔除。\n- [ ] 关键资料已完成清洗，至少有基础 frontmatter。\n- [ ] 有 10 个真实测试问题。\n- [ ] 已记录当前命中率。\n- [ ] 已知道哪几个 Skill 需要调用这个知识库。\n\n第 3 课开场要交给项目助理的三句话：\n\n```text\n这个知识库主要回答：\n\n这个知识库不能回答：\n\n当知识库没有依据时，项目助理应该：\n```\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

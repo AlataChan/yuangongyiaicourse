@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ima + WorkBuddy 知识工作流练习 | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="ima + WorkBuddy 知识工作流练习 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <title>知识库 + 工作台知识工作流练习 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="知识库 + 工作台知识工作流练习 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -300,29 +300,37 @@ a { color: inherit; }
     <span aria-hidden="true">/</span>
     <a href="../index.html">第 2 课 · 知识库</a>
     <span aria-hidden="true">/</span>
-    <span>ima + WorkBuddy 知识工作流练习</span>
+    <span>知识库 + 工作台知识工作流练习</span>
   </nav>
   <main class="layout">
     <article class="doc">
       <div class="doc-kicker"><span class="doc-type">工具讲义</span><span>part-02-knowledge-base/tools/ima_workbuddy_lab.md</span></div>
-      <h1 id="ima-+-workbuddy-知识工作流练习">ima + WorkBuddy 知识工作流练习</h1>
-<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md</code></p><p></p><p>用途：第 2 课初阶练习。目标不是精通工具，而是把个人散乱资料变成可被任务调用的知识。</p></blockquote>
+      <h1 id="知识库-+-工作台知识工作流练习">知识库 + 工作台知识工作流练习</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md</code></p><p></p><p>用途：第 2 课初阶练习。目标不是精通某个产品，而是理解“知识库负责资料可检索，工作台负责把知识用于任务”。示例工具可以是 ima、WorkBuddy、元器应用、Dify 应用或机构已有工作台。</p></blockquote>
 <h2 id="适用范围">适用范围</h2>
-<table><thead><tr><th>适合放入 ima / WorkBuddy</th><th>不适合放入</th></tr></thead><tbody><tr><td>个人常读 PDF、网页、公开报告、已脱敏案例</td><td>L4 敏感信息</td></tr><tr><td>需要快速摘要、问答、萃取的微信文件</td><td>未经授权的内部原始资料</td></tr><tr><td>L3 内部资料的个人辅助阅读</td><td>需要组织共享的正式知识库唯一版本</td></tr></tbody></table>
+<table><thead><tr><th>适合放入个人知识库 / 工作台</th><th>不适合放入</th></tr></thead><tbody><tr><td>个人常读 PDF、网页、公开报告、已脱敏案例</td><td>L4 敏感信息</td></tr><tr><td>需要快速摘要、问答、萃取的微信文件</td><td>未经授权的内部原始资料</td></tr><tr><td>L3 内部资料的个人辅助阅读</td><td>需要组织共享的正式知识库唯一版本</td></tr><tr><td>第 1 课技能运行时常用的个人草稿和参考资料</td><td>未清洗、无来源、无法确认真实性的资料</td></tr></tbody></table>
 <h2 id="课堂任务">课堂任务</h2>
-<ol><li>选择 5 份资料：至少包含 1 份 PDF、1 份 Word 或 Markdown、1 份网页或图片资料。</li><li>导入 ima，分别提问：</li></ol>
-<ul><li>这份资料讲了什么？</li><li>里面有哪些可复用案例？</li><li>哪些内容适合进入组织知识库？</li><li>哪些内容需要脱敏？</li></ul>
-<ol><li>让 ima 输出候选标签：</li></ol>
-<ul><li>文档类型</li><li>年份</li><li>项目名</li><li>领域标签</li><li>合规档位建议</li></ul>
-<ol><li>在 WorkBuddy 中调用整理后的资料，跑一次第 1 课技能任务。</li><li>记录一次任务结果：哪些事实被正确引用，哪些仍需要进腾讯元器。</li></ol>
+<ol><li>选择 5 份资料：至少包含 1 份 PDF、1 份 Word 或 Markdown、1 份网页或图片资料。</li><li>用 LLM 或知识整理工具先做清洗：</li></ol>
+<ul><li>这份资料讲了什么？</li><li>哪些事实、数据、案例可以复用？</li><li>哪些内容需要脱敏或剔除？</li><li>这份资料适合回答哪些问题？</li></ul>
+<ol><li>生成 LLM-wiki 条目：</li></ol>
+<ul><li>Markdown 正文</li><li>YAML frontmatter</li><li>文档类型、年份、项目名、领域标签</li><li>合规档位建议</li><li>2–5 个 canonical_questions</li></ul>
+<ol><li>把清洗后的条目放入个人知识库，完成一次问答测试。</li><li>在工作台中调用整理后的资料，跑一次第 1 课技能任务。</li><li>记录一次任务结果：哪些事实被正确引用，哪些仍需要进腾讯元器或继续脱敏。</li></ol>
+<h2 id="清洗提示词">清洗提示词</h2>
+<pre><code class="language-text">请把下面资料整理成适合进入知识库的 LLM-wiki 条目：
+1. 删除重复、噪音和与正文无关的内容；
+2. 识别并标注可能需要脱敏的信息；
+3. 生成 Markdown 正文，保留事实、数据、流程、案例和原始表述；
+4. 在开头生成 YAML frontmatter，至少包含 doc_title、doc_type、privacy_level、topic_tags、retrieval_hint、canonical_questions、summary；
+5. 如果资料不适合进入组织知识库，请说明原因。</code></pre>
 <h2 id="课堂输出">课堂输出</h2>
-<pre><code class="language-text">我用 ima 整理了 ___ 份资料；
-其中 ___ 份适合进入腾讯元器；
-___ 份只适合留在 WorkBuddy；
-我用 WorkBuddy 完成了 ___ 任务；
+<pre><code class="language-text">我清洗了 ___ 份资料；
+其中 ___ 份适合进入组织层知识库；
+___ 份只适合留在个人知识库 / 工作台；
+我生成了 ___ 份带 frontmatter 的 Markdown 条目；
+我用工作台完成了 ___ 任务；
 需要补充或脱敏的资料是：___。</code></pre>
 <h2 id="常见误区">常见误区</h2>
-<table><thead><tr><th>误区</th><th>修正</th></tr></thead><tbody><tr><td>把 ima 当正式组织知识库</td><td>ima 更适合作个人资料收纳、阅读和初步萃取</td></tr><tr><td>资料一导入就上云</td><td>先做 L1-L4 分级，L2 脱敏审核后再上云</td></tr><tr><td>只问“总结一下”</td><td>要追问“哪些事实可引用、哪些内容需脱敏、适合打什么标签”</td></tr><tr><td>只看回答是否顺畅</td><td>还要检查是否能指出来源和边界</td></tr></tbody></table>
+<table><thead><tr><th>误区</th><th>修正</th></tr></thead><tbody><tr><td>把个人知识库当正式组织知识库</td><td>个人知识库更适合资料收纳、阅读和初步萃取，组织共享仍以腾讯元器为主线</td></tr><tr><td>资料一导入就上云</td><td>先做 L1-L4 分级，L2 脱敏审核后再上云</td></tr><tr><td>只问“总结一下”</td><td>要追问“哪些事实可引用、哪些内容需脱敏、适合打什么标签、应该回答哪些问题”</td></tr><tr><td>只有正文，没有 frontmatter</td><td>后续很难做筛选、引用、维护和命中率诊断</td></tr><tr><td>只看回答是否顺畅</td><td>还要检查是否能指出来源和边界</td></tr></tbody></table>
       <div class="source-path">Markdown 原文：<a href="ima_workbuddy_lab.md">part-02-knowledge-base/tools/ima_workbuddy_lab.md</a></div>
       <nav class="doc-nav" aria-label="材料前后导航"><a href="dify_advanced_rag_lab.html"><span>上一份材料</span><strong>Dify 高阶 RAG 练习</strong></a><a href="retrieval_mode_comparison.html"><span>下一份材料</span><strong>检索模式对比讲义</strong></a></nav>
     </article>
@@ -332,9 +340,10 @@ ___ 份只适合留在 WorkBuddy；
       <a class="btn btn-primary" href="ima_workbuddy_lab.md" download>下载 Markdown</a>
       <a class="btn btn-ghost" href="ima_workbuddy_lab.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
-      <nav class="toc" aria-label="本文目录"><a href="#ima-+-workbuddy-知识工作流练习">ima + WorkBuddy 知识工作流练习</a>
+      <nav class="toc" aria-label="本文目录"><a href="#知识库-+-工作台知识工作流练习">知识库 + 工作台知识工作流练习</a>
 <a href="#适用范围">适用范围</a>
 <a href="#课堂任务">课堂任务</a>
+<a href="#清洗提示词">清洗提示词</a>
 <a href="#课堂输出">课堂输出</a>
 <a href="#常见误区">常见误区</a></nav>
     </aside>
@@ -349,7 +358,7 @@ ___ 份只适合留在 WorkBuddy；
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# ima + WorkBuddy 知识工作流练习\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md`\n>\n> 用途：第 2 课初阶练习。目标不是精通工具，而是把个人散乱资料变成可被任务调用的知识。\n\n## 适用范围\n\n| 适合放入 ima / WorkBuddy | 不适合放入 |\n|--------------------------|------------|\n| 个人常读 PDF、网页、公开报告、已脱敏案例 | L4 敏感信息 |\n| 需要快速摘要、问答、萃取的微信文件 | 未经授权的内部原始资料 |\n| L3 内部资料的个人辅助阅读 | 需要组织共享的正式知识库唯一版本 |\n\n## 课堂任务\n\n1. 选择 5 份资料：至少包含 1 份 PDF、1 份 Word 或 Markdown、1 份网页或图片资料。\n2. 导入 ima，分别提问：\n   - 这份资料讲了什么？\n   - 里面有哪些可复用案例？\n   - 哪些内容适合进入组织知识库？\n   - 哪些内容需要脱敏？\n3. 让 ima 输出候选标签：\n   - 文档类型\n   - 年份\n   - 项目名\n   - 领域标签\n   - 合规档位建议\n4. 在 WorkBuddy 中调用整理后的资料，跑一次第 1 课技能任务。\n5. 记录一次任务结果：哪些事实被正确引用，哪些仍需要进腾讯元器。\n\n## 课堂输出\n\n```text\n我用 ima 整理了 ___ 份资料；\n其中 ___ 份适合进入腾讯元器；\n___ 份只适合留在 WorkBuddy；\n我用 WorkBuddy 完成了 ___ 任务；\n需要补充或脱敏的资料是：___。\n```\n\n## 常见误区\n\n| 误区 | 修正 |\n|------|------|\n| 把 ima 当正式组织知识库 | ima 更适合作个人资料收纳、阅读和初步萃取 |\n| 资料一导入就上云 | 先做 L1-L4 分级，L2 脱敏审核后再上云 |\n| 只问“总结一下” | 要追问“哪些事实可引用、哪些内容需脱敏、适合打什么标签” |\n| 只看回答是否顺畅 | 还要检查是否能指出来源和边界 |\n"</script>
+  <script type="application/json" id="markdown-source">"# 知识库 + 工作台知识工作流练习\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md`\n>\n> 用途：第 2 课初阶练习。目标不是精通某个产品，而是理解“知识库负责资料可检索，工作台负责把知识用于任务”。示例工具可以是 ima、WorkBuddy、元器应用、Dify 应用或机构已有工作台。\n\n## 适用范围\n\n| 适合放入个人知识库 / 工作台 | 不适合放入 |\n|------------------------------|------------|\n| 个人常读 PDF、网页、公开报告、已脱敏案例 | L4 敏感信息 |\n| 需要快速摘要、问答、萃取的微信文件 | 未经授权的内部原始资料 |\n| L3 内部资料的个人辅助阅读 | 需要组织共享的正式知识库唯一版本 |\n| 第 1 课技能运行时常用的个人草稿和参考资料 | 未清洗、无来源、无法确认真实性的资料 |\n\n## 课堂任务\n\n1. 选择 5 份资料：至少包含 1 份 PDF、1 份 Word 或 Markdown、1 份网页或图片资料。\n2. 用 LLM 或知识整理工具先做清洗：\n   - 这份资料讲了什么？\n   - 哪些事实、数据、案例可以复用？\n   - 哪些内容需要脱敏或剔除？\n   - 这份资料适合回答哪些问题？\n3. 生成 LLM-wiki 条目：\n   - Markdown 正文\n   - YAML frontmatter\n   - 文档类型、年份、项目名、领域标签\n   - 合规档位建议\n   - 2–5 个 canonical_questions\n4. 把清洗后的条目放入个人知识库，完成一次问答测试。\n5. 在工作台中调用整理后的资料，跑一次第 1 课技能任务。\n6. 记录一次任务结果：哪些事实被正确引用，哪些仍需要进腾讯元器或继续脱敏。\n\n## 清洗提示词\n\n```text\n请把下面资料整理成适合进入知识库的 LLM-wiki 条目：\n1. 删除重复、噪音和与正文无关的内容；\n2. 识别并标注可能需要脱敏的信息；\n3. 生成 Markdown 正文，保留事实、数据、流程、案例和原始表述；\n4. 在开头生成 YAML frontmatter，至少包含 doc_title、doc_type、privacy_level、topic_tags、retrieval_hint、canonical_questions、summary；\n5. 如果资料不适合进入组织知识库，请说明原因。\n```\n\n## 课堂输出\n\n```text\n我清洗了 ___ 份资料；\n其中 ___ 份适合进入组织层知识库；\n___ 份只适合留在个人知识库 / 工作台；\n我生成了 ___ 份带 frontmatter 的 Markdown 条目；\n我用工作台完成了 ___ 任务；\n需要补充或脱敏的资料是：___。\n```\n\n## 常见误区\n\n| 误区 | 修正 |\n|------|------|\n| 把个人知识库当正式组织知识库 | 个人知识库更适合资料收纳、阅读和初步萃取，组织共享仍以腾讯元器为主线 |\n| 资料一导入就上云 | 先做 L1-L4 分级，L2 脱敏审核后再上云 |\n| 只问“总结一下” | 要追问“哪些事实可引用、哪些内容需脱敏、适合打什么标签、应该回答哪些问题” |\n| 只有正文，没有 frontmatter | 后续很难做筛选、引用、维护和命中率诊断 |\n| 只看回答是否顺畅 | 还要检查是否能指出来源和边界 |\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>知识库 metadata 字段表 | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="知识库 metadata 字段表 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <title>知识库 frontmatter + metadata 字段表 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="知识库 frontmatter + metadata 字段表 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -300,42 +300,92 @@ a { color: inherit; }
     <span aria-hidden="true">/</span>
     <a href="../index.html">第 2 课 · 知识库</a>
     <span aria-hidden="true">/</span>
-    <span>知识库 metadata 字段表</span>
+    <span>知识库 frontmatter + metadata 字段表</span>
   </nav>
   <main class="layout">
     <article class="doc">
       <div class="doc-kicker"><span class="doc-type">填写模板</span><span>part-02-knowledge-base/templates/kb_metadata_schema.md</span></div>
-      <h1 id="知识库-metadata-字段表">知识库 metadata 字段表</h1>
-<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md</code></p><p></p><p>用途：为知识库资料统一标签，提升检索命中率。metadata 不求多，先保证字段稳定。</p></blockquote>
-<h2 id="推荐字段">推荐字段</h2>
-<table><thead><tr><th>字段</th><th>是否必填</th><th>示例</th><th>用途</th></tr></thead><tbody><tr><td><code>doc_title</code></td><td>必填</td><td>2024 清河巡护项目结项报告</td><td>让 AI 能引用来源</td></tr><tr><td><code>doc_type</code></td><td>必填</td><td>结项报告 / 资助指南 / 案例复盘 / 沟通模板</td><td>区分资料类型</td></tr><tr><td><code>project_name</code></td><td>条件必填</td><td>清河巡护项目</td><td>项目类资料必须填</td></tr><tr><td><code>year</code></td><td>条件必填</td><td>2024</td><td>支持按年份检索</td></tr><tr><td><code>module</code></td><td>必填</td><td>M1 文书 / M2 案例 / M3 传播</td><td>对齐课程主场景</td></tr><tr><td><code>topic_tags</code></td><td>必填</td><td>河流保护、社区动员、志愿者</td><td>支持语义检索和筛选</td></tr><tr><td><code>funder</code></td><td>可选</td><td>XX 基金会</td><td>文书和资助类资料推荐填</td></tr><tr><td><code>privacy_level</code></td><td>必填</td><td>L1 / L2 / L3 / L4</td><td>决定是否能上云</td></tr><tr><td><code>source_owner</code></td><td>可选</td><td>项目部 / 传播部</td><td>后续维护时找负责人</td></tr><tr><td><code>last_reviewed_at</code></td><td>可选</td><td>2026-06-10</td><td>确认资料是否过期</td></tr></tbody></table>
-<h2 id="三类资料的最小-metadata">三类资料的最小 metadata</h2>
+      <h1 id="知识库-frontmatter-+-metadata-字段表">知识库 frontmatter + metadata 字段表</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md</code></p><p></p><p>用途：把散乱资料整理成 LLM-wiki 条目。frontmatter 放在 Markdown 最前面，metadata 是知识库平台可用于筛选和引用的字段。两者字段尽量保持一致。</p></blockquote>
+<h2 id="1-标准条目结构">1. 标准条目结构</h2>
+<pre><code class="language-yaml">---
+doc_title: 2024 清河巡护项目结项报告
+doc_type: 结项报告
+project_name: 清河巡护项目
+year: 2024
+module: M1 文书
+topic_tags:
+  - 河流保护
+  - 志愿者管理
+funder: XX 基金会
+privacy_level: L2
+audience_scope: 内部同事可问
+retrieval_hint: 事实查找
+source_owner: 项目部
+last_reviewed_at: 2026-06-10
+source_path: 云盘/项目档案/2024清河
+canonical_questions:
+  - 2024 清河项目开展了多少次巡护？
+  - 2024 清河项目有哪些主要成效？
+summary: 记录 2024 年清河巡护项目的活动、产出、成效和反思。
+---
+
+# 正文标题
+
+## 背景
+
+## 关键事实
+
+## 可引用材料
+
+## 注意事项</code></pre>
+<h2 id="2-推荐字段">2. 推荐字段</h2>
+<table><thead><tr><th>字段</th><th>是否必填</th><th>示例</th><th>用途</th></tr></thead><tbody><tr><td><code>doc_title</code></td><td>必填</td><td>2024 清河巡护项目结项报告</td><td>让 AI 能引用来源</td></tr><tr><td><code>doc_type</code></td><td>必填</td><td>结项报告 / 资助指南 / 案例复盘 / 沟通模板</td><td>区分资料类型</td></tr><tr><td><code>project_name</code></td><td>条件必填</td><td>清河巡护项目</td><td>项目类资料必须填</td></tr><tr><td><code>year</code></td><td>条件必填</td><td>2024</td><td>支持按年份检索</td></tr><tr><td><code>module</code></td><td>必填</td><td>M1 文书 / M2 案例 / M3 传播</td><td>对齐课程主场景</td></tr><tr><td><code>topic_tags</code></td><td>必填</td><td>河流保护、社区动员、志愿者</td><td>支持语义检索和筛选</td></tr><tr><td><code>funder</code></td><td>可选</td><td>XX 基金会</td><td>文书和资助类资料推荐填</td></tr><tr><td><code>privacy_level</code></td><td>必填</td><td>L1 / L2 / L3 / L4</td><td>决定是否能进入组织层知识库</td></tr><tr><td><code>audience_scope</code></td><td>必填</td><td>内部同事可问 / 公开用户可问 / 仅维护人可看</td><td>控制回答边界</td></tr><tr><td><code>retrieval_hint</code></td><td>必填</td><td>事实查找 / 案例匹配 / 条款引用 / 综合判断</td><td>帮助后续设计测试题和检索策略</td></tr><tr><td><code>canonical_questions</code></td><td>必填</td><td>这份资料应该能回答的 2–5 个问题</td><td>用于命中率测试</td></tr><tr><td><code>summary</code></td><td>必填</td><td>1–2 句话概括资料价值</td><td>帮助模型快速判断相关性</td></tr><tr><td><code>source_path</code></td><td>推荐</td><td>云盘/项目档案/2024清河</td><td>方便人工回查原件</td></tr><tr><td><code>source_owner</code></td><td>推荐</td><td>项目部 / 传播部</td><td>后续维护时找负责人</td></tr><tr><td><code>last_reviewed_at</code></td><td>推荐</td><td>2026-06-10</td><td>确认资料是否过期</td></tr></tbody></table>
+<h2 id="3-三类资料的最小-frontmatter">3. 三类资料的最小 frontmatter</h2>
 <h3 id="m1-项目文书链">M1 项目文书链</h3>
-<pre><code class="language-text">doc_title:
+<pre><code class="language-yaml">---
+doc_title:
 doc_type:
 project_name:
 year:
 funder:
 module: M1 文书
 topic_tags:
-privacy_level:</code></pre>
+privacy_level:
+audience_scope:
+retrieval_hint: 事实查找
+canonical_questions:
+summary:
+---</code></pre>
 <h3 id="m2-案例与知识沉淀">M2 案例与知识沉淀</h3>
-<pre><code class="language-text">doc_title:
+<pre><code class="language-yaml">---
+doc_title:
 doc_type: 案例复盘 / 服务故事 / 方法总结
 project_name:
 year:
 module: M2 案例
 topic_tags:
-privacy_level:</code></pre>
+privacy_level:
+audience_scope:
+retrieval_hint: 案例匹配
+canonical_questions:
+summary:
+---</code></pre>
 <h3 id="m3-传播与运营">M3 传播与运营</h3>
-<pre><code class="language-text">doc_title:
+<pre><code class="language-yaml">---
+doc_title:
 doc_type: 公众号稿 / 活动复盘 / 社群 FAQ / 品牌话术
 year:
 module: M3 传播
 topic_tags:
-privacy_level:</code></pre>
-<h2 id="标签质量自检">标签质量自检</h2>
-<table><thead><tr><th>检查项</th><th>通过标准</th></tr></thead><tbody><tr><td>标签是否太泛</td><td>不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词</td></tr><tr><td>年份是否缺失</td><td>涉及项目、活动、报告的资料尽量填年份</td></tr><tr><td>文档类型是否稳定</td><td>同类文档使用同一个词，如统一写“结项报告”</td></tr><tr><td>合规档位是否明确</td><td>没有档位的资料不得进入腾讯元器</td></tr></tbody></table>
+privacy_level:
+audience_scope:
+retrieval_hint: 条款引用 / 综合判断
+canonical_questions:
+summary:
+---</code></pre>
+<h2 id="4-清洗质量自检">4. 清洗质量自检</h2>
+<table><thead><tr><th>检查项</th><th>通过标准</th></tr></thead><tbody><tr><td>frontmatter 是否完整</td><td>至少有标题、类型、密级、标签、检索提示、可回答问题</td></tr><tr><td>标签是否太泛</td><td>不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词</td></tr><tr><td>年份是否缺失</td><td>涉及项目、活动、报告的资料尽量填年份</td></tr><tr><td>文档类型是否稳定</td><td>同类文档使用同一个词，如统一写“结项报告”</td></tr><tr><td>合规档位是否明确</td><td>没有档位的资料不得进入腾讯元器</td></tr><tr><td>正文是否可引用</td><td>保留事实、数据、来源和限制，不只留下泛泛摘要</td></tr></tbody></table>
       <div class="source-path">Markdown 原文：<a href="kb_metadata_schema.md">part-02-knowledge-base/templates/kb_metadata_schema.md</a></div>
       <nav class="doc-nav" aria-label="材料前后导航"><a href="kb_eval_questions.html"><span>上一份材料</span><strong>知识库 10 问命中率测试表</strong></a><a href="kb_source_inventory.html"><span>下一份材料</span><strong>知识库资料盘点表</strong></a></nav>
     </article>
@@ -345,13 +395,14 @@ privacy_level:</code></pre>
       <a class="btn btn-primary" href="kb_metadata_schema.md" download>下载 Markdown</a>
       <a class="btn btn-ghost" href="kb_metadata_schema.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
-      <nav class="toc" aria-label="本文目录"><a href="#知识库-metadata-字段表">知识库 metadata 字段表</a>
-<a href="#推荐字段">推荐字段</a>
-<a href="#三类资料的最小-metadata">三类资料的最小 metadata</a>
+      <nav class="toc" aria-label="本文目录"><a href="#知识库-frontmatter-+-metadata-字段表">知识库 frontmatter + metadata 字段表</a>
+<a href="#1-标准条目结构">1. 标准条目结构</a>
+<a href="#2-推荐字段">2. 推荐字段</a>
+<a href="#3-三类资料的最小-frontmatter">3. 三类资料的最小 frontmatter</a>
 <a href="#m1-项目文书链">M1 项目文书链</a>
 <a href="#m2-案例与知识沉淀">M2 案例与知识沉淀</a>
 <a href="#m3-传播与运营">M3 传播与运营</a>
-<a href="#标签质量自检">标签质量自检</a></nav>
+<a href="#4-清洗质量自检">4. 清洗质量自检</a></nav>
     </aside>
   </main>
   <footer class="site-footer">
@@ -364,7 +415,7 @@ privacy_level:</code></pre>
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# 知识库 metadata 字段表\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md`\n>\n> 用途：为知识库资料统一标签，提升检索命中率。metadata 不求多，先保证字段稳定。\n\n## 推荐字段\n\n| 字段 | 是否必填 | 示例 | 用途 |\n|------|----------|------|------|\n| `doc_title` | 必填 | 2024 清河巡护项目结项报告 | 让 AI 能引用来源 |\n| `doc_type` | 必填 | 结项报告 / 资助指南 / 案例复盘 / 沟通模板 | 区分资料类型 |\n| `project_name` | 条件必填 | 清河巡护项目 | 项目类资料必须填 |\n| `year` | 条件必填 | 2024 | 支持按年份检索 |\n| `module` | 必填 | M1 文书 / M2 案例 / M3 传播 | 对齐课程主场景 |\n| `topic_tags` | 必填 | 河流保护、社区动员、志愿者 | 支持语义检索和筛选 |\n| `funder` | 可选 | XX 基金会 | 文书和资助类资料推荐填 |\n| `privacy_level` | 必填 | L1 / L2 / L3 / L4 | 决定是否能上云 |\n| `source_owner` | 可选 | 项目部 / 传播部 | 后续维护时找负责人 |\n| `last_reviewed_at` | 可选 | 2026-06-10 | 确认资料是否过期 |\n\n## 三类资料的最小 metadata\n\n### M1 项目文书链\n\n```text\ndoc_title:\ndoc_type:\nproject_name:\nyear:\nfunder:\nmodule: M1 文书\ntopic_tags:\nprivacy_level:\n```\n\n### M2 案例与知识沉淀\n\n```text\ndoc_title:\ndoc_type: 案例复盘 / 服务故事 / 方法总结\nproject_name:\nyear:\nmodule: M2 案例\ntopic_tags:\nprivacy_level:\n```\n\n### M3 传播与运营\n\n```text\ndoc_title:\ndoc_type: 公众号稿 / 活动复盘 / 社群 FAQ / 品牌话术\nyear:\nmodule: M3 传播\ntopic_tags:\nprivacy_level:\n```\n\n## 标签质量自检\n\n| 检查项 | 通过标准 |\n|--------|----------|\n| 标签是否太泛 | 不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词 |\n| 年份是否缺失 | 涉及项目、活动、报告的资料尽量填年份 |\n| 文档类型是否稳定 | 同类文档使用同一个词，如统一写“结项报告” |\n| 合规档位是否明确 | 没有档位的资料不得进入腾讯元器 |\n"</script>
+  <script type="application/json" id="markdown-source">"# 知识库 frontmatter + metadata 字段表\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/templates/kb_metadata_schema.md`\n>\n> 用途：把散乱资料整理成 LLM-wiki 条目。frontmatter 放在 Markdown 最前面，metadata 是知识库平台可用于筛选和引用的字段。两者字段尽量保持一致。\n\n## 1. 标准条目结构\n\n```yaml\n---\ndoc_title: 2024 清河巡护项目结项报告\ndoc_type: 结项报告\nproject_name: 清河巡护项目\nyear: 2024\nmodule: M1 文书\ntopic_tags:\n  - 河流保护\n  - 志愿者管理\nfunder: XX 基金会\nprivacy_level: L2\naudience_scope: 内部同事可问\nretrieval_hint: 事实查找\nsource_owner: 项目部\nlast_reviewed_at: 2026-06-10\nsource_path: 云盘/项目档案/2024清河\ncanonical_questions:\n  - 2024 清河项目开展了多少次巡护？\n  - 2024 清河项目有哪些主要成效？\nsummary: 记录 2024 年清河巡护项目的活动、产出、成效和反思。\n---\n\n# 正文标题\n\n## 背景\n\n## 关键事实\n\n## 可引用材料\n\n## 注意事项\n```\n\n## 2. 推荐字段\n\n| 字段 | 是否必填 | 示例 | 用途 |\n|------|----------|------|------|\n| `doc_title` | 必填 | 2024 清河巡护项目结项报告 | 让 AI 能引用来源 |\n| `doc_type` | 必填 | 结项报告 / 资助指南 / 案例复盘 / 沟通模板 | 区分资料类型 |\n| `project_name` | 条件必填 | 清河巡护项目 | 项目类资料必须填 |\n| `year` | 条件必填 | 2024 | 支持按年份检索 |\n| `module` | 必填 | M1 文书 / M2 案例 / M3 传播 | 对齐课程主场景 |\n| `topic_tags` | 必填 | 河流保护、社区动员、志愿者 | 支持语义检索和筛选 |\n| `funder` | 可选 | XX 基金会 | 文书和资助类资料推荐填 |\n| `privacy_level` | 必填 | L1 / L2 / L3 / L4 | 决定是否能进入组织层知识库 |\n| `audience_scope` | 必填 | 内部同事可问 / 公开用户可问 / 仅维护人可看 | 控制回答边界 |\n| `retrieval_hint` | 必填 | 事实查找 / 案例匹配 / 条款引用 / 综合判断 | 帮助后续设计测试题和检索策略 |\n| `canonical_questions` | 必填 | 这份资料应该能回答的 2–5 个问题 | 用于命中率测试 |\n| `summary` | 必填 | 1–2 句话概括资料价值 | 帮助模型快速判断相关性 |\n| `source_path` | 推荐 | 云盘/项目档案/2024清河 | 方便人工回查原件 |\n| `source_owner` | 推荐 | 项目部 / 传播部 | 后续维护时找负责人 |\n| `last_reviewed_at` | 推荐 | 2026-06-10 | 确认资料是否过期 |\n\n## 3. 三类资料的最小 frontmatter\n\n### M1 项目文书链\n\n```yaml\n---\ndoc_title:\ndoc_type:\nproject_name:\nyear:\nfunder:\nmodule: M1 文书\ntopic_tags:\nprivacy_level:\naudience_scope:\nretrieval_hint: 事实查找\ncanonical_questions:\nsummary:\n---\n```\n\n### M2 案例与知识沉淀\n\n```yaml\n---\ndoc_title:\ndoc_type: 案例复盘 / 服务故事 / 方法总结\nproject_name:\nyear:\nmodule: M2 案例\ntopic_tags:\nprivacy_level:\naudience_scope:\nretrieval_hint: 案例匹配\ncanonical_questions:\nsummary:\n---\n```\n\n### M3 传播与运营\n\n```yaml\n---\ndoc_title:\ndoc_type: 公众号稿 / 活动复盘 / 社群 FAQ / 品牌话术\nyear:\nmodule: M3 传播\ntopic_tags:\nprivacy_level:\naudience_scope:\nretrieval_hint: 条款引用 / 综合判断\ncanonical_questions:\nsummary:\n---\n```\n\n## 4. 清洗质量自检\n\n| 检查项 | 通过标准 |\n|--------|----------|\n| frontmatter 是否完整 | 至少有标题、类型、密级、标签、检索提示、可回答问题 |\n| 标签是否太泛 | 不只写“项目”“资料”，而是写“河流保护”“社区动员”等可检索词 |\n| 年份是否缺失 | 涉及项目、活动、报告的资料尽量填年份 |\n| 文档类型是否稳定 | 同类文档使用同一个词，如统一写“结项报告” |\n| 合规档位是否明确 | 没有档位的资料不得进入腾讯元器 |\n| 正文是否可引用 | 保留事实、数据、来源和限制，不只留下泛泛摘要 |\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

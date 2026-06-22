@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>第 2 课 · 知识库 | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="环境公益 AI 赋能实战营（5+1）第 2 课「知识库」：从散乱资料到可检索资产。覆盖 ima + WorkBuddy 个人知识、腾讯元器组织知识库、检索模式和命中率诊断。">
+  <meta name="description" content="环境公益 AI 赋能实战营（5+1）第 2 课「知识库」：从散乱资料到可检索资产。覆盖知识库 + 工作台、腾讯元器组织知识库、LLM-wiki 清洗、frontmatter、检索模式和命中率诊断。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -606,12 +606,12 @@
       <p class="hero-lead reveal">
         约 50% 的环境公益机构把「资料散落各处、案例难以复用」列为最大痛点。
         这节课带你把散落在云盘、微信、邮件附件里的项目档案、资助指南、历年案例，
-        整理成 AI 能准确检索的<strong>知识库</strong>。先用 ima 和 WorkBuddy 处理个人资料，
+        整理成 AI 能准确检索的<strong>知识库</strong>。先用通用的“知识库 + 工作台”逻辑处理个人资料，
         再用腾讯元器搭建组织层项目助理知识库，高阶部分理解检索机制与调参方法。
       </p>
       <div class="hero-meta reveal">
         <span class="meta-chip"><span class="dot"></span>时长 120 分钟</span>
-        <span class="meta-chip"><span class="dot"></span>产出 ima / WorkBuddy + 腾讯元器知识库</span>
+        <span class="meta-chip"><span class="dot"></span>产出知识库 + 工作台 + 腾讯元器知识库</span>
         <span class="meta-chip"><span class="dot"></span>主线第二步：知识库</span>
       </div>
       <div class="hero-actions reveal">
@@ -638,8 +638,8 @@
         <article class="kb-card reveal"><div><span class="kb-rank">1</span></div><h3>看清关系</h3><p>技能定义做法，知识库提供事实。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">2</span></div><h3>定范围</h3><p>选 1-2 类资料，写 10 个测试问题。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">3</span></div><h3>过合规</h3><p>按 L1-L4 判断哪些能用、能否上云。</p></article>
-        <article class="kb-card reveal"><div><span class="kb-rank">4</span></div><h3>整资料</h3><p>清洗、切片、打 metadata。</p></article>
-        <article class="kb-card reveal"><div><span class="kb-rank">5</span></div><h3>放工具</h3><p>ima、WorkBuddy、元器、Dify 各归其位。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">4</span></div><h3>整资料</h3><p>清洗、切片、补 frontmatter。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">5</span></div><h3>放工具</h3><p>知识库、工作台、元器、Dify 各归其位。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">6</span></div><h3>跑 10 问</h3><p>用真实问题测命中率。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">7</span></div><h3>做诊断</h3><p>先看资料，再看检索，最后看生成。</p></article>
       </div>
@@ -736,7 +736,7 @@
           <div class="tier-badge">L3 内部</div>
           <h3>仅限本地</h3>
           <p>会议纪要、未发布计划、内部预算</p>
-          <div class="tier-action">仅 WorkBuddy 本地</div>
+          <div class="tier-action">仅个人工作台 / 本地知识库</div>
         </div>
         <div class="tier-card t4 reveal">
           <div class="tier-badge">L4 敏感</div>
@@ -755,28 +755,31 @@
       <div class="section-head">
         <div class="section-num reveal">三类材料</div>
         <h2 class="section-title reveal" id="materials-title">三类材料实操</h2>
-        <p class="section-desc reveal">课堂上按材料类型分三组实操——每类有不同的来源、切片方式和 metadata 要求。</p>
+        <p class="section-desc reveal">课堂上按材料类型分三组实操——每类都要先清洗成 LLM-wiki 条目，再补 frontmatter / metadata。</p>
       </div>
       <div class="mat-grid">
         <article class="mat-card m1 reveal">
           <div class="mat-label">类型 A</div>
           <h3>历年项目档案</h3>
           <p>云盘里的结项报告、季度总结、活动记录。按「一个项目 = 一份文档」整理。</p>
-          <p class="mat-tips">切片 300-800 字 / 按章节拆分<br>标签：项目名、年份、资助方、领域</p>
+          <p class="mat-tips">按章节拆分 / 单片 800–1500 字<br>frontmatter：项目名、年份、资助方、可回答问题</p>
         </article>
         <article class="mat-card m2 reveal">
           <div class="mat-label">类型 B</div>
           <h3>PDF 报告与资助指南</h3>
           <p>基金会申请指南、行业报告、政策文件。PDF 转文本后清理乱码、修复表格。</p>
-          <p class="mat-tips">按章节自然分段 / 保留标题层级<br>标签：发布机构、年份、文档类型</p>
+          <p class="mat-tips">保留标题层级 / 表格转结构化文本<br>frontmatter：发布机构、年份、文档类型</p>
         </article>
         <article class="mat-card m3 reveal">
           <div class="mat-label">类型 C</div>
           <h3>案例与服务故事</h3>
           <p>传播稿、项目复盘、受益人故事（已脱敏）。统一格式：背景→干预→结果→反思。</p>
-          <p class="mat-tips">一个案例 = 一个切片 / 保持完整<br>标签：案例类型、领域、年份</p>
+          <p class="mat-tips">一个案例 = 一个完整条目<br>frontmatter：案例类型、领域、年份、隐私档位</p>
         </article>
       </div>
+      <p class="note reveal">
+        <strong>LLM-wiki 口径</strong>：一份可入库资料不是“原文件”，而是“frontmatter + 正文”的知识条目。frontmatter 说明来源、类型、密级和可回答问题，正文保留事实、数据、流程和案例。
+      </p>
     </section>
 
     <!-- ================= Tool Route ================= -->
@@ -784,19 +787,19 @@
       <div class="section-head">
         <div class="section-num reveal">工具落位</div>
         <h2 class="section-title reveal" id="tool-route-title">资料处理清楚后，再决定放进哪个工具</h2>
-        <p class="section-desc reveal">工具不是起点。只有资料已经分级、清洗、打好标签后，ima、WorkBuddy、腾讯元器和 Dify 的分工才会清楚。</p>
+        <p class="section-desc reveal">工具不是起点。只有资料已经分级、清洗、补好 frontmatter 后，知识库、工作台、腾讯元器和 Dify 的分工才会清楚。</p>
       </div>
       <div class="compliance-grid">
         <div class="tier-card t1 reveal">
           <div class="tier-badge">初阶个人层</div>
-          <h3>腾讯 ima 知识工作台</h3>
-          <p>快速收纳、阅读、问答、萃取微信文件、网页、PDF、图片和音频，把碎片资料先变成可问答素材。</p>
+          <h3>个人知识库</h3>
+          <p>快速收纳、阅读、问答、萃取微信文件、网页、PDF、图片和音频；示例工具包括 ima 等知识工作台。</p>
           <div class="tier-action">资料收纳与初步萃取</div>
         </div>
         <div class="tier-card t2 reveal">
           <div class="tier-badge">个人执行层</div>
-          <h3>WorkBuddy</h3>
-          <p>调用个人知识和第 1 课技能完成真实任务，适合草稿、个人辅助和 L3 内部资料。</p>
+          <h3>工作台</h3>
+          <p>调用个人知识和第 1 课技能完成真实任务，适合草稿、个人辅助和 L3 内部资料；示例工具包括 WorkBuddy 等。</p>
           <div class="tier-action">个人任务执行</div>
         </div>
         <div class="tier-card t3 reveal">
@@ -808,12 +811,12 @@
         <div class="tier-card t4 reveal">
           <div class="tier-badge">高阶理解</div>
           <h3>元器进阶 / Dify</h3>
-          <p>用来解释向量检索、全文检索、混合检索、rerank 和 metadata 过滤，不作为全员主线验收。</p>
+          <p>用来解释向量检索、全文检索、混合检索、rerank 和 frontmatter / metadata 过滤，不作为全员主线验收。</p>
           <div class="tier-action">RAG 训练场</div>
         </div>
       </div>
       <p class="note reveal">
-        <strong>课程口径</strong>：ima 解决个人资料先用起来，WorkBuddy 解决个人任务能跑通，腾讯元器解决组织项目助理能上线，Dify 解决高阶学员看清 RAG 原理。
+        <strong>课程口径</strong>：知识库解决资料能被检索和引用，工作台解决个人任务能跑通，腾讯元器解决组织项目助理能上线，Dify 解决高阶学员看清 RAG 原理。
       </p>
     </section>
 
@@ -845,7 +848,7 @@
         </article>
       </div>
       <p class="note reveal">
-        <strong>判断标准</strong>：不是哪个检索模式更高级，而是哪一种更容易把正确材料排到前面。缺资料、切片差、metadata 缺失时，换检索模式也救不了。
+        <strong>判断标准</strong>：不是哪个检索模式更高级，而是哪一种更容易把正确材料排到前面。缺资料、清洗差、切片差、frontmatter / metadata 缺失时，换检索模式也救不了。
       </p>
     </section>
 
@@ -877,7 +880,7 @@
             </div>
             <div class="diag-fix">
               <div class="diag-fix-icon">3</div>
-              <div>缺 metadata<span> → 补标签（年份、项目名、类型）</span></div>
+              <div>缺 frontmatter / metadata<span> → 补标题、类型、密级、问题</span></div>
             </div>
             <div class="diag-fix">
               <div class="diag-fix-icon">4</div>

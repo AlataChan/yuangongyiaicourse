@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>学员手册 · 知识库实战 | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="环境公益 AI 赋能实战营第 2 课学员手册：120 分钟知识库实战全流程，覆盖 ima + WorkBuddy、腾讯元器组织知识库、数据合规 4 档、检索模式和命中率诊断。">
+  <meta name="description" content="环境公益 AI 赋能实战营第 2 课学员手册：120 分钟知识库实战全流程，覆盖知识库 + 工作台、腾讯元器组织知识库、LLM-wiki 清洗、frontmatter、数据合规 4 档、检索模式和命中率诊断。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -813,7 +813,7 @@
         <a class="nav-link" href="#compliance">合规分级</a>
         <a class="nav-link" href="#file-types">资料处理</a>
         <a class="nav-link" href="#tool-route">工具落位</a>
-        <a class="nav-link" href="#workbuddy-steps">ima+WorkBuddy</a>
+        <a class="nav-link" href="#workbuddy-steps">知识库+工作台</a>
         <a class="nav-link" href="#diagnosis">命中率诊断</a>
         <a class="nav-cta" href="index.html">知识库概览</a>
       </nav>
@@ -837,12 +837,12 @@
       <h1 class="reveal" id="handbook-title">120 分钟，<br><span class="grad">把散乱资料变成技能的「弹药库」</span></h1>
       <p class="hero-lead reveal">
         这份手册是你参加第 2 课「知识库实战」的完整指南。你会看到为什么技能离不开知识库、如何按合规 4 档分级资料、
-        怎样用 ima + WorkBuddy 处理个人资料、怎样在腾讯元器上搭建组织层知识库、以及答不好时怎样用诊断树定位问题。
+        怎样用通用的“知识库 + 工作台”处理个人资料、怎样在腾讯元器上搭建组织层知识库、以及答不好时怎样用诊断树定位问题。
         手册里继续用「绿源环保公益中心」做全程示范——看看他们怎样从 127 份散落文档中，筛出 53 份有效资料上传。
       </p>
       <div class="hero-meta reveal">
         <span class="meta-chip"><span class="dot"></span>120 分钟</span>
-        <span class="meta-chip"><span class="dot"></span>ima + WorkBuddy</span>
+        <span class="meta-chip"><span class="dot"></span>知识库 + 工作台</span>
         <span class="meta-chip"><span class="dot"></span>腾讯元器组织知识库</span>
         <span class="meta-chip"><span class="dot"></span>数据合规 4 档详解</span>
         <span class="meta-chip"><span class="dot"></span>检索模式与命中率诊断</span>
@@ -877,14 +877,14 @@
       <div class="section-head">
         <div class="section-num reveal">学习路线</div>
         <h2 class="section-title reveal" id="learning-path-title">这节课按 7 步走，不从工具开始</h2>
-        <p class="section-desc reveal">如果一上来就讲 ima、元器、Dify，学员会以为是在做平台选择。正确顺序是：先明确项目助理要答什么，再判断资料能不能用，最后才决定放进哪个工具。</p>
+        <p class="section-desc reveal">如果一上来就讲具体产品，学员会以为是在做平台选择。正确顺序是：先明确项目助理要答什么，再判断资料能不能用，最后才决定放进知识库、工作台还是组织层工具。</p>
       </div>
       <div class="kb-grid">
         <article class="kb-card reveal"><div><span class="kb-rank">1</span></div><h3>看清关系</h3><p>技能负责怎么做，知识库负责有什么。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">2</span></div><h3>定范围</h3><p>选 1-2 个栏目，写 10 个测试问题。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">3</span></div><h3>过合规</h3><p>按 L1-L4 判断能不能上云。</p></article>
-        <article class="kb-card reveal"><div><span class="kb-rank">4</span></div><h3>整资料</h3><p>清洗、拆分、补 metadata。</p></article>
-        <article class="kb-card reveal"><div><span class="kb-rank">5</span></div><h3>放工具</h3><p>ima、WorkBuddy、元器、Dify 各司其职。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">4</span></div><h3>整资料</h3><p>清洗、拆分、补 frontmatter。</p></article>
+        <article class="kb-card reveal"><div><span class="kb-rank">5</span></div><h3>放工具</h3><p>知识库、工作台、元器、Dify 各司其职。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">6</span></div><h3>跑测试</h3><p>用 10 个真实问题测命中率。</p></article>
         <article class="kb-card reveal"><div><span class="kb-rank">7</span></div><h3>做诊断</h3><p>先看资料，再看检索，最后看生成。</p></article>
       </div>
@@ -1022,7 +1022,7 @@
         <!-- L3 内部 -->
         <div class="tier-card t3 reveal">
           <div class="tier-badge">⚠️ L3 内部</div>
-          <h3>仅 WorkBuddy 本地</h3>
+          <h3>仅个人工作台 / 本地知识库</h3>
           <ul class="tier-items">
             <li>内部会议纪要、周会记录</li>
             <li>未发布的项目计划和预算草案</li>
@@ -1031,7 +1031,7 @@
           <div class="tier-luyuan">
             <strong>绿源示例：</strong>内部周会纪要、下季度预算草案、新项目孵化讨论记录
           </div>
-          <div class="tier-action">仅 WorkBuddy 本地，不上云</div>
+          <div class="tier-action">仅个人工作台 / 本地知识库，不上云</div>
         </div>
 
         <!-- L4 敏感 -->
@@ -1061,7 +1061,7 @@
       <div class="section-head">
         <div class="section-num reveal">资料处理</div>
         <h2 class="section-title reveal" id="file-types-title">先把资料变干净，再谈上传工具</h2>
-        <p class="section-desc reveal">知识库质量很大程度取决于入库前处理。先把文件变成干净、可引用、可切片的文本，再谈 ima、WorkBuddy 和腾讯元器。</p>
+        <p class="section-desc reveal">知识库质量很大程度取决于入库前处理。先把文件清洗成可引用、可切片、带 frontmatter 的 LLM-wiki 条目，再谈知识库、工作台和腾讯元器。</p>
       </div>
       <div class="kb-grid">
         <article class="kb-card reveal">
@@ -1082,13 +1082,16 @@
         <article class="kb-card reveal">
           <div><span class="kb-rank">S</span><span class="kb-score">转讲稿</span></div>
           <h3>PPT / 图片</h3>
-          <p>PPT 转逐页要点；图片先 OCR 或用 ima 识别，关键信息补文字说明。</p>
+          <p>PPT 转逐页要点；图片先 OCR 或用识别工具转文本，关键信息补文字说明。</p>
         </article>
         <article class="kb-card reveal">
           <div><span class="kb-rank">A</span><span class="kb-score">先转写</span></div>
           <h3>音频 / 访谈</h3>
           <p>先转写，再脱敏，再按主题拆分。访谈对象姓名、电话、住址必须删除。</p>
         </article>
+      </div>
+      <div class="note reveal">
+        <strong>LLM-wiki 条目</strong>：入库资料建议变成“frontmatter + 正文”。frontmatter 写清 doc_title、doc_type、privacy_level、retrieval_hint、canonical_questions、summary；正文保留事实、数据、流程、案例和限制。清洗不是美化文字，而是让检索可控、来源可追溯、边界可审核。
       </div>
       <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q8">Q8</a></p>
     </section>
@@ -1098,27 +1101,27 @@
       <div class="section-head">
         <div class="section-num reveal">工具落位</div>
         <h2 class="section-title reveal" id="tool-route-title">资料处理清楚后，再决定放进哪个工具</h2>
-        <p class="section-desc reveal">工具不是并列选择题，而是分层使用。先把资料分级、清洗和打标签，再让不同工具各司其职。</p>
+        <p class="section-desc reveal">工具不是并列选择题，而是分层使用。先把资料分级、清洗和补 frontmatter，再让知识库、工作台和组织层工具各司其职。</p>
       </div>
 
       <div class="compliance-grid">
         <div class="tier-card t1 reveal">
           <div class="tier-badge">初阶个人层</div>
-          <h3>腾讯 ima 知识工作台</h3>
+          <h3>个人知识库</h3>
           <ul class="tier-items">
             <li>收纳微信文件、网页、PDF、图片、音频</li>
             <li>快速摘要、问答、萃取候选标签</li>
-            <li>判断哪些资料适合进组织知识库</li>
+            <li>示例工具包括 ima 等知识工作台</li>
           </ul>
           <div class="tier-action">先把资料用起来</div>
         </div>
         <div class="tier-card t2 reveal">
           <div class="tier-badge">个人执行层</div>
-          <h3>WorkBuddy</h3>
+          <h3>工作台</h3>
           <ul class="tier-items">
             <li>调用个人知识和第 1 课技能</li>
             <li>处理草稿、内部笔记、L3 资料</li>
-            <li>完成个人任务闭环</li>
+            <li>示例工具包括 WorkBuddy 等工作台</li>
           </ul>
           <div class="tier-action">跑真实任务</div>
         </div>
@@ -1145,17 +1148,17 @@
       </div>
 
       <div class="note reveal">
-        <strong>边界</strong>：腾讯元器是本期组织层主线；Dify 不替代元器，只作为高阶演示和可选自建路线。不要把第 2 课变成工具测评课，所有工具都服务于同一个目标：项目助理能不能答准。
+        <strong>边界</strong>：知识库负责资料可检索、可引用；工作台负责把知识带入具体任务；腾讯元器是本期组织层主线；Dify 不替代元器，只作为高阶演示和可选自建路线。不要把第 2 课变成工具测评课，所有工具都服务于同一个目标：项目助理能不能答准。
       </div>
       <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q5">Q5</a></p>
     </section>
 
-    <!-- ================= Section 7: ima + WorkBuddy Step-by-Step ================= -->
+    <!-- ================= Section 7: Knowledge Base + Workbench Step-by-Step ================= -->
     <section class="section" id="workbuddy-steps" aria-labelledby="wb-title">
       <div class="section-head">
-        <div class="section-num reveal">ima + WorkBuddy 个人层</div>
+        <div class="section-num reveal">知识库 + 工作台个人层</div>
         <h2 class="section-title reveal" id="wb-title">6 步把个人资料变成可调用知识</h2>
-        <p class="section-desc reveal">ima 负责收纳和初步萃取，WorkBuddy 负责调用知识跑任务。个人层先跑通，组织层才有干净资料可同步。</p>
+        <p class="section-desc reveal">个人知识库负责收纳和初步萃取，工作台负责调用知识跑任务。个人层先跑通，组织层才有干净资料可同步。</p>
       </div>
 
       <!-- Step 1 -->
@@ -1228,13 +1231,13 @@
         <div class="step-header">
           <div class="step-badge">
             <span class="step-num">4</span>
-            <span class="step-label">进 ima</span>
+            <span class="step-label">进知识库</span>
           </div>
           <div class="step-info">
-            <h3>导入 ima，做初步摘要和标签</h3>
-            <p>把 L1、L2 候选资料导入 ima，先让它回答“这份资料讲什么、能回答哪些问题、哪些内容需要脱敏、适合打什么标签”。</p>
+            <h3>导入个人知识库，做摘要、标签和 frontmatter</h3>
+            <p>把 L1、L2 候选资料导入个人知识库或 LLM 清洗工具，先让它回答“这份资料讲什么、能回答哪些问题、哪些内容需要脱敏、frontmatter 应该怎么写”。</p>
             <div class="step-luyuan">
-              <strong>绿源让 ima 先整理出 5 大栏目：</strong><br>
+              <strong>绿源先整理出 5 大栏目：</strong><br>
               <code style="display:block; padding: 12px 16px; background: var(--panel); border-radius: 8px; font-size: 0.86rem; margin-top: 8px; line-height: 1.8; border: 1px solid var(--line);">
                 /templates/communication/ &nbsp;← 沟通模板<br>
                 /guides/funding/ &nbsp;← 资助指南<br>
@@ -1253,11 +1256,11 @@
         <div class="step-header">
           <div class="step-badge">
             <span class="step-num">5</span>
-            <span class="step-label">入 WB</span>
+            <span class="step-label">进工作台</span>
           </div>
           <div class="step-info">
-            <h3>在 WorkBuddy 中调用个人知识</h3>
-            <p>按「年份/项目/类型」为资料添加 metadata，再用第 1 课技能跑一次真实任务，检查事实是否被正确引用。</p>
+            <h3>在工作台中调用个人知识</h3>
+            <p>按「年份/项目/类型/密级/可回答问题」为资料补齐 frontmatter / metadata，再用第 1 课技能跑一次真实任务，检查事实是否被正确引用。</p>
             <div class="step-luyuan">
               <strong>绿源跑了一次任务：</strong>用结项报告技能调用 53 份个人资料，生成报告初稿，并标出 6 个需补充来源的数据点。
             </div>
@@ -1293,7 +1296,7 @@
       <div class="section-head">
         <div class="section-num reveal">腾讯元器知识库同步</div>
         <h2 class="section-title reveal" id="yq-title">4 步同步到云端</h2>
-        <p class="section-desc reveal">WorkBuddy 本地知识库搭建好之后，把 L1 + 审核通过的 L2 资料同步到腾讯元器云端，让你的项目助理在任何设备上都能检索。</p>
+        <p class="section-desc reveal">个人知识库和工作台跑通之后，把 L1 + 审核通过的 L2 资料同步到腾讯元器云端，让你的项目助理在任何设备上都能检索。</p>
       </div>
 
       <!-- Yuanqi Step 1 -->
@@ -1395,7 +1398,7 @@
         </div>
       </div>
       <div class="note reveal">
-        <strong>混合检索</strong>：关键词和语义一起用，通常适合作为大多数公益知识库的默认高阶策略。知识库变大后，还要配合 metadata 过滤，例如先限定年份、项目、资助方、领域，再检索。
+        <strong>混合检索</strong>：关键词和语义一起用，通常适合作为大多数公益知识库的默认高阶策略。知识库变大后，还要配合 frontmatter / metadata 过滤，例如先限定年份、项目、资助方、领域，再检索。
       </div>
       <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q6">Q6</a></p>
     </section>
@@ -1429,7 +1432,7 @@
             </div>
             <div class="diag-fix">
               <div class="diag-fix-icon">3</div>
-              <div>没打 metadata？<span> → 补标签（年份、项目名、类型）</span></div>
+              <div>缺 frontmatter / metadata？<span> → 补标题、类型、密级、问题</span></div>
             </div>
             <div class="diag-fix">
               <div class="diag-fix-icon">4</div>
@@ -1469,7 +1472,7 @@
         <div class="diag-case-step">
           <div class="diag-case-num">3</div>
           <div>
-            <strong>修复：</strong>上传《2024年清河巡护项目结项报告》，打好 metadata 标签。
+            <strong>修复：</strong>上传《2024年清河巡护项目结项报告》，补好 frontmatter / metadata。
           </div>
         </div>
         <div class="diag-case-step">
@@ -1482,7 +1485,7 @@
       </div>
 
       <div class="note reveal">
-        <strong>口诀</strong>：先看资料，再看检索，最后看生成。多数时候补一份文档、拆细切片或补 metadata，就能明显提升命中率。
+        <strong>口诀</strong>：先看资料，再看检索，最后看生成。多数时候补一份文档、清洗正文、拆细切片或补 frontmatter / metadata，就能明显提升命中率。
       </div>
       <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q9">Q9</a></p>
     </section>
@@ -1499,7 +1502,7 @@
         <div class="hw-card l1 reveal">
           <h3>入门 L1 · 用起来</h3>
           <ul class="hw-list">
-            <li>WorkBuddy 本地知识库 ≥ 30 份文档</li>
+            <li>个人知识库 + 工作台 ≥ 30 份资料，其中 ≥10 份有 frontmatter</li>
             <li>云端（腾讯元器）≥ 10 份文档</li>
             <li>命中率 ≥ 60%（10 个问题答对 6 个）</li>
             <li>能回答基本项目问题</li>
@@ -1508,10 +1511,10 @@
         <div class="hw-card l2 reveal">
           <h3>进阶 L2 · 用得顺</h3>
           <ul class="hw-list">
-            <li>WorkBuddy 本地知识库 ≥ 80 份文档</li>
+            <li>个人知识库 + 工作台 ≥ 80 份资料，其中 ≥30 份有 frontmatter</li>
             <li>云端（腾讯元器）≥ 25 份文档</li>
             <li>命中率 ≥ 70%（10 个问题答对 7 个）</li>
-            <li>有完整 metadata + 诊断修复记录</li>
+            <li>有完整 frontmatter / metadata + 诊断修复记录</li>
           </ul>
         </div>
       </div>
