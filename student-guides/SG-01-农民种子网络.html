@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SG-01 · 农民种子网络 · Skill 构建指引 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="SG-01 · 农民种子网络 · Skill 构建指引 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../resources.html">资料中心</a>
+    <span aria-hidden="true">/</span>
+    <span>SG-01 · 农民种子网络 · Skill 构建指引</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>student-guides/SG-01-农民种子网络.md</span></div>
+      <h1 id="sg-01-·-农民种子网络-·-skill-构建指引">SG-01 · 农民种子网络 · Skill 构建指引</h1>
+<blockquote><p>张艳艳（北方区域办主任）&amp; 田秘林（云南区域办主任）| M2 · 案例与知识沉淀</p></blockquote>
+<hr>
+<h2 id="一、📋-助理画像">一、📋 助理画像</h2>
+<p><strong>一句话目标</strong>：自动追踪种子/农业政策与行业动态，辅助项目申请书和行动研究报告初稿撰写。</p>
+<table><thead><tr><th>维度</th><th>内容</th></tr></thead><tbody><tr><td>主模块</td><td>M2 案例与知识沉淀</td></tr><tr><td>谁来用</td><td>4 个区域办公室主任</td></tr><tr><td>输入什么</td><td>项目记录、行业政策动态、对标项目信息</td></tr><tr><td>输出什么</td><td>月度行业简报、项目调研报告初稿、宣传文案初稿</td></tr><tr><td>现有资料</td><td>2018 年以来 20 余项目，散落在坚果云和百度网盘</td></tr><tr><td>成功标准</td><td>简报 6h→2h；调研报告初稿 8h→3h；4 位区域负责人愿意持续使用</td></tr></tbody></table>
+<hr>
+<h2 id="二、📦-课前准备清单">二、📦 课前准备清单</h2>
+<blockquote><p>⏱ 预计 30 分钟 | 第 1 课前完成</p></blockquote>
+<ul><li><input type="checkbox" disabled> <strong>资料收集</strong>：从坚果云/百度网盘中找出以下 3-5 个项目资料，下载到电脑上</li><li>选材料最完整的项目（项目书 + 执行记录 + 结项报告 三件套齐全的优先）</li><li>不要选年代太久远的（2018-2019 年的格式可能变化大）</li><li><input type="checkbox" disabled> <strong>资料分类</strong>：在电脑上新建文件夹 <code>农民种子网络_项目资料/</code>，将资料按项目名称分子文件夹存放</li><li><input type="checkbox" disabled> <strong>工具确认</strong>：确认 QoderWork 已安装并可正常启动</li><li><input type="checkbox" disabled> <strong>准备一个种子/农业领域关键词清单</strong>（你日常工作搜索时用的 5-8 个词），写到便签备用</li></ul>
+<hr>
+<h2 id="三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</h2>
+<blockquote><p>第 2 课结束前必须跑通</p></blockquote>
+<p><strong>MVP 定义</strong>：一句话让 QoderWork 搜索本周种子/农业领域最新动态，输出一份 500 字简报。</p>
+<p><strong>为什么选这个</strong>：</p>
+<ul><li>最短链路（搜索→摘要→输出），不需要知识库</li><li>4 个区域主任都有用，验证价值快</li><li>成功后可以封装为定时自动化（参考卡丝基金会的日签自动化）</li></ul>
+<p><strong>跑通长这样</strong>：</p>
+<pre><code class="language-">你：请搜索最近一周中国种子/农业政策领域的最新动态（政策发布、行业会议、重要项目），
+    汇总成 500 字以内的简报，注明信息来源。
+
+QoderWork 输出：
+本周种子领域动态简报（2026.6.14-6.20）
+1. 农业农村部发布《XXX》通知……（来源：农业农村部官网）
+2. XX省种子管理站召开……（来源：XX日报）
+...</code></pre>
+<hr>
+<h2 id="四、🧩-skill-模板">四、🧩 Skill 模板</h2>
+<h3 id="skill-1行业搜索简报第-1-2-课">Skill 1：行业搜索简报（第 1-2 课）</h3>
+<pre><code class="language-">【Skill 名称】种子领域行业周报
+【触发方式】输入 &quot;本周种子简报&quot; 或 &quot;种子行业动态 [日期范围]&quot;
+【输入】日期范围 + 关键词清单（种子政策/生物多样性/农业新品种/社区种子银行）
+【处理逻辑】
+  1. 联网搜索指定关键词
+  2. 按&quot;政策发布 / 行业会议 / 重要项目 / 学术进展&quot;四类归纳
+  3. 每条约 80 字摘要 + 来源链接
+  4. 全篇不超过 800 字
+【输出格式】在线文档（便于 4 人共享）
+【质检标准】每条信息可溯源；政策文件名称原文引用、不自行改写</code></pre>
+<h3 id="skill-2项目调研报告助理第-3-5-课">Skill 2：项目调研报告助理（第 3-5 课）</h3>
+<pre><code class="language-">【Skill 名称】项目调研报告初稿
+【触发方式】输入 &quot;生成调研报告 [项目名称]&quot;
+【输入】
+  - 项目背景资料文件夹（项目书 + 执行记录 + 已有研究报告）
+  - 报告模板（结构要求：背景/方法/发现/建议）
+  - 字数要求
+【处理逻辑】
+  1. 读取文件夹中所有资料
+  2. 按模板结构提取关键信息填充
+  3. 数据/事实原样引用，不确定处标注 [待核实]
+【输出格式】可直接校订的文档初稿
+【质检标准】数据与原文一致；每个核心发现对应至少一条资料出处；标注了所有 [待核实] 项</code></pre>
+<h3 id="复制即用在-QoderWork-中粘贴">复制即用（在 QoderWork 中粘贴）</h3>
+<pre><code class="language-">你是一个专注于种子/农业领域的行业研究助手。请按以下规则工作：
+
+1. 当我输入&quot;本周种子简报&quot;，请搜索最近一周中国种子政策、生物多样性、
+   农业新品种、社区种子银行等相关动态。
+
+2. 输出格式：
+   - 按&quot;政策发布 / 行业会议 / 重要项目 / 学术进展&quot;四类归纳
+   - 每条约 80 字摘要，附来源链接
+   - 全篇不超过 800 字
+
+3. 政策文件名称原文引用，不自行改写。无法溯源的信息不纳入。
+
+现在请按此执行。</code></pre>
+<hr>
+<h2 id="五、🛠️-分课操作指引">五、🛠️ 分课操作指引</h2>
+<h3 id="第-1-课跑通首次搜索-→-获得第一份简报">第 1 课：跑通首次搜索 → 获得第一份简报</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 20 min | 📤 提交物：一份 AI 生成的行业简报 | ✅ 完成标志：简报内容可读、信息有来源</p></blockquote>
+<ol><li>打开 QoderWork，粘贴&quot;复制即用&quot;中的提示词</li><li>发送 <code>本周种子简报</code></li><li>检查输出：每条信息有来源吗？有不认识的政策文件名称吗？</li><li>标注不满意的地方（如&quot;XX 政策解读不准确&quot;）→ 告诉 QoderWork 修改</li><li><strong>课后</strong>：把简报分享到 4 区域主任群，收集反馈：&quot;这个有用吗？还缺什么？&quot;</li></ol>
+<h3 id="第-2-课封装-skill-→-定时自动化">第 2 课：封装 Skill → 定时自动化</h3>
+<blockquote><p>⏱ 课上 20 min + 课后 15 min | 📤 提交物：一个可运行的 Skill | ✅ 完成标志：输入触发词即可获得简报</p></blockquote>
+<ol><li>把第 1 课优化后的提示词封装为 Skill（QoderWork 自动化功能）</li><li>设定每日/每周自动触发时间（建议：每周一早 9 点）</li><li>输出到在线文档的指定文件夹</li><li><strong>课后</strong>：通知 4 位区域主任&quot;本周起简报自动生成，请查看 XX 在线文档&quot;</li></ol>
+<h3 id="第-3-课知识库搭建-→-项目资料收拢">第 3 课：知识库搭建 → 项目资料收拢</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 30 min | 📤 提交物：知识库中有 ≥10 个项目资料 | ✅ 完成标志：QoderWork 能搜索到知识库内容</p></blockquote>
+<ol><li>把 20 余项目资料统一放入一个文件夹</li><li>分批次（每次 3-5 个项目）让 QoderWork 读取→提取关键字段→归档</li><li>建立索引：按&quot;项目名称 / 年份 / 区域 / 主题&quot;命名</li><li>测试搜索：&quot;2022 年云南地区的项目有哪些？&quot;</li></ol>
+<h3 id="第-4-课文书生成-→-项目调研报告初稿">第 4 课：文书生成 → 项目调研报告初稿</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 25 min | 📤 提交物：一份调研报告初稿 | ✅ 完成标志：初稿结构完整，[待核实] 项不超过 5 处</p></blockquote>
+<ol><li>选一个资料最完整的项目</li><li>用 Skill 2 模板生成调研报告初稿</li><li>人工逐段校订：数据对吗？结论站得住吗？标注 [待核实] 的地方补全了吗？</li><li>发给同事审阅</li></ol>
+<h3 id="第-5-课成果预发布-→-双-skill-上线">第 5 课：成果预发布 → 双 Skill 上线</h3>
+<blockquote><p>⏱ 课上 20 min | 📤 提交物：面向 4 位区域主任的 Skill 使用说明 | ✅ 完成标志：至少 1 位主任完成了首次独立使用</p></blockquote>
+<ol><li>打包：行业简报 Skill + 调研报告 Skill 完成封装</li><li>每人发一份《AI 助理使用 1 页纸》（触发词 + 能做什么 + 注意事项）</li><li>演示：现场用&quot;本周种子简报&quot;触发一次，确认自动化运行正常</li></ol>
+<hr>
+<h2 id="六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</h2>
+<table><thead><tr><th>坑</th><th>自救方法</th></tr></thead><tbody><tr><td>搜索返回结果太少或太泛</td><td>缩小关键词范围（如&quot;种子法修订&quot;→&quot;种子法 2026 实施细则&quot;），加引号限定精确匹配</td></tr><tr><td>知识库搜索不准确</td><td>确保每个项目文件夹名包含&quot;年份-区域-主题&quot;三个要素，AI 靠文件名定位比靠内容快</td></tr><tr><td>4 个区域主任不用</td><td>先让一个人试用 1 周，收集&quot;确实帮我省了时间&quot;的具体证据，再推广</td></tr></tbody></table>
+<hr>
+<p><em>本指引对标的同行实践：冠军基金（自动化简报）、卡丝基金会（异构文档→数据库）、免午公益（渐进式投喂）</em></p>
+      <div class="source-path">Markdown 原文：<a href="SG-01-农民种子网络.md">student-guides/SG-01-农民种子网络.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="README.html"><span>上一份材料</span><strong>学员 Skill 构建指引 · 总索引</strong></a><a href="SG-02-珠水云山.html"><span>下一份材料</span><strong>SG-02 · 珠水云山 · Skill 构建指引</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SG-01-农民种子网络.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SG-01-农民种子网络.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#sg-01-·-农民种子网络-·-skill-构建指引">SG-01 · 农民种子网络 · Skill 构建指引</a>
+<a href="#一、📋-助理画像">一、📋 助理画像</a>
+<a href="#二、📦-课前准备清单">二、📦 课前准备清单</a>
+<a href="#三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</a>
+<a href="#四、🧩-skill-模板">四、🧩 Skill 模板</a>
+<a href="#skill-1行业搜索简报第-1-2-课">Skill 1：行业搜索简报（第 1-2 课）</a>
+<a href="#skill-2项目调研报告助理第-3-5-课">Skill 2：项目调研报告助理（第 3-5 课）</a>
+<a href="#复制即用在-QoderWork-中粘贴">复制即用（在 QoderWork 中粘贴）</a>
+<a href="#五、🛠️-分课操作指引">五、🛠️ 分课操作指引</a>
+<a href="#第-1-课跑通首次搜索-→-获得第一份简报">第 1 课：跑通首次搜索 → 获得第一份简报</a>
+<a href="#第-2-课封装-skill-→-定时自动化">第 2 课：封装 Skill → 定时自动化</a>
+<a href="#第-3-课知识库搭建-→-项目资料收拢">第 3 课：知识库搭建 → 项目资料收拢</a>
+<a href="#第-4-课文书生成-→-项目调研报告初稿">第 4 课：文书生成 → 项目调研报告初稿</a>
+<a href="#第-5-课成果预发布-→-双-skill-上线">第 5 课：成果预发布 → 双 Skill 上线</a>
+<a href="#六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# SG-01 · 农民种子网络 · Skill 构建指引\n\n> 张艳艳（北方区域办主任）& 田秘林（云南区域办主任）| M2 · 案例与知识沉淀\n\n---\n\n## 一、📋 助理画像\n\n**一句话目标**：自动追踪种子/农业政策与行业动态，辅助项目申请书和行动研究报告初稿撰写。\n\n| 维度 | 内容 |\n|------|------|\n| 主模块 | M2 案例与知识沉淀 |\n| 谁来用 | 4 个区域办公室主任 |\n| 输入什么 | 项目记录、行业政策动态、对标项目信息 |\n| 输出什么 | 月度行业简报、项目调研报告初稿、宣传文案初稿 |\n| 现有资料 | 2018 年以来 20 余项目，散落在坚果云和百度网盘 |\n| 成功标准 | 简报 6h→2h；调研报告初稿 8h→3h；4 位区域负责人愿意持续使用 |\n\n---\n\n## 二、📦 课前准备清单\n\n> ⏱ 预计 30 分钟 | 第 1 课前完成\n\n- [ ] **资料收集**：从坚果云/百度网盘中找出以下 3-5 个项目资料，下载到电脑上\n  - 选材料最完整的项目（项目书 + 执行记录 + 结项报告 三件套齐全的优先）\n  - 不要选年代太久远的（2018-2019 年的格式可能变化大）\n- [ ] **资料分类**：在电脑上新建文件夹 `农民种子网络_项目资料/`，将资料按项目名称分子文件夹存放\n- [ ] **工具确认**：确认 QoderWork 已安装并可正常启动\n- [ ] **准备一个种子/农业领域关键词清单**（你日常工作搜索时用的 5-8 个词），写到便签备用\n\n---\n\n## 三、🎯 最简闭环 MVP\n\n> 第 2 课结束前必须跑通\n\n**MVP 定义**：一句话让 QoderWork 搜索本周种子/农业领域最新动态，输出一份 500 字简报。\n\n**为什么选这个**：\n- 最短链路（搜索→摘要→输出），不需要知识库\n- 4 个区域主任都有用，验证价值快\n- 成功后可以封装为定时自动化（参考卡丝基金会的日签自动化）\n\n**跑通长这样**：\n```\n你：请搜索最近一周中国种子/农业政策领域的最新动态（政策发布、行业会议、重要项目），\n    汇总成 500 字以内的简报，注明信息来源。\n\nQoderWork 输出：\n本周种子领域动态简报（2026.6.14-6.20）\n1. 农业农村部发布《XXX》通知……（来源：农业农村部官网）\n2. XX省种子管理站召开……（来源：XX日报）\n...\n```\n\n---\n\n## 四、🧩 Skill 模板\n\n### Skill 1：行业搜索简报（第 1-2 课）\n\n```\n【Skill 名称】种子领域行业周报\n【触发方式】输入 \"本周种子简报\" 或 \"种子行业动态 [日期范围]\"\n【输入】日期范围 + 关键词清单（种子政策/生物多样性/农业新品种/社区种子银行）\n【处理逻辑】\n  1. 联网搜索指定关键词\n  2. 按\"政策发布 / 行业会议 / 重要项目 / 学术进展\"四类归纳\n  3. 每条约 80 字摘要 + 来源链接\n  4. 全篇不超过 800 字\n【输出格式】在线文档（便于 4 人共享）\n【质检标准】每条信息可溯源；政策文件名称原文引用、不自行改写\n```\n\n### Skill 2：项目调研报告助理（第 3-5 课）\n\n```\n【Skill 名称】项目调研报告初稿\n【触发方式】输入 \"生成调研报告 [项目名称]\"\n【输入】\n  - 项目背景资料文件夹（项目书 + 执行记录 + 已有研究报告）\n  - 报告模板（结构要求：背景/方法/发现/建议）\n  - 字数要求\n【处理逻辑】\n  1. 读取文件夹中所有资料\n  2. 按模板结构提取关键信息填充\n  3. 数据/事实原样引用，不确定处标注 [待核实]\n【输出格式】可直接校订的文档初稿\n【质检标准】数据与原文一致；每个核心发现对应至少一条资料出处；标注了所有 [待核实] 项\n```\n\n### 复制即用（在 QoderWork 中粘贴）\n\n```\n你是一个专注于种子/农业领域的行业研究助手。请按以下规则工作：\n\n1. 当我输入\"本周种子简报\"，请搜索最近一周中国种子政策、生物多样性、\n   农业新品种、社区种子银行等相关动态。\n\n2. 输出格式：\n   - 按\"政策发布 / 行业会议 / 重要项目 / 学术进展\"四类归纳\n   - 每条约 80 字摘要，附来源链接\n   - 全篇不超过 800 字\n\n3. 政策文件名称原文引用，不自行改写。无法溯源的信息不纳入。\n\n现在请按此执行。\n```\n\n---\n\n## 五、🛠️ 分课操作指引\n\n### 第 1 课：跑通首次搜索 → 获得第一份简报\n\n> ⏱ 课上 15 min + 课后 20 min | 📤 提交物：一份 AI 生成的行业简报 | ✅ 完成标志：简报内容可读、信息有来源\n\n1. 打开 QoderWork，粘贴\"复制即用\"中的提示词\n2. 发送 `本周种子简报`\n3. 检查输出：每条信息有来源吗？有不认识的政策文件名称吗？\n4. 标注不满意的地方（如\"XX 政策解读不准确\"）→ 告诉 QoderWork 修改\n5. **课后**：把简报分享到 4 区域主任群，收集反馈：\"这个有用吗？还缺什么？\"\n\n### 第 2 课：封装 Skill → 定时自动化\n\n> ⏱ 课上 20 min + 课后 15 min | 📤 提交物：一个可运行的 Skill | ✅ 完成标志：输入触发词即可获得简报\n\n1. 把第 1 课优化后的提示词封装为 Skill（QoderWork 自动化功能）\n2. 设定每日/每周自动触发时间（建议：每周一早 9 点）\n3. 输出到在线文档的指定文件夹\n4. **课后**：通知 4 位区域主任\"本周起简报自动生成，请查看 XX 在线文档\"\n\n### 第 3 课：知识库搭建 → 项目资料收拢\n\n> ⏱ 课上 15 min + 课后 30 min | 📤 提交物：知识库中有 ≥10 个项目资料 | ✅ 完成标志：QoderWork 能搜索到知识库内容\n\n1. 把 20 余项目资料统一放入一个文件夹\n2. 分批次（每次 3-5 个项目）让 QoderWork 读取→提取关键字段→归档\n3. 建立索引：按\"项目名称 / 年份 / 区域 / 主题\"命名\n4. 测试搜索：\"2022 年云南地区的项目有哪些？\"\n\n### 第 4 课：文书生成 → 项目调研报告初稿\n\n> ⏱ 课上 15 min + 课后 25 min | 📤 提交物：一份调研报告初稿 | ✅ 完成标志：初稿结构完整，[待核实] 项不超过 5 处\n\n1. 选一个资料最完整的项目\n2. 用 Skill 2 模板生成调研报告初稿\n3. 人工逐段校订：数据对吗？结论站得住吗？标注 [待核实] 的地方补全了吗？\n4. 发给同事审阅\n\n### 第 5 课：成果预发布 → 双 Skill 上线\n\n> ⏱ 课上 20 min | 📤 提交物：面向 4 位区域主任的 Skill 使用说明 | ✅ 完成标志：至少 1 位主任完成了首次独立使用\n\n1. 打包：行业简报 Skill + 调研报告 Skill 完成封装\n2. 每人发一份《AI 助理使用 1 页纸》（触发词 + 能做什么 + 注意事项）\n3. 演示：现场用\"本周种子简报\"触发一次，确认自动化运行正常\n\n---\n\n## 六、⚠️ 常见坑提醒\n\n| 坑 | 自救方法 |\n|----|---------|\n| 搜索返回结果太少或太泛 | 缩小关键词范围（如\"种子法修订\"→\"种子法 2026 实施细则\"），加引号限定精确匹配 |\n| 知识库搜索不准确 | 确保每个项目文件夹名包含\"年份-区域-主题\"三个要素，AI 靠文件名定位比靠内容快 |\n| 4 个区域主任不用 | 先让一个人试用 1 周，收集\"确实帮我省了时间\"的具体证据，再推广 |\n\n---\n\n*本指引对标的同行实践：冠军基金（自动化简报）、卡丝基金会（异构文档→数据库）、免午公益（渐进式投喂）*\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

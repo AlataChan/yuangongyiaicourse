@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SG-06 · 武汉青耘 · Skill 构建指引 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="SG-06 · 武汉青耘 · Skill 构建指引 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../resources.html">资料中心</a>
+    <span aria-hidden="true">/</span>
+    <span>SG-06 · 武汉青耘 · Skill 构建指引</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>student-guides/SG-06-武汉青耘.md</span></div>
+      <h1 id="sg-06-·-武汉青耘-·-skill-构建指引">SG-06 · 武汉青耘 · Skill 构建指引</h1>
+<blockquote><p>周丽（理事长）| M2+M3 · 碎片化整理 | ⚠️ 需求最多元，必先收敛</p></blockquote>
+<hr>
+<h2 id="一、📋-助理画像">一、📋 助理画像</h2>
+<p><strong>一句话目标</strong>：核心不是&quot;做很多事&quot;，而是&quot;先把散落资料整理成可用的体系&quot;。</p>
+<table><thead><tr><th>维度</th><th>内容</th></tr></thead><tbody><tr><td>主模块</td><td>M2 案例与知识沉淀 + M3 传播与运营</td></tr><tr><td>谁来用</td><td>项目负责人、项目主管、实习生</td></tr><tr><td>输入什么</td><td>方案/反馈/影像/总结/传播等散落文件</td></tr><tr><td>输出什么</td><td>按五分类整理的项目库、年终总结、公众号草稿等</td></tr><tr><td>现有资料</td><td>约 40 份项目资料，全在个人电脑和移动硬盘</td></tr><tr><td>成功标准</td><td>1 个项目按五分类整理完毕；真实减少项目主管重复劳动</td></tr></tbody></table>
+<hr>
+<h2 id="二、📦-课前准备清单">二、📦 课前准备清单</h2>
+<blockquote><p>⏱ 预计 35 分钟 | 第 1 课前完成。⚠️ <strong>先备份！先备份！先备份！</strong></p></blockquote>
+<ul><li><input type="checkbox" disabled> <strong>备份</strong>：把所有个人电脑上的项目资料复制一份到移动硬盘或企业网盘</li><li><input type="checkbox" disabled> <strong>选 1 个测试项目</strong>：选一个资料内容最多的已完成项目。后续 5 节课只围绕这一个项目跑通全流程</li><li><input type="checkbox" disabled> <strong>把这个测试项目的所有文件都找到</strong>：方案、反馈、影像、活动总结、传播链接——不管散落在哪里，全部放在同一个文件夹 <code>武汉青耘_测试项目/</code></li><li><input type="checkbox" disabled> <strong>工具确认</strong>：QoderWork 已安装；个人电脑有足够磁盘空间</li><li><input type="checkbox" disabled> <strong>写一张便签</strong>：列出你理想中&quot;项目库&quot;的五个分类名称（如方案/反馈/影像/总结/传播），这是 AI 分类的依据</li></ul>
+<hr>
+<h2 id="三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</h2>
+<blockquote><p>第 2 课结束前必须跑通。⚠️ 只做一个任务，其余后置。</p></blockquote>
+<p><strong>MVP 定义</strong>：把 1 个项目的所有文件放进文件夹 → QoderWork 按五分类自动重命名+归档 → 生成目录索引。</p>
+<p><strong>为什么选这个、不选其他的</strong>：</p>
+<ul><li>这是你自己写的唯一量化成功标准：&quot;1 个项目按方案/反馈/影像/总结/传播分类一遍&quot;</li><li>资料整理是所有后续功能（年终总结、公众号、志愿者库）的前提</li><li>这个跑通了，后续所有的&quot;生成&quot;才有地基</li></ul>
+<p><strong>跑通长这样</strong>：</p>
+<pre><code class="language-">输入：文件夹中有 20+ 个乱序文件（.docx, .jpg, .xlsx, .mp4, .pdf...）
+QoderWork 执行：
+  1. 读取每个文件的内容（非纯靠文件名）
+  2. 判断属于哪个分类（方案/反馈/影像/总结/传播）
+  3. 重命名为 &quot;[项目名]_[分类]_[日期]_[原标题]&quot;
+  4. 按分类移动到对应子文件夹
+  5. 生成一个目录索引文档，列出所有文件及其分类</code></pre>
+<hr>
+<h2 id="四、🧩-skill-模板">四、🧩 Skill 模板</h2>
+<h3 id="skill-1项目库五分类归档第-1-2-课必做">Skill 1：项目库五分类归档（第 1-2 课，必做）</h3>
+<pre><code class="language-">【Skill 名称】项目资料五分类归档
+【触发方式】输入 &quot;整理项目 [文件夹路径]&quot;
+【输入】一个含该项目所有散落文件的文件夹
+【处理逻辑】
+  1. 逐个读取文件内容和文件名
+  2. 按以下分类规则判断归属：
+     - 方案类：项目计划书、活动方案、预算表、申报材料
+     - 反馈类：参与者问卷、甲方/资方反馈、评估报告
+     - 影像类：照片、视频、截图、海报
+     - 总结类：活动总结、结项报告、复盘记录
+     - 传播类：公众号链接、新闻稿、朋友圈文案
+  3. 重命名模板：[项目名]_[分类]_[日期]_[原文件名保留关键信息]
+  4. 创建五个子文件夹，移动文件
+  5. 生成索引目录
+【输出格式】五个子文件夹 + 一份目录索引文档
+【质检标准】每个文件分类正确；原文件内容无损；索引可点击/可搜索</code></pre>
+<h3 id="skill-2年终总结生成第-3-课分类完成后自然产生">Skill 2：年终总结生成（第 3 课，分类完成后自然产生）</h3>
+<pre><code class="language-">【Skill 名称】年终项目总结
+【触发方式】输入 &quot;生成年度总结 [年份]&quot;
+【输入】该年所有已整理项目文件夹
+【处理逻辑】读取全年各项目总结→按&quot;核心成就/关键挑战/经验教训/明年计划&quot;汇总
+【质检标准】每个项目至少 1 个量化产出；总结不重复、不遗漏</code></pre>
+<h3 id="复制即用">复制即用</h3>
+<pre><code class="language-">你是一个项目资料整理助手。请按以下规则工作：
+
+1. 当我输入&quot;整理项目 [文件夹路径]&quot;，请逐一读取该文件夹中每个文件的内容和文件名。
+
+2. 按以下五个分类判断每个文件的归属：
+   - 方案类：项目计划书、活动方案、预算表、申报材料
+   - 反馈类：参与者问卷、甲方/资方反馈、评估报告
+   - 影像类：照片、视频、截图、海报
+   - 总结类：活动总结、结项报告、复盘记录
+   - 传播类：公众号链接、新闻稿、朋友圈文案
+
+3. 判断规则：
+   - 优先根据文件内容判断（而非仅靠文件名）
+   - 如果一个文件同时符合多个分类，选最核心的那个
+   - 无法判断的单独放入&quot;待分类&quot;文件夹并标注原因
+
+4. 重命名格式：[项目名]_[分类]_[日期]_[原标题核心信息]
+
+5. 最后生成一个索引文档，列出所有文件的分类、路径和一句话摘要。
+
+现在请开始执行。</code></pre>
+<hr>
+<h2 id="五、🛠️-分课操作指引">五、🛠️ 分课操作指引</h2>
+<h3 id="第-1-课验证分类规则-→-跑通一个项目">第 1 课：验证分类规则 → 跑通一个项目</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 20 min | 📤 提交物：一个测试项目的分类结果 | ✅ 完成标志：所有文件分类正确率 ≥80%</p></blockquote>
+<ol><li>把课前准备的测试项目文件夹路径告诉 QoderWork</li><li>粘贴&quot;复制即用&quot;提示词 → 输入：<code>整理项目 [文件夹路径]</code></li><li>QoderWork 开始读取→分类→重命名→生成索引</li><li>人工检查每一个分类是否正确（这是最关键的一步）</li><li>如果某个文件分错了，告诉 QoderWork 原因 → 让它调整分类规则</li></ol>
+<h3 id="第-2-课封装-skill-+-扩展到全部项目">第 2 课：封装 Skill + 扩展到全部项目</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 25 min | 📤 提交物：五分类归档 Skill + ≥10 个项目库 | ✅ 完成标志：输入触发词可整理任意项目文件夹</p></blockquote>
+<ol><li>封装 Skill，命名为&quot;青耘项目库整理&quot;</li><li>用第二个项目测试</li><li>把其余项目分批整理（每次 2-3 个，不要一次性全扔进去）</li><li>准备一份&quot;青耘 AI 助理使用 1 页纸&quot;给同事</li></ol>
+<h3 id="第-3-课年终总结-+-公众号草稿">第 3 课：年终总结 + 公众号草稿</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 20 min | 📤 提交物：一份年终总结初稿 + 一篇公众号草稿 | ✅ 完成标志：总结涵盖了所有已整理项目</p></blockquote>
+<ol><li>项目库整理完成后，用 Skill 2 生成年度总结</li><li>选一个有传播价值的项目 → 输入关键信息 → 生成公众号草稿（内容优先，排版后调）</li><li>对比：你手工写一份年终总结需要多久？</li></ol>
+<h3 id="第-4-课志愿者库-+-甲方产品库按精力扩展">第 4 课：志愿者库 + 甲方产品库（按精力扩展）</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 20 min | 📤 提交物：志愿者库整理方案或产品展示页 | ✅ 完成标志：至少启动一个辅助 Skill</p></blockquote>
+<ol><li><strong>志愿者库</strong>：让 QoderWork 整理群聊中的志愿者信息，提取&quot;姓名/技能/参与项目/活跃度&quot;</li><li><strong>甲方产品库</strong>：挑选 3-5 个最有代表性的项目，生成展示页面</li></ol>
+<h3 id="第-5-课成果预发布">第 5 课：成果预发布</h3>
+<blockquote><p>⏱ 课上 15 min | 📤 提交物：面向同事的使用图文指南 | ✅ 完成标志：项目主管独立使用了 1 次</p></blockquote>
+<ol><li>演示&quot;青耘项目库整理&quot;Skill 的完整操作</li><li>展示一个项目从&quot;乱序文件&quot;到&quot;五分类归档&quot;的全过程</li><li>收集同事反馈：最容易上手的功能是什么？最想加的功能是什么？</li></ol>
+<hr>
+<h2 id="六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</h2>
+<table><thead><tr><th>坑</th><th>自救方法</th></tr></thead><tbody><tr><td>40 份资料一次喂进去 AI 搞乱</td><td>分批次处理：每个项目单独整理，一次不超过 2 个项目</td></tr><tr><td>文件分类总出错（影像类被分到总结类）</td><td>检查文件格式：.jpg/.mp4 强制归影像；.docx 才看内容判断</td></tr><tr><td>忍不住想同时做 7 个功能</td><td><strong>强制收敛</strong>：第 1-3 课只做分类归档，其余功能放在第 4 课再评估；完成一个再开工下一个</td></tr><tr><td>资料在个人硬盘，没有备份</td><td>⚠️ 第 0 步一定是备份。AI 操作文件前，确保原始文件已有完整副本</td></tr></tbody></table>
+<hr>
+<p><em>本指引对标的同行实践：太原青志协（10 万+ 文件智能重命名+分类归档）、爱心达人（API 数据看板+多任务并行）、河流守望者（7 步 SOP 拆解→标准化封装）</em></p>
+      <div class="source-path">Markdown 原文：<a href="SG-06-武汉青耘.md">student-guides/SG-06-武汉青耘.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="SG-05-雪境.html"><span>上一份材料</span><strong>SG-05 · 雪境 · Skill 构建指引</strong></a><a href="SG-07-云山保护.html"><span>下一份材料</span><strong>SG-07 · 云山保护 · Skill 构建指引</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SG-06-武汉青耘.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SG-06-武汉青耘.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#sg-06-·-武汉青耘-·-skill-构建指引">SG-06 · 武汉青耘 · Skill 构建指引</a>
+<a href="#一、📋-助理画像">一、📋 助理画像</a>
+<a href="#二、📦-课前准备清单">二、📦 课前准备清单</a>
+<a href="#三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</a>
+<a href="#四、🧩-skill-模板">四、🧩 Skill 模板</a>
+<a href="#skill-1项目库五分类归档第-1-2-课必做">Skill 1：项目库五分类归档（第 1-2 课，必做）</a>
+<a href="#skill-2年终总结生成第-3-课分类完成后自然产生">Skill 2：年终总结生成（第 3 课，分类完成后自然产生）</a>
+<a href="#复制即用">复制即用</a>
+<a href="#五、🛠️-分课操作指引">五、🛠️ 分课操作指引</a>
+<a href="#第-1-课验证分类规则-→-跑通一个项目">第 1 课：验证分类规则 → 跑通一个项目</a>
+<a href="#第-2-课封装-skill-+-扩展到全部项目">第 2 课：封装 Skill + 扩展到全部项目</a>
+<a href="#第-3-课年终总结-+-公众号草稿">第 3 课：年终总结 + 公众号草稿</a>
+<a href="#第-4-课志愿者库-+-甲方产品库按精力扩展">第 4 课：志愿者库 + 甲方产品库（按精力扩展）</a>
+<a href="#第-5-课成果预发布">第 5 课：成果预发布</a>
+<a href="#六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# SG-06 · 武汉青耘 · Skill 构建指引\n\n> 周丽（理事长）| M2+M3 · 碎片化整理 | ⚠️ 需求最多元，必先收敛\n\n---\n\n## 一、📋 助理画像\n\n**一句话目标**：核心不是\"做很多事\"，而是\"先把散落资料整理成可用的体系\"。\n\n| 维度 | 内容 |\n|------|------|\n| 主模块 | M2 案例与知识沉淀 + M3 传播与运营 |\n| 谁来用 | 项目负责人、项目主管、实习生 |\n| 输入什么 | 方案/反馈/影像/总结/传播等散落文件 |\n| 输出什么 | 按五分类整理的项目库、年终总结、公众号草稿等 |\n| 现有资料 | 约 40 份项目资料，全在个人电脑和移动硬盘 |\n| 成功标准 | 1 个项目按五分类整理完毕；真实减少项目主管重复劳动 |\n\n---\n\n## 二、📦 课前准备清单\n\n> ⏱ 预计 35 分钟 | 第 1 课前完成。⚠️ **先备份！先备份！先备份！**\n\n- [ ] **备份**：把所有个人电脑上的项目资料复制一份到移动硬盘或企业网盘\n- [ ] **选 1 个测试项目**：选一个资料内容最多的已完成项目。后续 5 节课只围绕这一个项目跑通全流程\n- [ ] **把这个测试项目的所有文件都找到**：方案、反馈、影像、活动总结、传播链接——不管散落在哪里，全部放在同一个文件夹 `武汉青耘_测试项目/`\n- [ ] **工具确认**：QoderWork 已安装；个人电脑有足够磁盘空间\n- [ ] **写一张便签**：列出你理想中\"项目库\"的五个分类名称（如方案/反馈/影像/总结/传播），这是 AI 分类的依据\n\n---\n\n## 三、🎯 最简闭环 MVP\n\n> 第 2 课结束前必须跑通。⚠️ 只做一个任务，其余后置。\n\n**MVP 定义**：把 1 个项目的所有文件放进文件夹 → QoderWork 按五分类自动重命名+归档 → 生成目录索引。\n\n**为什么选这个、不选其他的**：\n- 这是你自己写的唯一量化成功标准：\"1 个项目按方案/反馈/影像/总结/传播分类一遍\"\n- 资料整理是所有后续功能（年终总结、公众号、志愿者库）的前提\n- 这个跑通了，后续所有的\"生成\"才有地基\n\n**跑通长这样**：\n```\n输入：文件夹中有 20+ 个乱序文件（.docx, .jpg, .xlsx, .mp4, .pdf...）\nQoderWork 执行：\n  1. 读取每个文件的内容（非纯靠文件名）\n  2. 判断属于哪个分类（方案/反馈/影像/总结/传播）\n  3. 重命名为 \"[项目名]_[分类]_[日期]_[原标题]\"\n  4. 按分类移动到对应子文件夹\n  5. 生成一个目录索引文档，列出所有文件及其分类\n```\n\n---\n\n## 四、🧩 Skill 模板\n\n### Skill 1：项目库五分类归档（第 1-2 课，必做）\n\n```\n【Skill 名称】项目资料五分类归档\n【触发方式】输入 \"整理项目 [文件夹路径]\"\n【输入】一个含该项目所有散落文件的文件夹\n【处理逻辑】\n  1. 逐个读取文件内容和文件名\n  2. 按以下分类规则判断归属：\n     - 方案类：项目计划书、活动方案、预算表、申报材料\n     - 反馈类：参与者问卷、甲方/资方反馈、评估报告\n     - 影像类：照片、视频、截图、海报\n     - 总结类：活动总结、结项报告、复盘记录\n     - 传播类：公众号链接、新闻稿、朋友圈文案\n  3. 重命名模板：[项目名]_[分类]_[日期]_[原文件名保留关键信息]\n  4. 创建五个子文件夹，移动文件\n  5. 生成索引目录\n【输出格式】五个子文件夹 + 一份目录索引文档\n【质检标准】每个文件分类正确；原文件内容无损；索引可点击/可搜索\n```\n\n### Skill 2：年终总结生成（第 3 课，分类完成后自然产生）\n\n```\n【Skill 名称】年终项目总结\n【触发方式】输入 \"生成年度总结 [年份]\"\n【输入】该年所有已整理项目文件夹\n【处理逻辑】读取全年各项目总结→按\"核心成就/关键挑战/经验教训/明年计划\"汇总\n【质检标准】每个项目至少 1 个量化产出；总结不重复、不遗漏\n```\n\n### 复制即用\n\n```\n你是一个项目资料整理助手。请按以下规则工作：\n\n1. 当我输入\"整理项目 [文件夹路径]\"，请逐一读取该文件夹中每个文件的内容和文件名。\n\n2. 按以下五个分类判断每个文件的归属：\n   - 方案类：项目计划书、活动方案、预算表、申报材料\n   - 反馈类：参与者问卷、甲方/资方反馈、评估报告\n   - 影像类：照片、视频、截图、海报\n   - 总结类：活动总结、结项报告、复盘记录\n   - 传播类：公众号链接、新闻稿、朋友圈文案\n\n3. 判断规则：\n   - 优先根据文件内容判断（而非仅靠文件名）\n   - 如果一个文件同时符合多个分类，选最核心的那个\n   - 无法判断的单独放入\"待分类\"文件夹并标注原因\n\n4. 重命名格式：[项目名]_[分类]_[日期]_[原标题核心信息]\n\n5. 最后生成一个索引文档，列出所有文件的分类、路径和一句话摘要。\n\n现在请开始执行。\n```\n\n---\n\n## 五、🛠️ 分课操作指引\n\n### 第 1 课：验证分类规则 → 跑通一个项目\n\n> ⏱ 课上 15 min + 课后 20 min | 📤 提交物：一个测试项目的分类结果 | ✅ 完成标志：所有文件分类正确率 ≥80%\n\n1. 把课前准备的测试项目文件夹路径告诉 QoderWork\n2. 粘贴\"复制即用\"提示词 → 输入：`整理项目 [文件夹路径]`\n3. QoderWork 开始读取→分类→重命名→生成索引\n4. 人工检查每一个分类是否正确（这是最关键的一步）\n5. 如果某个文件分错了，告诉 QoderWork 原因 → 让它调整分类规则\n\n### 第 2 课：封装 Skill + 扩展到全部项目\n\n> ⏱ 课上 15 min + 课后 25 min | 📤 提交物：五分类归档 Skill + ≥10 个项目库 | ✅ 完成标志：输入触发词可整理任意项目文件夹\n\n1. 封装 Skill，命名为\"青耘项目库整理\"\n2. 用第二个项目测试\n3. 把其余项目分批整理（每次 2-3 个，不要一次性全扔进去）\n4. 准备一份\"青耘 AI 助理使用 1 页纸\"给同事\n\n### 第 3 课：年终总结 + 公众号草稿\n\n> ⏱ 课上 15 min + 课后 20 min | 📤 提交物：一份年终总结初稿 + 一篇公众号草稿 | ✅ 完成标志：总结涵盖了所有已整理项目\n\n1. 项目库整理完成后，用 Skill 2 生成年度总结\n2. 选一个有传播价值的项目 → 输入关键信息 → 生成公众号草稿（内容优先，排版后调）\n3. 对比：你手工写一份年终总结需要多久？\n\n### 第 4 课：志愿者库 + 甲方产品库（按精力扩展）\n\n> ⏱ 课上 15 min + 课后 20 min | 📤 提交物：志愿者库整理方案或产品展示页 | ✅ 完成标志：至少启动一个辅助 Skill\n\n1. **志愿者库**：让 QoderWork 整理群聊中的志愿者信息，提取\"姓名/技能/参与项目/活跃度\"\n2. **甲方产品库**：挑选 3-5 个最有代表性的项目，生成展示页面\n\n### 第 5 课：成果预发布\n\n> ⏱ 课上 15 min | 📤 提交物：面向同事的使用图文指南 | ✅ 完成标志：项目主管独立使用了 1 次\n\n1. 演示\"青耘项目库整理\"Skill 的完整操作\n2. 展示一个项目从\"乱序文件\"到\"五分类归档\"的全过程\n3. 收集同事反馈：最容易上手的功能是什么？最想加的功能是什么？\n\n---\n\n## 六、⚠️ 常见坑提醒\n\n| 坑 | 自救方法 |\n|----|---------|\n| 40 份资料一次喂进去 AI 搞乱 | 分批次处理：每个项目单独整理，一次不超过 2 个项目 |\n| 文件分类总出错（影像类被分到总结类） | 检查文件格式：.jpg/.mp4 强制归影像；.docx 才看内容判断 |\n| 忍不住想同时做 7 个功能 | **强制收敛**：第 1-3 课只做分类归档，其余功能放在第 4 课再评估；完成一个再开工下一个 |\n| 资料在个人硬盘，没有备份 | ⚠️ 第 0 步一定是备份。AI 操作文件前，确保原始文件已有完整副本 |\n\n---\n\n*本指引对标的同行实践：太原青志协（10 万+ 文件智能重命名+分类归档）、爱心达人（API 数据看板+多任务并行）、河流守望者（7 步 SOP 拆解→标准化封装）*\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

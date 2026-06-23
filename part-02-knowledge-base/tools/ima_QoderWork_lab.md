@@ -1,8 +1,8 @@
 # 知识库 + 工作台知识工作流练习
 
-> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益"新"力量/course/part-02-knowledge-base/tools/ima_workbuddy_lab.md`
+> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益"新"力量/course/part-02-knowledge-base/tools/ima_QoderWork_lab.md`
 >
-> 用途：第 2 课初阶练习。目标不是精通某个产品，而是理解“知识库负责资料可检索，工作台负责把知识用于任务”。示例工具可以是 ima、WorkBuddy、元器应用、Dify 应用或机构已有工作台。
+> 用途：第 2 课初阶练习。目标不是精通某个产品，而是理解“知识库负责资料可检索，工作台负责把知识用于任务”。示例工具可以是 ima、QoderWork、元器应用、Dify 应用或机构已有工作台。
 
 ## 适用范围
 

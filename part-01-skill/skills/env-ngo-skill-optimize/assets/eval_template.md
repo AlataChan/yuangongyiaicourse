@@ -2,13 +2,13 @@
 
 > 文件路径：`course/part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md`
 >
-> 用法：替换尖括号内容，在 WorkBuddy / 腾讯元器调试窗逐条试跑，记录通过/失败。失败用例是优化的唯一可靠依据。
+> 用法：替换尖括号内容，在 QoderWork / 腾讯元器调试窗逐条试跑，记录通过/失败。失败用例是优化的唯一可靠依据。
 
 ## 被测技能
 
 - 技能名：`<技能 slug>`
 - 版本/日期：`<v0.x / 2026-MM-DD>`
-- 测试平台：`<WorkBuddy / 元器调试窗>`
+- 测试平台：`<QoderWork / 元器调试窗>`
 
 ## 用例表
 

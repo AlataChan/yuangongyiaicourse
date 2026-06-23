@@ -306,9 +306,9 @@ a { color: inherit; }
     <article class="doc">
       <div class="doc-kicker"><span class="doc-type">样板素材</span><span>part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md</span></div>
       <h1 id="评测用例表模板三类-×-各-2-条起步">评测用例表模板（三类 × 各 2 条起步）</h1>
-<blockquote><p>文件路径：<code>course/part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md</code></p><p></p><p>用法：替换尖括号内容，在 WorkBuddy / 腾讯元器调试窗逐条试跑，记录通过/失败。失败用例是优化的唯一可靠依据。</p></blockquote>
+<blockquote><p>文件路径：<code>course/part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md</code></p><p></p><p>用法：替换尖括号内容，在 QoderWork / 腾讯元器调试窗逐条试跑，记录通过/失败。失败用例是优化的唯一可靠依据。</p></blockquote>
 <h2 id="被测技能">被测技能</h2>
-<ul><li>技能名：<code>&lt;技能 slug&gt;</code></li><li>版本/日期：<code>&lt;v0.x / 2026-MM-DD&gt;</code></li><li>测试平台：<code>&lt;WorkBuddy / 元器调试窗&gt;</code></li></ul>
+<ul><li>技能名：<code>&lt;技能 slug&gt;</code></li><li>版本/日期：<code>&lt;v0.x / 2026-MM-DD&gt;</code></li><li>测试平台：<code>&lt;QoderWork / 元器调试窗&gt;</code></li></ul>
 <h2 id="用例表">用例表</h2>
 <table><thead><tr><th>ID</th><th>类型</th><th>用户原话（照抄真实说法）</th><th>期望表现</th><th>实际表现</th><th>通过？</th></tr></thead><tbody><tr><td>L1</td><td>加载</td><td><code>&lt;典型触发请求，含真实输入特征&gt;</code></td><td>加载技能，输出符合契约</td><td></td><td>☐</td></tr><tr><td>L2</td><td>加载</td><td><code>&lt;换一种说法的触发请求&gt;</code></td><td>同上</td><td></td><td>☐</td></tr><tr><td>B1</td><td>禁用</td><td><code>&lt;相邻易混任务，如传播稿&gt;</code></td><td><strong>不</strong>加载本技能</td><td></td><td>☐</td></tr><tr><td>B2</td><td>禁用</td><td><code>&lt;另一相邻技能的任务&gt;</code></td><td>加载<strong>那个</strong>技能，不是本技能</td><td></td><td>☐</td></tr><tr><td>M1</td><td>缺数据</td><td><code>&lt;只给一半输入，要完整输出&gt;</code></td><td>列缺失项，不编造</td><td></td><td>☐</td></tr><tr><td>M2</td><td>合规</td><td><code>&lt;要求输出受益人姓名/电话&gt;</code></td><td>自动脱敏或拒绝</td><td></td><td>☐</td></tr></tbody></table>
 <h2 id="记录约定">记录约定</h2>
@@ -338,7 +338,7 @@ a { color: inherit; }
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# 评测用例表模板（三类 × 各 2 条起步）\n\n> 文件路径：`course/part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md`\n>\n> 用法：替换尖括号内容，在 WorkBuddy / 腾讯元器调试窗逐条试跑，记录通过/失败。失败用例是优化的唯一可靠依据。\n\n## 被测技能\n\n- 技能名：`\u003c技能 slug>`\n- 版本/日期：`\u003cv0.x / 2026-MM-DD>`\n- 测试平台：`\u003cWorkBuddy / 元器调试窗>`\n\n## 用例表\n\n| ID | 类型 | 用户原话（照抄真实说法） | 期望表现 | 实际表现 | 通过？ |\n|----|------|--------------------------|---------|---------|--------|\n| L1 | 加载 | `\u003c典型触发请求，含真实输入特征>` | 加载技能，输出符合契约 | | ☐ |\n| L2 | 加载 | `\u003c换一种说法的触发请求>` | 同上 | | ☐ |\n| B1 | 禁用 | `\u003c相邻易混任务，如传播稿>` | **不**加载本技能 | | ☐ |\n| B2 | 禁用 | `\u003c另一相邻技能的任务>` | 加载**那个**技能，不是本技能 | | ☐ |\n| M1 | 缺数据 | `\u003c只给一半输入，要完整输出>` | 列缺失项，不编造 | | ☐ |\n| M2 | 合规 | `\u003c要求输出受益人姓名/电话>` | 自动脱敏或拒绝 | | ☐ |\n\n## 记录约定\n\n- 「实际表现」抄关键证据（输出了哪段、用了哪个模板），不写「差不多」。\n- 一条失败 → 在迭代记录卡里登记，对应**一处**最小修改；改完整表重跑。\n- 用例随技能一起存放在技能文件夹内，第 4 课补第二技能时加 2 条「双技能路由不冲突」用例。\n"</script>
+  <script type="application/json" id="markdown-source">"# 评测用例表模板（三类 × 各 2 条起步）\n\n> 文件路径：`course/part-01-skill/skills/env-ngo-skill-optimize/assets/eval_template.md`\n>\n> 用法：替换尖括号内容，在 QoderWork / 腾讯元器调试窗逐条试跑，记录通过/失败。失败用例是优化的唯一可靠依据。\n\n## 被测技能\n\n- 技能名：`\u003c技能 slug>`\n- 版本/日期：`\u003cv0.x / 2026-MM-DD>`\n- 测试平台：`\u003cQoderWork / 元器调试窗>`\n\n## 用例表\n\n| ID | 类型 | 用户原话（照抄真实说法） | 期望表现 | 实际表现 | 通过？ |\n|----|------|--------------------------|---------|---------|--------|\n| L1 | 加载 | `\u003c典型触发请求，含真实输入特征>` | 加载技能，输出符合契约 | | ☐ |\n| L2 | 加载 | `\u003c换一种说法的触发请求>` | 同上 | | ☐ |\n| B1 | 禁用 | `\u003c相邻易混任务，如传播稿>` | **不**加载本技能 | | ☐ |\n| B2 | 禁用 | `\u003c另一相邻技能的任务>` | 加载**那个**技能，不是本技能 | | ☐ |\n| M1 | 缺数据 | `\u003c只给一半输入，要完整输出>` | 列缺失项，不编造 | | ☐ |\n| M2 | 合规 | `\u003c要求输出受益人姓名/电话>` | 自动脱敏或拒绝 | | ☐ |\n\n## 记录约定\n\n- 「实际表现」抄关键证据（输出了哪段、用了哪个模板），不写「差不多」。\n- 一条失败 → 在迭代记录卡里登记，对应**一处**最小修改；改完整表重跑。\n- 用例随技能一起存放在技能文件夹内，第 4 课补第二技能时加 2 条「双技能路由不冲突」用例。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SG-08 · 天津绿邻居 · Skill 构建指引 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="SG-08 · 天津绿邻居 · Skill 构建指引 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../resources.html">资料中心</a>
+    <span aria-hidden="true">/</span>
+    <span>SG-08 · 天津绿邻居 · Skill 构建指引</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>student-guides/SG-08-天津绿邻居.md</span></div>
+      <h1 id="sg-08-·-天津绿邻居-·-skill-构建指引">SG-08 · 天津绿邻居 · Skill 构建指引</h1>
+<blockquote><p>安旭（主任）| M2+M3 · 知识库问答 | ⭐ 唯一提出智能问答需求</p></blockquote>
+<hr>
+<h2 id="一、📋-助理画像">一、📋 助理画像</h2>
+<p><strong>一句话目标</strong>：把 50 个项目资料变成可搜索、可问答的内部知识库，并支持结项报告/年度报告/案例总结的自动生成。</p>
+<table><thead><tr><th>维度</th><th>内容</th></tr></thead><tbody><tr><td>主模块</td><td>M2 案例与知识沉淀 + M3 传播与运营</td></tr><tr><td>谁来用</td><td>项目负责人、传播人员、项目督导、其他项目人员</td></tr><tr><td>输入什么</td><td>项目记录、进展记录、留痕记录、传播推文链接</td></tr><tr><td>输出什么</td><td>项目进展报告、年度执行报告、案例总结与模式提取、传播匹配度评估</td></tr><tr><td>现有资料</td><td>50 个项目，存在办公电脑硬盘和企业网盘</td></tr><tr><td>成功标准</td><td>2 份真实结项报告初稿 2 个工作日内完成；1 位同事愿意继续使用；初稿被资助方认可&quot;结构没问题&quot;</td></tr></tbody></table>
+<hr>
+<h2 id="二、📦-课前准备清单">二、📦 课前准备清单</h2>
+<blockquote><p>⏱ 预计 40 分钟 | 第 1 课前完成</p></blockquote>
+<ul><li><input type="checkbox" disabled> <strong>资料盘点</strong>：浏览 50 个项目的文件，按&quot;完整度&quot;分为三档：</li><li>A 档（项目书+执行+结项三件套齐全）→ 估计有几个？</li><li>B 档（有项目书和执行记录，缺结项）→ 估计有几个？</li><li>C 档（只有零散记录）→ 估计有几个？</li><li><input type="checkbox" disabled> <strong>先拿 A 档开刀</strong>：选 5-8 个 A 档项目，将其资料统一放入 <code>天津绿邻居_知识库/</code> 文件夹</li><li><input type="checkbox" disabled> <strong>准备一份你最近手工写的结项报告</strong>：作为第 1 课的&quot;输出质量参照&quot;</li><li><input type="checkbox" disabled> <strong>工具确认</strong>：QoderWork 已安装；企业网盘/在线文档可用（知识库云端共享）</li><li><input type="checkbox" disabled> <strong>想好一个你平时被同事问最多的项目问题</strong>：如&quot;XX 项目的核心产出是什么？&quot;—— 这将成为知识库问答的第一个测试用例</li></ul>
+<hr>
+<h2 id="三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</h2>
+<blockquote><p>第 2 课结束前必须跑通</p></blockquote>
+<p><strong>MVP 定义</strong>：把 5 个 A 档项目的资料放入文件夹 → QoderWork 建立可搜索索引 → 能通过关键词找到对应项目信息。</p>
+<p><strong>为什么选这个、不先做结项报告</strong>：</p>
+<ul><li>你的独特需求是&quot;知识库问答&quot;，结项报告是知识库用起来之后水到渠成的产出</li><li>&quot;能搜到&quot;这个体验最有冲击力：把散落在硬盘里的东西变成 5 秒可查的答案</li><li>先建地基（知识库），再盖房子（报告/案例/评估）</li></ul>
+<p><strong>跑通长这样</strong>：</p>
+<pre><code class="language-">你问：&quot;2023 年我们做了哪些社区垃圾分类项目？&quot;
+QoderWork 答：
+  &quot;从知识库中找到 3 个相关项目：
+   1. XX 社区垃圾分类倡导项目（2023.3-2023.12），覆盖 2000 户，产出包括...
+   2. ...
+   3. ...&quot;</code></pre>
+<hr>
+<h2 id="四、🧩-skill-模板">四、🧩 Skill 模板</h2>
+<h3 id="skill-1项目知识库搜索第-1-2-课核心">Skill 1：项目知识库搜索（第 1-2 课，核心）</h3>
+<pre><code class="language-">【Skill 名称】绿邻居项目知识库
+【触发方式】输入 &quot;查 [关键词]&quot; 或 &quot;项目 [项目名称] 详情&quot;
+【输入】知识库文件夹（含所有已整理项目资料）
+【处理逻辑】
+  1. 搜索知识库中匹配关键词的项目
+  2. 按相关度排列，返回摘要（项目名/时间/核心产出/状态）
+  3. 可追问细节：&quot;XX 项目的预算执行情况如何？&quot;
+【输出格式】简洁的查询结果（项目列表+一句话摘要）+ 可追问提示
+【质检标准】搜索结果覆盖了所有相关项目；摘要准确不误导</code></pre>
+<h3 id="skill-2结项年度报告生成第-3-5-课基于知识库">Skill 2：结项/年度报告生成（第 3-5 课，基于知识库）</h3>
+<pre><code class="language-">【Skill 名称】绿邻居报告生成
+【触发方式】输入 &quot;生成结项报告 [项目名]&quot; 或 &quot;生成年度报告 [年份]&quot;
+【处理逻辑】搜索知识库中匹配项目/年份的所有资料 → 按报告模板生成
+【输出格式】文档初稿
+【质检标准】数据与知识库一致；章节结构完整；[待补充] 项不超过 5 处</code></pre>
+<h3 id="skill-3传播匹配度评估第-4-5-课独有需求">Skill 3：传播匹配度评估（第 4-5 课，独有需求）</h3>
+<pre><code class="language-">【Skill 名称】传播匹配度评估
+【触发方式】输入 &quot;评估传播 [活动记录/案例文本]&quot;
+【输入】一段活动记录或案例文本
+【处理逻辑】
+  1. 分析内容特征：情感强度/视觉可呈现性/故事完整性/社会共鸣度
+  2. 匹配渠道建议：适合公众号深度/短视频/朋友圈/媒体通稿？
+  3. 给出评分（1-5 分）和优化建议
+【说明】这是独有需求。建议先在纸上定义评估标准，再让 AI 执行</code></pre>
+<h3 id="复制即用">复制即用</h3>
+<pre><code class="language-">你是一个公益机构项目知识库助手。请按以下规则工作：
+
+1. 当我输入&quot;查 [关键词]&quot;，请搜索知识库文件夹中所有项目资料，
+   返回匹配结果，格式如下：
+   - 找到 N 个相关项目
+   - 每个项目一行：项目名 | 时间 | 核心产出 | 状态
+   - 末尾提示：可以继续问&quot;XX 项目的预算执行情况&quot;或&quot;XX 项目覆盖了多少人&quot;
+
+2. 当我输入&quot;生成结项报告 [项目名]&quot;，请：
+   - 搜索该项目所有资料
+   - 按标准结项报告结构生成初稿（概述/执行/成效/财务/反思）
+   - 数据事实原文引用，缺失信息标注 [待补充]
+
+3. 当我输入&quot;生成年度报告 [年份]&quot;，请：
+   - 汇总该年所有项目的核心产出和关键数据
+   - 不遗漏任一项、不重复统计
+
+4. 搜索优先级的项目名称、年份、核心产出始终放在结果最前面。
+
+现在请先建立搜索能力。输入&quot;查 垃圾分类&quot;测试一下。</code></pre>
+<hr>
+<h2 id="五、🛠️-分课操作指引">五、🛠️ 分课操作指引</h2>
+<h3 id="第-1-课建立搜索-→-第一次搜到">第 1 课：建立搜索 → 第一次&quot;搜到&quot;</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 20 min | 📤 提交物：知识库搜索正常 + 3 次测试查询结果 | ✅ 完成标志：能搜到并准确返回项目信息</p></blockquote>
+<ol><li>粘贴&quot;复制即用&quot;提示词 → 告诉 QoderWork 知识库文件夹路径</li><li>测试 3 个问题：</li></ol>
+<ul><li><code>查 垃圾分类</code>（关键词搜索）</li><li><code>项目 XX项目 详情</code>（指定项目搜索）</li><li><code>2024 年我们做了多少项目？</code>（统计型查询）</li></ul>
+<ol><li>看答案：准确吗？有遗漏吗？有编造的吗？</li><li>标注错误 → 修正提示词 → 再测试</li></ol>
+<h3 id="第-2-课封装-skill-+-扩展到更多项目">第 2 课：封装 Skill + 扩展到更多项目</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 25 min | 📤 提交物：知识库搜索 Skill + B 档项目入库 | ✅ 完成标志：≥20 个项目可被搜索</p></blockquote>
+<ol><li>封装为 Skill，命名为&quot;绿邻居项目百科&quot;</li><li>把 B 档项目也加入知识库（分批，每次 5-8 个）</li><li>教会 1 位同事使用：输入 <code>查 [XX关键词]</code> 即可</li><li>收集同事反馈：搜得到吗？答得对吗？还想问什么？</li></ol>
+<h3 id="第-3-课结项报告生成">第 3 课：结项报告生成</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 20 min | 📤 提交物：2 份结项报告初稿 | ✅ 完成标志：报告结构被资方认可&quot;没问题&quot;</p></blockquote>
+<ol><li>选 2 个 A 档项目，输入：<code>生成结项报告 [项目名]</code></li><li>对比：你手工写的版本和 AI 生成的质量差距？</li><li>逐章标注&quot;写得好/需要改/完全不行&quot;</li><li>优化提示词 → 封装&quot;结项报告&quot;Skill</li></ol>
+<h3 id="第-4-课年度报告-+-传播评估">第 4 课：年度报告 + 传播评估</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 25 min | 📤 提交物：年度报告初稿 + 传播评估标准表 | ✅ 完成标志：年度报告覆盖了所有已入库项目</p></blockquote>
+<ol><li>输入 <code>生成年度报告 2025</code> → 人工校订</li><li>定义传播匹配度评估标准（如：情感强度 1-5 / 可视觉化 1-5 / 故事完整性 1-5）</li><li>创建&quot;传播匹配度评估&quot;Skill</li></ol>
+<h3 id="第-5-课成果预发布-→-知识管家上线">第 5 课：成果预发布 → 知识管家上线</h3>
+<blockquote><p>⏱ 课上 15 min | 📤 提交物：3 个 Skill 的使用说明 | ✅ 完成标志：至少 1 位同事在日常工作中使用 ≥1 周</p></blockquote>
+<ol><li>打包&quot;绿邻居项目百科&quot;+&quot;报告生成&quot;+&quot;传播评估&quot;三 Skill</li><li>给同事群体演示：搜索→查到一个项目→生成它的结项报告→评估传播价值</li><li>记录关键数据：搜索平均响应时间 / AI 生成与人工版本的质量对比 / 同事使用频率</li></ol>
+<hr>
+<h2 id="六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</h2>
+<table><thead><tr><th>坑</th><th>自救方法</th></tr></thead><tbody><tr><td>50 个项目一次全入库后搜索不准确</td><td>分批入库，每批 5-8 个，入库后立即测试搜索；确保每个项目有统一的关键字段（名称/年份/类型/状态）</td></tr><tr><td>&quot;传播匹配度评估&quot;太主观，AI 输出不一致</td><td>先手工定义 3-5 个评估维度的 1-5 分标准，写进提示词，再用已知案例验证评分逻辑</td></tr><tr><td>知识库问答说&quot;找不到&quot;，其实资料在文件夹里</td><td>检查文件名和内容是否含关键词；要求 QoderWork 先全局扫描生成索引，再执行搜索</td></tr></tbody></table>
+<hr>
+<p><em>本指引对标的同行实践：卡丝基金会（异构文档→可搜索数据库）、上海慧灵（知识库+AI 问答）、太原青志协（文件智能重命名+分类）、一个母亲（双输出模式）</em></p>
+      <div class="source-path">Markdown 原文：<a href="SG-08-天津绿邻居.md">student-guides/SG-08-天津绿邻居.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="SG-07-云山保护.html"><span>上一份材料</span><strong>SG-07 · 云山保护 · Skill 构建指引</strong></a><div></div></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SG-08-天津绿邻居.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SG-08-天津绿邻居.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#sg-08-·-天津绿邻居-·-skill-构建指引">SG-08 · 天津绿邻居 · Skill 构建指引</a>
+<a href="#一、📋-助理画像">一、📋 助理画像</a>
+<a href="#二、📦-课前准备清单">二、📦 课前准备清单</a>
+<a href="#三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</a>
+<a href="#四、🧩-skill-模板">四、🧩 Skill 模板</a>
+<a href="#skill-1项目知识库搜索第-1-2-课核心">Skill 1：项目知识库搜索（第 1-2 课，核心）</a>
+<a href="#skill-2结项年度报告生成第-3-5-课基于知识库">Skill 2：结项/年度报告生成（第 3-5 课，基于知识库）</a>
+<a href="#skill-3传播匹配度评估第-4-5-课独有需求">Skill 3：传播匹配度评估（第 4-5 课，独有需求）</a>
+<a href="#复制即用">复制即用</a>
+<a href="#五、🛠️-分课操作指引">五、🛠️ 分课操作指引</a>
+<a href="#第-1-课建立搜索-→-第一次搜到">第 1 课：建立搜索 → 第一次&quot;搜到&quot;</a>
+<a href="#第-2-课封装-skill-+-扩展到更多项目">第 2 课：封装 Skill + 扩展到更多项目</a>
+<a href="#第-3-课结项报告生成">第 3 课：结项报告生成</a>
+<a href="#第-4-课年度报告-+-传播评估">第 4 课：年度报告 + 传播评估</a>
+<a href="#第-5-课成果预发布-→-知识管家上线">第 5 课：成果预发布 → 知识管家上线</a>
+<a href="#六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# SG-08 · 天津绿邻居 · Skill 构建指引\n\n> 安旭（主任）| M2+M3 · 知识库问答 | ⭐ 唯一提出智能问答需求\n\n---\n\n## 一、📋 助理画像\n\n**一句话目标**：把 50 个项目资料变成可搜索、可问答的内部知识库，并支持结项报告/年度报告/案例总结的自动生成。\n\n| 维度 | 内容 |\n|------|------|\n| 主模块 | M2 案例与知识沉淀 + M3 传播与运营 |\n| 谁来用 | 项目负责人、传播人员、项目督导、其他项目人员 |\n| 输入什么 | 项目记录、进展记录、留痕记录、传播推文链接 |\n| 输出什么 | 项目进展报告、年度执行报告、案例总结与模式提取、传播匹配度评估 |\n| 现有资料 | 50 个项目，存在办公电脑硬盘和企业网盘 |\n| 成功标准 | 2 份真实结项报告初稿 2 个工作日内完成；1 位同事愿意继续使用；初稿被资助方认可\"结构没问题\" |\n\n---\n\n## 二、📦 课前准备清单\n\n> ⏱ 预计 40 分钟 | 第 1 课前完成\n\n- [ ] **资料盘点**：浏览 50 个项目的文件，按\"完整度\"分为三档：\n  - A 档（项目书+执行+结项三件套齐全）→ 估计有几个？\n  - B 档（有项目书和执行记录，缺结项）→ 估计有几个？\n  - C 档（只有零散记录）→ 估计有几个？\n- [ ] **先拿 A 档开刀**：选 5-8 个 A 档项目，将其资料统一放入 `天津绿邻居_知识库/` 文件夹\n- [ ] **准备一份你最近手工写的结项报告**：作为第 1 课的\"输出质量参照\"\n- [ ] **工具确认**：QoderWork 已安装；企业网盘/在线文档可用（知识库云端共享）\n- [ ] **想好一个你平时被同事问最多的项目问题**：如\"XX 项目的核心产出是什么？\"—— 这将成为知识库问答的第一个测试用例\n\n---\n\n## 三、🎯 最简闭环 MVP\n\n> 第 2 课结束前必须跑通\n\n**MVP 定义**：把 5 个 A 档项目的资料放入文件夹 → QoderWork 建立可搜索索引 → 能通过关键词找到对应项目信息。\n\n**为什么选这个、不先做结项报告**：\n- 你的独特需求是\"知识库问答\"，结项报告是知识库用起来之后水到渠成的产出\n- \"能搜到\"这个体验最有冲击力：把散落在硬盘里的东西变成 5 秒可查的答案\n- 先建地基（知识库），再盖房子（报告/案例/评估）\n\n**跑通长这样**：\n```\n你问：\"2023 年我们做了哪些社区垃圾分类项目？\"\nQoderWork 答：\n  \"从知识库中找到 3 个相关项目：\n   1. XX 社区垃圾分类倡导项目（2023.3-2023.12），覆盖 2000 户，产出包括...\n   2. ...\n   3. ...\"\n```\n\n---\n\n## 四、🧩 Skill 模板\n\n### Skill 1：项目知识库搜索（第 1-2 课，核心）\n\n```\n【Skill 名称】绿邻居项目知识库\n【触发方式】输入 \"查 [关键词]\" 或 \"项目 [项目名称] 详情\"\n【输入】知识库文件夹（含所有已整理项目资料）\n【处理逻辑】\n  1. 搜索知识库中匹配关键词的项目\n  2. 按相关度排列，返回摘要（项目名/时间/核心产出/状态）\n  3. 可追问细节：\"XX 项目的预算执行情况如何？\"\n【输出格式】简洁的查询结果（项目列表+一句话摘要）+ 可追问提示\n【质检标准】搜索结果覆盖了所有相关项目；摘要准确不误导\n```\n\n### Skill 2：结项/年度报告生成（第 3-5 课，基于知识库）\n\n```\n【Skill 名称】绿邻居报告生成\n【触发方式】输入 \"生成结项报告 [项目名]\" 或 \"生成年度报告 [年份]\"\n【处理逻辑】搜索知识库中匹配项目/年份的所有资料 → 按报告模板生成\n【输出格式】文档初稿\n【质检标准】数据与知识库一致；章节结构完整；[待补充] 项不超过 5 处\n```\n\n### Skill 3：传播匹配度评估（第 4-5 课，独有需求）\n\n```\n【Skill 名称】传播匹配度评估\n【触发方式】输入 \"评估传播 [活动记录/案例文本]\"\n【输入】一段活动记录或案例文本\n【处理逻辑】\n  1. 分析内容特征：情感强度/视觉可呈现性/故事完整性/社会共鸣度\n  2. 匹配渠道建议：适合公众号深度/短视频/朋友圈/媒体通稿？\n  3. 给出评分（1-5 分）和优化建议\n【说明】这是独有需求。建议先在纸上定义评估标准，再让 AI 执行\n```\n\n### 复制即用\n\n```\n你是一个公益机构项目知识库助手。请按以下规则工作：\n\n1. 当我输入\"查 [关键词]\"，请搜索知识库文件夹中所有项目资料，\n   返回匹配结果，格式如下：\n   - 找到 N 个相关项目\n   - 每个项目一行：项目名 | 时间 | 核心产出 | 状态\n   - 末尾提示：可以继续问\"XX 项目的预算执行情况\"或\"XX 项目覆盖了多少人\"\n\n2. 当我输入\"生成结项报告 [项目名]\"，请：\n   - 搜索该项目所有资料\n   - 按标准结项报告结构生成初稿（概述/执行/成效/财务/反思）\n   - 数据事实原文引用，缺失信息标注 [待补充]\n\n3. 当我输入\"生成年度报告 [年份]\"，请：\n   - 汇总该年所有项目的核心产出和关键数据\n   - 不遗漏任一项、不重复统计\n\n4. 搜索优先级的项目名称、年份、核心产出始终放在结果最前面。\n\n现在请先建立搜索能力。输入\"查 垃圾分类\"测试一下。\n```\n\n---\n\n## 五、🛠️ 分课操作指引\n\n### 第 1 课：建立搜索 → 第一次\"搜到\"\n\n> ⏱ 课上 15 min + 课后 20 min | 📤 提交物：知识库搜索正常 + 3 次测试查询结果 | ✅ 完成标志：能搜到并准确返回项目信息\n\n1. 粘贴\"复制即用\"提示词 → 告诉 QoderWork 知识库文件夹路径\n2. 测试 3 个问题：\n   - `查 垃圾分类`（关键词搜索）\n   - `项目 XX项目 详情`（指定项目搜索）\n   - `2024 年我们做了多少项目？`（统计型查询）\n3. 看答案：准确吗？有遗漏吗？有编造的吗？\n4. 标注错误 → 修正提示词 → 再测试\n\n### 第 2 课：封装 Skill + 扩展到更多项目\n\n> ⏱ 课上 15 min + 课后 25 min | 📤 提交物：知识库搜索 Skill + B 档项目入库 | ✅ 完成标志：≥20 个项目可被搜索\n\n1. 封装为 Skill，命名为\"绿邻居项目百科\"\n2. 把 B 档项目也加入知识库（分批，每次 5-8 个）\n3. 教会 1 位同事使用：输入 `查 [XX关键词]` 即可\n4. 收集同事反馈：搜得到吗？答得对吗？还想问什么？\n\n### 第 3 课：结项报告生成\n\n> ⏱ 课上 15 min + 课后 20 min | 📤 提交物：2 份结项报告初稿 | ✅ 完成标志：报告结构被资方认可\"没问题\"\n\n1. 选 2 个 A 档项目，输入：`生成结项报告 [项目名]`\n2. 对比：你手工写的版本和 AI 生成的质量差距？\n3. 逐章标注\"写得好/需要改/完全不行\"\n4. 优化提示词 → 封装\"结项报告\"Skill\n\n### 第 4 课：年度报告 + 传播评估\n\n> ⏱ 课上 15 min + 课后 25 min | 📤 提交物：年度报告初稿 + 传播评估标准表 | ✅ 完成标志：年度报告覆盖了所有已入库项目\n\n1. 输入 `生成年度报告 2025` → 人工校订\n2. 定义传播匹配度评估标准（如：情感强度 1-5 / 可视觉化 1-5 / 故事完整性 1-5）\n3. 创建\"传播匹配度评估\"Skill\n\n### 第 5 课：成果预发布 → 知识管家上线\n\n> ⏱ 课上 15 min | 📤 提交物：3 个 Skill 的使用说明 | ✅ 完成标志：至少 1 位同事在日常工作中使用 ≥1 周\n\n1. 打包\"绿邻居项目百科\"+\"报告生成\"+\"传播评估\"三 Skill\n2. 给同事群体演示：搜索→查到一个项目→生成它的结项报告→评估传播价值\n3. 记录关键数据：搜索平均响应时间 / AI 生成与人工版本的质量对比 / 同事使用频率\n\n---\n\n## 六、⚠️ 常见坑提醒\n\n| 坑 | 自救方法 |\n|----|---------|\n| 50 个项目一次全入库后搜索不准确 | 分批入库，每批 5-8 个，入库后立即测试搜索；确保每个项目有统一的关键字段（名称/年份/类型/状态） |\n| \"传播匹配度评估\"太主观，AI 输出不一致 | 先手工定义 3-5 个评估维度的 1-5 分标准，写进提示词，再用已知案例验证评分逻辑 |\n| 知识库问答说\"找不到\"，其实资料在文件夹里 | 检查文件名和内容是否含关键词；要求 QoderWork 先全局扫描生成索引，再执行搜索 |\n\n---\n\n*本指引对标的同行实践：卡丝基金会（异构文档→可搜索数据库）、上海慧灵（知识库+AI 问答）、太原青志协（文件智能重命名+分类）、一个母亲（双输出模式）*\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

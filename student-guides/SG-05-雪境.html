@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SG-05 · 雪境 · Skill 构建指引 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="SG-05 · 雪境 · Skill 构建指引 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../resources.html">资料中心</a>
+    <span aria-hidden="true">/</span>
+    <span>SG-05 · 雪境 · Skill 构建指引</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>student-guides/SG-05-雪境.md</span></div>
+      <h1 id="sg-05-·-雪境-·-skill-构建指引">SG-05 · 雪境 · Skill 构建指引</h1>
+<blockquote><p>尹杭（机构负责人）| M1+M2 · 多文体报告矩阵</p></blockquote>
+<hr>
+<h2 id="一、📋-助理画像">一、📋 助理画像</h2>
+<p><strong>一句话目标</strong>：从 300 字双月简报 → 5000 字三年综合报告 → 政策建议，建立多文体标准化产出能力。</p>
+<table><thead><tr><th>维度</th><th>内容</th></tr></thead><tbody><tr><td>主模块</td><td>M1 项目文书链 + M2 案例与知识沉淀</td></tr><tr><td>谁来用</td><td>7 人：机构负责人、项目人员、传播、行政、实习生</td></tr><tr><td>输入什么</td><td>物资清单、项目设计文本、进展图片、费用报销等</td></tr><tr><td>输出什么</td><td>5 种文体：项目报告 / 双月简报(≤300字) / 三年综合报告(≥5000字) / 实践案例 / 政策建议(≤2000字)</td></tr><tr><td>现有资料</td><td>约 30 份，7 成在云盘，3 成在个人电脑</td></tr><tr><td>成功标准</td><td>1 份真实结项报告初稿 2 个工作日内完成；≥1 位同事愿意继续使用；报告被资方认可</td></tr></tbody></table>
+<hr>
+<h2 id="二、📦-课前准备清单">二、📦 课前准备清单</h2>
+<blockquote><p>⏱ 预计 30 分钟 | 第 1 课前完成</p></blockquote>
+<ul><li><input type="checkbox" disabled> <strong>资料收拢</strong>：从云盘和个人电脑收集 ≥10 份项目资料，放入 <code>雪境_项目资料/</code></li><li>优先选资料完整的项目（项目书 + 执行记录 + 结项报告三件套齐全）</li><li>包含至少 1 份双月简报（作为简报文体样本）</li><li><input type="checkbox" disabled> <strong>资方模板</strong>：收集你最常合作的 2-3 家资方的结项报告格式要求</li><li><input type="checkbox" disabled> <strong>确定&quot;第一优先级&quot;</strong>：从 5 种文体中选一个最先攻克——建议选<strong>结项报告</strong>（频次最高、结构最确定）</li><li><input type="checkbox" disabled> <strong>和其他 6 位同事沟通</strong>：谁愿意率先试用 AI 助理？至少确认 1 人</li></ul>
+<hr>
+<h2 id="三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</h2>
+<blockquote><p>第 2 课结束前必须跑通</p></blockquote>
+<p><strong>MVP 定义</strong>：选 1 份已完成项目的全套资料 → QoderWork 读取 → 按资方模板输出结项报告初稿。</p>
+<p><strong>为什么选这个</strong>：</p>
+<ul><li>结项报告是 5 种文体中结构最明确、输入-输出关系最清晰的</li><li>跑通后可直接用于真实资方提交，价值立即可验证</li><li>其余 4 种文体可复用同一知识库，逐步扩展</li></ul>
+<p><strong>跑通长这样</strong>：</p>
+<pre><code class="language-">输入：项目X 的 项目书 + 执行记录 + 过程数据（照片/表单/财务摘要）
+输出：按资方模板格式的结项报告初稿（含项目概述/执行情况/成效/财务/反思建议）</code></pre>
+<hr>
+<h2 id="四、🧩-skill-模板">四、🧩 Skill 模板</h2>
+<h3 id="先搭文体-长度-用途矩阵">先搭&quot;文体-长度-用途&quot;矩阵</h3>
+<table><thead><tr><th>文体</th><th>长度</th><th>用途</th><th>Skill 设计思路</th></tr></thead><tbody><tr><td>项目报告（结项）</td><td>2000-3000字</td><td>资方汇报</td><td>模板驱动：输入数据→按模板填充</td></tr><tr><td>双月简报</td><td>≤300字</td><td>内部/资方快速同步</td><td>摘要驱动：输入近期工作→精炼至 300 字</td></tr><tr><td>实践案例</td><td>800-1500字</td><td>传播/学习</td><td>叙事驱动：事件+做法+成效+启示</td></tr><tr><td>政策建议</td><td>≤2000字</td><td>倡导/资方沟通</td><td>论据驱动：现象→数据→建议</td></tr><tr><td>三年综合报告</td><td>≥5000字</td><td>年报/战略回顾</td><td>知识库驱动：3 年全量数据汇总</td></tr></tbody></table>
+<h3 id="skill-模板以结项报告为基准其余逐步扩展">Skill 模板（以结项报告为基准，其余逐步扩展）</h3>
+<pre><code class="language-">【Skill 名称】雪境项目结项报告
+【触发方式】输入 &quot;生成结项报告 [项目名]&quot;
+【输入】
+  - 项目资料文件夹（Word/Excel/图片均可）
+  - 资方模板（或模板文件名）
+【处理逻辑】
+  1. 读取资方模板 → 提取章节要求
+  2. 读取项目资料 → 按资金使用/活动执行/成效数据/问题反思四维度提取
+  3. 填充模板各章节
+  4. 缺失信息标注 [待补充]；不确定数据标注 [待核实]
+【输出格式】文档初稿，章节结构与资方模板一致
+【质检标准】数据可溯源；每句数量描述有出处</code></pre>
+<h3 id="双月简报-skill-模板第-3-课扩展">双月简报 Skill 模板（第 3 课扩展）</h3>
+<pre><code class="language-">【Skill 名称】雪境双月简报
+【触发方式】输入 &quot;生成双月简报 [YYYY年MM-MM月]&quot;
+【处理逻辑】输入两月工作记录 → AI 精炼至 ≤300 字 → 包含&quot;核心产出 + 关键数字 + 下期重点&quot;
+【质检标准】300 字以内；至少 1 个可量化数字；不编造信息</code></pre>
+<h3 id="复制即用结项报告版">复制即用（结项报告版）</h3>
+<pre><code class="language-">你是一个公益项目结项报告撰写助手。请按以下规则工作：
+
+1. 当我输入&quot;生成结项报告 [项目名]&quot;，请读取项目资料文件夹中所有文件，
+   按以下结构生成初稿：
+   - 项目概述（1 段，包含项目名称/周期/目标/预算）
+   - 执行情况（按活动逐一简述，附参与人数/产出数据）
+   - 成效评估（量化成果 + 受益人反馈 + 社会影响）
+   - 资金使用（简述预算执行情况）
+   - 问题与反思（如实记录，不粉饰）
+   - 下一步建议
+
+2. 原则：
+   - 数据事实原文引用，不自编
+   - 缺少的信息标注 [待补充]
+   - 不确定的数据标注 [待核实]
+   - 语言平实专业，不浮夸
+
+3. 输出后标注：哪些章节信息充足、哪些需要人工深挖。
+
+现在请按此执行。</code></pre>
+<hr>
+<h2 id="五、🛠️-分课操作指引">五、🛠️ 分课操作指引</h2>
+<h3 id="第-1-课跑通第一份结项报告">第 1 课：跑通第一份结项报告</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 20 min | 📤 提交物：一份结项报告初稿 | ✅ 完成标志：初稿章节完整，[待补充] 项 ≤5 处</p></blockquote>
+<ol><li>粘贴&quot;复制即用&quot;提示词到 QoderWork</li><li>输入：<code>生成结项报告 [选好的项目名]</code></li><li>QoderWork 读取项目资料 → 输出初稿</li><li>逐章检查：数据对吗？结构跟模板一致吗？</li><li>反馈修改 → 出第二版 → 再检查</li></ol>
+<h3 id="第-2-课封装结项报告-skill">第 2 课：封装结项报告 Skill</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 15 min | 📤 提交物：可被同事调用的 Skill | ✅ 完成标志：同事输入触发词能独立获得初稿</p></blockquote>
+<ol><li>把第 1 课优化后的工作流封装为 Skill</li><li>教会 1 位同事使用：&quot;输入 <code>生成结项报告 [项目名]</code> 就可以了&quot;</li><li>收集同事反馈：操作难度 1-10 分？初稿可用度 1-10 分？</li></ol>
+<h3 id="第-3-课双月简报-skill-+-知识库建设">第 3 课：双月简报 Skill + 知识库建设</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 25 min | 📤 提交物：双月简报 Skill + 知识库中有 ≥20 份资料 | ✅ 完成标志：输入两月记录 → 输出 300 字简报</p></blockquote>
+<ol><li>扩展：用 2 份历史双月简报做样本，让 QoderWork 学习风格</li><li>创建&quot;双月简报&quot;Skill（独立 Skill，不与结项报告混合）</li><li>测试：输入最近两个月的执行记录 → 输出简报</li><li>把所有 30 份资料放入统一文件夹，建立项目索引</li></ol>
+<h3 id="第-4-课案例-+-政策建议-+-三年报告试水">第 4 课：案例 + 政策建议 + 三年报告试水</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 25 min | 📤 提交物：至少 2 种新文体的初稿 | ✅ 完成标志：能明确区分每种文体的 Skill 配置</p></blockquote>
+<ol><li>用同一份项目资料测试 3 种文体的输出差异</li><li>每种文体提取 3 个&quot;最关键的提示词要素&quot;（如简报=精简+数字、政策建议=论据+立场）</li><li>三年报告：先把 3 年资料汇总到一个文件夹 → 让 QoderWork 出时间轴和关键指标</li></ol>
+<h3 id="第-5-课成果预发布-→-多-skill-矩阵上线">第 5 课：成果预发布 → 多 Skill 矩阵上线</h3>
+<blockquote><p>⏱ 课上 20 min | 📤 提交物：5 个 Skill + 7 人使用方案 | ✅ 完成标志：至少 3 人各自完成了一次独立使用</p></blockquote>
+<ol><li>封装完成的 3-5 个 Skill</li><li>给每个同事分配最适合的角色 Skill（如传播人员优先用简报 Skill）</li><li>当场演示：负责人出题，同事用对应 Skill 解答</li></ol>
+<hr>
+<h2 id="六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</h2>
+<table><thead><tr><th>坑</th><th>自救方法</th></tr></thead><tbody><tr><td>7 人团队，文件结构混乱</td><td>先统一命名规范：<code>[年份]_[项目名]_[文件类型]</code>，强制执行</td></tr><tr><td>大报告（5000 字+）AI 注水、重复啰嗦</td><td>分段生成（先各地→再汇总），每段给精确保字数上限</td></tr><tr><td>同事不知道什么时候用哪个 Skill</td><td>做一张&quot;雪境 AI 助理菜单&quot;贴在群里：列出 5 个 Skill 的触发词+适用场景</td></tr></tbody></table>
+<hr>
+<p><em>本指引对标的同行实践：免午公益（两种提示词跑不同深度报告）、一个母亲（多版本输出）、卡丝基金会（自动化+封装分发到团队）</em></p>
+      <div class="source-path">Markdown 原文：<a href="SG-05-雪境.md">student-guides/SG-05-雪境.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="SG-04-福建绿行者.html"><span>上一份材料</span><strong>SG-04 · 福建绿行者 · Skill 构建指引</strong></a><a href="SG-06-武汉青耘.html"><span>下一份材料</span><strong>SG-06 · 武汉青耘 · Skill 构建指引</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SG-05-雪境.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SG-05-雪境.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#sg-05-·-雪境-·-skill-构建指引">SG-05 · 雪境 · Skill 构建指引</a>
+<a href="#一、📋-助理画像">一、📋 助理画像</a>
+<a href="#二、📦-课前准备清单">二、📦 课前准备清单</a>
+<a href="#三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</a>
+<a href="#四、🧩-skill-模板">四、🧩 Skill 模板</a>
+<a href="#先搭文体-长度-用途矩阵">先搭&quot;文体-长度-用途&quot;矩阵</a>
+<a href="#skill-模板以结项报告为基准其余逐步扩展">Skill 模板（以结项报告为基准，其余逐步扩展）</a>
+<a href="#双月简报-skill-模板第-3-课扩展">双月简报 Skill 模板（第 3 课扩展）</a>
+<a href="#复制即用结项报告版">复制即用（结项报告版）</a>
+<a href="#五、🛠️-分课操作指引">五、🛠️ 分课操作指引</a>
+<a href="#第-1-课跑通第一份结项报告">第 1 课：跑通第一份结项报告</a>
+<a href="#第-2-课封装结项报告-skill">第 2 课：封装结项报告 Skill</a>
+<a href="#第-3-课双月简报-skill-+-知识库建设">第 3 课：双月简报 Skill + 知识库建设</a>
+<a href="#第-4-课案例-+-政策建议-+-三年报告试水">第 4 课：案例 + 政策建议 + 三年报告试水</a>
+<a href="#第-5-课成果预发布-→-多-skill-矩阵上线">第 5 课：成果预发布 → 多 Skill 矩阵上线</a>
+<a href="#六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# SG-05 · 雪境 · Skill 构建指引\n\n> 尹杭（机构负责人）| M1+M2 · 多文体报告矩阵\n\n---\n\n## 一、📋 助理画像\n\n**一句话目标**：从 300 字双月简报 → 5000 字三年综合报告 → 政策建议，建立多文体标准化产出能力。\n\n| 维度 | 内容 |\n|------|------|\n| 主模块 | M1 项目文书链 + M2 案例与知识沉淀 |\n| 谁来用 | 7 人：机构负责人、项目人员、传播、行政、实习生 |\n| 输入什么 | 物资清单、项目设计文本、进展图片、费用报销等 |\n| 输出什么 | 5 种文体：项目报告 / 双月简报(≤300字) / 三年综合报告(≥5000字) / 实践案例 / 政策建议(≤2000字) |\n| 现有资料 | 约 30 份，7 成在云盘，3 成在个人电脑 |\n| 成功标准 | 1 份真实结项报告初稿 2 个工作日内完成；≥1 位同事愿意继续使用；报告被资方认可 |\n\n---\n\n## 二、📦 课前准备清单\n\n> ⏱ 预计 30 分钟 | 第 1 课前完成\n\n- [ ] **资料收拢**：从云盘和个人电脑收集 ≥10 份项目资料，放入 `雪境_项目资料/`\n  - 优先选资料完整的项目（项目书 + 执行记录 + 结项报告三件套齐全）\n  - 包含至少 1 份双月简报（作为简报文体样本）\n- [ ] **资方模板**：收集你最常合作的 2-3 家资方的结项报告格式要求\n- [ ] **确定\"第一优先级\"**：从 5 种文体中选一个最先攻克——建议选**结项报告**（频次最高、结构最确定）\n- [ ] **和其他 6 位同事沟通**：谁愿意率先试用 AI 助理？至少确认 1 人\n\n---\n\n## 三、🎯 最简闭环 MVP\n\n> 第 2 课结束前必须跑通\n\n**MVP 定义**：选 1 份已完成项目的全套资料 → QoderWork 读取 → 按资方模板输出结项报告初稿。\n\n**为什么选这个**：\n- 结项报告是 5 种文体中结构最明确、输入-输出关系最清晰的\n- 跑通后可直接用于真实资方提交，价值立即可验证\n- 其余 4 种文体可复用同一知识库，逐步扩展\n\n**跑通长这样**：\n```\n输入：项目X 的 项目书 + 执行记录 + 过程数据（照片/表单/财务摘要）\n输出：按资方模板格式的结项报告初稿（含项目概述/执行情况/成效/财务/反思建议）\n```\n\n---\n\n## 四、🧩 Skill 模板\n\n### 先搭\"文体-长度-用途\"矩阵\n\n| 文体 | 长度 | 用途 | Skill 设计思路 |\n|------|------|------|--------------|\n| 项目报告（结项） | 2000-3000字 | 资方汇报 | 模板驱动：输入数据→按模板填充 |\n| 双月简报 | ≤300字 | 内部/资方快速同步 | 摘要驱动：输入近期工作→精炼至 300 字 |\n| 实践案例 | 800-1500字 | 传播/学习 | 叙事驱动：事件+做法+成效+启示 |\n| 政策建议 | ≤2000字 | 倡导/资方沟通 | 论据驱动：现象→数据→建议 |\n| 三年综合报告 | ≥5000字 | 年报/战略回顾 | 知识库驱动：3 年全量数据汇总 |\n\n### Skill 模板（以结项报告为基准，其余逐步扩展）\n\n```\n【Skill 名称】雪境项目结项报告\n【触发方式】输入 \"生成结项报告 [项目名]\"\n【输入】\n  - 项目资料文件夹（Word/Excel/图片均可）\n  - 资方模板（或模板文件名）\n【处理逻辑】\n  1. 读取资方模板 → 提取章节要求\n  2. 读取项目资料 → 按资金使用/活动执行/成效数据/问题反思四维度提取\n  3. 填充模板各章节\n  4. 缺失信息标注 [待补充]；不确定数据标注 [待核实]\n【输出格式】文档初稿，章节结构与资方模板一致\n【质检标准】数据可溯源；每句数量描述有出处\n```\n\n### 双月简报 Skill 模板（第 3 课扩展）\n\n```\n【Skill 名称】雪境双月简报\n【触发方式】输入 \"生成双月简报 [YYYY年MM-MM月]\"\n【处理逻辑】输入两月工作记录 → AI 精炼至 ≤300 字 → 包含\"核心产出 + 关键数字 + 下期重点\"\n【质检标准】300 字以内；至少 1 个可量化数字；不编造信息\n```\n\n### 复制即用（结项报告版）\n\n```\n你是一个公益项目结项报告撰写助手。请按以下规则工作：\n\n1. 当我输入\"生成结项报告 [项目名]\"，请读取项目资料文件夹中所有文件，\n   按以下结构生成初稿：\n   - 项目概述（1 段，包含项目名称/周期/目标/预算）\n   - 执行情况（按活动逐一简述，附参与人数/产出数据）\n   - 成效评估（量化成果 + 受益人反馈 + 社会影响）\n   - 资金使用（简述预算执行情况）\n   - 问题与反思（如实记录，不粉饰）\n   - 下一步建议\n\n2. 原则：\n   - 数据事实原文引用，不自编\n   - 缺少的信息标注 [待补充]\n   - 不确定的数据标注 [待核实]\n   - 语言平实专业，不浮夸\n\n3. 输出后标注：哪些章节信息充足、哪些需要人工深挖。\n\n现在请按此执行。\n```\n\n---\n\n## 五、🛠️ 分课操作指引\n\n### 第 1 课：跑通第一份结项报告\n\n> ⏱ 课上 15 min + 课后 20 min | 📤 提交物：一份结项报告初稿 | ✅ 完成标志：初稿章节完整，[待补充] 项 ≤5 处\n\n1. 粘贴\"复制即用\"提示词到 QoderWork\n2. 输入：`生成结项报告 [选好的项目名]`\n3. QoderWork 读取项目资料 → 输出初稿\n4. 逐章检查：数据对吗？结构跟模板一致吗？\n5. 反馈修改 → 出第二版 → 再检查\n\n### 第 2 课：封装结项报告 Skill\n\n> ⏱ 课上 15 min + 课后 15 min | 📤 提交物：可被同事调用的 Skill | ✅ 完成标志：同事输入触发词能独立获得初稿\n\n1. 把第 1 课优化后的工作流封装为 Skill\n2. 教会 1 位同事使用：\"输入 `生成结项报告 [项目名]` 就可以了\"\n3. 收集同事反馈：操作难度 1-10 分？初稿可用度 1-10 分？\n\n### 第 3 课：双月简报 Skill + 知识库建设\n\n> ⏱ 课上 15 min + 课后 25 min | 📤 提交物：双月简报 Skill + 知识库中有 ≥20 份资料 | ✅ 完成标志：输入两月记录 → 输出 300 字简报\n\n1. 扩展：用 2 份历史双月简报做样本，让 QoderWork 学习风格\n2. 创建\"双月简报\"Skill（独立 Skill，不与结项报告混合）\n3. 测试：输入最近两个月的执行记录 → 输出简报\n4. 把所有 30 份资料放入统一文件夹，建立项目索引\n\n### 第 4 课：案例 + 政策建议 + 三年报告试水\n\n> ⏱ 课上 15 min + 课后 25 min | 📤 提交物：至少 2 种新文体的初稿 | ✅ 完成标志：能明确区分每种文体的 Skill 配置\n\n1. 用同一份项目资料测试 3 种文体的输出差异\n2. 每种文体提取 3 个\"最关键的提示词要素\"（如简报=精简+数字、政策建议=论据+立场）\n3. 三年报告：先把 3 年资料汇总到一个文件夹 → 让 QoderWork 出时间轴和关键指标\n\n### 第 5 课：成果预发布 → 多 Skill 矩阵上线\n\n> ⏱ 课上 20 min | 📤 提交物：5 个 Skill + 7 人使用方案 | ✅ 完成标志：至少 3 人各自完成了一次独立使用\n\n1. 封装完成的 3-5 个 Skill\n2. 给每个同事分配最适合的角色 Skill（如传播人员优先用简报 Skill）\n3. 当场演示：负责人出题，同事用对应 Skill 解答\n\n---\n\n## 六、⚠️ 常见坑提醒\n\n| 坑 | 自救方法 |\n|----|---------|\n| 7 人团队，文件结构混乱 | 先统一命名规范：`[年份]_[项目名]_[文件类型]`，强制执行 |\n| 大报告（5000 字+）AI 注水、重复啰嗦 | 分段生成（先各地→再汇总），每段给精确保字数上限 |\n| 同事不知道什么时候用哪个 Skill | 做一张\"雪境 AI 助理菜单\"贴在群里：列出 5 个 Skill 的触发词+适用场景 |\n\n---\n\n*本指引对标的同行实践：免午公益（两种提示词跑不同深度报告）、一个母亲（多版本输出）、卡丝基金会（自动化+封装分发到团队）*\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -30,7 +30,7 @@
 | **B** | 环境准备：开通 LLM API | 百炼 API Key（主）+ 可选 DeepSeek Key | → [LLM API 开通指南](./llm-api-setup.md) |
 | **C** | 业务锚点：填写立项书 | 《项目助理立项书》A4 单页 | 见下方第三～五节 |
 
-> **说明**：组织层腾讯元器 Bot **不需要**自购 Token；API 主要用于个人层 WorkBuddy（第 1–2 课）与可选自建路线。详见 [llm-api-setup.md](./llm-api-setup.md)。
+> **说明**：组织层腾讯元器 Bot **不需要**自购 Token；API 主要用于个人层 QoderWork（第 1–2 课）与可选自建路线。详见 [llm-api-setup.md](./llm-api-setup.md)。
 
 ---
 
@@ -135,7 +135,7 @@
 | 准备项 / 立项书字段 | 衔接到哪节课 |
 |-------------------|-------------|
 | AI 基础概念速读 | → 第 1 课：理解 Skill 与提示词；→ 第 2 课：理解上下文、embedding、rerank；→ 第 3 课：理解 Agent、API、MCP |
-| 百炼 / DeepSeek API Key | → 第 1 课：WorkBuddy 技能调试；→ 第 2 课：本地知识库测试 |
+| 百炼 / DeepSeek API Key | → 第 1 课：QoderWork 技能调试；→ 第 2 课：本地知识库测试 |
 | 主场景模块 | 贯穿全部 5 课，第 4 课按模块深化 |
 | 需要的技能（≥1） | → 第 1 课：构建并跑通首个技能 |
 | 需要的知识库 | → 第 2 课：搭建可检索的知识库 |

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dify 高阶 RAG 练习 | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="Dify 高阶 RAG 练习 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <title>学员 Skill 构建指引 · 总索引 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="学员 Skill 构建指引 · 总索引 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -285,75 +285,76 @@ a { color: inherit; }
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="../../index.html">
+      <a class="brand" href="../index.html">
         <span class="brand-mark" aria-hidden="true">🌿</span>
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
-        <a class="btn btn-ghost" href="../../resources.html">资料中心</a>
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
-    <a href="../../index.html">课程首页</a>
+    <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <a href="../index.html">第 2 课 · 知识库</a>
+    <a href="../resources.html">资料中心</a>
     <span aria-hidden="true">/</span>
-    <span>Dify 高阶 RAG 练习</span>
+    <span>学员 Skill 构建指引 · 总索引</span>
   </nav>
   <main class="layout">
     <article class="doc">
-      <div class="doc-kicker"><span class="doc-type">工具讲义</span><span>part-02-knowledge-base/tools/dify_advanced_rag_lab.md</span></div>
-      <h1 id="dify-高阶-rag-练习">Dify 高阶 RAG 练习</h1>
-<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-02-knowledge-base/tools/dify_advanced_rag_lab.md</code></p><p></p><p>用途：L2+ 学员或助教使用。Dify 不替代本期主线腾讯元器，主要用于看清 RAG 检索机制和 frontmatter / metadata 对检索质量的影响。</p></blockquote>
-<h2 id="定位">定位</h2>
-<table><thead><tr><th>项目</th><th>课程口径</th></tr></thead><tbody><tr><td>腾讯元器</td><td>本期组织层主线，优先用于项目助理上线</td></tr><tr><td>Dify</td><td>高阶训练场，用于理解检索模式、索引、rerank、metadata 过滤</td></tr><tr><td>自建知识库</td><td>仅作为 L2+ 或后续代建路线，不要求全员掌握</td></tr></tbody></table>
-<h2 id="练习目标">练习目标</h2>
-<p>完成一次同资料、同问题、不同检索设置的对比：</p>
-<ol><li>上传 5-10 份已脱敏、已清洗、带 frontmatter 的资料。</li><li>建立同一知识库的三种测试配置：</li></ol>
-<ul><li>向量检索</li><li>全文检索</li><li>混合检索</li></ul>
-<ol><li>如果工具支持 metadata 过滤，尝试使用 doc_type、year、privacy_level、retrieval_hint 做筛选。</li><li>使用同一组 10 个问题测试。</li><li>记录每种配置的命中率、错误类型和可解释原因。</li></ol>
-<h2 id="记录表">记录表</h2>
-<table><thead><tr><th>配置</th><th>命中率</th><th>最常见错误</th><th>frontmatter / metadata 是否起作用</th><th>适合的问题</th><th>不适合的问题</th></tr></thead><tbody><tr><td>向量检索</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>全文检索</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>混合检索</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
-<h2 id="复盘问题">复盘问题</h2>
-<ol><li>哪些问题全文检索更稳？为什么？</li><li>哪些问题向量检索更稳？为什么？</li><li>混合检索有没有引入更多无关片段？</li><li>frontmatter / metadata 过滤是否减少了错误引用？</li><li>哪些失败其实不是检索问题，而是资料缺失、清洗不足或提示词问题？</li></ol>
-<h2 id="交付物">交付物</h2>
-<pre><code class="language-text">我用 ___ 份资料做了 Dify 检索模式对比；
-其中 ___ 份资料带完整 frontmatter；
-向量检索命中率 ___%；
-全文检索命中率 ___%；
-混合检索命中率 ___%；
-最适合我机构知识库的默认策略是 ___；
-原因是 ___。</code></pre>
-      <div class="source-path">Markdown 原文：<a href="dify_advanced_rag_lab.md">part-02-knowledge-base/tools/dify_advanced_rag_lab.md</a></div>
-      <nav class="doc-nav" aria-label="材料前后导航"><a href="../templates/kb_source_inventory.html"><span>上一份材料</span><strong>知识库资料盘点表</strong></a><a href="ima_QoderWork_lab.html"><span>下一份材料</span><strong>知识库 + 工作台知识工作流练习</strong></a></nav>
+      <div class="doc-kicker"><span class="doc-type">学员手册</span><span>student-guides/README.md</span></div>
+      <h1 id="学员-skill-构建指引-·-总索引">学员 Skill 构建指引 · 总索引</h1>
+<blockquote><p>环境公益 AI 赋能实战营（5+1）· 课程组内部使用 | 2026-06-20</p></blockquote>
+<hr>
+<h2 id="速查表">速查表</h2>
+<table><thead><tr><th>编号</th><th>机构</th><th>主模块</th><th>MVP 关键词</th><th>指引文件</th></tr></thead><tbody><tr><td>SG-01</td><td>农民种子网络</td><td>M2</td><td>行业搜索简报</td><td><a href="./SG-01-%E5%86%9C%E6%B0%91%E7%A7%8D%E5%AD%90%E7%BD%91%E7%BB%9C.html">SG-01</a></td></tr><tr><td>SG-02</td><td>珠水云山</td><td>M2</td><td>行业研究报告</td><td><a href="./SG-02-%E7%8F%A0%E6%B0%B4%E4%BA%91%E5%B1%B1.html">SG-02</a></td></tr><tr><td>SG-03</td><td>北京常青藤</td><td>M2</td><td>语音→案例</td><td><a href="./SG-03-%E5%8C%97%E4%BA%AC%E5%B8%B8%E9%9D%92%E8%97%A4.html">SG-03</a></td></tr><tr><td>SG-04</td><td>福建绿行者</td><td>M1</td><td>项目书初稿</td><td><a href="./SG-04-%E7%A6%8F%E5%BB%BA%E7%BB%BF%E8%A1%8C%E8%80%85.html">SG-04</a></td></tr><tr><td>SG-05</td><td>雪境</td><td>M1+M2</td><td>结项报告初稿</td><td><a href="./SG-05-%E9%9B%AA%E5%A2%83.html">SG-05</a></td></tr><tr><td>SG-06</td><td>武汉青耘</td><td>M2+M3</td><td>项目库分类</td><td><a href="./SG-06-%E6%AD%A6%E6%B1%89%E9%9D%92%E8%80%98.html">SG-06</a></td></tr><tr><td>SG-07</td><td>云山保护</td><td>M2+M3</td><td>双月报初稿</td><td><a href="./SG-07-%E4%BA%91%E5%B1%B1%E4%BF%9D%E6%8A%A4.html">SG-07</a></td></tr><tr><td>SG-08</td><td>天津绿邻居</td><td>M2+M3</td><td>知识库搜索</td><td><a href="./SG-08-%E5%A4%A9%E6%B4%A5%E7%BB%BF%E9%82%BB%E5%B1%85.html">SG-08</a></td></tr></tbody></table>
+<hr>
+<h2 id="按模块分组">按模块分组</h2>
+<table><thead><tr><th>模块</th><th>学员</th><th>可互相参考</th></tr></thead><tbody><tr><td><strong>M1 文书链</strong></td><td>SG-04 福建绿行者、SG-05 雪境</td><td>共享&quot;资方模板→报告生成&quot;思路</td></tr><tr><td><strong>M2 知识沉淀</strong></td><td>SG-01 农民种子网络、SG-02 珠水云山、SG-03 北京常青藤</td><td>共享&quot;资料收拢→知识库→搜索/问答&quot;路径</td></tr><tr><td><strong>M2+M3 综合</strong></td><td>SG-05 雪境、SG-06 武汉青耘、SG-07 云山保护、SG-08 天津绿邻居</td><td>共享&quot;先分类+后生成&quot;的两步法</td></tr></tbody></table>
+<hr>
+<h2 id="给课程组的使用说明">给课程组的使用说明</h2>
+<h3 id="发放节奏">发放节奏</h3>
+<ul><li><strong>第 1 课前 1 周</strong>：将对应 SG 文件发给学员，重点看&quot;课前准备清单&quot;</li><li><strong>第 1 课前</strong>：群内确认&quot;资料准备好了吗？&quot;</li><li><strong>第 2 课后</strong>：对照 MVP 检查是否跑通</li><li><strong>第 3 课</strong>：安排同模块学员 10 分钟交叉互看</li><li><strong>第 5 课</strong>：每人按 MVP 成功标准自评 + 展示</li></ul>
+<h3 id="文件结构每份-sg-均含-6-个模块">文件结构（每份 SG 均含 6 个模块）</h3>
+<pre><code class="language-">一、助理画像
+二、课前准备清单
+三、最简闭环 MVP
+四、Skill 模板（填空式）
+五、分课操作指引
+六、常见坑提醒</code></pre>
+<h3 id="相关文档">相关文档</h3>
+<ul><li>课前作业原文：<code>pre_work_student/</code></li><li>需求分析汇总：<code>200_课前作业8机构需求速览.md</code></li><li>访谈案例对标：<code>201_技术公益访谈12案例_M1M2M3归类和可借鉴点.md</code></li><li>逐份落地方案：<code>202_8学员落地建议方案_逐份.md</code></li></ul>
+      <div class="source-path">Markdown 原文：<a href="README.md">student-guides/README.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../quiz-binding.html"><span>上一份材料</span><strong>课后测验与课程内容的绑定说明</strong></a><a href="SG-01-农民种子网络.html"><span>下一份材料</span><strong>SG-01 · 农民种子网络 · Skill 构建指引</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
-      <a class="btn btn-primary" href="dify_advanced_rag_lab.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="dify_advanced_rag_lab.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <a class="btn btn-primary" href="README.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="README.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
-      <nav class="toc" aria-label="本文目录"><a href="#dify-高阶-rag-练习">Dify 高阶 RAG 练习</a>
-<a href="#定位">定位</a>
-<a href="#练习目标">练习目标</a>
-<a href="#记录表">记录表</a>
-<a href="#复盘问题">复盘问题</a>
-<a href="#交付物">交付物</a></nav>
+      <nav class="toc" aria-label="本文目录"><a href="#学员-skill-构建指引-·-总索引">学员 Skill 构建指引 · 总索引</a>
+<a href="#速查表">速查表</a>
+<a href="#按模块分组">按模块分组</a>
+<a href="#给课程组的使用说明">给课程组的使用说明</a>
+<a href="#发放节奏">发放节奏</a>
+<a href="#文件结构每份-sg-均含-6-个模块">文件结构（每份 SG 均含 6 个模块）</a>
+<a href="#相关文档">相关文档</a></nav>
     </aside>
   </main>
   <footer class="site-footer">
     <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
     <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
-    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
     <div>
       <h2>元公益工作室</h2>
       <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# Dify 高阶 RAG 练习\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-02-knowledge-base/tools/dify_advanced_rag_lab.md`\n>\n> 用途：L2+ 学员或助教使用。Dify 不替代本期主线腾讯元器，主要用于看清 RAG 检索机制和 frontmatter / metadata 对检索质量的影响。\n\n## 定位\n\n| 项目 | 课程口径 |\n|------|----------|\n| 腾讯元器 | 本期组织层主线，优先用于项目助理上线 |\n| Dify | 高阶训练场，用于理解检索模式、索引、rerank、metadata 过滤 |\n| 自建知识库 | 仅作为 L2+ 或后续代建路线，不要求全员掌握 |\n\n## 练习目标\n\n完成一次同资料、同问题、不同检索设置的对比：\n\n1. 上传 5-10 份已脱敏、已清洗、带 frontmatter 的资料。\n2. 建立同一知识库的三种测试配置：\n   - 向量检索\n   - 全文检索\n   - 混合检索\n3. 如果工具支持 metadata 过滤，尝试使用 doc_type、year、privacy_level、retrieval_hint 做筛选。\n4. 使用同一组 10 个问题测试。\n5. 记录每种配置的命中率、错误类型和可解释原因。\n\n## 记录表\n\n| 配置 | 命中率 | 最常见错误 | frontmatter / metadata 是否起作用 | 适合的问题 | 不适合的问题 |\n|------|--------|------------|----------------------------------|------------|--------------|\n| 向量检索 | | | | | |\n| 全文检索 | | | | | |\n| 混合检索 | | | | | |\n\n## 复盘问题\n\n1. 哪些问题全文检索更稳？为什么？\n2. 哪些问题向量检索更稳？为什么？\n3. 混合检索有没有引入更多无关片段？\n4. frontmatter / metadata 过滤是否减少了错误引用？\n5. 哪些失败其实不是检索问题，而是资料缺失、清洗不足或提示词问题？\n\n## 交付物\n\n```text\n我用 ___ 份资料做了 Dify 检索模式对比；\n其中 ___ 份资料带完整 frontmatter；\n向量检索命中率 ___%；\n全文检索命中率 ___%；\n混合检索命中率 ___%；\n最适合我机构知识库的默认策略是 ___；\n原因是 ___。\n```\n"</script>
+  <script type="application/json" id="markdown-source">"# 学员 Skill 构建指引 · 总索引\n\n> 环境公益 AI 赋能实战营（5+1）· 课程组内部使用 | 2026-06-20\n\n---\n\n## 速查表\n\n| 编号 | 机构 | 主模块 | MVP 关键词 | 指引文件 |\n|------|------|--------|-----------|---------|\n| SG-01 | 农民种子网络 | M2 | 行业搜索简报 | [SG-01](./SG-01-%E5%86%9C%E6%B0%91%E7%A7%8D%E5%AD%90%E7%BD%91%E7%BB%9C.md) |\n| SG-02 | 珠水云山 | M2 | 行业研究报告 | [SG-02](./SG-02-%E7%8F%A0%E6%B0%B4%E4%BA%91%E5%B1%B1.md) |\n| SG-03 | 北京常青藤 | M2 | 语音→案例 | [SG-03](./SG-03-%E5%8C%97%E4%BA%AC%E5%B8%B8%E9%9D%92%E8%97%A4.md) |\n| SG-04 | 福建绿行者 | M1 | 项目书初稿 | [SG-04](./SG-04-%E7%A6%8F%E5%BB%BA%E7%BB%BF%E8%A1%8C%E8%80%85.md) |\n| SG-05 | 雪境 | M1+M2 | 结项报告初稿 | [SG-05](./SG-05-%E9%9B%AA%E5%A2%83.md) |\n| SG-06 | 武汉青耘 | M2+M3 | 项目库分类 | [SG-06](./SG-06-%E6%AD%A6%E6%B1%89%E9%9D%92%E8%80%98.md) |\n| SG-07 | 云山保护 | M2+M3 | 双月报初稿 | [SG-07](./SG-07-%E4%BA%91%E5%B1%B1%E4%BF%9D%E6%8A%A4.md) |\n| SG-08 | 天津绿邻居 | M2+M3 | 知识库搜索 | [SG-08](./SG-08-%E5%A4%A9%E6%B4%A5%E7%BB%BF%E9%82%BB%E5%B1%85.md) |\n\n---\n\n## 按模块分组\n\n| 模块 | 学员 | 可互相参考 |\n|------|------|----------|\n| **M1 文书链** | SG-04 福建绿行者、SG-05 雪境 | 共享\"资方模板→报告生成\"思路 |\n| **M2 知识沉淀** | SG-01 农民种子网络、SG-02 珠水云山、SG-03 北京常青藤 | 共享\"资料收拢→知识库→搜索/问答\"路径 |\n| **M2+M3 综合** | SG-05 雪境、SG-06 武汉青耘、SG-07 云山保护、SG-08 天津绿邻居 | 共享\"先分类+后生成\"的两步法 |\n\n---\n\n## 给课程组的使用说明\n\n### 发放节奏\n\n- **第 1 课前 1 周**：将对应 SG 文件发给学员，重点看\"课前准备清单\"\n- **第 1 课前**：群内确认\"资料准备好了吗？\"\n- **第 2 课后**：对照 MVP 检查是否跑通\n- **第 3 课**：安排同模块学员 10 分钟交叉互看\n- **第 5 课**：每人按 MVP 成功标准自评 + 展示\n\n### 文件结构（每份 SG 均含 6 个模块）\n\n```\n一、助理画像\n二、课前准备清单\n三、最简闭环 MVP\n四、Skill 模板（填空式）\n五、分课操作指引\n六、常见坑提醒\n```\n\n### 相关文档\n\n- 课前作业原文：`pre_work_student/`\n- 需求分析汇总：`200_课前作业8机构需求速览.md`\n- 访谈案例对标：`201_技术公益访谈12案例_M1M2M3归类和可借鉴点.md`\n- 逐份落地方案：`202_8学员落地建议方案_逐份.md`\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

@@ -13,10 +13,10 @@
 | 层级 | 工具 | 是否需要自己买 Token |
 |------|------|---------------------|
 | **组织层** | 腾讯元器（第 2–5 课主线 Bot） | **不需要**——平台内置模型，按平台规则使用 |
-| **个人层** | WorkBuddy（第 1–2 课技能与本地知识库） | **需要**——连接外部大模型 API |
+| **个人层** | QoderWork（第 1–2 课技能与本地知识库） | **需要**——连接外部大模型 API |
 | **自建补充** | OpenClaw + Lighthouse（可选试点） | **需要**——独立部署时自行配置模型 Key |
 
-因此：**组织层 Bot 不用提前买 Token；个人层 WorkBuddy 和可选自建路线需要。** 建议在第 1 课前完成 API 开通，避免第 1 课现场卡在注册与充值。
+因此：**组织层 Bot 不用提前买 Token；个人层 QoderWork 和可选自建路线需要。** 建议在第 1 课前完成 API 开通，避免第 1 课现场卡在注册与充值。
 
 ---
 
@@ -24,7 +24,7 @@
 
 | 优先级 | 平台 | 适用场景 | 控制台 |
 |--------|------|---------|--------|
-| **主线** | 阿里云百炼 | WorkBuddy 默认对接、OpenClaw 试点、国内访问稳定 | [百炼控制台 · API Key](https://bailian.console.aliyun.com/?tab=api#/api) |
+| **主线** | 阿里云百炼 | QoderWork 默认对接、OpenClaw 试点、国内访问稳定 | [百炼控制台 · API Key](https://bailian.console.aliyun.com/?tab=api#/api) |
 | **辅助** | DeepSeek 开发者平台 | 百炼额度用尽时的备选、或偏好 DeepSeek 模型时 | [platform.deepseek.com](https://platform.deepseek.com/) |
 
 > 本期组织层教学以腾讯元器为准，百炼**不是**第 2–5 课 Bot 的主线平台，而是个人层与自建路线的模型来源。详见内部文档 `105_平台选型评估表.md`。
@@ -57,7 +57,7 @@
 
 1. 在百炼控制台**右上角**选择地域：**华北 2（北京）**（国内课程推荐；新加坡等地域 Key 不能混用）。
 2. 进入 **[API Key 管理页](https://bailian.console.aliyun.com/?tab=api#/api)**，点击 **创建 API Key**。
-3. 填写名称（建议：`机构简称-workbuddy-2026`），权限保持默认或按需设为「全部模型」。
+3. 填写名称（建议：`机构简称-QoderWork-2026`），权限保持默认或按需设为「全部模型」。
 4. **立即复制并保存**完整 Key（格式 `sk-` 开头）——关闭弹窗后无法再次查看完整密钥。
 
 官方说明：[如何获取 API Key](https://help.aliyun.com/zh/model-studio/get-api-key)
@@ -82,11 +82,11 @@
 
 模型价格参考：[百炼模型价格](https://help.aliyun.com/zh/model-studio/model-pricing)
 
-### 3.5 在 WorkBuddy 中配置（第 1 课会再演示）
+### 3.5 在 QoderWork 中配置（第 1 课会再演示）
 
 课前只需**保存好 Key**，第 1 课会教具体填入位置。原则：
 
-- 在 WorkBuddy「模型设置」中选择 **OpenAI 兼容** 或 **自定义 API**。
+- 在 QoderWork「模型设置」中选择 **OpenAI 兼容** 或 **自定义 API**。
 - **Base URL**（北京地域示例）：`https://dashscope.aliyuncs.com/compatible-mode/v1`
 - **API Key**：粘贴你在 3.3 步创建的 Key。
 - **模型名**：按课程推荐选择（如 `qwen-plus` 或当期讲义指定型号）。
@@ -121,7 +121,7 @@ curl https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions \
 ### 4.2 创建 API Key
 
 1. 登录后进入左侧 **API keys**。
-2. 点击 **创建 API key**，命名如 `机构简称-workbuddy-backup`。
+2. 点击 **创建 API key**，命名如 `机构简称-QoderWork-backup`。
 3. **立即保存**以 `sk-` 开头的完整 Key（仅显示一次）。
 
 ### 4.3 充值
@@ -132,7 +132,7 @@ curl https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions \
 
 官方说明：[DeepSeek API 常见问题](https://api-docs.deepseek.com/zh-cn/faq)
 
-### 4.4 在 WorkBuddy 中配置 DeepSeek
+### 4.4 在 QoderWork 中配置 DeepSeek
 
 - **Base URL**：`https://api.deepseek.com`
 - **API Key**：DeepSeek 控制台创建的 Key
@@ -164,7 +164,7 @@ curl https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions \
 - [ ] 已创建百炼 API Key（华北 2 北京）并安全保存
 - [ ] 已了解免费额度范围；必要时已充值或设置余额预警
 - [ ] （可选）DeepSeek 账号、Key、充值已完成
-- [ ] 已在 WorkBuddy 试连一次，或确认第 1 课现场再配置
+- [ ] 已在 QoderWork 试连一次，或确认第 1 课现场再配置
 - [ ] 未将 Key 写入立项书或上传到公开渠道
 ```
 
@@ -176,7 +176,7 @@ curl https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions \
 A：不需要。元器 Bot 使用平台内置模型，按元器规则使用即可。
 
 **Q：必须用阿里云吗？**  
-A：个人层 WorkBuddy **必须**配置某一家的模型 API；课程推荐百炼为主、DeepSeek 为辅。组织层 Bot 仍走元器。
+A：个人层 QoderWork **必须**配置某一家的模型 API；课程推荐百炼为主、DeepSeek 为辅。组织层 Bot 仍走元器。
 
 **Q：子账号可以操作吗？**  
 A：可以。主账号在 RAM 中为子账号授予百炼「管理员」或「API-Key」页面权限即可。
@@ -193,7 +193,7 @@ A：先充值使阿里云账户余额 ≥ 0，再返回百炼开通服务。
 
 | 准备项 | 用到哪节课 |
 |--------|-----------|
-| 百炼 / DeepSeek API Key | → 第 1 课：WorkBuddy 技能调试 |
+| 百炼 / DeepSeek API Key | → 第 1 课：QoderWork 技能调试 |
 | 同上 | → 第 2 课：本地知识库检索与命中率测试 |
 | OpenClaw 试点（可选） | → 课程组代建时使用同一 Key 原则，密钥不进公开文档 |
 

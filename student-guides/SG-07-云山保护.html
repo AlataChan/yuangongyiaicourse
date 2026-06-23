@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SG-07 · 云山保护 · Skill 构建指引 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="SG-07 · 云山保护 · Skill 构建指引 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../resources.html">资料中心</a>
+    <span aria-hidden="true">/</span>
+    <span>SG-07 · 云山保护 · Skill 构建指引</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>student-guides/SG-07-云山保护.md</span></div>
+      <h1 id="sg-07-·-云山保护-·-skill-构建指引">SG-07 · 云山保护 · Skill 构建指引</h1>
+<blockquote><p>刘栗琼（传播筹款顾问）| M2+M3 · 双月报 + 知识库</p></blockquote>
+<hr>
+<h2 id="一、📋-助理画像">一、📋 助理画像</h2>
+<p><strong>一句话目标</strong>：将 20 份散落的历史双月报变成可复用知识库，自动生成风格统一的双月报初稿。</p>
+<table><thead><tr><th>维度</th><th>内容</th></tr></thead><tbody><tr><td>主模块</td><td>M2 案例与知识沉淀 + M3 传播与运营</td></tr><tr><td>谁来用</td><td>项目主管、项目执行人</td></tr><tr><td>输入什么</td><td>近期工作表单、传播数据、执行文件</td></tr><tr><td>输出什么</td><td>资方双月报初稿、可查询的内部知识库</td></tr><tr><td>现有资料</td><td>约 20 份历史双月报，全在在线协作文档</td></tr><tr><td>成功标准</td><td>助理可以完成一份双月报；初稿无遗漏、措辞严谨、风格统一</td></tr></tbody></table>
+<hr>
+<h2 id="二、📦-课前准备清单">二、📦 课前准备清单</h2>
+<blockquote><p>⏱ 预计 25 分钟 | 第 1 课前完成</p></blockquote>
+<ul><li><input type="checkbox" disabled> <strong>收集历史双月报</strong>：导出最近 1-2 年的所有双月报告（建议至少 6 份），放入 <code>云山保护_历史双月报/</code> 文件夹</li><li><input type="checkbox" disabled> <strong>标注&quot;标准答案&quot;</strong>：从 6 份中选出 2 份你认为写得最好、资方最满意的报告，重命名为 <code>优秀样本_YYYYMM.docx</code></li><li>这两份是 AI 学习风格的&quot;教科书&quot;</li><li><input type="checkbox" disabled> <strong>列出双月报的标准结构</strong>：你们的双月报通常包含哪些章节？（如：本月重点 / 执行进展 / 传播数据 / 下月计划 / 财务摘要）</li><li><input type="checkbox" disabled> <strong>准备一份最近两个月的真实工作素材</strong>：活动记录、传播数据、照片链接 —— 这是第 1 课要&quot;喂&quot;的输入</li></ul>
+<hr>
+<h2 id="三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</h2>
+<blockquote><p>第 2 课结束前必须跑通</p></blockquote>
+<p><strong>MVP 定义</strong>：把 2 份优秀样本 + 1 份新素材放入文件夹 → QoderWork 读取历史风格 → 输出新一期双月报初稿。</p>
+<p><strong>为什么选这个</strong>：</p>
+<ul><li>输出物最聚焦（只有一个文档类型）</li><li>成功标准最明确（&quot;风格统一、无遗漏、措辞严谨&quot;）</li><li>20 份历史样本不大不小，刚好够跑&quot;精选知识库&quot;策略</li></ul>
+<p><strong>跑通长这样</strong>：</p>
+<pre><code class="language-">输入：
+  1. 优秀样本文件夹（2 份）
+  2. 本期工作素材文件夹（活动记录、传播数据等）
+QoderWork 执行：
+  1. 分析 2 份优秀样本的：章节结构、语言风格、数据呈现方式
+  2. 读取本期素材 → 模仿风格生成新一期双月报
+输出：一份&quot;看起来像是同一个人写的&quot;双月报初稿</code></pre>
+<hr>
+<h2 id="四、🧩-skill-模板">四、🧩 Skill 模板</h2>
+<h3 id="skill-1双月报初稿生成">Skill 1：双月报初稿生成</h3>
+<pre><code class="language-">【Skill 名称】云山双月报
+【触发方式】输入 &quot;生成双月报 [YYYY年MM-MM月]&quot;
+【输入】
+  - 历史优秀样本文件夹（≥2 份）
+  - 本期素材文件夹（活动记录/传播数据/执行文件）
+【处理逻辑】
+  1. 读取优秀样本 → 提取：章节结构、标题层级、表格样式、语言风格
+  2. 读取本期素材 → 按章节结构归类信息
+  3. 生成初稿：结构对齐、风格对齐、数据格式对齐
+  4. 标注哪些章节信息充足、哪些需要人工补充
+【输出格式】文档初稿，格式结构与历史报告一致
+【质检标准】章节结构完整；每条数据有出处；无遗漏本期提交的素材；措辞风格与样本一致</code></pre>
+<h3 id="skill-2知识库问答第-4-5-课扩展">Skill 2：知识库问答（第 4-5 课扩展）</h3>
+<pre><code class="language-">【Skill 名称】云山项目知识库
+【触发方式】输入 &quot;查 [关键词]&quot; 或 &quot;2024 年 XX 项目产出&quot;
+【输入】所有 20 份历史双月报 / 项目文书
+【处理逻辑】搜索知识库 → 汇总相关信息 → 按时间顺序排列
+【输出格式】简洁的查询结果摘要
+【说明】当双月报知识库积累到 20+ 份后，这个功能自然可用</code></pre>
+<h3 id="复制即用">复制即用</h3>
+<pre><code class="language-">你是一个公益机构双月报撰写助手。请按以下规则工作：
+
+1. 当我输入&quot;学习风格&quot;，请读取优秀样本文件夹中的所有双月报，
+   分析并输出：
+   - 章节结构是什么
+   - 每章惯用的开头句式是什么
+   - 数据用什么格式呈现（表格/列表/段落）
+   - 语言风格特点（如&quot;平实叙述/数据驱动/故事化&quot;）
+
+2. 当我输入&quot;生成双月报 [YYYY年MM-MM月]&quot;，请：
+   - 读取本期素材文件夹
+   - 严格按照刚才学习的章节结构、语言风格、数据格式生成初稿
+   - 每条数据标注出处
+   - 本期素材中没有的信息不过度发挥，标注 [待补充]
+   - 不确定的数据标注 [待核实]
+
+3. 初稿完成后，主动列出一个&quot;质检核对清单&quot;：
+   - 是否所有章节都填满了？
+   - 哪些数据点的出处需要人工确认？
+   - 跟优秀样本的相似度自评（1-10 分）
+
+现在请先执行第 1 步：输入&quot;学习风格&quot;。</code></pre>
+<hr>
+<h2 id="五、🛠️-分课操作指引">五、🛠️ 分课操作指引</h2>
+<h3 id="第-1-课跑通学习风格→生成初稿">第 1 课：跑通&quot;学习风格→生成初稿&quot;</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 15 min | 📤 提交物：一份新双月报初稿 + 风格学习报告 | ✅ 完成标志：初稿风格与历史报告相似度 ≥7 分</p></blockquote>
+<ol><li>粘贴&quot;复制即用&quot;提示词 → 输入 <code>学习风格</code></li><li>QoderWork 分析优秀样本，输出章节结构+语言风格总结</li><li>检查：它总结的风格特征符合你们的实际情况吗？修正不准确的描述</li><li>输入 <code>生成双月报 2026年05-06月</code></li><li>逐章对比新初稿和历史优秀样本：哪里像？哪里不像？</li><li>标注不准确的地方 → 告诉 QoderWork 修正</li></ol>
+<h3 id="第-2-课封装-skill-+-知识库搭建">第 2 课：封装 Skill + 知识库搭建</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 15 min | 📤 提交物：可独立运行的双月报 Skill | ✅ 完成标志：输入触发词 → 30 秒内获得初稿</p></blockquote>
+<ol><li>封装为 Skill，命名为&quot;云山双月报&quot;</li><li>把全部 20 份历史双月报放入统一文件夹</li><li>测试：输入一个已过去的时间段（有真实报告可对照），Skill 生成的初稿和原文差多少？</li></ol>
+<h3 id="第-3-课知识库化-+-过渡到可查询">第 3 课：知识库化 + 过渡到可查询</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 15 min | 📤 提交物：可关键词搜索的知识库 | ✅ 完成标志：能准确搜索到指定项目的产出</p></blockquote>
+<ol><li>让 QoderWork 把所有 20 份双月报按&quot;项目/时间/关键词&quot;建立索引</li><li>测试搜索：&quot;2024 年高黎贡山项目的核心产出是什么？&quot;</li><li>如果搜不到 → 检查文件命名和内容关键词是否匹配</li></ol>
+<h3 id="第-4-课知识库问答-+-多用途输出">第 4 课：知识库问答 + 多用途输出</h3>
+<blockquote><p>⏱ 课上 15 min + 课后 15 min | 📤 提交物：知识库问答 Skill | ✅ 完成标志：同事可通过关键词查询任意项目情况</p></blockquote>
+<ol><li>扩展：让知识库不仅能生成双月报，还能回答&quot;XX 项目进展如何&quot;类问题</li><li>测试给资方的快速回复：&quot;上次我们聊到的 XX 项目，目前的情况是…&quot;</li></ol>
+<h3 id="第-5-课成果预发布">第 5 课：成果预发布</h3>
+<blockquote><p>⏱ 课上 15 min | 📤 提交物：向项目主管展示的双月报+知识库双 Skill | ✅ 完成标志：完成了一份真实资方双月报的提交</p></blockquote>
+<ol><li>演示：输入本期素材 → AI 生成 → 人工校订 → 最终发出</li><li>展示历史效率对比：上一期双月报花了多少时间？这期花了多少？</li><li>给项目主管一份《云山 AI 助理使用 1 页纸》</li></ol>
+<hr>
+<h2 id="六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</h2>
+<table><thead><tr><th>坑</th><th>自救方法</th></tr></thead><tbody><tr><td>AI 生成的风格&quot;有点像但不像&quot;</td><td>不要只说&quot;模仿风格&quot;，要具体说&quot;用这种开头句式&quot;&quot;数据用列表而非段落&quot;&quot;语气客观不煽情&quot;</td></tr><tr><td>20 份历史报告里有些质量参差不齐</td><td>只选 2-3 份最好的当样本，其余只作为知识库素材而非风格范本</td></tr><tr><td>风格要求太抽象、AI 执行不到位</td><td>把&quot;风格统一&quot;拆解为可操作指令：标题层级 / 句式 / 数据格式 / 篇幅 / 人称</td></tr></tbody></table>
+<hr>
+<p><em>本指引对标的同行实践：上海慧灵（精选知识库策略，4 本书比 40 本好）、一个母亲（标准化模板→风格统一的输出）、卡丝基金会（自动化提醒+生成）</em></p>
+      <div class="source-path">Markdown 原文：<a href="SG-07-云山保护.md">student-guides/SG-07-云山保护.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="SG-06-武汉青耘.html"><span>上一份材料</span><strong>SG-06 · 武汉青耘 · Skill 构建指引</strong></a><a href="SG-08-天津绿邻居.html"><span>下一份材料</span><strong>SG-08 · 天津绿邻居 · Skill 构建指引</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SG-07-云山保护.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SG-07-云山保护.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#sg-07-·-云山保护-·-skill-构建指引">SG-07 · 云山保护 · Skill 构建指引</a>
+<a href="#一、📋-助理画像">一、📋 助理画像</a>
+<a href="#二、📦-课前准备清单">二、📦 课前准备清单</a>
+<a href="#三、🎯-最简闭环-mvp">三、🎯 最简闭环 MVP</a>
+<a href="#四、🧩-skill-模板">四、🧩 Skill 模板</a>
+<a href="#skill-1双月报初稿生成">Skill 1：双月报初稿生成</a>
+<a href="#skill-2知识库问答第-4-5-课扩展">Skill 2：知识库问答（第 4-5 课扩展）</a>
+<a href="#复制即用">复制即用</a>
+<a href="#五、🛠️-分课操作指引">五、🛠️ 分课操作指引</a>
+<a href="#第-1-课跑通学习风格→生成初稿">第 1 课：跑通&quot;学习风格→生成初稿&quot;</a>
+<a href="#第-2-课封装-skill-+-知识库搭建">第 2 课：封装 Skill + 知识库搭建</a>
+<a href="#第-3-课知识库化-+-过渡到可查询">第 3 课：知识库化 + 过渡到可查询</a>
+<a href="#第-4-课知识库问答-+-多用途输出">第 4 课：知识库问答 + 多用途输出</a>
+<a href="#第-5-课成果预发布">第 5 课：成果预发布</a>
+<a href="#六、⚠️-常见坑提醒">六、⚠️ 常见坑提醒</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# SG-07 · 云山保护 · Skill 构建指引\n\n> 刘栗琼（传播筹款顾问）| M2+M3 · 双月报 + 知识库\n\n---\n\n## 一、📋 助理画像\n\n**一句话目标**：将 20 份散落的历史双月报变成可复用知识库，自动生成风格统一的双月报初稿。\n\n| 维度 | 内容 |\n|------|------|\n| 主模块 | M2 案例与知识沉淀 + M3 传播与运营 |\n| 谁来用 | 项目主管、项目执行人 |\n| 输入什么 | 近期工作表单、传播数据、执行文件 |\n| 输出什么 | 资方双月报初稿、可查询的内部知识库 |\n| 现有资料 | 约 20 份历史双月报，全在在线协作文档 |\n| 成功标准 | 助理可以完成一份双月报；初稿无遗漏、措辞严谨、风格统一 |\n\n---\n\n## 二、📦 课前准备清单\n\n> ⏱ 预计 25 分钟 | 第 1 课前完成\n\n- [ ] **收集历史双月报**：导出最近 1-2 年的所有双月报告（建议至少 6 份），放入 `云山保护_历史双月报/` 文件夹\n- [ ] **标注\"标准答案\"**：从 6 份中选出 2 份你认为写得最好、资方最满意的报告，重命名为 `优秀样本_YYYYMM.docx`\n  - 这两份是 AI 学习风格的\"教科书\"\n- [ ] **列出双月报的标准结构**：你们的双月报通常包含哪些章节？（如：本月重点 / 执行进展 / 传播数据 / 下月计划 / 财务摘要）\n- [ ] **准备一份最近两个月的真实工作素材**：活动记录、传播数据、照片链接 —— 这是第 1 课要\"喂\"的输入\n\n---\n\n## 三、🎯 最简闭环 MVP\n\n> 第 2 课结束前必须跑通\n\n**MVP 定义**：把 2 份优秀样本 + 1 份新素材放入文件夹 → QoderWork 读取历史风格 → 输出新一期双月报初稿。\n\n**为什么选这个**：\n- 输出物最聚焦（只有一个文档类型）\n- 成功标准最明确（\"风格统一、无遗漏、措辞严谨\"）\n- 20 份历史样本不大不小，刚好够跑\"精选知识库\"策略\n\n**跑通长这样**：\n```\n输入：\n  1. 优秀样本文件夹（2 份）\n  2. 本期工作素材文件夹（活动记录、传播数据等）\nQoderWork 执行：\n  1. 分析 2 份优秀样本的：章节结构、语言风格、数据呈现方式\n  2. 读取本期素材 → 模仿风格生成新一期双月报\n输出：一份\"看起来像是同一个人写的\"双月报初稿\n```\n\n---\n\n## 四、🧩 Skill 模板\n\n### Skill 1：双月报初稿生成\n\n```\n【Skill 名称】云山双月报\n【触发方式】输入 \"生成双月报 [YYYY年MM-MM月]\"\n【输入】\n  - 历史优秀样本文件夹（≥2 份）\n  - 本期素材文件夹（活动记录/传播数据/执行文件）\n【处理逻辑】\n  1. 读取优秀样本 → 提取：章节结构、标题层级、表格样式、语言风格\n  2. 读取本期素材 → 按章节结构归类信息\n  3. 生成初稿：结构对齐、风格对齐、数据格式对齐\n  4. 标注哪些章节信息充足、哪些需要人工补充\n【输出格式】文档初稿，格式结构与历史报告一致\n【质检标准】章节结构完整；每条数据有出处；无遗漏本期提交的素材；措辞风格与样本一致\n```\n\n### Skill 2：知识库问答（第 4-5 课扩展）\n\n```\n【Skill 名称】云山项目知识库\n【触发方式】输入 \"查 [关键词]\" 或 \"2024 年 XX 项目产出\"\n【输入】所有 20 份历史双月报 / 项目文书\n【处理逻辑】搜索知识库 → 汇总相关信息 → 按时间顺序排列\n【输出格式】简洁的查询结果摘要\n【说明】当双月报知识库积累到 20+ 份后，这个功能自然可用\n```\n\n### 复制即用\n\n```\n你是一个公益机构双月报撰写助手。请按以下规则工作：\n\n1. 当我输入\"学习风格\"，请读取优秀样本文件夹中的所有双月报，\n   分析并输出：\n   - 章节结构是什么\n   - 每章惯用的开头句式是什么\n   - 数据用什么格式呈现（表格/列表/段落）\n   - 语言风格特点（如\"平实叙述/数据驱动/故事化\"）\n\n2. 当我输入\"生成双月报 [YYYY年MM-MM月]\"，请：\n   - 读取本期素材文件夹\n   - 严格按照刚才学习的章节结构、语言风格、数据格式生成初稿\n   - 每条数据标注出处\n   - 本期素材中没有的信息不过度发挥，标注 [待补充]\n   - 不确定的数据标注 [待核实]\n\n3. 初稿完成后，主动列出一个\"质检核对清单\"：\n   - 是否所有章节都填满了？\n   - 哪些数据点的出处需要人工确认？\n   - 跟优秀样本的相似度自评（1-10 分）\n\n现在请先执行第 1 步：输入\"学习风格\"。\n```\n\n---\n\n## 五、🛠️ 分课操作指引\n\n### 第 1 课：跑通\"学习风格→生成初稿\"\n\n> ⏱ 课上 15 min + 课后 15 min | 📤 提交物：一份新双月报初稿 + 风格学习报告 | ✅ 完成标志：初稿风格与历史报告相似度 ≥7 分\n\n1. 粘贴\"复制即用\"提示词 → 输入 `学习风格`\n2. QoderWork 分析优秀样本，输出章节结构+语言风格总结\n3. 检查：它总结的风格特征符合你们的实际情况吗？修正不准确的描述\n4. 输入 `生成双月报 2026年05-06月`\n5. 逐章对比新初稿和历史优秀样本：哪里像？哪里不像？\n6. 标注不准确的地方 → 告诉 QoderWork 修正\n\n### 第 2 课：封装 Skill + 知识库搭建\n\n> ⏱ 课上 15 min + 课后 15 min | 📤 提交物：可独立运行的双月报 Skill | ✅ 完成标志：输入触发词 → 30 秒内获得初稿\n\n1. 封装为 Skill，命名为\"云山双月报\"\n2. 把全部 20 份历史双月报放入统一文件夹\n3. 测试：输入一个已过去的时间段（有真实报告可对照），Skill 生成的初稿和原文差多少？\n\n### 第 3 课：知识库化 + 过渡到可查询\n\n> ⏱ 课上 15 min + 课后 15 min | 📤 提交物：可关键词搜索的知识库 | ✅ 完成标志：能准确搜索到指定项目的产出\n\n1. 让 QoderWork 把所有 20 份双月报按\"项目/时间/关键词\"建立索引\n2. 测试搜索：\"2024 年高黎贡山项目的核心产出是什么？\"\n3. 如果搜不到 → 检查文件命名和内容关键词是否匹配\n\n### 第 4 课：知识库问答 + 多用途输出\n\n> ⏱ 课上 15 min + 课后 15 min | 📤 提交物：知识库问答 Skill | ✅ 完成标志：同事可通过关键词查询任意项目情况\n\n1. 扩展：让知识库不仅能生成双月报，还能回答\"XX 项目进展如何\"类问题\n2. 测试给资方的快速回复：\"上次我们聊到的 XX 项目，目前的情况是…\"\n\n### 第 5 课：成果预发布\n\n> ⏱ 课上 15 min | 📤 提交物：向项目主管展示的双月报+知识库双 Skill | ✅ 完成标志：完成了一份真实资方双月报的提交\n\n1. 演示：输入本期素材 → AI 生成 → 人工校订 → 最终发出\n2. 展示历史效率对比：上一期双月报花了多少时间？这期花了多少？\n3. 给项目主管一份《云山 AI 助理使用 1 页纸》\n\n---\n\n## 六、⚠️ 常见坑提醒\n\n| 坑 | 自救方法 |\n|----|---------|\n| AI 生成的风格\"有点像但不像\" | 不要只说\"模仿风格\"，要具体说\"用这种开头句式\"\"数据用列表而非段落\"\"语气客观不煽情\" |\n| 20 份历史报告里有些质量参差不齐 | 只选 2-3 份最好的当样本，其余只作为知识库素材而非风格范本 |\n| 风格要求太抽象、AI 执行不到位 | 把\"风格统一\"拆解为可操作指令：标题层级 / 句式 / 数据格式 / 篇幅 / 人称 |\n\n---\n\n*本指引对标的同行实践：上海慧灵（精选知识库策略，4 本书比 40 本好）、一个母亲（标准化模板→风格统一的输出）、卡丝基金会（自动化提醒+生成）*\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
