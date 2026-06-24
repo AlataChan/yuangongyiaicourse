@@ -27,6 +27,15 @@
 
 一句话：**写项目书 / 结项报告这类「怎么做」的事，做成技能；历年案例、资助指南这类「有什么」的事，留给第 2 课的知识库。**
 
+## 二点五、技能标准延伸阅读（可选）
+
+动手前或概念辨析后，可阅读 [`skill-standards.md`](skill-standards.md)（网页版 [`skill-standards.html`](skill-standards.html)）：
+
+- **Anthropic 官方**：技能是什么、三层渐进加载、`SKILL.md` 规范（原文 [`references/claude_agent_skills.md`](references/claude_agent_skills.md)）
+- **Perplexity 工程实践**：触发说明怎么写、何时需要技能、Gotchas 飞轮（原文 [`references/skills_perplexity.md`](references/skills_perplexity.md)）
+
+本页用中文对照本课 QoderWork 练习路径；课前未读不影响上课。
+
 ## 三、学习目标
 
 完成本课后，你应当能够：
