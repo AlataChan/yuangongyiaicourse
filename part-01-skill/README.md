@@ -36,6 +36,16 @@
 
 本页用中文对照本课 QoderWork 练习路径；课前未读不影响上课。
 
+## 二点六、内容创作生产线 · 10 个 Skill 精选（选修）
+
+若你同时负责机构传播、公众号或知识类内容，可阅读 [`content-pipeline-skills.md`](content-pipeline-skills.md)（网页版 [`content-pipeline-skills.html`](content-pipeline-skills.html)）：
+
+- 把 Skill 按**工序**分工：选题 → 调研 → 写作 → 去 AI 味 → 封面 → 卡片 → 信息图 → HTML 发布
+- 精选 10 个 GitHub Skill（stop-slop、dbskill、content-research-writer 等），避免「装很多、用不上」
+- 与本课文书技能同一套思维：**一步一 Skill，写清触发说明**
+
+本篇为选修，不影响本课验收（≥1 个文书技能跑通）。
+
 ## 三、学习目标
 
 完成本课后，你应当能够：
