@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>技能库 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="课程 9 个可直接 Fork 的环境公益 AI 技能，覆盖项目文书、案例沉淀、传播运营与数据台账四大场景。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+
+/* Page layout */
+.page { max-width: 1080px; margin: 0 auto; padding: 48px 24px 88px; }
+.hero { margin-bottom: 48px; }
+.hero-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px; border-radius: 999px;
+  background: var(--moss-soft); color: var(--forest);
+  font-size: 0.88rem; font-weight: 900;
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: "Noto Serif SC", serif;
+  color: var(--forest);
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin: 0 0 12px;
+  line-height: 1.22;
+}
+.hero p { color: var(--muted); max-width: 680px; font-size: 1.05rem; margin: 0 0 20px; }
+.hero-stats {
+  display: flex; flex-wrap: wrap; gap: 20px;
+  margin-top: 18px;
+}
+.hero-stat { text-align: center; }
+.hero-stat strong { display: block; font-size: 2rem; font-family: "Noto Serif SC", serif; color: var(--forest); line-height: 1; }
+.hero-stat span { font-size: 0.88rem; color: var(--muted); }
+
+/* Skill groups */
+.skill-section { margin-bottom: 36px; }
+.skill-section-header {
+  display: flex; align-items: baseline; gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--line);
+}
+.skill-section-header h2 {
+  font-family: "Noto Serif SC", serif;
+  color: var(--forest);
+  font-size: 1.32rem;
+  margin: 0;
+}
+.lesson-badge {
+  font-size: 0.82rem; font-weight: 900;
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--forest); color: #fff;
+  white-space: nowrap;
+}
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.skill-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px 24px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: box-shadow 0.15s;
+}
+.skill-card:hover { box-shadow: 0 24px 52px rgba(20, 38, 31, 0.13); }
+.skill-icon { font-size: 1.6rem; line-height: 1; }
+.skill-name {
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  color: var(--forest);
+  font-weight: 900;
+  margin: 0;
+}
+.skill-slug {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  color: #3a5c4a;
+  background: #edf3ee;
+  padding: 2px 8px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.skill-desc { color: var(--muted); font-size: 0.94rem; flex: 1; }
+.skill-trigger {
+  font-size: 0.84rem;
+  background: var(--moss-soft);
+  color: var(--forest);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+.skill-trigger strong { font-weight: 900; }
+.skill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--forest);
+  color: #fff;
+  font-weight: 900;
+  text-decoration: none;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+.skill-link:hover { background: var(--forest-light); }
+
+/* How to use section */
+.how-to {
+  margin-top: 52px;
+  padding: 36px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.how-to h2 {
+  font-family: "Noto Serif SC", serif;
+  color: var(--forest);
+  margin: 0 0 20px;
+  font-size: 1.4rem;
+}
+.steps { display: grid; gap: 14px; }
+.step {
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  font-weight: 900;
+  font-size: 0.88rem;
+  display: grid; place-items: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-body strong { display: block; color: var(--forest); margin-bottom: 2px; }
+.step-body p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+}
+.org-footer-logo { width: 138px; max-width: 100%; display: block; }
+.org-footer h2 { margin: 0 0 8px; color: #fff; font-family: "Noto Serif SC", serif; font-size: 1.12rem; line-height: 1.25; }
+.org-footer p { margin: 0; color: rgba(234, 250, 241, 0.78); font-size: 0.92rem; line-height: 1.76; }
+
+@media (max-width: 920px) { .org-footer { grid-template-columns: 1fr; } }
+@media (max-width: 680px) {
+  .skill-grid { grid-template-columns: 1fr; }
+  .how-to { padding: 24px 20px; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="resources.html">资料中心</a>
+        <a class="btn btn-primary" href="index.html">返回课程首页</a>
+      </div>
+    </div>
+  </header>
+
+  <nav aria-label="面包屑" style="max-width:1080px;margin:0 auto;padding:18px 24px 0;color:#5a6f64;font-size:0.92rem;">
+    <a href="index.html" style="color:#1a4d3e;font-weight:800;text-decoration:none;">课程首页</a>
+    <span aria-hidden="true"> / </span>
+    <span>技能库</span>
+  </nav>
+
+  <main class="page">
+    <div class="hero">
+      <div class="hero-kicker">⚡ 9 个即开即用 Skill</div>
+      <h1>课程技能库</h1>
+      <p>所有技能均遵循统一 SKILL.md 格式，在 Agent 平台（QoderWork 等）中直接加载使用，也可按机构需求 Fork 后调整触发词和输出结构。</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>9</strong><span>官方技能</span></div>
+        <div class="hero-stat"><strong>4</strong><span>场景分类</span></div>
+        <div class="hero-stat"><strong>2</strong><span>关联课次</span></div>
+      </div>
+    </div>
+
+    <!-- 文书链 -->
+    <section class="skill-section" id="writing">
+      <div class="skill-section-header">
+        <h2>📄 项目文书链</h2>
+        <span class="lesson-badge">第 1 课</span>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-icon">📋</div>
+          <h3 class="skill-name">结项报告生成</h3>
+          <code class="skill-slug">env-ngo-closure-report</code>
+          <p class="skill-desc">将执行流水账、照片说明和数据汇总，自动整理为六章节结构化结项报告（项目概述 / 活动执行 / 受益情况 / 经验反思 / 财务说明 / 后续计划）。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「写结项报告 / 执行记录→报告」</div>
+          <a class="skill-link" href="part-01-skill/skills/env-ngo-closure-report/SKILL.html">查看技能 →</a>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📝</div>
+          <h3 class="skill-name">项目书 / 提案初稿</h3>
+          <code class="skill-slug">env-ngo-proposal-draft</code>
+          <p class="skill-desc">输入机构简介、历史案例、资助方指南，输出符合格式要求的立项书初稿，重点补全问题分析和预期成果章节。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「写项目书 / 写立项书」</div>
+          <a class="skill-link" href="part-01-skill/skills/env-ngo-proposal-draft/SKILL.html">查看技能 →</a>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📬</div>
+          <h3 class="skill-name">资助申请信</h3>
+          <code class="skill-slug">env-ngo-grant-letter</code>
+          <p class="skill-desc">提取项目核心信息，生成一页纸资助申请信或项目摘要，适配对外发送的简洁表达风格。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「写资助申请信 / 项目摘要」</div>
+          <a class="skill-link" href="part-01-skill/skills/env-ngo-grant-letter/SKILL.html">查看技能 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 技能优化 -->
+    <section class="skill-section" id="tooling">
+      <div class="skill-section-header">
+        <h2>🔧 技能优化工具</h2>
+        <span class="lesson-badge">第 1 课</span>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🩺</div>
+          <h3 class="skill-name">技能体检（skillopt）</h3>
+          <code class="skill-slug">env-ngo-skill-optimize</code>
+          <p class="skill-desc">审查任意 SKILL.md，输出健康打分（0-100）、缺陷评测用例、以及优先级排序的改写建议，让技能持续进化。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「帮我检查这个技能」</div>
+          <a class="skill-link" href="part-01-skill/skills/env-ngo-skill-optimize/SKILL.html">查看技能 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 案例沉淀 -->
+    <section class="skill-section" id="knowledge">
+      <div class="skill-section-header">
+        <h2>📦 案例沉淀</h2>
+        <span class="lesson-badge">第 4 课</span>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🗂️</div>
+          <h3 class="skill-name">案例萃取</h3>
+          <code class="skill-slug">env-ngo-case-extract</code>
+          <p class="skill-desc">从活动记录（流水账、会议纪要、照片说明）中提炼四段式案例卡：背景 → 干预 → 结果 → 反思，便于汇编案例库。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「写案例 / 整理案例 [活动名]」</div>
+          <a class="skill-link" href="part-04-scenario/skills/env-ngo-case-extract/SKILL.html">查看技能 →</a>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🔒</div>
+          <h3 class="skill-name">故事脱敏</h3>
+          <code class="skill-slug">env-ngo-story-desensitize</code>
+          <p class="skill-desc">对含姓名、地址、机构等 PII 信息的故事或记录进行系统性脱敏替换，生成可安全对外发布的版本。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「帮我脱敏 / 去除姓名」</div>
+          <a class="skill-link" href="part-04-scenario/skills/env-ngo-story-desensitize/SKILL.html">查看技能 →</a>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <h3 class="skill-name">台账 → 周报 / 月报</h3>
+          <code class="skill-slug">env-ngo-field-ledger</code>
+          <p class="skill-desc">汇总多站点 CSV 日报和照片说明，生成带数据缺失标注的周报 / 月报初稿，适合多点位同步作业的项目。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「生成周报 [日期范围]」</div>
+          <a class="skill-link" href="part-04-scenario/skills/env-ngo-field-ledger/SKILL.html">查看技能 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 传播运营 -->
+    <section class="skill-section" id="comms">
+      <div class="skill-section-header">
+        <h2>📢 传播运营</h2>
+        <span class="lesson-badge">第 4 课</span>
+      </div>
+      <div class="skill-grid">
+        <div class="skill-card">
+          <div class="skill-icon">✍️</div>
+          <h3 class="skill-name">活动复盘推文</h3>
+          <code class="skill-slug">env-ngo-activity-recap</code>
+          <p class="skill-desc">输入活动素材（现场记录 / 照片说明），同时生成公众号长文、朋友圈短文和社群转发三个版本。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「写复盘 / 写推文 [活动名]」</div>
+          <a class="skill-link" href="part-04-scenario/skills/env-ngo-activity-recap/SKILL.html">查看技能 →</a>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">💬</div>
+          <h3 class="skill-name">社群知识答疑</h3>
+          <code class="skill-slug">env-ngo-community-faq</code>
+          <p class="skill-desc">结合知识库内容，对用户提问给出带来源溯源的答复，减少「乱编」风险，提升社群信任度。</p>
+          <div class="skill-trigger"><strong>触发：</strong>「帮我回答社群问题」</div>
+          <a class="skill-link" href="part-04-scenario/skills/env-ngo-community-faq/SKILL.html">查看技能 →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to use -->
+    <div class="how-to" id="how-to-use">
+      <h2>如何使用这些技能</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>在课程平台新建 Bot（Agent）</strong>
+            <p>进入 Agent 平台，按第 1 课讲义「新建 Bot → 配置 System Prompt」流程操作。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>复制对应 SKILL.md 中的 System Prompt</strong>
+            <p>点击上方「查看技能」，在 SKILL.html 页面找到 System Prompt 区域，复制完整内容粘贴进 Bot 配置。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>按触发词发起对话</strong>
+            <p>每个技能都标注了推荐触发词（如「写结项报告」），直接发送触发词 + 附件即可启动工作流。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Fork 后按机构需求调整</strong>
+            <p>如需修改输出格式或增加机构特有字段，参考第 1 课「技能定制」讲义，在 SKILL.md 基础上修改即可。技能体检（skillopt）可帮你验证改动质量。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · 技能库</div>
+    <section class="org-footer" aria-label="元公益工作室介绍">
+      <img class="org-footer-logo" src="assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+      <div>
+        <h2>元公益工作室</h2>
+        <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+      </div>
+    </section>
+  </footer>
+</body>
+</html>

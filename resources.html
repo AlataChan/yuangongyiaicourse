@@ -292,6 +292,26 @@ a { color: inherit; }
     .resource-section th { background: var(--moss-soft); color: var(--forest); }
     .resource-section a { color: var(--forest); font-weight: 800; }
     @media (max-width: 760px) { .resource-section { overflow-x: auto; } }
+    .tab-bar { display: flex; gap: 8px; margin: 4px 0 20px; }
+    .tab-btn {
+      padding: 9px 20px; border-radius: 999px; border: 1px solid var(--line);
+      background: var(--paper); color: var(--forest); font-weight: 800;
+      cursor: pointer; font-size: 0.95rem;
+    }
+    .tab-btn.active { background: var(--forest); color: #fff; border-color: var(--forest); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .skills-grid { display: grid; gap: 20px; }
+    .skill-group { border: 1px solid var(--line); border-radius: 16px; padding: 24px; background: rgba(250,252,249,0.94); box-shadow: var(--shadow); }
+    .skill-group-title { margin: 0 0 16px; font-family: "Noto Serif SC", serif; color: var(--forest); font-size: 1.08rem; }
+    .skill-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+    .skill-card { border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; background: var(--bg); }
+    .skill-card-name { font-weight: 900; color: var(--forest); font-size: 1rem; margin-bottom: 4px; }
+    .skill-card-name a { text-decoration: none; color: inherit; }
+    .skill-card-name a:hover { text-decoration: underline; }
+    .skill-card-desc { color: var(--muted); font-size: 0.9rem; margin-bottom: 8px; }
+    .skill-card-trigger { font-size: 0.83rem; color: var(--forest); background: var(--moss-soft); border-radius: 6px; padding: 4px 8px; margin-bottom: 8px; display: inline-block; }
+    .skill-card code { font-size: 0.78rem; color: #3a5c4a; background: #edf3ee; padding: 2px 6px; border-radius: 4px; }
   </style>
 </head>
 <body>
@@ -302,6 +322,7 @@ a { color: inherit; }
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
+        <a class="btn btn-ghost" href="skills.html">技能库</a>
         <a class="btn btn-primary" href="index.html">返回课程首页</a>
       </div>
     </div>
@@ -311,7 +332,12 @@ a { color: inherit; }
       <h1>课程资料中心</h1>
       <p>这里按课次整理所有课程材料。默认点击“查看页面”在线阅读；需要带回机构填写、复制或二次编辑时，下载 Markdown 原文。</p>
     </div>
-    <section class="resource-section"><h2>课前作业</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课前作业 · AI 基础概念速读 +《项目助理立项书》（机构自填）</td><td><code>part-00-prework/README.md</code></td><td><a href="part-00-prework/README.html">查看页面</a></td><td><a href="part-00-prework/README.md" download>下载 Markdown</a></td></tr>
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="course">课次视图</button>
+      <button class="tab-btn" data-tab="skills">技能库视图</button>
+    </div>
+    <div class="tab-panel active" id="tab-course">
+      <section class="resource-section"><h2>课前作业</h2><table><thead><tr><th>材料</th><th>源文件</th><th>页面</th><th>Markdown</th></tr></thead><tbody><tr><td>课前作业 · AI 基础概念速读 +《项目助理立项书》（机构自填）</td><td><code>part-00-prework/README.md</code></td><td><a href="part-00-prework/README.html">查看页面</a></td><td><a href="part-00-prework/README.md" download>下载 Markdown</a></td></tr>
 <tr><td>《&lt;机构简称&gt;·项目助理立项书》（A4 单页 · 机构自填）</td><td><code>part-00-prework/templates/project_assistant_charter.md</code></td><td><a href="part-00-prework/templates/project_assistant_charter.html">查看页面</a></td><td><a href="part-00-prework/templates/project_assistant_charter.md" download>下载 Markdown</a></td></tr>
 <tr><td>主场景模块自评清单（M1 / M2 / M3）</td><td><code>part-00-prework/templates/scenario_self_check.md</code></td><td><a href="part-00-prework/templates/scenario_self_check.html">查看页面</a></td><td><a href="part-00-prework/templates/scenario_self_check.md" download>下载 Markdown</a></td></tr>
 <tr><td>《绿源·项目助理立项书》（脱敏范例 · 仅供参考）</td><td><code>part-00-prework/examples/charter_sample_lvyuan.md</code></td><td><a href="part-00-prework/examples/charter_sample_lvyuan.html">查看页面</a></td><td><a href="part-00-prework/examples/charter_sample_lvyuan.md" download>下载 Markdown</a></td></tr>
@@ -384,6 +410,40 @@ a { color: inherit; }
 <tr><td>SG-14 · 善水环境保护发展中心 · Skill 构建指引</td><td><code>student-guides/SG-14-湿地项目管理型.md</code></td><td><a href="student-guides/SG-14-湿地项目管理型.html">查看页面</a></td><td><a href="student-guides/SG-14-湿地项目管理型.md" download>下载 Markdown</a></td></tr>
 <tr><td>SG-15 · 福建省观鸟协会 · Skill 构建指引</td><td><code>student-guides/SG-15-观鸟综合事务型.md</code></td><td><a href="student-guides/SG-15-观鸟综合事务型.html">查看页面</a></td><td><a href="student-guides/SG-15-观鸟综合事务型.md" download>下载 Markdown</a></td></tr>
 <tr><td>SG-16 · 源方环保公益发展中心 · Skill 构建指引</td><td><code>student-guides/SG-16-固废科普项目管理型.md</code></td><td><a href="student-guides/SG-16-固废科普项目管理型.html">查看页面</a></td><td><a href="student-guides/SG-16-固废科普项目管理型.md" download>下载 Markdown</a></td></tr></tbody></table></section>
+    </div>
+    <div class="tab-panel" id="tab-skills">
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">📄 项目文书链 · 第 1 课</div>
+          <div class="skill-cards">
+            <div class="skill-card"><div class="skill-card-name"><a href="part-01-skill/skills/env-ngo-closure-report/SKILL.html">结项报告生成</a></div><div class="skill-card-desc">执行流水账 → 六章节结构化报告</div><span class="skill-card-trigger">触发：「写结项报告」</span><br><code>env-ngo-closure-report</code></div>
+            <div class="skill-card"><div class="skill-card-name"><a href="part-01-skill/skills/env-ngo-proposal-draft/SKILL.html">项目书 / 提案初稿</a></div><div class="skill-card-desc">机构简介 + 案例资料 → 立项书初稿</div><span class="skill-card-trigger">触发：「写项目书 / 写立项书」</span><br><code>env-ngo-proposal-draft</code></div>
+            <div class="skill-card"><div class="skill-card-name"><a href="part-01-skill/skills/env-ngo-grant-letter/SKILL.html">资助申请信</a></div><div class="skill-card-desc">项目核心信息 → 一页纸申请信</div><span class="skill-card-trigger">触发：「写资助申请信」</span><br><code>env-ngo-grant-letter</code></div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">🔧 技能优化工具 · 第 1 课</div>
+          <div class="skill-cards">
+            <div class="skill-card"><div class="skill-card-name"><a href="part-01-skill/skills/env-ngo-skill-optimize/SKILL.html">技能体检（skillopt）</a></div><div class="skill-card-desc">SKILL.md → 健康打分 + 评测用例 + 改写建议</div><span class="skill-card-trigger">触发：「帮我检查这个技能」</span><br><code>env-ngo-skill-optimize</code></div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">📦 案例沉淀 · 第 4 课</div>
+          <div class="skill-cards">
+            <div class="skill-card"><div class="skill-card-name"><a href="part-04-scenario/skills/env-ngo-case-extract/SKILL.html">案例萃取</a></div><div class="skill-card-desc">活动原始记录 → 四段式案例卡</div><span class="skill-card-trigger">触发：「写案例 / 整理案例」</span><br><code>env-ngo-case-extract</code></div>
+            <div class="skill-card"><div class="skill-card-name"><a href="part-04-scenario/skills/env-ngo-story-desensitize/SKILL.html">故事脱敏</a></div><div class="skill-card-desc">含姓名/PII 的记录 → 脱敏发布版本</div><span class="skill-card-trigger">触发：「帮我脱敏 / 去除姓名」</span><br><code>env-ngo-story-desensitize</code></div>
+            <div class="skill-card"><div class="skill-card-name"><a href="part-04-scenario/skills/env-ngo-field-ledger/SKILL.html">台账 → 周报 / 月报</a></div><div class="skill-card-desc">多站点 CSV + 照片说明 → 周报初稿</div><span class="skill-card-trigger">触发：「生成周报 [日期范围]」</span><br><code>env-ngo-field-ledger</code></div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">📢 传播运营 · 第 4 课</div>
+          <div class="skill-cards">
+            <div class="skill-card"><div class="skill-card-name"><a href="part-04-scenario/skills/env-ngo-activity-recap/SKILL.html">活动复盘推文</a></div><div class="skill-card-desc">活动素材 → 公众号 / 朋友圈多版本文案</div><span class="skill-card-trigger">触发：「写复盘 / 写推文」</span><br><code>env-ngo-activity-recap</code></div>
+            <div class="skill-card"><div class="skill-card-name"><a href="part-04-scenario/skills/env-ngo-community-faq/SKILL.html">社群知识答疑</a></div><div class="skill-card-desc">知识库 + 用户提问 → 带来源溯源的答复</div><span class="skill-card-trigger">触发：「帮我回答社群问题」</span><br><code>env-ngo-community-faq</code></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <footer class="site-footer">
     <div class="course-footer-line">环境公益 AI 赋能实战营 · 资料中心</div>
@@ -395,5 +455,14 @@ a { color: inherit; }
     </div>
   </section>
   </footer>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var tab = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.toggle('active', b === btn); });
+        document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.toggle('active', p.id === 'tab-' + tab); });
+      });
+    });
+  </script>
 </body>
 </html>
