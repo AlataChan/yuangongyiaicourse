@@ -41,7 +41,7 @@
 阅读 [`content-pipeline-skills.md`](content-pipeline-skills.md)（网页版 [`content-pipeline-skills.html`](content-pipeline-skills.html)）：
 
 - 把 Skill 按**工序**分工：选题 → 调研 → 写作 → 去 AI 味 → 封面 → 卡片 → 信息图 → HTML 发布
-- 精选 10 个内容创作 Skill（stop-slop、dbskill、content-research-writer 等），国内优先 [SkillHub](https://skillhub.cn) 安装
+- 精选 10 个内容创作 Skill（均可从 [SkillHub](https://skillhub.cn) 安装，如 stop-slop、gzh-explosive、wan26-text-to-image、guizang-html-to-pptx 等）
 - 与本课文书技能同一套思维：**一步一 Skill，写清触发说明**
 
 ## 二点七、技能生命周期飞轮 · skill_flywheel

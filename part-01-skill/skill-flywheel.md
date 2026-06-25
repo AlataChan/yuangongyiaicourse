@@ -173,7 +173,7 @@ python3 skill_flywheel/scripts/flywheel.py cycle --yes
 **最小闭环演示**（讲师 15 分钟）：
 
 ```text
-create（打包 content-research-writer）
+create（打包 gzh-explosive-content-detector 或 wechat-article-spider）
   → 手动跑一条调研写作任务
   → evolve 写入 1 条 fix
   → validate 通过
