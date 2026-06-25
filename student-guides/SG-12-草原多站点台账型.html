@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>服务故事脱敏技能（案例库模块 · M2） | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="服务故事脱敏技能（案例库模块 · M2） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <title>SG-12 · 草原多站点台账型 · Skill 构建指引（Lite） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="SG-12 · 草原多站点台账型 · Skill 构建指引（Lite） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -285,79 +285,70 @@ a { color: inherit; }
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="../../../index.html">
+      <a class="brand" href="../index.html">
         <span class="brand-mark" aria-hidden="true">🌿</span>
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <div class="header-actions">
-        <a class="btn btn-ghost" href="../../../resources.html">资料中心</a>
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
-    <a href="../../../index.html">课程首页</a>
+    <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <a href="../../index.html">第 4 课 · 场景闭环</a>
+    <a href="../resources.html">资料中心</a>
     <span aria-hidden="true">/</span>
-    <span>服务故事脱敏技能（案例库模块 · M2）</span>
+    <span>SG-12 · 草原多站点台账型 · Skill 构建指引（Lite）</span>
   </nav>
   <main class="layout">
     <article class="doc">
-      <div class="doc-kicker"><span class="doc-type">Skill 样板</span><span>part-04-scenario/skills/env-ngo-story-desensitize/SKILL.md</span></div>
-      <hr>
-<p>name: env-ngo-story-desensitize description: &gt;- Load when the user provides a raw service story, beneficiary narrative, or interview transcript that contains personal information and needs a desensitized version safe for public use (reports, social media, case databases). Do not load for closure reports, case extraction, or FAQ generation. disable-model-invocation: true</p>
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>student-guides/SG-12-草原多站点台账型.md</span></div>
+      <h1 id="sg-12-·-草原多站点台账型-·-skill-构建指引lite">SG-12 · 草原多站点台账型 · Skill 构建指引（Lite）</h1>
+<blockquote><p>对应需求代号 T12 | M2 · 与 <a href="./SG-09-多站点数据台账型.html">SG-09</a> 同型互参</p></blockquote>
 <hr>
-<h1 id="服务故事脱敏技能案例库模块-·-m2">服务故事脱敏技能（案例库模块 · M2）</h1>
-<p>把含真实个人信息的服务故事/受益人叙事转成可公开发布的脱敏版本，同时保留故事感染力。这是第 4 课「场景深化」的 M2 第二样板技能，与 <code>env-ngo-case-extract</code> 组成案例库模块的「≥2 技能」组合。</p>
-<h2 id="when-to-use">When To Use</h2>
-<ul><li>用户提供了一段含受益人/志愿者/捐赠人真实信息的服务故事、访谈记录或案例文本。</li><li>用户需要一个<strong>脱敏后可公开使用</strong>的版本（用于报告、公众号、案例库、对外汇报等）。</li><li>触发关键词：脱敏、去隐私、匿名化、公开版、发布前处理、故事改写。</li></ul>
-<p>不要用于：写结项报告（用 <code>env-ngo-closure-report</code>）、从散记中萃取案例结构（用 <code>env-ngo-case-extract</code>）、写 FAQ（用 <code>env-ngo-community-faq</code>）。</p>
-<h2 id="workflow">Workflow</h2>
-<ol><li>读取用户提供的原始故事/叙事文本。</li><li><strong>扫描并标记</strong>所有个人可识别信息（PII）：真实姓名、手机号、身份证号、详细地址、照片描述中的面部、金额精确数、机构全称。</li><li>对照 <code>assets/desensitize_rules.md</code> 执行逐项替换。</li><li>输出脱敏版本 + 脱敏变更清单（让用户知道改了什么）。</li><li>保持故事的情感脉络和叙事节奏，不要因脱敏让故事变成干巴巴的报表。</li></ol>
-<h2 id="required-inputs">Required Inputs</h2>
-<ul><li>原始服务故事或访谈文字稿（含真实信息）。</li><li>可选：用户指定的公开用途（公众号/报告/案例库），以便调整脱敏粒度。</li></ul>
-<h2 id="output-contract">Output Contract</h2>
-<p>输出两部分：</p>
-<h3 id="第一部分脱敏后故事">第一部分：脱敏后故事</h3>
-<p>保持原文结构和叙事风格，所有 PII 按规则替换。篇幅与原文大致相当。</p>
-<h3 id="第二部分脱敏变更清单">第二部分：脱敏变更清单</h3>
-<table><thead><tr><th>原始内容</th><th>替换为</th><th>脱敏规则</th></tr></thead><tbody><tr><td>&lt;真实姓名&gt;</td><td>&lt;代号 A/B/C&gt;</td><td>姓名→代号</td></tr><tr><td>&lt;手机号&gt;</td><td>[已删除]</td><td>联系方式→删除</td></tr><tr><td>&lt;精确金额&gt;</td><td>&lt;量级范围&gt;</td><td>金额→量级</td></tr></tbody></table>
-<h2 id="gotchas">Gotchas</h2>
-<ul><li>姓名→字母代号（A/B/C），同一人全文用同一代号。</li><li>手机号、身份证号、银行卡号→<strong>直接删除</strong>，不做部分遮盖。</li><li>精确金额→量级范围（如「43,872 元」→「约 4 万元」）。</li><li>详细地址→模糊到区县级（如「XX 市 XX 区某社区」）。</li><li>机构全称→<code>&lt;机构简称&gt;</code> 或约定代号，除非用户明确同意公开。</li><li><strong>不要改变事实</strong>：脱敏是隐藏身份，不是修改故事情节。</li><li>若无法判断某信息是否需脱敏，标注提醒用户确认，不要自行决定保留。</li></ul>
-<h2 id="files-to-read">Files To Read</h2>
-<ul><li><code>assets/desensitize_rules.md</code>：脱敏规则对照表（必读）。</li></ul>
-      <div class="source-path">Markdown 原文：<a href="SKILL.md">part-04-scenario/skills/env-ngo-story-desensitize/SKILL.md</a></div>
-      <nav class="doc-nav" aria-label="材料前后导航"><a href="../env-ngo-field-ledger/SKILL.html"><span>上一份材料</span><strong>现场数据台账技能（案例沉淀模块 · M2）</strong></a><a href="../env-ngo-activity-recap/assets/recap_template.html"><span>下一份材料</span><strong>&lt;活动标题（≤15 字，有画面感）&gt;</strong></a></nav>
+<h2 id="助理画像">助理画像</h2>
+<table><thead><tr><th>维度</th><th>内容</th></tr></thead><tbody><tr><td>一句话</td><td>草原/边境多站点每日台账 → 周报/月报 + 传播脚本</td></tr><tr><td>主模块</td><td>M2</td></tr><tr><td>输入</td><td>捡拾分类、巡护、野生动物登记等 CSV；照片说明</td></tr><tr><td>输出</td><td>周期报告初稿、推文/短视频脚本</td></tr><tr><td>成功标准</td><td>同 SG-09：周报 2h → ≤0.5h</td></tr></tbody></table>
+<h2 id="最简-mvp">最简 MVP</h2>
+<p>与 SG-09 相同：<strong>2 站 × 7 天</strong> 归集 → <code>env-ngo-field-ledger</code> → 1 份周报草稿。</p>
+<h2 id="推荐-skill">推荐 Skill</h2>
+<table><thead><tr><th>Skill</th><th>用途</th></tr></thead><tbody><tr><td><a href="../part-04-scenario/skills/env-ngo-field-ledger/SKILL.html"><code>env-ngo-field-ledger</code></a></td><td>台账 → 报告（主 Skill）</td></tr><tr><td><a href="../part-04-scenario/skills/env-ngo-activity-recap/SKILL.html"><code>env-ngo-activity-recap</code></a></td><td>报告定稿后 → 公众号稿</td></tr><tr><td>视频脚本（content-pipeline 延伸）</td><td>口播/分镜，不剪辑</td></tr></tbody></table>
+<h2 id="qoderwork-三步">QoderWork 三步</h2>
+<ol><li>共用 <a href="../part-04-scenario/skills/env-ngo-field-ledger/assets/folder_structure.html">folder_structure</a>。</li><li>照片说明格式固定：<code>谁在做什么 + 拍摄者</code> 单行一条。</li><li>定稿报告放 <code>03_已定稿/</code>，供第 2 课知识库。</li></ol>
+<h2 id="分课卡点">分课卡点</h2>
+<table><thead><tr><th>课次</th><th>做什么</th></tr></thead><tbody><tr><td>第 1–2 课</td><td>同 SG-09</td></tr><tr><td>第 4 课</td><td>recap 为第二 Skill；「数据报告」vs「宣传稿」路由</td></tr><tr><td>第 5 课</td><td>周报 + 1 篇推文联调演示</td></tr></tbody></table>
+<h2 id="常见坑">常见坑</h2>
+<ul><li>与 SG-09 学员可同组互测，共用 field-ledger 样板。</li><li>U 盘/钉钉多源 → 先复制到单一文件夹再 Skill，不临时拼路径。</li></ul>
+      <div class="source-path">Markdown 原文：<a href="SG-12-草原多站点台账型.md">student-guides/SG-12-草原多站点台账型.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="SG-11-公益节点宣发型.html"><span>上一份材料</span><strong>SG-11 · 公益节点宣发型 · Skill 构建指引（Lite）</strong></a><a href="SG-13-户外教育社群型.html"><span>下一份材料</span><strong>SG-13 · 户外教育社群型 · Skill 构建指引（Lite）</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
-      <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="SKILL.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <a class="btn btn-primary" href="SG-12-草原多站点台账型.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SG-12-草原多站点台账型.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
-      <nav class="toc" aria-label="本文目录"><a href="#服务故事脱敏技能案例库模块-·-m2">服务故事脱敏技能（案例库模块 · M2）</a>
-<a href="#when-to-use">When To Use</a>
-<a href="#workflow">Workflow</a>
-<a href="#required-inputs">Required Inputs</a>
-<a href="#output-contract">Output Contract</a>
-<a href="#第一部分脱敏后故事">第一部分：脱敏后故事</a>
-<a href="#第二部分脱敏变更清单">第二部分：脱敏变更清单</a>
-<a href="#gotchas">Gotchas</a>
-<a href="#files-to-read">Files To Read</a></nav>
+      <nav class="toc" aria-label="本文目录"><a href="#sg-12-·-草原多站点台账型-·-skill-构建指引lite">SG-12 · 草原多站点台账型 · Skill 构建指引（Lite）</a>
+<a href="#助理画像">助理画像</a>
+<a href="#最简-mvp">最简 MVP</a>
+<a href="#推荐-skill">推荐 Skill</a>
+<a href="#qoderwork-三步">QoderWork 三步</a>
+<a href="#分课卡点">分课卡点</a>
+<a href="#常见坑">常见坑</a></nav>
     </aside>
   </main>
   <footer class="site-footer">
     <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
     <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
-    <img class="org-footer-logo" src="../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
     <div>
       <h2>元公益工作室</h2>
       <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"---\nname: env-ngo-story-desensitize\ndescription: >-\n  Load when the user provides a raw service story, beneficiary narrative,\n  or interview transcript that contains personal information and needs a\n  desensitized version safe for public use (reports, social media, case\n  databases). Do not load for closure reports, case extraction, or FAQ\n  generation.\ndisable-model-invocation: true\n---\n\n# 服务故事脱敏技能（案例库模块 · M2）\n\n把含真实个人信息的服务故事/受益人叙事转成可公开发布的脱敏版本，同时保留故事感染力。这是第 4 课「场景深化」的 M2 第二样板技能，与 `env-ngo-case-extract` 组成案例库模块的「≥2 技能」组合。\n\n## When To Use\n\n- 用户提供了一段含受益人/志愿者/捐赠人真实信息的服务故事、访谈记录或案例文本。\n- 用户需要一个**脱敏后可公开使用**的版本（用于报告、公众号、案例库、对外汇报等）。\n- 触发关键词：脱敏、去隐私、匿名化、公开版、发布前处理、故事改写。\n\n不要用于：写结项报告（用 `env-ngo-closure-report`）、从散记中萃取案例结构（用 `env-ngo-case-extract`）、写 FAQ（用 `env-ngo-community-faq`）。\n\n## Workflow\n\n1. 读取用户提供的原始故事/叙事文本。\n2. **扫描并标记**所有个人可识别信息（PII）：真实姓名、手机号、身份证号、详细地址、照片描述中的面部、金额精确数、机构全称。\n3. 对照 `assets/desensitize_rules.md` 执行逐项替换。\n4. 输出脱敏版本 + 脱敏变更清单（让用户知道改了什么）。\n5. 保持故事的情感脉络和叙事节奏，不要因脱敏让故事变成干巴巴的报表。\n\n## Required Inputs\n\n- 原始服务故事或访谈文字稿（含真实信息）。\n- 可选：用户指定的公开用途（公众号/报告/案例库），以便调整脱敏粒度。\n\n## Output Contract\n\n输出两部分：\n\n### 第一部分：脱敏后故事\n\n保持原文结构和叙事风格，所有 PII 按规则替换。篇幅与原文大致相当。\n\n### 第二部分：脱敏变更清单\n\n| 原始内容 | 替换为 | 脱敏规则 |\n|----------|--------|----------|\n| \u003c真实姓名> | \u003c代号 A/B/C> | 姓名→代号 |\n| \u003c手机号> | [已删除] | 联系方式→删除 |\n| \u003c精确金额> | \u003c量级范围> | 金额→量级 |\n\n## Gotchas\n\n- 姓名→字母代号（A/B/C），同一人全文用同一代号。\n- 手机号、身份证号、银行卡号→**直接删除**，不做部分遮盖。\n- 精确金额→量级范围（如「43,872 元」→「约 4 万元」）。\n- 详细地址→模糊到区县级（如「XX 市 XX 区某社区」）。\n- 机构全称→`\u003c机构简称>` 或约定代号，除非用户明确同意公开。\n- **不要改变事实**：脱敏是隐藏身份，不是修改故事情节。\n- 若无法判断某信息是否需脱敏，标注提醒用户确认，不要自行决定保留。\n\n## Files To Read\n\n- `assets/desensitize_rules.md`：脱敏规则对照表（必读）。\n"</script>
+  <script type="application/json" id="markdown-source">"# SG-12 · 草原多站点台账型 · Skill 构建指引（Lite）\n\n> 对应需求代号 T12 | M2 · 与 [SG-09](./SG-09-多站点数据台账型.md) 同型互参\n\n---\n\n## 助理画像\n\n| 维度 | 内容 |\n|------|------|\n| 一句话 | 草原/边境多站点每日台账 → 周报/月报 + 传播脚本 |\n| 主模块 | M2 |\n| 输入 | 捡拾分类、巡护、野生动物登记等 CSV；照片说明 |\n| 输出 | 周期报告初稿、推文/短视频脚本 |\n| 成功标准 | 同 SG-09：周报 2h → ≤0.5h |\n\n## 最简 MVP\n\n与 SG-09 相同：**2 站 × 7 天** 归集 → `env-ngo-field-ledger` → 1 份周报草稿。\n\n## 推荐 Skill\n\n| Skill | 用途 |\n|-------|------|\n| [`env-ngo-field-ledger`](../part-04-scenario/skills/env-ngo-field-ledger/SKILL.md) | 台账 → 报告（主 Skill） |\n| [`env-ngo-activity-recap`](../part-04-scenario/skills/env-ngo-activity-recap/SKILL.md) | 报告定稿后 → 公众号稿 |\n| 视频脚本（content-pipeline 延伸） | 口播/分镜，不剪辑 |\n\n## QoderWork 三步\n\n1. 共用 [folder_structure](../part-04-scenario/skills/env-ngo-field-ledger/assets/folder_structure.md)。\n2. 照片说明格式固定：`谁在做什么 + 拍摄者` 单行一条。\n3. 定稿报告放 `03_已定稿/`，供第 2 课知识库。\n\n## 分课卡点\n\n| 课次 | 做什么 |\n|------|--------|\n| 第 1–2 课 | 同 SG-09 |\n| 第 4 课 | recap 为第二 Skill；「数据报告」vs「宣传稿」路由 |\n| 第 5 课 | 周报 + 1 篇推文联调演示 |\n\n## 常见坑\n\n- 与 SG-09 学员可同组互测，共用 field-ledger 样板。\n- U 盘/钉钉多源 → 先复制到单一文件夹再 Skill，不临时拼路径。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {
