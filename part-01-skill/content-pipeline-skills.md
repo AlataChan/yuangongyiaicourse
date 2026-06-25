@@ -2,7 +2,7 @@
 
 > 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益"新"力量/course/part-01-skill/content-pipeline-skills.md`
 >
-> 用途：第 1 课「技能」课**选修延伸阅读**——把「技能」理解成一条可分工的内容生产线，而不是 Skill 收藏夹。网页阅读见同目录 `content-pipeline-skills.html`。
+> 用途：第 1 课「技能」课延伸阅读——把「技能」理解成一条可分工的内容生产线，而不是 Skill 收藏夹。网页阅读见同目录 `content-pipeline-skills.html`。
 >
 > 筛选标准：**能否让中文创作者更快产出可发布内容**（不按 Star、不按热度）。
 
@@ -217,11 +217,12 @@ flowchart LR
 ```mermaid
 flowchart TB
   L1[第 1 课 · 文书技能样板] --> L2[skill-standards 怎么写好技能]
-  L2 --> L3[content-pipeline-skills 工序思维选修]
-  L3 --> L4[第 2 课 · 知识库弹药]
+  L2 --> L3[content-pipeline-skills 工序思维]
+  L3 --> L3b[skill-flywheel 生命周期]
+  L3b --> L4[第 2 课 · 知识库弹药]
   L4 --> L5[第 3 课 · Agent平台 项目助理]
 ```
 
-- 本篇为**选修**，不影响本课验收（≥1 个文书技能跑通）。
-- 讲师可在「概念辨析」后推荐给有内容传播、机构宣传需求的学员。
+- 讲师可在「概念辨析」后讲解工序分工，适合有内容传播、机构宣传需求的学员。
+- 技能库变大后的维护见 [`skill-flywheel.md`](skill-flywheel.md)。
 - 外部 Skill 由各自作者维护；国内优先经 [SkillHub](https://skillhub.cn) 安装，未收录的从 GitHub 获取源码。安装前请自行查看许可与隐私说明。

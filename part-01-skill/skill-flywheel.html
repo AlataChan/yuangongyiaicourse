@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>技能生命周期飞轮 · skillflywheel | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="技能生命周期飞轮 · skillflywheel · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    <span>技能生命周期飞轮 · skillflywheel</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>part-01-skill/skill-flywheel.md</span></div>
+      <h1 id="技能生命周期飞轮-·-skillflywheel">技能生命周期飞轮 · skill_flywheel</h1>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-01-skill/skill-flywheel.md</code></p><p></p><p>用途：第 1 课「技能」课的<strong>创建 → 检查 → 升级 → 沉淀 → 校验 → 安装</strong>全流程参考。网页阅读见同目录 <code>skill-flywheel.html</code>。</p><p></p><p>开源项目：<a href="https://github.com/AlataChan/skill_flywheel">AlataChan/skill_flywheel</a>（本页为课程中文版导读，命令以仓库 README 为准）。</p></blockquote>
+<hr>
+<h2 id="一、为什么需要飞轮">一、为什么需要「飞轮」</h2>
+<p>第 1 课教你写出第一个文书技能，第九节的 skillopt 教你「评测没过怎么改」。但真实机构会遇到更深一层的问题：</p>
+<table><thead><tr><th>困境</th><th>典型表现</th></tr></thead><tbody><tr><td>技能散落</td><td>结项、项目书、资助信各写各的，没有统一目录</td></tr><tr><td>源仓库更新了</td><td>GitHub 上的 Skill 有新 commit，本地还是旧版</td></tr><tr><td>经验丢失</td><td>改 <code>SKILL.md</code> 补了一条 Gotcha，升级后被覆盖</td></tr><tr><td>不敢挂载</td><td>不确定脚本能不能跑、触发说明有没有写错</td></tr></tbody></table>
+<p><strong>skill_flywheel</strong> 把上述环节串成一条可重复执行的闭环——不是再装一个 Skill，而是<strong>管理你已有 Skills 的方法论 + 工具链</strong>。</p>
+<pre><code class="language-mermaid">flowchart LR
+  A[创建 Create] --&gt; B[盘点 Check]
+  B --&gt; C{源有更新?}
+  C --&gt;|是| D[升级 Upgrade]
+  C --&gt;|否| E[沉淀 Evolve]
+  D --&gt; E
+  E --&gt; F[校验 Validate]
+  F --&gt; G[安装 Install]
+  G --&gt; A</code></pre>
+<p>一句话：<strong>技能写完只是起点；飞轮让「好用、可更新、经验不丢」变成例行操作。</strong></p>
+<hr>
+<h2 id="二、飞轮里七个工具各管一截">二、飞轮里七个工具，各管一截</h2>
+<p>项目仓库把生命周期拆成 7 个可组合子技能，由 <code>skill_flywheel</code> 统一编排：</p>
+<table><thead><tr><th>子技能</th><th>工序</th><th>解决什么</th></tr></thead><tbody><tr><td><a href="https://github.com/AlataChan/skill_flywheel/tree/main/github-to-skills">github-to-skills</a></td><td><strong>创建</strong></td><td>从 GitHub URL 打包生成 skill 文件夹（含 <code>github_hash</code>）</td></tr><tr><td><a href="https://github.com/AlataChan/skill_flywheel/tree/main/skill-creator">skill-creator</a></td><td><strong>规范</strong></td><td>手工脚手架与命名约定（kebab-case、argparse、不写死路径）</td></tr><tr><td><a href="https://github.com/AlataChan/skill_flywheel/tree/main/skill-manager">skill-manager</a></td><td><strong>盘点</strong></td><td>扫描、列出、检查远程是否落后、删除</td></tr><tr><td><a href="https://github.com/AlataChan/skill_flywheel/tree/main/skill-upgrader">skill-upgrader</a></td><td><strong>升级</strong></td><td>更新 <code>github_hash</code>、刷新 README 摘要、重新缝合经验</td></tr><tr><td><a href="https://github.com/AlataChan/skill_flywheel/tree/main/skill-evolution-manager">skill-evolution-manager</a></td><td><strong>沉淀</strong></td><td>对话复盘 → <code>evolution.json</code> → stitch 回 <code>SKILL.md</code></td></tr><tr><td><a href="https://github.com/AlataChan/skill_flywheel/tree/main/skill-validator">skill-validator</a></td><td><strong>校验</strong></td><td>frontmatter、脚本编译、单测</td></tr><tr><td><a href="https://github.com/AlataChan/skill_flywheel/tree/main/skill-installer-local">skill-installer-local</a></td><td><strong>安装</strong></td><td>复制到本机 <code>~/.codex/skills</code> 或 <code>~/.claude/skills</code></td></tr></tbody></table>
+<p><strong>编排入口</strong>：<code>skill_flywheel/scripts/flywheel.py</code>——一条命令委托上述脚本，不必记七个路径。</p>
+<hr>
+<h2 id="三、四个核心概念读懂就能上手">三、四个核心概念（读懂就能上手）</h2>
+<h3 id="31-skillsroot-——-技能放哪">3.1 <code>skills_root</code> —— 技能放哪</h3>
+<p>所有 skill 文件夹的<strong>父目录</strong>。每个子文件夹一个 skill，内含 <code>SKILL.md</code>：</p>
+<pre><code class="language-text">skills_root/
+├── env-ngo-closure-report/
+├── env-ngo-proposal-draft/
+└── stop-slop/          # 从 GitHub 打包来的第三方 skill</code></pre>
+<p>克隆 <a href="https://github.com/AlataChan/skill_flywheel">skill_flywheel</a> 后，仓库根目录即 <code>skills_root</code>；本机安装后常见路径为 <code>~/.codex/skills</code>。</p>
+<h3 id="32-githuburl-+-githubhash-——-版本快照">3.2 <code>github_url</code> + <code>github_hash</code> —— 版本快照</h3>
+<p>从 GitHub 打包的 skill，在 <code>SKILL.md</code> frontmatter 里记录：</p>
+<ul><li><code>github_url</code>：源仓库地址</li><li><code>github_hash</code>：打包时远程 HEAD 的 commit hash</li></ul>
+<p><code>skill-manager</code> 用 <code>git ls-remote</code> 比对本地 hash 与远程——不等则标记 <strong>outdated</strong>，提示你该升级了。</p>
+<h3 id="33-evolutionjson-——-经验的事实源">3.3 <code>evolution.json</code> —— 经验的事实源</h3>
+<p>用户验证有效的偏好、约束、修复点，写入 JSON，<strong>不直接手改</strong> <code>SKILL.md</code> 里的自动区块。</p>
+<p>推荐字段：</p>
+<table><thead><tr><th>字段</th><th>含义</th><th>公益文书示例</th></tr></thead><tbody><tr><td><code>preferences</code></td><td>输出风格偏好</td><td>「结项报告反思段用第一人称复数」</td></tr><tr><td><code>constraints</code></td><td>硬约束</td><td>「受益人姓名一律脱敏为 A/B」</td></tr><tr><td><code>fixes</code></td><td>已知坑点</td><td>「缺成效数据时列缺失项，禁止编造」</td></tr><tr><td><code>contexts</code></td><td>环境差异</td><td>「资助方模板为 Word，先转 Markdown 再喂」</td></tr></tbody></table>
+<h3 id="34-stitch-——-智能缝合">3.4 <code>stitch</code> —— 智能缝合</h3>
+<p>把 <code>evolution.json</code> 渲染进 <code>SKILL.md</code> 中由标记包裹的区块：</p>
+<pre><code class="language-markdown">&lt;!-- skill-evolution-manager:begin --&gt;
+## User-Learned Best Practices &amp; Constraints
+…自动生成的经验列表…
+&lt;!-- skill-evolution-manager:end --&gt;</code></pre>
+<p><strong>价值</strong>：升级覆盖 <code>SKILL.md</code> 主体时，经验可从 <code>evolution.json</code> <strong>反复重建</strong>，不会丢。</p>
+<hr>
+<h2 id="四、环境准备与统一入口">四、环境准备与统一入口</h2>
+<h3 id="41-克隆与依赖">4.1 克隆与依赖</h3>
+<pre><code class="language-bash">git clone https://github.com/AlataChan/skill_flywheel.git
+cd skill_flywheel
+
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install pyyaml pytest   # validate 需要 pyyaml；跑测试需要 pytest</code></pre>
+<h3 id="42-飞轮命令速查">4.2 飞轮命令速查</h3>
+<p>在仓库根目录执行（路径以你克隆位置为准）：</p>
+<pre><code class="language-bash"># 从 GitHub 创建一个新 skill
+python3 skill_flywheel/scripts/flywheel.py create --url &lt;github_url&gt;
+
+# 列出 / 检查更新
+python3 skill_flywheel/scripts/flywheel.py list --format table
+python3 skill_flywheel/scripts/flywheel.py check --format table
+
+# 升级（先预览再写入）
+python3 skill_flywheel/scripts/flywheel.py upgrade --name &lt;skill_name&gt; --dry-run
+python3 skill_flywheel/scripts/flywheel.py upgrade --name &lt;skill_name&gt; --yes
+
+# 沉淀经验（stdin 传入 JSON）
+cat &lt;&lt;'JSON' | python3 skill_flywheel/scripts/flywheel.py evolve --name &lt;skill_name&gt; --stdin
+{&quot;fixes&quot;:[&quot;缺数据时列缺失项，不编造成效数字&quot;]}
+JSON
+
+# 批量重新缝合（升级后恢复经验区块）
+python3 skill_flywheel/scripts/flywheel.py align
+
+# 校验
+python3 skill_flywheel/scripts/flywheel.py validate --format table
+
+# 安装到本机 skills 目录
+python3 skill_flywheel/scripts/flywheel.py install --yes
+
+# 一键跑完整飞轮（会升级，必须 --yes）
+python3 skill_flywheel/scripts/flywheel.py cycle --yes</code></pre>
+<p><strong>安全约定</strong>：破坏性操作默认 <strong>dry-run</strong>；真正写入磁盘需显式加 <code>--yes</code>。</p>
+<hr>
+<h2 id="五、推荐学习顺序课堂可跟做">五、推荐学习顺序（课堂可跟做）</h2>
+<table><thead><tr><th>步骤</th><th>做什么</th><th>学会什么</th></tr></thead><tbody><tr><td>1</td><td>读本文 + 仓库 README</td><td>理解飞轮为何存在</td></tr><tr><td>2</td><td><code>create --url</code> 打包一个 GitHub Skill（如 stop-slop）</td><td>看懂 <code>github_url</code> / <code>github_hash</code></td></tr><tr><td>3</td><td><code>list</code> + <code>check</code></td><td>会读 current / outdated 报告</td></tr><tr><td>4</td><td>用真实任务跑 skill，失败后记一条 <code>fixes</code> → <code>evolve --stdin</code></td><td><code>evolution.json</code> 优于直接改正文</td></tr><tr><td>5</td><td><code>validate</code></td><td>挂载前的自检清单</td></tr><tr><td>6</td><td><code>upgrade --dry-run</code> → <code>--yes</code>（若源仓库有新 commit）</td><td>升级不丢经验的机制</td></tr><tr><td>7</td><td><code>cycle --yes</code>（可选）</td><td>把维护变成例行操作</td></tr></tbody></table>
+<p><strong>最小闭环演示</strong>（讲师 15 分钟）：</p>
+<pre><code class="language-text">create（打包 content-research-writer）
+  → 手动跑一条调研写作任务
+  → evolve 写入 1 条 fix
+  → validate 通过
+  → check 显示 outdated 时 upgrade --yes
+  → 确认 stitch 区块仍在</code></pre>
+<hr>
+<h2 id="六、与本课其他材料的关系">六、与本课其他材料的关系</h2>
+<pre><code class="language-mermaid">flowchart TB
+  H[学员手册 · 写第一个文书技能] --&gt; S[skill-standards · 怎么写好]
+  S --&gt; P[content-pipeline-skills · 内容向工序参考]
+  P --&gt; F[skill-flywheel · 生命周期管理]
+  F --&gt; O[env-ngo-skill-optimize · 单技能体检]
+  O --&gt; K[第 2 课 · 知识库]</code></pre>
+<table><thead><tr><th>材料</th><th>分工</th></tr></thead><tbody><tr><td><a href="README.html"><code>README.md</code></a> 第八～九节</td><td>单技能评测与 skillopt 迭代</td></tr><tr><td><strong>本篇 skill-flywheel</strong></td><td><strong>多技能目录</strong>的创建、版本、经验沉淀与批量校验</td></tr><tr><td><a href="content-pipeline-skills.html"><code>content-pipeline-skills.md</code></a></td><td>内容创作场景的工序 Skill 清单</td></tr><tr><td><a href="skill-standards.html"><code>skill-standards.md</code></a></td><td>Anthropic / Perplexity 工程规范中文导读</td></tr></tbody></table>
+<p><strong>对照理解</strong>：</p>
+<ul><li><strong>skillopt</strong>（<code>env-ngo-skill-optimize</code>）= 给<strong>一个</strong>技能做体检，适合本课刚写完的结项/项目书技能。</li><li><strong>skill_flywheel</strong> = 管理<strong>一批</strong>技能（含从 GitHub / SkillHub 引入的第三方 skill），适合机构技能库逐渐变多之后。</li></ul>
+<hr>
+<h2 id="七、公益机构迁移场景">七、公益机构迁移场景</h2>
+<table><thead><tr><th>场景</th><th>飞轮怎么用</th></tr></thead><tbody><tr><td>引入 SkillHub 上的 stop-slop</td><td><code>create --url</code> 或 SkillHub 安装后，纳入 <code>check</code> 例行扫描</td></tr><tr><td>结项技能 Gotcha 越积越多</td><td>写入 <code>evolution.json</code>，不要只堆在 <code>SKILL.md</code> 正文里</td></tr><tr><td>第 3 课挂载前</td><td><code>validate</code> 确保 frontmatter 与脚本无硬编码路径</td></tr><tr><td>团队换人</td><td><code>list</code> 出技能清单 + <code>evolution.json</code> 即机构隐性 SOP</td></tr><tr><td>合规</td><td>升级第三方 skill 前 <code>--dry-run</code> 看 diff；敏感模板不进 <code>evolution.json</code></td></tr></tbody></table>
+<hr>
+<h2 id="八、与国内-skillhub-的配合">八、与国内 SkillHub 的配合</h2>
+<p><a href="content-pipeline-skills.html"><code>content-pipeline-skills.md</code></a> 中的 Skill 可经 <a href="https://skillhub.cn">SkillHub</a> 安装（<code>skillhub install &lt;slug&gt;</code>）。装好后建议：</p>
+<ol><li>把 skill 目录纳入你的 <code>skills_root</code>；</li><li>用 <code>flywheel.py check</code> 跟踪源仓库是否更新；</li><li>机构定制经验写入 <code>evolution.json</code>，用 <code>evolve</code> / <code>align</code> 缝合，避免与上游 <code>SKILL.md</code> 冲突。</li></ol>
+<p>GitHub 访问不便时：<strong>安装走 SkillHub，维护走 flywheel</strong>——两条链路互补。</p>
+<hr>
+<h2 id="九、延伸阅读">九、延伸阅读</h2>
+<ul><li>项目 README：<a href="https://github.com/AlataChan/skill_flywheel">github.com/AlataChan/skill_flywheel</a></li><li>经验沉淀协议：<code>skill-evolution-manager/SKILL.md</code>（<code>/evolve</code> 约定与 JSON schema）</li><li>本课单技能优化：<a href="skills/env-ngo-skill-optimize/SKILL.html"><code>skills/env-ngo-skill-optimize/SKILL.md</code></a></li></ul>
+      <div class="source-path">Markdown 原文：<a href="skill-flywheel.md">part-01-skill/skill-flywheel.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="references/skills_perplexity.html"><span>上一份材料</span><strong>Designing Agent Skills at Perplexity（延伸阅读 · 英文原文）</strong></a><a href="skill-standards.html"><span>下一份材料</span><strong>技能标准与工程实践 · 延伸阅读</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="skill-flywheel.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="skill-flywheel.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#技能生命周期飞轮-·-skillflywheel">技能生命周期飞轮 · skillflywheel</a>
+<a href="#一、为什么需要飞轮">一、为什么需要「飞轮」</a>
+<a href="#二、飞轮里七个工具各管一截">二、飞轮里七个工具，各管一截</a>
+<a href="#三、四个核心概念读懂就能上手">三、四个核心概念（读懂就能上手）</a>
+<a href="#31-skillsroot-——-技能放哪">3.1 skillsroot —— 技能放哪</a>
+<a href="#32-githuburl-+-githubhash-——-版本快照">3.2 githuburl + githubhash —— 版本快照</a>
+<a href="#33-evolutionjson-——-经验的事实源">3.3 evolution.json —— 经验的事实源</a>
+<a href="#34-stitch-——-智能缝合">3.4 stitch —— 智能缝合</a>
+<a href="#四、环境准备与统一入口">四、环境准备与统一入口</a>
+<a href="#41-克隆与依赖">4.1 克隆与依赖</a>
+<a href="#42-飞轮命令速查">4.2 飞轮命令速查</a>
+<a href="#五、推荐学习顺序课堂可跟做">五、推荐学习顺序（课堂可跟做）</a>
+<a href="#六、与本课其他材料的关系">六、与本课其他材料的关系</a>
+<a href="#七、公益机构迁移场景">七、公益机构迁移场景</a>
+<a href="#八、与国内-skillhub-的配合">八、与国内 SkillHub 的配合</a>
+<a href="#九、延伸阅读">九、延伸阅读</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# 技能生命周期飞轮 · skill_flywheel\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-01-skill/skill-flywheel.md`\n>\n> 用途：第 1 课「技能」课的**创建 → 检查 → 升级 → 沉淀 → 校验 → 安装**全流程参考。网页阅读见同目录 `skill-flywheel.html`。\n>\n> 开源项目：[AlataChan/skill_flywheel](https://github.com/AlataChan/skill_flywheel)（本页为课程中文版导读，命令以仓库 README 为准）。\n\n---\n\n## 一、为什么需要「飞轮」\n\n第 1 课教你写出第一个文书技能，第九节的 skillopt 教你「评测没过怎么改」。但真实机构会遇到更深一层的问题：\n\n| 困境 | 典型表现 |\n|------|---------|\n| 技能散落 | 结项、项目书、资助信各写各的，没有统一目录 |\n| 源仓库更新了 | GitHub 上的 Skill 有新 commit，本地还是旧版 |\n| 经验丢失 | 改 `SKILL.md` 补了一条 Gotcha，升级后被覆盖 |\n| 不敢挂载 | 不确定脚本能不能跑、触发说明有没有写错 |\n\n**skill_flywheel** 把上述环节串成一条可重复执行的闭环——不是再装一个 Skill，而是**管理你已有 Skills 的方法论 + 工具链**。\n\n```mermaid\nflowchart LR\n  A[创建 Create] --> B[盘点 Check]\n  B --> C{源有更新?}\n  C -->|是| D[升级 Upgrade]\n  C -->|否| E[沉淀 Evolve]\n  D --> E\n  E --> F[校验 Validate]\n  F --> G[安装 Install]\n  G --> A\n```\n\n一句话：**技能写完只是起点；飞轮让「好用、可更新、经验不丢」变成例行操作。**\n\n---\n\n## 二、飞轮里七个工具，各管一截\n\n项目仓库把生命周期拆成 7 个可组合子技能，由 `skill_flywheel` 统一编排：\n\n| 子技能 | 工序 | 解决什么 |\n|--------|------|---------|\n| [github-to-skills](https://github.com/AlataChan/skill_flywheel/tree/main/github-to-skills) | **创建** | 从 GitHub URL 打包生成 skill 文件夹（含 `github_hash`） |\n| [skill-creator](https://github.com/AlataChan/skill_flywheel/tree/main/skill-creator) | **规范** | 手工脚手架与命名约定（kebab-case、argparse、不写死路径） |\n| [skill-manager](https://github.com/AlataChan/skill_flywheel/tree/main/skill-manager) | **盘点** | 扫描、列出、检查远程是否落后、删除 |\n| [skill-upgrader](https://github.com/AlataChan/skill_flywheel/tree/main/skill-upgrader) | **升级** | 更新 `github_hash`、刷新 README 摘要、重新缝合经验 |\n| [skill-evolution-manager](https://github.com/AlataChan/skill_flywheel/tree/main/skill-evolution-manager) | **沉淀** | 对话复盘 → `evolution.json` → stitch 回 `SKILL.md` |\n| [skill-validator](https://github.com/AlataChan/skill_flywheel/tree/main/skill-validator) | **校验** | frontmatter、脚本编译、单测 |\n| [skill-installer-local](https://github.com/AlataChan/skill_flywheel/tree/main/skill-installer-local) | **安装** | 复制到本机 `~/.codex/skills` 或 `~/.claude/skills` |\n\n**编排入口**：`skill_flywheel/scripts/flywheel.py`——一条命令委托上述脚本，不必记七个路径。\n\n---\n\n## 三、四个核心概念（读懂就能上手）\n\n### 3.1 `skills_root` —— 技能放哪\n\n所有 skill 文件夹的**父目录**。每个子文件夹一个 skill，内含 `SKILL.md`：\n\n```text\nskills_root/\n├── env-ngo-closure-report/\n├── env-ngo-proposal-draft/\n└── stop-slop/          # 从 GitHub 打包来的第三方 skill\n```\n\n克隆 [skill_flywheel](https://github.com/AlataChan/skill_flywheel) 后，仓库根目录即 `skills_root`；本机安装后常见路径为 `~/.codex/skills`。\n\n### 3.2 `github_url` + `github_hash` —— 版本快照\n\n从 GitHub 打包的 skill，在 `SKILL.md` frontmatter 里记录：\n\n- `github_url`：源仓库地址\n- `github_hash`：打包时远程 HEAD 的 commit hash\n\n`skill-manager` 用 `git ls-remote` 比对本地 hash 与远程——不等则标记 **outdated**，提示你该升级了。\n\n### 3.3 `evolution.json` —— 经验的事实源\n\n用户验证有效的偏好、约束、修复点，写入 JSON，**不直接手改** `SKILL.md` 里的自动区块。\n\n推荐字段：\n\n| 字段 | 含义 | 公益文书示例 |\n|------|------|-------------|\n| `preferences` | 输出风格偏好 | 「结项报告反思段用第一人称复数」 |\n| `constraints` | 硬约束 | 「受益人姓名一律脱敏为 A/B」 |\n| `fixes` | 已知坑点 | 「缺成效数据时列缺失项，禁止编造」 |\n| `contexts` | 环境差异 | 「资助方模板为 Word，先转 Markdown 再喂」 |\n\n### 3.4 `stitch` —— 智能缝合\n\n把 `evolution.json` 渲染进 `SKILL.md` 中由标记包裹的区块：\n\n```markdown\n\u003c!-- skill-evolution-manager:begin -->\n## User-Learned Best Practices & Constraints\n…自动生成的经验列表…\n\u003c!-- skill-evolution-manager:end -->\n```\n\n**价值**：升级覆盖 `SKILL.md` 主体时，经验可从 `evolution.json` **反复重建**，不会丢。\n\n---\n\n## 四、环境准备与统一入口\n\n### 4.1 克隆与依赖\n\n```bash\ngit clone https://github.com/AlataChan/skill_flywheel.git\ncd skill_flywheel\n\npython3 -m venv .venv\nsource .venv/bin/activate\npython -m pip install pyyaml pytest   # validate 需要 pyyaml；跑测试需要 pytest\n```\n\n### 4.2 飞轮命令速查\n\n在仓库根目录执行（路径以你克隆位置为准）：\n\n```bash\n# 从 GitHub 创建一个新 skill\npython3 skill_flywheel/scripts/flywheel.py create --url \u003cgithub_url>\n\n# 列出 / 检查更新\npython3 skill_flywheel/scripts/flywheel.py list --format table\npython3 skill_flywheel/scripts/flywheel.py check --format table\n\n# 升级（先预览再写入）\npython3 skill_flywheel/scripts/flywheel.py upgrade --name \u003cskill_name> --dry-run\npython3 skill_flywheel/scripts/flywheel.py upgrade --name \u003cskill_name> --yes\n\n# 沉淀经验（stdin 传入 JSON）\ncat \u003c\u003c'JSON' | python3 skill_flywheel/scripts/flywheel.py evolve --name \u003cskill_name> --stdin\n{\"fixes\":[\"缺数据时列缺失项，不编造成效数字\"]}\nJSON\n\n# 批量重新缝合（升级后恢复经验区块）\npython3 skill_flywheel/scripts/flywheel.py align\n\n# 校验\npython3 skill_flywheel/scripts/flywheel.py validate --format table\n\n# 安装到本机 skills 目录\npython3 skill_flywheel/scripts/flywheel.py install --yes\n\n# 一键跑完整飞轮（会升级，必须 --yes）\npython3 skill_flywheel/scripts/flywheel.py cycle --yes\n```\n\n**安全约定**：破坏性操作默认 **dry-run**；真正写入磁盘需显式加 `--yes`。\n\n---\n\n## 五、推荐学习顺序（课堂可跟做）\n\n| 步骤 | 做什么 | 学会什么 |\n|:---:|--------|---------|\n| 1 | 读本文 + 仓库 README | 理解飞轮为何存在 |\n| 2 | `create --url` 打包一个 GitHub Skill（如 stop-slop） | 看懂 `github_url` / `github_hash` |\n| 3 | `list` + `check` | 会读 current / outdated 报告 |\n| 4 | 用真实任务跑 skill，失败后记一条 `fixes` → `evolve --stdin` | `evolution.json` 优于直接改正文 |\n| 5 | `validate` | 挂载前的自检清单 |\n| 6 | `upgrade --dry-run` → `--yes`（若源仓库有新 commit） | 升级不丢经验的机制 |\n| 7 | `cycle --yes`（可选） | 把维护变成例行操作 |\n\n**最小闭环演示**（讲师 15 分钟）：\n\n```text\ncreate（打包 content-research-writer）\n  → 手动跑一条调研写作任务\n  → evolve 写入 1 条 fix\n  → validate 通过\n  → check 显示 outdated 时 upgrade --yes\n  → 确认 stitch 区块仍在\n```\n\n---\n\n## 六、与本课其他材料的关系\n\n```mermaid\nflowchart TB\n  H[学员手册 · 写第一个文书技能] --> S[skill-standards · 怎么写好]\n  S --> P[content-pipeline-skills · 内容向工序参考]\n  P --> F[skill-flywheel · 生命周期管理]\n  F --> O[env-ngo-skill-optimize · 单技能体检]\n  O --> K[第 2 课 · 知识库]\n```\n\n| 材料 | 分工 |\n|------|------|\n| [`README.md`](README.md) 第八～九节 | 单技能评测与 skillopt 迭代 |\n| **本篇 skill-flywheel** | **多技能目录**的创建、版本、经验沉淀与批量校验 |\n| [`content-pipeline-skills.md`](content-pipeline-skills.md) | 内容创作场景的工序 Skill 清单 |\n| [`skill-standards.md`](skill-standards.md) | Anthropic / Perplexity 工程规范中文导读 |\n\n**对照理解**：\n\n- **skillopt**（`env-ngo-skill-optimize`）= 给**一个**技能做体检，适合本课刚写完的结项/项目书技能。\n- **skill_flywheel** = 管理**一批**技能（含从 GitHub / SkillHub 引入的第三方 skill），适合机构技能库逐渐变多之后。\n\n---\n\n## 七、公益机构迁移场景\n\n| 场景 | 飞轮怎么用 |\n|------|-----------|\n| 引入 SkillHub 上的 stop-slop | `create --url` 或 SkillHub 安装后，纳入 `check` 例行扫描 |\n| 结项技能 Gotcha 越积越多 | 写入 `evolution.json`，不要只堆在 `SKILL.md` 正文里 |\n| 第 3 课挂载前 | `validate` 确保 frontmatter 与脚本无硬编码路径 |\n| 团队换人 | `list` 出技能清单 + `evolution.json` 即机构隐性 SOP |\n| 合规 | 升级第三方 skill 前 `--dry-run` 看 diff；敏感模板不进 `evolution.json` |\n\n---\n\n## 八、与国内 SkillHub 的配合\n\n[`content-pipeline-skills.md`](content-pipeline-skills.md) 中的 Skill 可经 [SkillHub](https://skillhub.cn) 安装（`skillhub install \u003cslug>`）。装好后建议：\n\n1. 把 skill 目录纳入你的 `skills_root`；\n2. 用 `flywheel.py check` 跟踪源仓库是否更新；\n3. 机构定制经验写入 `evolution.json`，用 `evolve` / `align` 缝合，避免与上游 `SKILL.md` 冲突。\n\nGitHub 访问不便时：**安装走 SkillHub，维护走 flywheel**——两条链路互补。\n\n---\n\n## 九、延伸阅读\n\n- 项目 README：[github.com/AlataChan/skill_flywheel](https://github.com/AlataChan/skill_flywheel)\n- 经验沉淀协议：`skill-evolution-manager/SKILL.md`（`/evolve` 约定与 JSON schema）\n- 本课单技能优化：[`skills/env-ngo-skill-optimize/SKILL.md`](skills/env-ngo-skill-optimize/SKILL.md)\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

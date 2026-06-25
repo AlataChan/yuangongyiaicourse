@@ -27,24 +27,30 @@
 
 一句话：**写项目书 / 结项报告这类「怎么做」的事，做成技能；历年案例、资助指南这类「有什么」的事，留给第 2 课的知识库。**
 
-## 二点五、技能标准延伸阅读（可选）
+## 二点五、技能标准与工程实践
 
-动手前或概念辨析后，可阅读 [`skill-standards.md`](skill-standards.md)（网页版 [`skill-standards.html`](skill-standards.html)）：
+阅读 [`skill-standards.md`](skill-standards.md)（网页版 [`skill-standards.html`](skill-standards.html)）：
 
 - **Anthropic 官方**：技能是什么、三层渐进加载、`SKILL.md` 规范（原文 [`references/claude_agent_skills.md`](references/claude_agent_skills.md)）
 - **Perplexity 工程实践**：触发说明怎么写、何时需要技能、Gotchas 飞轮（原文 [`references/skills_perplexity.md`](references/skills_perplexity.md)）
 
-本页用中文对照本课 QoderWork 练习路径；课前未读不影响上课。
+本页用中文对照本课 QoderWork 练习路径。
 
-## 二点六、内容创作生产线 · 10 个 Skill 精选（选修）
+## 二点六、内容创作生产线 · 10 个 Skill 精选
 
-若你同时负责机构传播、公众号或知识类内容，可阅读 [`content-pipeline-skills.md`](content-pipeline-skills.md)（网页版 [`content-pipeline-skills.html`](content-pipeline-skills.html)）：
+阅读 [`content-pipeline-skills.md`](content-pipeline-skills.md)（网页版 [`content-pipeline-skills.html`](content-pipeline-skills.html)）：
 
 - 把 Skill 按**工序**分工：选题 → 调研 → 写作 → 去 AI 味 → 封面 → 卡片 → 信息图 → HTML 发布
-- 精选 10 个 GitHub Skill（stop-slop、dbskill、content-research-writer 等），避免「装很多、用不上」
+- 精选 10 个内容创作 Skill（stop-slop、dbskill、content-research-writer 等），国内优先 [SkillHub](https://skillhub.cn) 安装
 - 与本课文书技能同一套思维：**一步一 Skill，写清触发说明**
 
-本篇为选修，不影响本课验收（≥1 个文书技能跑通）。
+## 二点七、技能生命周期飞轮 · skill_flywheel
+
+阅读 [`skill-flywheel.md`](skill-flywheel.md)（网页版 [`skill-flywheel.html`](skill-flywheel.html)）：
+
+- 开源项目：[AlataChan/skill_flywheel](https://github.com/AlataChan/skill_flywheel)——创建 → 检查 → 升级 → 沉淀 → 校验 → 安装
+- 核心概念：`skills_root`、`github_hash`、`evolution.json`、stitch（升级不丢经验）
+- 与本课 skillopt 分工：skillopt 管**单个**技能体检，飞轮管**一批**技能的生命周期
 
 ## 三、学习目标
 
@@ -162,6 +168,8 @@ env-ngo-closure-report/
 2. **新失败先加 Gotcha，不重写技能**；高频失败再同步加评测用例。
 
 用 [`env-ngo-skill-optimize`](skills/env-ngo-skill-optimize/SKILL.md) 样板可以让 AI 帮你做这套体检：把你的 `SKILL.md` 发给它，它会按 10 项清单打健康分、生成评测用例、给出可直接粘贴的改写文本。每轮改动记入迭代记录卡（`assets/iteration_log.md`），健康分 ≥9 的技能才挂载到第 3 课的「项目助理」。
+
+技能库变多之后，用 [`skill-flywheel.md`](skill-flywheel.md) 里的飞轮做批量检查、升级与经验沉淀（`evolution.json` + stitch），避免改一处丢一处。
 
 ## 十、数据合规底线
 
