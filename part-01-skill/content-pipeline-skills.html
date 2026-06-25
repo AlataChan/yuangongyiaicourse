@@ -3,101 +3,317 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>内容创作生产线 · 10 个 Skill 精选 | 第 1 课 · 技能</title>
-  <meta name="description" content="第 1 课选修：按选题、调研、写作、去 AI 味、封面、卡片、信息图、HTML 发布分工的 10 个内容创作 Skill 精选清单。">
+  <title>内容创作生产线 · 10 个 Skill 精选 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="内容创作生产线 · 10 个 Skill 精选 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-:root { --bg: #eef3ef; --paper: #fafcf9; --panel: #f2f7f3; --ink: #14261f; --muted: #5a6f64; --line: #d4e0d8; --forest: #1a4d3e; --moss: #8fd4b0; --moss-soft: #d8f0e4; --amber-soft: #fff3e0; --shadow: 0 18px 42px rgba(20, 38, 31, 0.08); }
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--bg); }
-body { margin: 0; color: var(--ink); font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; line-height: 1.68; background: linear-gradient(180deg, rgba(250,252,249,.92), rgba(238,243,239,.78) 32%, rgba(238,243,239,1)), var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
 a { color: inherit; }
-.site-header { position: sticky; top: 0; z-index: 10; border-bottom: 1px solid rgba(212,224,216,.86); background: rgba(238,243,239,.9); backdrop-filter: blur(16px); }
-.header-inner { max-width: 1080px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--forest); font-family: "Noto Serif SC", serif; font-weight: 800; text-decoration: none; }
-.brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: var(--moss); background: var(--forest); }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
 .header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; font-weight: 800; text-decoration: none; border: 1px solid var(--line); }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
 .btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
 .btn-ghost { color: var(--forest); background: var(--paper); }
-.crumb { max-width: 1080px; margin: 0 auto; padding: 18px 24px 0; color: var(--muted); font-size: 0.92rem; }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
 .crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
-.layout { max-width: 1080px; margin: 0 auto; padding: 24px 24px 76px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 28px; }
-.doc { min-width: 0; border: 1px solid var(--line); border-radius: 14px; padding: 38px; background: rgba(250,252,249,.96); box-shadow: var(--shadow); }
-.doc-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 18px; color: var(--muted); font-size: 0.88rem; }
-.doc-type { display: inline-flex; padding: 4px 10px; border-radius: 999px; background: var(--amber-soft); color: #725126; font-weight: 900; }
-.doc h1, .doc h2, .doc h3 { font-family: "Noto Serif SC", serif; line-height: 1.22; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
 .doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
 .doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
 .doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
 .doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
-.doc blockquote { margin: 18px 0; padding: 14px 18px; border-left: 4px solid var(--moss); border-radius: 0 12px 12px 0; background: var(--moss-soft); color: var(--forest); }
-.doc code { padding: 2px 6px; border-radius: 6px; background: #edf3ee; color: #123d31; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.92em; }
-.doc pre { overflow-x: auto; padding: 16px; border-radius: 14px; background: #10241d; color: #e8f4ec; }
-.doc pre code { padding: 0; background: transparent; color: inherit; }
-.doc pre.mermaid { background: var(--panel); color: var(--ink); border: 1px solid var(--line); font-size: 0.82rem; }
-.doc table { display: block; width: 100%; max-width: 100%; border-collapse: collapse; margin: 18px 0; overflow-x: auto; border-radius: 12px; font-size: 0.95rem; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
 .doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
 .doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
 .doc tr:nth-child(even) td { background: #f7faf7; }
 .doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
-.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26,77,62,.25); }
-.side { position: sticky; top: 86px; align-self: start; border: 1px solid var(--line); border-radius: 16px; padding: 18px; background: rgba(250,252,249,.9); }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
 .side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
 .side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
 .toc { display: grid; gap: 7px; margin-top: 14px; }
 .toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
 .toc a:hover { color: var(--forest); }
-.source-path { margin-top: 26px; padding: 12px 14px; border-radius: 10px; background: var(--amber-soft); color: #725126; font-size: 0.9rem; }
-.doc-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px; }
-.doc-nav a { display: block; padding: 12px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); color: var(--forest); text-decoration: none; }
-.doc-nav span { display: block; color: var(--muted); font-size: 0.8rem; font-weight: 700; }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
 .doc-nav strong { display: block; margin-top: 2px; }
-.site-footer { border-top: 1px solid var(--line); padding: 24px; color: var(--muted); background: rgba(250,252,249,.7); }
-.course-footer-line { max-width: 1080px; margin: 0 auto 18px; text-align: center; font-size: 0.92rem; }
-.org-footer { max-width: 1080px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 24px; align-items: center; border: 1px solid rgba(143,212,176,.22); border-radius: 16px; background: #10241d; color: rgba(234,250,241,.86); }
-.org-footer-logo { width: 138px; max-width: 100%; display: block; }
-.org-footer h2 { margin: 0 0 8px; color: #fff; font-family: "Noto Serif SC", serif; font-size: 1.12rem; }
-.org-footer p { margin: 0; color: rgba(234,250,241,.78); font-size: 0.92rem; line-height: 1.76; }
-@media (max-width: 920px) { .layout { grid-template-columns: 1fr; } .side { position: static; order: -1; } .org-footer { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .doc { padding: 26px 20px; } .doc-nav { grid-template-columns: 1fr; } }
-  </style>
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">🌿</span><span>环境公益 AI 赋能实战营</span></a>
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
       <div class="header-actions">
-        <a class="btn btn-ghost" href="index.html">第 1 课首页</a>
-        <a class="btn btn-ghost" href="skill-standards.html">技能标准</a>
         <a class="btn btn-ghost" href="../resources.html">资料中心</a>
         <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
       </div>
     </div>
   </header>
   <nav class="crumb" aria-label="面包屑">
-    <a href="../index.html">课程首页</a> <span aria-hidden="true">/</span>
-    <a href="index.html">第 1 课 · 技能</a> <span aria-hidden="true">/</span>
-    <span>内容创作生产线</span>
+    <a href="../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    <span>内容创作生产线 · 10 个 Skill 精选</span>
   </nav>
   <main class="layout">
     <article class="doc">
-      <div class="doc-kicker"><span class="doc-type">选修 · 延伸阅读</span><span>part-01-skill/content-pipeline-skills.md</span></div>
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>part-01-skill/content-pipeline-skills.md</span></div>
       <h1 id="内容创作生产线-·-10-个-skill-精选">内容创作生产线 · 10 个 Skill 精选</h1>
-<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-01-skill/content-pipeline-skills.md</code></p></blockquote>
-<p>&gt;</p>
-<blockquote><p>用途：第 1 课「技能」课<strong>选修延伸阅读</strong>——把「技能」理解成一条可分工的内容生产线，而不是 Skill 收藏夹。网页阅读见同目录 <code>content-pipeline-skills.html</code>。</p></blockquote>
-<p>&gt;</p>
-<blockquote><p>筛选标准：<strong>能否让中文创作者更快产出可发布内容</strong>（不按 Star、不按热度）。</p></blockquote>
+<blockquote><p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-01-skill/content-pipeline-skills.md</code></p><p></p><p>用途：第 1 课「技能」课<strong>选修延伸阅读</strong>——把「技能」理解成一条可分工的内容生产线，而不是 Skill 收藏夹。网页阅读见同目录 <code>content-pipeline-skills.html</code>。</p><p></p><p>筛选标准：<strong>能否让中文创作者更快产出可发布内容</strong>（不按 Star、不按热度）。</p></blockquote>
+<p><strong>国内获取</strong>：下列 Skill 若在 <a href="https://skillhub.cn">SkillHub</a> 有对应条目，优先用 SkillHub 安装（<code>skillhub install &lt;slug&gt;</code>，见 <a href="https://skillhub.cn/install/skillhub.md">安装说明</a>）；未收录的保留 GitHub 源码链接。</p>
 <hr>
-<h2 id="一为什么要有这条生产线">一、为什么要有这条「生产线」</h2>
+<h2 id="一、为什么要有这条生产线">一、为什么要有这条「生产线」</h2>
 <p>Skill 一多，很容易变成收藏夹：看着都想装，真用起来一个都想不起。</p>
 <p>解决办法不是再装更多，而是<strong>按工序分工</strong>——每一步只装一个、用熟再装下一个：</p>
 <pre><code class="language-text">选题 → 调研 → 写作 → 去 AI 味 → 封面 → 卡片 → 信息图 → HTML 发布</code></pre>
-<pre class="mermaid">flowchart LR
+<pre><code class="language-mermaid">flowchart LR
   A[选题 dbskill] --&gt; B[调研 content-research / NotebookLM / khazix]
   B --&gt; C[写作]
   C --&gt; D[去 AI 味 stop-slop]
@@ -105,128 +321,148 @@ a { color: inherit; }
   E --&gt; F[卡片 guizang-social-card]
   F --&gt; G[信息图 baoyu-skills]
   G --&gt; H[配图 ian-xiaohei]
-  H --&gt; I[HTML 发布 html-anything]</pre>
+  H --&gt; I[HTML 发布 html-anything]</code></pre>
 <p><strong>与本课的关系</strong>：第 1 课你在 QoderWork 里做的「结项报告助手」，已经是生产线里<strong>一个工序</strong>（文书生成 + 输出契约 + Gotchas）。这篇清单展示的是<strong>同一套思维</strong>在内容创作场景的扩展——先想清楚「这一步解决什么」，再决定装哪个 Skill。</p>
 <hr>
-<h2 id="二10-个-skill-·-按工序排序">二、10 个 Skill · 按工序排序</h2>
-<h3 id="1-stop-slop--先去-ai-味再谈写作">1. stop-slop —— 先去 AI 味，再谈写作</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>去 AI 味（写作之后、发布之前）</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/hardikpandya/stop-slop" target="_blank" rel="noopener noreferrer">hardikpandya/stop-slop</a></td></tr><tr><td><strong>解决什么</strong></td><td>删掉机器味：空洞转折、模板句、过度总结、假装深刻的废话</td></tr></tbody></table>
+<h2 id="二、10-个-skill-·-按工序排序">二、10 个 Skill · 按工序排序</h2>
+<h3 id="1-stop-slop-——-先去-ai-味再谈写作">1. stop-slop —— 先去 AI 味，再谈写作</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>去 AI 味（写作之后、发布之前）</td></tr><tr><td><strong>获取</strong></td><td><a href="https://skillhub.cn/skills/stop-slop">SkillHub · stop-slop</a> · <a href="https://github.com/hardikpandya/stop-slop">GitHub 源码</a></td></tr><tr><td><strong>解决什么</strong></td><td>删掉机器味：空洞转折、模板句、过度总结、假装深刻的废话</td></tr></tbody></table>
 <p>很多人以为最缺的是「写得更快」。错了——现在最缺的是「看起来不像 AI 写的」。AI 味一出来，读者会立刻防御；内容再对，信任也已经掉了。</p>
 <p><strong>中文创作者最该先装的，不是写作增强器，而是 AI 味刹车。</strong></p>
 <hr>
-<h3 id="2-dbskill--选题不成立后面全白写">2. dbskill —— 选题不成立，后面全白写</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>选题</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/dontbesilent2025/dbskill" target="_blank" rel="noopener noreferrer">dontbesilent2025/dbskill</a></td></tr><tr><td><strong>解决什么</strong></td><td>先判断值不值得写：选题诊断、爆款拆解、Hook 优化</td></tr></tbody></table>
+<h3 id="2-dbskill-——-选题不成立后面全白写">2. dbskill —— 选题不成立，后面全白写</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>选题</td></tr><tr><td><strong>获取</strong></td><td><a href="https://github.com/dontbesilent2025/dbskill">GitHub · dontbesilent2025/dbskill</a>（SkillHub 未收录；勿与 SkillHub 同名 <code>dbskill</code> 数据库工具混淆）</td></tr><tr><td><strong>解决什么</strong></td><td>先判断值不值得写：选题诊断、爆款拆解、Hook 优化</td></tr></tbody></table>
 <p>很多文章扑街，不是因为写得不够好，而是选题本身就没有传播张力。没人关心，标题再顺也没用；冲突不够，结构再完整也只是自嗨。</p>
 <p>它更像<strong>内容编辑</strong>：不是催你快写，而是先问——<strong>这个东西凭什么让人停下来？</strong></p>
 <hr>
-<h3 id="3-content-research-writer--调研与写作连起来">3. content-research-writer —— 调研与写作连起来</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>调研 + 写作</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer" target="_blank" rel="noopener noreferrer">ComposioHQ/awesome-claude-skills/content-research-writer</a></td></tr><tr><td><strong>解决什么</strong></td><td>把内容研究和写作流程串联；适合长文、行业分析、趋势解读</td></tr></tbody></table>
+<h3 id="3-content-research-writer-——-调研与写作连起来">3. content-research-writer —— 调研与写作连起来</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>调研 + 写作</td></tr><tr><td><strong>获取</strong></td><td><a href="https://skillhub.cn/skills/content-research-writer-cn">SkillHub · content-research-writer-cn</a> · <a href="https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer">GitHub 源码</a></td></tr><tr><td><strong>解决什么</strong></td><td>把内容研究和写作流程串联；适合长文、行业分析、趋势解读</td></tr></tbody></table>
 <p>很多创作者卡住，不是不会写，而是<strong>素材不够</strong>。一篇好文章，表面是表达，底层是材料。没有足够信息、案例、背景和角度，AI 再会写，也只能把空话排列得更整齐。</p>
 <p>写作不是从空白页开始，而是从<strong>素材密度</strong>开始。</p>
 <hr>
-<h3 id="4-notebooklm-skill--基于知识库写少胡说">4. NotebookLM Skill —— 基于知识库写，少胡说</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>调研 / 写作（有现成资料库时）</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/PleasePrompto/notebooklm-skill" target="_blank" rel="noopener noreferrer">PleasePrompto/notebooklm-skill</a></td></tr><tr><td><strong>解决什么</strong></td><td>围绕已有材料组织内容，<strong>减少幻觉</strong></td></tr></tbody></table>
+<h3 id="4-notebooklm-skill-——-基于知识库写少胡说">4. NotebookLM Skill —— 基于知识库写，少胡说</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>调研 / 写作（有现成资料库时）</td></tr><tr><td><strong>获取</strong></td><td><a href="https://skillhub.cn/skills/notebooklm-skill">SkillHub · notebooklm-skill</a> · <a href="https://github.com/PleasePrompto/notebooklm-skill">GitHub 源码</a></td></tr><tr><td><strong>解决什么</strong></td><td>围绕已有材料组织内容，<strong>减少幻觉</strong></td></tr></tbody></table>
 <p>如果你经常基于课程、访谈、会议纪要、书籍摘录、资料库来写，这个非常值得装。内容创作者最怕的不是写慢，而是<strong>写错</strong>——引用错、理解错、编造事实，信任成本极高。</p>
 <p><strong>对照本课</strong>：第 2 课知识库 + 第 1 课技能，本质上就是在搭「可引用的事实层」；NotebookLM Skill 是同一思路在内容创作工具链里的版本。</p>
 <hr>
-<h3 id="5-khazix-skills--深度研究与-ai-热点">5. khazix-skills —— 深度研究与 AI 热点</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>调研（热点 / 长文）</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/KKKKhazix/khazix-skills" target="_blank" rel="noopener noreferrer">KKKKhazix/khazix-skills</a></td></tr><tr><td><strong>解决什么</strong></td><td>深度研究、AI 工具与行业趋势的信息整理</td></tr></tbody></table>
+<h3 id="5-khazix-skills-——-深度研究与-ai-热点">5. khazix-skills —— 深度研究与 AI 热点</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>调研（热点 / 长文）</td></tr><tr><td><strong>获取</strong></td><td><a href="https://github.com/KKKKhazix/khazix-skills">GitHub · KKKKhazix/khazix-skills</a>（SkillHub 未收录）</td></tr><tr><td><strong>解决什么</strong></td><td>深度研究、AI 工具与行业趋势的信息整理</td></tr></tbody></table>
 <p>适合 AI 工具、模型动态、技术热点类内容。AI 内容最容易遇到两个问题：信息更新快，读者要求高。写浅了像搬运，写深了容易慢。</p>
 <p>更适合搭一个<strong>热点研究工作台</strong>：先整理信息，再往观点和长文走。</p>
 <hr>
-<h3 id="6-punk-skill--封面图第一眼的点击理由">6. Punk-Skill —— 封面图，第一眼的点击理由</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>封面</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/adrianpunk/Punk-Skill" target="_blank" rel="noopener noreferrer">adrianpunk/Punk-Skill</a></td></tr><tr><td><strong>解决什么</strong></td><td>封面图、头像；中文标题友好；按平台比例与情绪出图</td></tr></tbody></table>
+<h3 id="6-punk-skill-——-封面图第一眼的点击理由">6. Punk-Skill —— 封面图，第一眼的点击理由</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>封面</td></tr><tr><td><strong>获取</strong></td><td><a href="https://github.com/adrianpunk/Punk-Skill">GitHub · adrianpunk/Punk-Skill</a>（SkillHub 未收录）</td></tr><tr><td><strong>解决什么</strong></td><td>封面图、头像；中文标题友好；按平台比例与情绪出图</td></tr></tbody></table>
 <p>很多创作者低估了封面。在 X、公众号、小红书里，封面不是装饰，而是<strong>第一眼的点击理由</strong>。文字负责说服，封面负责让别人先停下来。</p>
 <hr>
-<h3 id="7-guizang-social-card-skill--小红书与公众号卡片">7. guizang-social-card-skill —— 小红书与公众号卡片</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>卡片 / 多平台拆分</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/op7418/guizang-social-card-skill" target="_blank" rel="noopener noreferrer">op7418/guizang-social-card-skill</a></td></tr><tr><td><strong>解决什么</strong></td><td>社交卡片、公众号封面、小红书图文拆分</td></tr></tbody></table>
+<h3 id="7-guizang-social-card-skill-——-小红书与公众号卡片">7. guizang-social-card-skill —— 小红书与公众号卡片</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>卡片 / 多平台拆分</td></tr><tr><td><strong>获取</strong></td><td><a href="https://github.com/op7418/guizang-social-card-skill">GitHub · op7418/guizang-social-card-skill</a>（SkillHub 未收录）</td></tr><tr><td><strong>解决什么</strong></td><td>社交卡片、公众号封面、小红书图文拆分</td></tr></tbody></table>
 <p>同一篇内容：发 X 可以是长文，发小红书可能要拆成 6 张卡片，发公众号又需要封面和导语。<strong>平台不是容器，平台会改变内容形态。</strong></p>
 <hr>
-<h3 id="8-baoyu-skills--信息图与结构图">8. baoyu-skills —— 信息图与结构图</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>信息图</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/JimLiu/baoyu-skills" target="_blank" rel="noopener noreferrer">JimLiu/baoyu-skills</a></td></tr><tr><td><strong>解决什么</strong></td><td>信息图、结构图、方法论视觉化</td></tr></tbody></table>
+<h3 id="8-baoyu-skills-——-信息图与结构图">8. baoyu-skills —— 信息图与结构图</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>信息图</td></tr><tr><td><strong>获取</strong></td><td><a href="https://github.com/JimLiu/baoyu-skills">GitHub · JimLiu/baoyu-skills</a>（SkillHub 未收录）</td></tr><tr><td><strong>解决什么</strong></td><td>信息图、结构图、方法论视觉化</td></tr></tbody></table>
 <p>干货文信息密度够了，读者仍可能看不进去——框架、流程、对比、清单，全靠文字会很累。把复杂逻辑变成图，让内容从「可读」变成<strong>可保存</strong>。</p>
 <hr>
-<h3 id="9-ian-xiaohei-illustrations--正文配图要有人味">9. ian-xiaohei-illustrations —— 正文配图要有人味</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>正文配图</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/helloianneo/ian-xiaohei-illustrations" target="_blank" rel="noopener noreferrer">helloianneo/ian-xiaohei-illustrations</a></td></tr><tr><td><strong>解决什么</strong></td><td>手绘感正文插图，做情绪缓冲与记忆点</td></tr></tbody></table>
+<h3 id="9-ian-xiaohei-illustrations-——-正文配图要有人味">9. ian-xiaohei-illustrations —— 正文配图要有人味</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>正文配图</td></tr><tr><td><strong>获取</strong></td><td><a href="https://github.com/helloianneo/ian-xiaohei-illustrations">GitHub · helloianneo/ian-xiaohei-illustrations</a>（SkillHub 未收录）</td></tr><tr><td><strong>解决什么</strong></td><td>手绘感正文插图，做情绪缓冲与记忆点</td></tr></tbody></table>
 <p>知识长文、观点文章、经验分享：全是大段文字读者会累，配图太商业又像广告。小黑风格有手绘感、有人味——不是所有内容都需要炫酷视觉，有时候一点手绘感反而更像人写的。</p>
 <hr>
-<h3 id="10-html-anything--markdown-到可发布作品">10. html-anything —— Markdown 到可发布作品</h3>
-<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>HTML 发布</td></tr><tr><td><strong>仓库</strong></td><td><a href="https://github.com/nexu-io/html-anything" target="_blank" rel="noopener noreferrer">nexu-io/html-anything</a></td></tr><tr><td><strong>解决什么</strong></td><td>Markdown → 精美网页 / 海报 / 卡片化展示</td></tr></tbody></table>
+<h3 id="10-html-anything-——-markdown-到可发布作品">10. html-anything —— Markdown 到可发布作品</h3>
+<table><thead><tr><th>项目</th><th>说明</th></tr></thead><tbody><tr><td><strong>工序</strong></td><td>HTML 发布</td></tr><tr><td><strong>获取</strong></td><td><a href="https://skillhub.cn/skills/html-anything">SkillHub · html-anything</a> · <a href="https://github.com/nexu-io/html-anything">GitHub 源码</a></td></tr><tr><td><strong>解决什么</strong></td><td>Markdown → 精美网页 / 海报 / 卡片化展示</td></tr></tbody></table>
 <p>很多创作者的最后一公里是排版。Markdown 写完了，要变成海报、落地页、好看的 HTML，还要折腾一堆工具。</p>
 <p><strong>对照本课</strong>：<code>report/index.html</code>、<code>course/index.html</code> 就是「写完还要能舒服地读」的发布层；html-anything 解决的是个人内容归档与展示质感。</p>
 <p>写完不等于完成。<strong>能被舒服地阅读，才算完成。</strong></p>
 <hr>
-<h2 id="三怎么用这份清单避免变收藏夹">三、怎么用这份清单（避免变收藏夹）</h2>
-<table><thead><tr><th>原则</th><th>做法</th></tr></thead><tbody><tr><td><strong>一次只装一个工序</strong></td><td>先 stop-slop 或 dbskill，用熟再装下一个</td></tr><tr><td><strong>description 写清工序</strong></td><td>「Load when 用户要发布前润色 / 去 AI 味」—— 见 <a href="skill-standards.md" target="_blank" rel="noopener noreferrer"><code>skill-standards.md</code></a></td></tr><tr><td><strong>和本课技能同构</strong></td><td>每个 Skill = 文件夹 + 触发说明 + 输出契约 + Gotchas</td></tr><tr><td><strong>公益机构可迁移</strong></td><td>结项报告、项目书、资助信 = 你们的「文书生产线」；这篇清单是<strong>传播向内容</strong>的平行参考</td></tr></tbody></table>
+<h2 id="三、怎么用这份清单避免变收藏夹">三、怎么用这份清单（避免变收藏夹）</h2>
+<table><thead><tr><th>原则</th><th>做法</th></tr></thead><tbody><tr><td><strong>一次只装一个工序</strong></td><td>先 stop-slop 或 dbskill，用熟再装下一个</td></tr><tr><td><strong>description 写清工序</strong></td><td>「Load when 用户要发布前润色 / 去 AI 味」—— 见 <a href="skill-standards.html"><code>skill-standards.md</code></a></td></tr><tr><td><strong>和本课技能同构</strong></td><td>每个 Skill = 文件夹 + 触发说明 + 输出契约 + Gotchas</td></tr><tr><td><strong>公益机构可迁移</strong></td><td>结项报告、项目书、资助信 = 你们的「文书生产线」；这篇清单是<strong>传播向内容</strong>的平行参考</td></tr></tbody></table>
 <p><strong>建议起步组合（内容创作者）</strong></p>
 <ol><li>stop-slop（发布前必过）</li><li>dbskill（动笔前选题）</li><li>html-anything 或 guizang-social-card（按你主发平台二选一）</li></ol>
 <p><strong>建议起步组合（本课学员 · 公益文书）</strong></p>
-<ol><li>本课 <a href="templates.html" target="_blank" rel="noopener noreferrer"><code>templates.html</code></a> 里的结项 / 项目书 / 资助信样板</li><li><a href="skill-standards.md" target="_blank" rel="noopener noreferrer"><code>skill-standards.md</code></a> 里的触发说明与 Gotchas 写法</li><li>有需要再装 stop-slop，专门清文书里的套话与 AI 味</li></ol>
+<ol><li>本课 <a href="templates.html"><code>templates.html</code></a> 里的结项 / 项目书 / 资助信样板</li><li><a href="skill-standards.html"><code>skill-standards.md</code></a> 里的触发说明与 Gotchas 写法</li><li>有需要再装 stop-slop，专门清文书里的套话与 AI 味</li></ol>
 <hr>
-<h2 id="四工序--skill-速查表">四、工序 × Skill 速查表</h2>
-<table><thead><tr><th>工序</th><th>推荐 Skill</th><th>一句话</th></tr></thead><tbody><tr><td>去 AI 味</td><td>stop-slop</td><td>先删机器味，再谈文采</td></tr><tr><td>选题</td><td>dbskill</td><td>值不值得写，比快写更重要</td></tr><tr><td>调研 + 写作</td><td>content-research-writer</td><td>素材密度决定上限</td></tr><tr><td>知识库写作</td><td>NotebookLM Skill</td><td>有资料库时少幻觉</td></tr><tr><td>热点 / 深度调研</td><td>khazix-skills</td><td>AI 与趋势类长文</td></tr><tr><td>封面</td><td>Punk-Skill</td><td>让人先停下来</td></tr><tr><td>卡片 / 多平台</td><td>guizang-social-card-skill</td><td>同一内容，不同形态</td></tr><tr><td>信息图</td><td>baoyu-skills</td><td>可保存的视觉干货</td></tr><tr><td>正文配图</td><td>ian-xiaohei-illustrations</td><td>手绘感，不像广告</td></tr><tr><td>HTML 发布</td><td>html-anything</td><td>最后一公里的阅读质感</td></tr></tbody></table>
+<h2 id="四、工序-×-skill-速查表">四、工序 × Skill 速查表</h2>
+<table><thead><tr><th>工序</th><th>推荐 Skill</th><th>国内获取</th><th>一句话</th></tr></thead><tbody><tr><td>去 AI 味</td><td>stop-slop</td><td><a href="https://skillhub.cn/skills/stop-slop">SkillHub</a></td><td>先删机器味，再谈文采</td></tr><tr><td>选题</td><td>dbskill</td><td>仅 GitHub</td><td>值不值得写，比快写更重要</td></tr><tr><td>调研 + 写作</td><td>content-research-writer</td><td><a href="https://skillhub.cn/skills/content-research-writer-cn">SkillHub</a></td><td>素材密度决定上限</td></tr><tr><td>知识库写作</td><td>NotebookLM Skill</td><td><a href="https://skillhub.cn/skills/notebooklm-skill">SkillHub</a></td><td>有资料库时少幻觉</td></tr><tr><td>热点 / 深度调研</td><td>khazix-skills</td><td>仅 GitHub</td><td>AI 与趋势类长文</td></tr><tr><td>封面</td><td>Punk-Skill</td><td>仅 GitHub</td><td>让人先停下来</td></tr><tr><td>卡片 / 多平台</td><td>guizang-social-card-skill</td><td>仅 GitHub</td><td>同一内容，不同形态</td></tr><tr><td>信息图</td><td>baoyu-skills</td><td>仅 GitHub</td><td>可保存的视觉干货</td></tr><tr><td>正文配图</td><td>ian-xiaohei-illustrations</td><td>仅 GitHub</td><td>手绘感，不像广告</td></tr><tr><td>HTML 发布</td><td>html-anything</td><td><a href="https://skillhub.cn/skills/html-anything">SkillHub</a></td><td>最后一公里的阅读质感</td></tr></tbody></table>
 <hr>
-<h2 id="五与本课其他材料的关系">五、与本课其他材料的关系</h2>
-<pre class="mermaid">flowchart TB
+<h2 id="五、与本课其他材料的关系">五、与本课其他材料的关系</h2>
+<pre><code class="language-mermaid">flowchart TB
   L1[第 1 课 · 文书技能样板] --&gt; L2[skill-standards 怎么写好技能]
   L2 --&gt; L3[content-pipeline-skills 工序思维选修]
   L3 --&gt; L4[第 2 课 · 知识库弹药]
-  L4 --&gt; L5[第 3 课 · Agent平台 项目助理]</pre>
-<ul><li>本篇为<strong>选修</strong>，不影响本课验收（≥1 个文书技能跑通）。</li><li>讲师可在「概念辨析」后推荐给有内容传播、机构宣传需求的学员。</li><li>外部 Skill 仓库由各自作者维护；安装前请自行查看许可与隐私说明。</li></ul>
+  L4 --&gt; L5[第 3 课 · Agent平台 项目助理]</code></pre>
+<ul><li>本篇为<strong>选修</strong>，不影响本课验收（≥1 个文书技能跑通）。</li><li>讲师可在「概念辨析」后推荐给有内容传播、机构宣传需求的学员。</li><li>外部 Skill 由各自作者维护；国内优先经 <a href="https://skillhub.cn">SkillHub</a> 安装，未收录的从 GitHub 获取源码。安装前请自行查看许可与隐私说明。</li></ul>
       <div class="source-path">Markdown 原文：<a href="content-pipeline-skills.md">part-01-skill/content-pipeline-skills.md</a></div>
-      <nav class="doc-nav" aria-label="材料前后导航">
-        <a href="skill-standards.html"><span>上一份</span><strong>技能标准与工程实践</strong></a>
-        <a href="handbook.html"><span>下一步</span><strong>打开学员手册 · 6 步实操</strong></a>
-      </nav>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="skills/env-ngo-skill-optimize/assets/skill_health_checklist.html"><span>上一份材料</span><strong>技能体检清单（10 项打分）</strong></a><a href="references/claude_agent_skills.html"><span>下一份材料</span><strong>Agent Skills（延伸阅读 · 英文原文）</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
-      <a class="btn btn-primary" href="content-pipeline-skills.md" download style="margin-top:10px;width:100%;justify-content:center;">下载 Markdown</a>
-      <p class="side-note">外部 Skill 为第三方仓库，安装前请自行查看许可与隐私说明。本篇为选修，不影响本课验收。</p>
-      <nav class="toc" aria-label="本文目录"><a href="#一为什么要有这条生产线">一、为什么要有这条「生产线」</a>
-<a href="#二10-个-skill-·-按工序排序">二、10 个 Skill · 按工序排序</a>
-<a href="#1-stop-slop--先去-ai-味再谈写作">1. stop-slop —— 先去 AI 味，再谈写作</a>
-<a href="#2-dbskill--选题不成立后面全白写">2. dbskill —— 选题不成立，后面全白写</a>
-<a href="#3-content-research-writer--调研与写作连起来">3. content-research-writer —— 调研与写作连起来</a>
-<a href="#4-notebooklm-skill--基于知识库写少胡说">4. NotebookLM Skill —— 基于知识库写，少胡说</a>
-<a href="#5-khazix-skills--深度研究与-ai-热点">5. khazix-skills —— 深度研究与 AI 热点</a>
-<a href="#6-punk-skill--封面图第一眼的点击理由">6. Punk-Skill —— 封面图，第一眼的点击理由</a>
-<a href="#7-guizang-social-card-skill--小红书与公众号卡片">7. guizang-social-card-skill —— 小红书与公众号卡片</a>
-<a href="#8-baoyu-skills--信息图与结构图">8. baoyu-skills —— 信息图与结构图</a>
-<a href="#9-ian-xiaohei-illustrations--正文配图要有人味">9. ian-xiaohei-illustrations —— 正文配图要有人味</a>
-<a href="#10-html-anything--markdown-到可发布作品">10. html-anything —— Markdown 到可发布作品</a>
-<a href="#三怎么用这份清单避免变收藏夹">三、怎么用这份清单（避免变收藏夹）</a>
-<a href="#四工序--skill-速查表">四、工序 × Skill 速查表</a>
-<a href="#五与本课其他材料的关系">五、与本课其他材料的关系</a></nav>
+      <a class="btn btn-primary" href="content-pipeline-skills.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="content-pipeline-skills.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#内容创作生产线-·-10-个-skill-精选">内容创作生产线 · 10 个 Skill 精选</a>
+<a href="#一、为什么要有这条生产线">一、为什么要有这条「生产线」</a>
+<a href="#二、10-个-skill-·-按工序排序">二、10 个 Skill · 按工序排序</a>
+<a href="#1-stop-slop-——-先去-ai-味再谈写作">1. stop-slop —— 先去 AI 味，再谈写作</a>
+<a href="#2-dbskill-——-选题不成立后面全白写">2. dbskill —— 选题不成立，后面全白写</a>
+<a href="#3-content-research-writer-——-调研与写作连起来">3. content-research-writer —— 调研与写作连起来</a>
+<a href="#4-notebooklm-skill-——-基于知识库写少胡说">4. NotebookLM Skill —— 基于知识库写，少胡说</a>
+<a href="#5-khazix-skills-——-深度研究与-ai-热点">5. khazix-skills —— 深度研究与 AI 热点</a>
+<a href="#6-punk-skill-——-封面图第一眼的点击理由">6. Punk-Skill —— 封面图，第一眼的点击理由</a>
+<a href="#7-guizang-social-card-skill-——-小红书与公众号卡片">7. guizang-social-card-skill —— 小红书与公众号卡片</a>
+<a href="#8-baoyu-skills-——-信息图与结构图">8. baoyu-skills —— 信息图与结构图</a>
+<a href="#9-ian-xiaohei-illustrations-——-正文配图要有人味">9. ian-xiaohei-illustrations —— 正文配图要有人味</a>
+<a href="#10-html-anything-——-markdown-到可发布作品">10. html-anything —— Markdown 到可发布作品</a>
+<a href="#三、怎么用这份清单避免变收藏夹">三、怎么用这份清单（避免变收藏夹）</a>
+<a href="#四、工序-×-skill-速查表">四、工序 × Skill 速查表</a>
+<a href="#五、与本课其他材料的关系">五、与本课其他材料的关系</a></nav>
     </aside>
   </main>
   <footer class="site-footer">
-    <div class="course-footer-line">环境公益 AI 赋能实战营 · 第 1 课 · 内容创作生产线（选修）</div>
-    <section class="org-footer" aria-label="元公益工作室介绍">
-      <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
-      <div><h2>元公益工作室</h2><p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p></div>
-    </section>
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# \u5185\u5bb9\u521b\u4f5c\u751f\u4ea7\u7ebf \u00b7 10 \u4e2a Skill \u7cbe\u9009\n\n> \u6587\u4ef6\u8def\u5f84\uff1a`/Users/apple/Documents/4.0 Sanyuan/2.4 \u73af\u5883\u516c\u76ca\"\u65b0\"\u529b\u91cf/course/part-01-skill/content-pipeline-skills.md`\n>\n> \u7528\u9014\uff1a\u7b2c 1 \u8bfe\u300c\u6280\u80fd\u300d\u8bfe**\u9009\u4fee\u5ef6\u4f38\u9605\u8bfb**\u2014\u2014\u628a\u300c\u6280\u80fd\u300d\u7406\u89e3\u6210\u4e00\u6761\u53ef\u5206\u5de5\u7684\u5185\u5bb9\u751f\u4ea7\u7ebf\uff0c\u800c\u4e0d\u662f Skill \u6536\u85cf\u5939\u3002\u7f51\u9875\u9605\u8bfb\u89c1\u540c\u76ee\u5f55 `content-pipeline-skills.html`\u3002\n>\n> \u7b5b\u9009\u6807\u51c6\uff1a**\u80fd\u5426\u8ba9\u4e2d\u6587\u521b\u4f5c\u8005\u66f4\u5feb\u4ea7\u51fa\u53ef\u53d1\u5e03\u5185\u5bb9**\uff08\u4e0d\u6309 Star\u3001\u4e0d\u6309\u70ed\u5ea6\uff09\u3002\n\n---\n\n## \u4e00\u3001\u4e3a\u4ec0\u4e48\u8981\u6709\u8fd9\u6761\u300c\u751f\u4ea7\u7ebf\u300d\n\nSkill \u4e00\u591a\uff0c\u5f88\u5bb9\u6613\u53d8\u6210\u6536\u85cf\u5939\uff1a\u770b\u7740\u90fd\u60f3\u88c5\uff0c\u771f\u7528\u8d77\u6765\u4e00\u4e2a\u90fd\u60f3\u4e0d\u8d77\u3002\n\n\u89e3\u51b3\u529e\u6cd5\u4e0d\u662f\u518d\u88c5\u66f4\u591a\uff0c\u800c\u662f**\u6309\u5de5\u5e8f\u5206\u5de5**\u2014\u2014\u6bcf\u4e00\u6b65\u53ea\u88c5\u4e00\u4e2a\u3001\u7528\u719f\u518d\u88c5\u4e0b\u4e00\u4e2a\uff1a\n\n```text\n\u9009\u9898 \u2192 \u8c03\u7814 \u2192 \u5199\u4f5c \u2192 \u53bb AI \u5473 \u2192 \u5c01\u9762 \u2192 \u5361\u7247 \u2192 \u4fe1\u606f\u56fe \u2192 HTML \u53d1\u5e03\n```\n\n```mermaid\nflowchart LR\n  A[\u9009\u9898 dbskill] --> B[\u8c03\u7814 content-research / NotebookLM / khazix]\n  B --> C[\u5199\u4f5c]\n  C --> D[\u53bb AI \u5473 stop-slop]\n  D --> E[\u5c01\u9762 Punk-Skill]\n  E --> F[\u5361\u7247 guizang-social-card]\n  F --> G[\u4fe1\u606f\u56fe baoyu-skills]\n  G --> H[\u914d\u56fe ian-xiaohei]\n  H --> I[HTML \u53d1\u5e03 html-anything]\n```\n\n**\u4e0e\u672c\u8bfe\u7684\u5173\u7cfb**\uff1a\u7b2c 1 \u8bfe\u4f60\u5728 QoderWork \u91cc\u505a\u7684\u300c\u7ed3\u9879\u62a5\u544a\u52a9\u624b\u300d\uff0c\u5df2\u7ecf\u662f\u751f\u4ea7\u7ebf\u91cc**\u4e00\u4e2a\u5de5\u5e8f**\uff08\u6587\u4e66\u751f\u6210 + \u8f93\u51fa\u5951\u7ea6 + Gotchas\uff09\u3002\u8fd9\u7bc7\u6e05\u5355\u5c55\u793a\u7684\u662f**\u540c\u4e00\u5957\u601d\u7ef4**\u5728\u5185\u5bb9\u521b\u4f5c\u573a\u666f\u7684\u6269\u5c55\u2014\u2014\u5148\u60f3\u6e05\u695a\u300c\u8fd9\u4e00\u6b65\u89e3\u51b3\u4ec0\u4e48\u300d\uff0c\u518d\u51b3\u5b9a\u88c5\u54ea\u4e2a Skill\u3002\n\n---\n\n## \u4e8c\u300110 \u4e2a Skill \u00b7 \u6309\u5de5\u5e8f\u6392\u5e8f\n\n### 1. stop-slop \u2014\u2014 \u5148\u53bb AI \u5473\uff0c\u518d\u8c08\u5199\u4f5c\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u53bb AI \u5473\uff08\u5199\u4f5c\u4e4b\u540e\u3001\u53d1\u5e03\u4e4b\u524d\uff09 |\n| **\u4ed3\u5e93** | [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u5220\u6389\u673a\u5668\u5473\uff1a\u7a7a\u6d1e\u8f6c\u6298\u3001\u6a21\u677f\u53e5\u3001\u8fc7\u5ea6\u603b\u7ed3\u3001\u5047\u88c5\u6df1\u523b\u7684\u5e9f\u8bdd |\n\n\u5f88\u591a\u4eba\u4ee5\u4e3a\u6700\u7f3a\u7684\u662f\u300c\u5199\u5f97\u66f4\u5feb\u300d\u3002\u9519\u4e86\u2014\u2014\u73b0\u5728\u6700\u7f3a\u7684\u662f\u300c\u770b\u8d77\u6765\u4e0d\u50cf AI \u5199\u7684\u300d\u3002AI \u5473\u4e00\u51fa\u6765\uff0c\u8bfb\u8005\u4f1a\u7acb\u523b\u9632\u5fa1\uff1b\u5185\u5bb9\u518d\u5bf9\uff0c\u4fe1\u4efb\u4e5f\u5df2\u7ecf\u6389\u4e86\u3002\n\n**\u4e2d\u6587\u521b\u4f5c\u8005\u6700\u8be5\u5148\u88c5\u7684\uff0c\u4e0d\u662f\u5199\u4f5c\u589e\u5f3a\u5668\uff0c\u800c\u662f AI \u5473\u5239\u8f66\u3002**\n\n---\n\n### 2. dbskill \u2014\u2014 \u9009\u9898\u4e0d\u6210\u7acb\uff0c\u540e\u9762\u5168\u767d\u5199\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u9009\u9898 |\n| **\u4ed3\u5e93** | [dontbesilent2025/dbskill](https://github.com/dontbesilent2025/dbskill) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u5148\u5224\u65ad\u503c\u4e0d\u503c\u5f97\u5199\uff1a\u9009\u9898\u8bca\u65ad\u3001\u7206\u6b3e\u62c6\u89e3\u3001Hook \u4f18\u5316 |\n\n\u5f88\u591a\u6587\u7ae0\u6251\u8857\uff0c\u4e0d\u662f\u56e0\u4e3a\u5199\u5f97\u4e0d\u591f\u597d\uff0c\u800c\u662f\u9009\u9898\u672c\u8eab\u5c31\u6ca1\u6709\u4f20\u64ad\u5f20\u529b\u3002\u6ca1\u4eba\u5173\u5fc3\uff0c\u6807\u9898\u518d\u987a\u4e5f\u6ca1\u7528\uff1b\u51b2\u7a81\u4e0d\u591f\uff0c\u7ed3\u6784\u518d\u5b8c\u6574\u4e5f\u53ea\u662f\u81ea\u55e8\u3002\n\n\u5b83\u66f4\u50cf**\u5185\u5bb9\u7f16\u8f91**\uff1a\u4e0d\u662f\u50ac\u4f60\u5feb\u5199\uff0c\u800c\u662f\u5148\u95ee\u2014\u2014**\u8fd9\u4e2a\u4e1c\u897f\u51ed\u4ec0\u4e48\u8ba9\u4eba\u505c\u4e0b\u6765\uff1f**\n\n---\n\n### 3. content-research-writer \u2014\u2014 \u8c03\u7814\u4e0e\u5199\u4f5c\u8fde\u8d77\u6765\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u8c03\u7814 + \u5199\u4f5c |\n| **\u4ed3\u5e93** | [ComposioHQ/awesome-claude-skills/content-research-writer](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u628a\u5185\u5bb9\u7814\u7a76\u548c\u5199\u4f5c\u6d41\u7a0b\u4e32\u8054\uff1b\u9002\u5408\u957f\u6587\u3001\u884c\u4e1a\u5206\u6790\u3001\u8d8b\u52bf\u89e3\u8bfb |\n\n\u5f88\u591a\u521b\u4f5c\u8005\u5361\u4f4f\uff0c\u4e0d\u662f\u4e0d\u4f1a\u5199\uff0c\u800c\u662f**\u7d20\u6750\u4e0d\u591f**\u3002\u4e00\u7bc7\u597d\u6587\u7ae0\uff0c\u8868\u9762\u662f\u8868\u8fbe\uff0c\u5e95\u5c42\u662f\u6750\u6599\u3002\u6ca1\u6709\u8db3\u591f\u4fe1\u606f\u3001\u6848\u4f8b\u3001\u80cc\u666f\u548c\u89d2\u5ea6\uff0cAI \u518d\u4f1a\u5199\uff0c\u4e5f\u53ea\u80fd\u628a\u7a7a\u8bdd\u6392\u5217\u5f97\u66f4\u6574\u9f50\u3002\n\n\u5199\u4f5c\u4e0d\u662f\u4ece\u7a7a\u767d\u9875\u5f00\u59cb\uff0c\u800c\u662f\u4ece**\u7d20\u6750\u5bc6\u5ea6**\u5f00\u59cb\u3002\n\n---\n\n### 4. NotebookLM Skill \u2014\u2014 \u57fa\u4e8e\u77e5\u8bc6\u5e93\u5199\uff0c\u5c11\u80e1\u8bf4\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u8c03\u7814 / \u5199\u4f5c\uff08\u6709\u73b0\u6210\u8d44\u6599\u5e93\u65f6\uff09 |\n| **\u4ed3\u5e93** | [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u56f4\u7ed5\u5df2\u6709\u6750\u6599\u7ec4\u7ec7\u5185\u5bb9\uff0c**\u51cf\u5c11\u5e7b\u89c9** |\n\n\u5982\u679c\u4f60\u7ecf\u5e38\u57fa\u4e8e\u8bfe\u7a0b\u3001\u8bbf\u8c08\u3001\u4f1a\u8bae\u7eaa\u8981\u3001\u4e66\u7c4d\u6458\u5f55\u3001\u8d44\u6599\u5e93\u6765\u5199\uff0c\u8fd9\u4e2a\u975e\u5e38\u503c\u5f97\u88c5\u3002\u5185\u5bb9\u521b\u4f5c\u8005\u6700\u6015\u7684\u4e0d\u662f\u5199\u6162\uff0c\u800c\u662f**\u5199\u9519**\u2014\u2014\u5f15\u7528\u9519\u3001\u7406\u89e3\u9519\u3001\u7f16\u9020\u4e8b\u5b9e\uff0c\u4fe1\u4efb\u6210\u672c\u6781\u9ad8\u3002\n\n**\u5bf9\u7167\u672c\u8bfe**\uff1a\u7b2c 2 \u8bfe\u77e5\u8bc6\u5e93 + \u7b2c 1 \u8bfe\u6280\u80fd\uff0c\u672c\u8d28\u4e0a\u5c31\u662f\u5728\u642d\u300c\u53ef\u5f15\u7528\u7684\u4e8b\u5b9e\u5c42\u300d\uff1bNotebookLM Skill \u662f\u540c\u4e00\u601d\u8def\u5728\u5185\u5bb9\u521b\u4f5c\u5de5\u5177\u94fe\u91cc\u7684\u7248\u672c\u3002\n\n---\n\n### 5. khazix-skills \u2014\u2014 \u6df1\u5ea6\u7814\u7a76\u4e0e AI \u70ed\u70b9\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u8c03\u7814\uff08\u70ed\u70b9 / \u957f\u6587\uff09 |\n| **\u4ed3\u5e93** | [KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u6df1\u5ea6\u7814\u7a76\u3001AI \u5de5\u5177\u4e0e\u884c\u4e1a\u8d8b\u52bf\u7684\u4fe1\u606f\u6574\u7406 |\n\n\u9002\u5408 AI \u5de5\u5177\u3001\u6a21\u578b\u52a8\u6001\u3001\u6280\u672f\u70ed\u70b9\u7c7b\u5185\u5bb9\u3002AI \u5185\u5bb9\u6700\u5bb9\u6613\u9047\u5230\u4e24\u4e2a\u95ee\u9898\uff1a\u4fe1\u606f\u66f4\u65b0\u5feb\uff0c\u8bfb\u8005\u8981\u6c42\u9ad8\u3002\u5199\u6d45\u4e86\u50cf\u642c\u8fd0\uff0c\u5199\u6df1\u4e86\u5bb9\u6613\u6162\u3002\n\n\u66f4\u9002\u5408\u642d\u4e00\u4e2a**\u70ed\u70b9\u7814\u7a76\u5de5\u4f5c\u53f0**\uff1a\u5148\u6574\u7406\u4fe1\u606f\uff0c\u518d\u5f80\u89c2\u70b9\u548c\u957f\u6587\u8d70\u3002\n\n---\n\n### 6. Punk-Skill \u2014\u2014 \u5c01\u9762\u56fe\uff0c\u7b2c\u4e00\u773c\u7684\u70b9\u51fb\u7406\u7531\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u5c01\u9762 |\n| **\u4ed3\u5e93** | [adrianpunk/Punk-Skill](https://github.com/adrianpunk/Punk-Skill) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u5c01\u9762\u56fe\u3001\u5934\u50cf\uff1b\u4e2d\u6587\u6807\u9898\u53cb\u597d\uff1b\u6309\u5e73\u53f0\u6bd4\u4f8b\u4e0e\u60c5\u7eea\u51fa\u56fe |\n\n\u5f88\u591a\u521b\u4f5c\u8005\u4f4e\u4f30\u4e86\u5c01\u9762\u3002\u5728 X\u3001\u516c\u4f17\u53f7\u3001\u5c0f\u7ea2\u4e66\u91cc\uff0c\u5c01\u9762\u4e0d\u662f\u88c5\u9970\uff0c\u800c\u662f**\u7b2c\u4e00\u773c\u7684\u70b9\u51fb\u7406\u7531**\u3002\u6587\u5b57\u8d1f\u8d23\u8bf4\u670d\uff0c\u5c01\u9762\u8d1f\u8d23\u8ba9\u522b\u4eba\u5148\u505c\u4e0b\u6765\u3002\n\n---\n\n### 7. guizang-social-card-skill \u2014\u2014 \u5c0f\u7ea2\u4e66\u4e0e\u516c\u4f17\u53f7\u5361\u7247\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u5361\u7247 / \u591a\u5e73\u53f0\u62c6\u5206 |\n| **\u4ed3\u5e93** | [op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u793e\u4ea4\u5361\u7247\u3001\u516c\u4f17\u53f7\u5c01\u9762\u3001\u5c0f\u7ea2\u4e66\u56fe\u6587\u62c6\u5206 |\n\n\u540c\u4e00\u7bc7\u5185\u5bb9\uff1a\u53d1 X \u53ef\u4ee5\u662f\u957f\u6587\uff0c\u53d1\u5c0f\u7ea2\u4e66\u53ef\u80fd\u8981\u62c6\u6210 6 \u5f20\u5361\u7247\uff0c\u53d1\u516c\u4f17\u53f7\u53c8\u9700\u8981\u5c01\u9762\u548c\u5bfc\u8bed\u3002**\u5e73\u53f0\u4e0d\u662f\u5bb9\u5668\uff0c\u5e73\u53f0\u4f1a\u6539\u53d8\u5185\u5bb9\u5f62\u6001\u3002**\n\n---\n\n### 8. baoyu-skills \u2014\u2014 \u4fe1\u606f\u56fe\u4e0e\u7ed3\u6784\u56fe\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u4fe1\u606f\u56fe |\n| **\u4ed3\u5e93** | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u4fe1\u606f\u56fe\u3001\u7ed3\u6784\u56fe\u3001\u65b9\u6cd5\u8bba\u89c6\u89c9\u5316 |\n\n\u5e72\u8d27\u6587\u4fe1\u606f\u5bc6\u5ea6\u591f\u4e86\uff0c\u8bfb\u8005\u4ecd\u53ef\u80fd\u770b\u4e0d\u8fdb\u53bb\u2014\u2014\u6846\u67b6\u3001\u6d41\u7a0b\u3001\u5bf9\u6bd4\u3001\u6e05\u5355\uff0c\u5168\u9760\u6587\u5b57\u4f1a\u5f88\u7d2f\u3002\u628a\u590d\u6742\u903b\u8f91\u53d8\u6210\u56fe\uff0c\u8ba9\u5185\u5bb9\u4ece\u300c\u53ef\u8bfb\u300d\u53d8\u6210**\u53ef\u4fdd\u5b58**\u3002\n\n---\n\n### 9. ian-xiaohei-illustrations \u2014\u2014 \u6b63\u6587\u914d\u56fe\u8981\u6709\u4eba\u5473\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | \u6b63\u6587\u914d\u56fe |\n| **\u4ed3\u5e93** | [helloianneo/ian-xiaohei-illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations) |\n| **\u89e3\u51b3\u4ec0\u4e48** | \u624b\u7ed8\u611f\u6b63\u6587\u63d2\u56fe\uff0c\u505a\u60c5\u7eea\u7f13\u51b2\u4e0e\u8bb0\u5fc6\u70b9 |\n\n\u77e5\u8bc6\u957f\u6587\u3001\u89c2\u70b9\u6587\u7ae0\u3001\u7ecf\u9a8c\u5206\u4eab\uff1a\u5168\u662f\u5927\u6bb5\u6587\u5b57\u8bfb\u8005\u4f1a\u7d2f\uff0c\u914d\u56fe\u592a\u5546\u4e1a\u53c8\u50cf\u5e7f\u544a\u3002\u5c0f\u9ed1\u98ce\u683c\u6709\u624b\u7ed8\u611f\u3001\u6709\u4eba\u5473\u2014\u2014\u4e0d\u662f\u6240\u6709\u5185\u5bb9\u90fd\u9700\u8981\u70ab\u9177\u89c6\u89c9\uff0c\u6709\u65f6\u5019\u4e00\u70b9\u624b\u7ed8\u611f\u53cd\u800c\u66f4\u50cf\u4eba\u5199\u7684\u3002\n\n---\n\n### 10. html-anything \u2014\u2014 Markdown \u5230\u53ef\u53d1\u5e03\u4f5c\u54c1\n\n| \u9879\u76ee | \u8bf4\u660e |\n|------|------|\n| **\u5de5\u5e8f** | HTML \u53d1\u5e03 |\n| **\u4ed3\u5e93** | [nexu-io/html-anything](https://github.com/nexu-io/html-anything) |\n| **\u89e3\u51b3\u4ec0\u4e48** | Markdown \u2192 \u7cbe\u7f8e\u7f51\u9875 / \u6d77\u62a5 / \u5361\u7247\u5316\u5c55\u793a |\n\n\u5f88\u591a\u521b\u4f5c\u8005\u7684\u6700\u540e\u4e00\u516c\u91cc\u662f\u6392\u7248\u3002Markdown \u5199\u5b8c\u4e86\uff0c\u8981\u53d8\u6210\u6d77\u62a5\u3001\u843d\u5730\u9875\u3001\u597d\u770b\u7684 HTML\uff0c\u8fd8\u8981\u6298\u817e\u4e00\u5806\u5de5\u5177\u3002\n\n**\u5bf9\u7167\u672c\u8bfe**\uff1a`report/index.html`\u3001`course/index.html` \u5c31\u662f\u300c\u5199\u5b8c\u8fd8\u8981\u80fd\u8212\u670d\u5730\u8bfb\u300d\u7684\u53d1\u5e03\u5c42\uff1bhtml-anything \u89e3\u51b3\u7684\u662f\u4e2a\u4eba\u5185\u5bb9\u5f52\u6863\u4e0e\u5c55\u793a\u8d28\u611f\u3002\n\n\u5199\u5b8c\u4e0d\u7b49\u4e8e\u5b8c\u6210\u3002**\u80fd\u88ab\u8212\u670d\u5730\u9605\u8bfb\uff0c\u624d\u7b97\u5b8c\u6210\u3002**\n\n---\n\n## \u4e09\u3001\u600e\u4e48\u7528\u8fd9\u4efd\u6e05\u5355\uff08\u907f\u514d\u53d8\u6536\u85cf\u5939\uff09\n\n| \u539f\u5219 | \u505a\u6cd5 |\n|------|------|\n| **\u4e00\u6b21\u53ea\u88c5\u4e00\u4e2a\u5de5\u5e8f** | \u5148 stop-slop \u6216 dbskill\uff0c\u7528\u719f\u518d\u88c5\u4e0b\u4e00\u4e2a |\n| **description \u5199\u6e05\u5de5\u5e8f** | \u300cLoad when \u7528\u6237\u8981\u53d1\u5e03\u524d\u6da6\u8272 / \u53bb AI \u5473\u300d\u2014\u2014 \u89c1 [`skill-standards.md`](skill-standards.md) |\n| **\u548c\u672c\u8bfe\u6280\u80fd\u540c\u6784** | \u6bcf\u4e2a Skill = \u6587\u4ef6\u5939 + \u89e6\u53d1\u8bf4\u660e + \u8f93\u51fa\u5951\u7ea6 + Gotchas |\n| **\u516c\u76ca\u673a\u6784\u53ef\u8fc1\u79fb** | \u7ed3\u9879\u62a5\u544a\u3001\u9879\u76ee\u4e66\u3001\u8d44\u52a9\u4fe1 = \u4f60\u4eec\u7684\u300c\u6587\u4e66\u751f\u4ea7\u7ebf\u300d\uff1b\u8fd9\u7bc7\u6e05\u5355\u662f**\u4f20\u64ad\u5411\u5185\u5bb9**\u7684\u5e73\u884c\u53c2\u8003 |\n\n**\u5efa\u8bae\u8d77\u6b65\u7ec4\u5408\uff08\u5185\u5bb9\u521b\u4f5c\u8005\uff09**\n\n1. stop-slop\uff08\u53d1\u5e03\u524d\u5fc5\u8fc7\uff09\n2. dbskill\uff08\u52a8\u7b14\u524d\u9009\u9898\uff09\n3. html-anything \u6216 guizang-social-card\uff08\u6309\u4f60\u4e3b\u53d1\u5e73\u53f0\u4e8c\u9009\u4e00\uff09\n\n**\u5efa\u8bae\u8d77\u6b65\u7ec4\u5408\uff08\u672c\u8bfe\u5b66\u5458 \u00b7 \u516c\u76ca\u6587\u4e66\uff09**\n\n1. \u672c\u8bfe [`templates.html`](templates.html) \u91cc\u7684\u7ed3\u9879 / \u9879\u76ee\u4e66 / \u8d44\u52a9\u4fe1\u6837\u677f\n2. [`skill-standards.md`](skill-standards.md) \u91cc\u7684\u89e6\u53d1\u8bf4\u660e\u4e0e Gotchas \u5199\u6cd5\n3. \u6709\u9700\u8981\u518d\u88c5 stop-slop\uff0c\u4e13\u95e8\u6e05\u6587\u4e66\u91cc\u7684\u5957\u8bdd\u4e0e AI \u5473\n\n---\n\n## \u56db\u3001\u5de5\u5e8f \u00d7 Skill \u901f\u67e5\u8868\n\n| \u5de5\u5e8f | \u63a8\u8350 Skill | \u4e00\u53e5\u8bdd |\n|------|-----------|--------|\n| \u53bb AI \u5473 | stop-slop | \u5148\u5220\u673a\u5668\u5473\uff0c\u518d\u8c08\u6587\u91c7 |\n| \u9009\u9898 | dbskill | \u503c\u4e0d\u503c\u5f97\u5199\uff0c\u6bd4\u5feb\u5199\u66f4\u91cd\u8981 |\n| \u8c03\u7814 + \u5199\u4f5c | content-research-writer | \u7d20\u6750\u5bc6\u5ea6\u51b3\u5b9a\u4e0a\u9650 |\n| \u77e5\u8bc6\u5e93\u5199\u4f5c | NotebookLM Skill | \u6709\u8d44\u6599\u5e93\u65f6\u5c11\u5e7b\u89c9 |\n| \u70ed\u70b9 / \u6df1\u5ea6\u8c03\u7814 | khazix-skills | AI \u4e0e\u8d8b\u52bf\u7c7b\u957f\u6587 |\n| \u5c01\u9762 | Punk-Skill | \u8ba9\u4eba\u5148\u505c\u4e0b\u6765 |\n| \u5361\u7247 / \u591a\u5e73\u53f0 | guizang-social-card-skill | \u540c\u4e00\u5185\u5bb9\uff0c\u4e0d\u540c\u5f62\u6001 |\n| \u4fe1\u606f\u56fe | baoyu-skills | \u53ef\u4fdd\u5b58\u7684\u89c6\u89c9\u5e72\u8d27 |\n| \u6b63\u6587\u914d\u56fe | ian-xiaohei-illustrations | \u624b\u7ed8\u611f\uff0c\u4e0d\u50cf\u5e7f\u544a |\n| HTML \u53d1\u5e03 | html-anything | \u6700\u540e\u4e00\u516c\u91cc\u7684\u9605\u8bfb\u8d28\u611f |\n\n---\n\n## \u4e94\u3001\u4e0e\u672c\u8bfe\u5176\u4ed6\u6750\u6599\u7684\u5173\u7cfb\n\n```mermaid\nflowchart TB\n  L1[\u7b2c 1 \u8bfe \u00b7 \u6587\u4e66\u6280\u80fd\u6837\u677f] --> L2[skill-standards \u600e\u4e48\u5199\u597d\u6280\u80fd]\n  L2 --> L3[content-pipeline-skills \u5de5\u5e8f\u601d\u7ef4\u9009\u4fee]\n  L3 --> L4[\u7b2c 2 \u8bfe \u00b7 \u77e5\u8bc6\u5e93\u5f39\u836f]\n  L4 --> L5[\u7b2c 3 \u8bfe \u00b7 Agent\u5e73\u53f0 \u9879\u76ee\u52a9\u7406]\n```\n\n- \u672c\u7bc7\u4e3a**\u9009\u4fee**\uff0c\u4e0d\u5f71\u54cd\u672c\u8bfe\u9a8c\u6536\uff08\u22651 \u4e2a\u6587\u4e66\u6280\u80fd\u8dd1\u901a\uff09\u3002\n- \u8bb2\u5e08\u53ef\u5728\u300c\u6982\u5ff5\u8fa8\u6790\u300d\u540e\u63a8\u8350\u7ed9\u6709\u5185\u5bb9\u4f20\u64ad\u3001\u673a\u6784\u5ba3\u4f20\u9700\u6c42\u7684\u5b66\u5458\u3002\n- \u5916\u90e8 Skill \u4ed3\u5e93\u7531\u5404\u81ea\u4f5c\u8005\u7ef4\u62a4\uff1b\u5b89\u88c5\u524d\u8bf7\u81ea\u884c\u67e5\u770b\u8bb8\u53ef\u4e0e\u9690\u79c1\u8bf4\u660e\u3002\n"</script>
+  <script type="application/json" id="markdown-source">"# 内容创作生产线 · 10 个 Skill 精选\n\n> 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-01-skill/content-pipeline-skills.md`\n>\n> 用途：第 1 课「技能」课**选修延伸阅读**——把「技能」理解成一条可分工的内容生产线，而不是 Skill 收藏夹。网页阅读见同目录 `content-pipeline-skills.html`。\n>\n> 筛选标准：**能否让中文创作者更快产出可发布内容**（不按 Star、不按热度）。\n\n**国内获取**：下列 Skill 若在 [SkillHub](https://skillhub.cn) 有对应条目，优先用 SkillHub 安装（`skillhub install \u003cslug>`，见 [安装说明](https://skillhub.cn/install/skillhub.md)）；未收录的保留 GitHub 源码链接。\n\n---\n\n## 一、为什么要有这条「生产线」\n\nSkill 一多，很容易变成收藏夹：看着都想装，真用起来一个都想不起。\n\n解决办法不是再装更多，而是**按工序分工**——每一步只装一个、用熟再装下一个：\n\n```text\n选题 → 调研 → 写作 → 去 AI 味 → 封面 → 卡片 → 信息图 → HTML 发布\n```\n\n```mermaid\nflowchart LR\n  A[选题 dbskill] --> B[调研 content-research / NotebookLM / khazix]\n  B --> C[写作]\n  C --> D[去 AI 味 stop-slop]\n  D --> E[封面 Punk-Skill]\n  E --> F[卡片 guizang-social-card]\n  F --> G[信息图 baoyu-skills]\n  G --> H[配图 ian-xiaohei]\n  H --> I[HTML 发布 html-anything]\n```\n\n**与本课的关系**：第 1 课你在 QoderWork 里做的「结项报告助手」，已经是生产线里**一个工序**（文书生成 + 输出契约 + Gotchas）。这篇清单展示的是**同一套思维**在内容创作场景的扩展——先想清楚「这一步解决什么」，再决定装哪个 Skill。\n\n---\n\n## 二、10 个 Skill · 按工序排序\n\n### 1. stop-slop —— 先去 AI 味，再谈写作\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 去 AI 味（写作之后、发布之前） |\n| **获取** | [SkillHub · stop-slop](https://skillhub.cn/skills/stop-slop) · [GitHub 源码](https://github.com/hardikpandya/stop-slop) |\n| **解决什么** | 删掉机器味：空洞转折、模板句、过度总结、假装深刻的废话 |\n\n很多人以为最缺的是「写得更快」。错了——现在最缺的是「看起来不像 AI 写的」。AI 味一出来，读者会立刻防御；内容再对，信任也已经掉了。\n\n**中文创作者最该先装的，不是写作增强器，而是 AI 味刹车。**\n\n---\n\n### 2. dbskill —— 选题不成立，后面全白写\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 选题 |\n| **获取** | [GitHub · dontbesilent2025/dbskill](https://github.com/dontbesilent2025/dbskill)（SkillHub 未收录；勿与 SkillHub 同名 `dbskill` 数据库工具混淆） |\n| **解决什么** | 先判断值不值得写：选题诊断、爆款拆解、Hook 优化 |\n\n很多文章扑街，不是因为写得不够好，而是选题本身就没有传播张力。没人关心，标题再顺也没用；冲突不够，结构再完整也只是自嗨。\n\n它更像**内容编辑**：不是催你快写，而是先问——**这个东西凭什么让人停下来？**\n\n---\n\n### 3. content-research-writer —— 调研与写作连起来\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 调研 + 写作 |\n| **获取** | [SkillHub · content-research-writer-cn](https://skillhub.cn/skills/content-research-writer-cn) · [GitHub 源码](https://github.com/ComposioHQ/awesome-claude-skills/tree/master/content-research-writer) |\n| **解决什么** | 把内容研究和写作流程串联；适合长文、行业分析、趋势解读 |\n\n很多创作者卡住，不是不会写，而是**素材不够**。一篇好文章，表面是表达，底层是材料。没有足够信息、案例、背景和角度，AI 再会写，也只能把空话排列得更整齐。\n\n写作不是从空白页开始，而是从**素材密度**开始。\n\n---\n\n### 4. NotebookLM Skill —— 基于知识库写，少胡说\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 调研 / 写作（有现成资料库时） |\n| **获取** | [SkillHub · notebooklm-skill](https://skillhub.cn/skills/notebooklm-skill) · [GitHub 源码](https://github.com/PleasePrompto/notebooklm-skill) |\n| **解决什么** | 围绕已有材料组织内容，**减少幻觉** |\n\n如果你经常基于课程、访谈、会议纪要、书籍摘录、资料库来写，这个非常值得装。内容创作者最怕的不是写慢，而是**写错**——引用错、理解错、编造事实，信任成本极高。\n\n**对照本课**：第 2 课知识库 + 第 1 课技能，本质上就是在搭「可引用的事实层」；NotebookLM Skill 是同一思路在内容创作工具链里的版本。\n\n---\n\n### 5. khazix-skills —— 深度研究与 AI 热点\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 调研（热点 / 长文） |\n| **获取** | [GitHub · KKKKhazix/khazix-skills](https://github.com/KKKKhazix/khazix-skills)（SkillHub 未收录） |\n| **解决什么** | 深度研究、AI 工具与行业趋势的信息整理 |\n\n适合 AI 工具、模型动态、技术热点类内容。AI 内容最容易遇到两个问题：信息更新快，读者要求高。写浅了像搬运，写深了容易慢。\n\n更适合搭一个**热点研究工作台**：先整理信息，再往观点和长文走。\n\n---\n\n### 6. Punk-Skill —— 封面图，第一眼的点击理由\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 封面 |\n| **获取** | [GitHub · adrianpunk/Punk-Skill](https://github.com/adrianpunk/Punk-Skill)（SkillHub 未收录） |\n| **解决什么** | 封面图、头像；中文标题友好；按平台比例与情绪出图 |\n\n很多创作者低估了封面。在 X、公众号、小红书里，封面不是装饰，而是**第一眼的点击理由**。文字负责说服，封面负责让别人先停下来。\n\n---\n\n### 7. guizang-social-card-skill —— 小红书与公众号卡片\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 卡片 / 多平台拆分 |\n| **获取** | [GitHub · op7418/guizang-social-card-skill](https://github.com/op7418/guizang-social-card-skill)（SkillHub 未收录） |\n| **解决什么** | 社交卡片、公众号封面、小红书图文拆分 |\n\n同一篇内容：发 X 可以是长文，发小红书可能要拆成 6 张卡片，发公众号又需要封面和导语。**平台不是容器，平台会改变内容形态。**\n\n---\n\n### 8. baoyu-skills —— 信息图与结构图\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 信息图 |\n| **获取** | [GitHub · JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills)（SkillHub 未收录） |\n| **解决什么** | 信息图、结构图、方法论视觉化 |\n\n干货文信息密度够了，读者仍可能看不进去——框架、流程、对比、清单，全靠文字会很累。把复杂逻辑变成图，让内容从「可读」变成**可保存**。\n\n---\n\n### 9. ian-xiaohei-illustrations —— 正文配图要有人味\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | 正文配图 |\n| **获取** | [GitHub · helloianneo/ian-xiaohei-illustrations](https://github.com/helloianneo/ian-xiaohei-illustrations)（SkillHub 未收录） |\n| **解决什么** | 手绘感正文插图，做情绪缓冲与记忆点 |\n\n知识长文、观点文章、经验分享：全是大段文字读者会累，配图太商业又像广告。小黑风格有手绘感、有人味——不是所有内容都需要炫酷视觉，有时候一点手绘感反而更像人写的。\n\n---\n\n### 10. html-anything —— Markdown 到可发布作品\n\n| 项目 | 说明 |\n|------|------|\n| **工序** | HTML 发布 |\n| **获取** | [SkillHub · html-anything](https://skillhub.cn/skills/html-anything) · [GitHub 源码](https://github.com/nexu-io/html-anything) |\n| **解决什么** | Markdown → 精美网页 / 海报 / 卡片化展示 |\n\n很多创作者的最后一公里是排版。Markdown 写完了，要变成海报、落地页、好看的 HTML，还要折腾一堆工具。\n\n**对照本课**：`report/index.html`、`course/index.html` 就是「写完还要能舒服地读」的发布层；html-anything 解决的是个人内容归档与展示质感。\n\n写完不等于完成。**能被舒服地阅读，才算完成。**\n\n---\n\n## 三、怎么用这份清单（避免变收藏夹）\n\n| 原则 | 做法 |\n|------|------|\n| **一次只装一个工序** | 先 stop-slop 或 dbskill，用熟再装下一个 |\n| **description 写清工序** | 「Load when 用户要发布前润色 / 去 AI 味」—— 见 [`skill-standards.md`](skill-standards.md) |\n| **和本课技能同构** | 每个 Skill = 文件夹 + 触发说明 + 输出契约 + Gotchas |\n| **公益机构可迁移** | 结项报告、项目书、资助信 = 你们的「文书生产线」；这篇清单是**传播向内容**的平行参考 |\n\n**建议起步组合（内容创作者）**\n\n1. stop-slop（发布前必过）\n2. dbskill（动笔前选题）\n3. html-anything 或 guizang-social-card（按你主发平台二选一）\n\n**建议起步组合（本课学员 · 公益文书）**\n\n1. 本课 [`templates.html`](templates.html) 里的结项 / 项目书 / 资助信样板\n2. [`skill-standards.md`](skill-standards.md) 里的触发说明与 Gotchas 写法\n3. 有需要再装 stop-slop，专门清文书里的套话与 AI 味\n\n---\n\n## 四、工序 × Skill 速查表\n\n| 工序 | 推荐 Skill | 国内获取 | 一句话 |\n|------|-----------|----------|--------|\n| 去 AI 味 | stop-slop | [SkillHub](https://skillhub.cn/skills/stop-slop) | 先删机器味，再谈文采 |\n| 选题 | dbskill | 仅 GitHub | 值不值得写，比快写更重要 |\n| 调研 + 写作 | content-research-writer | [SkillHub](https://skillhub.cn/skills/content-research-writer-cn) | 素材密度决定上限 |\n| 知识库写作 | NotebookLM Skill | [SkillHub](https://skillhub.cn/skills/notebooklm-skill) | 有资料库时少幻觉 |\n| 热点 / 深度调研 | khazix-skills | 仅 GitHub | AI 与趋势类长文 |\n| 封面 | Punk-Skill | 仅 GitHub | 让人先停下来 |\n| 卡片 / 多平台 | guizang-social-card-skill | 仅 GitHub | 同一内容，不同形态 |\n| 信息图 | baoyu-skills | 仅 GitHub | 可保存的视觉干货 |\n| 正文配图 | ian-xiaohei-illustrations | 仅 GitHub | 手绘感，不像广告 |\n| HTML 发布 | html-anything | [SkillHub](https://skillhub.cn/skills/html-anything) | 最后一公里的阅读质感 |\n\n---\n\n## 五、与本课其他材料的关系\n\n```mermaid\nflowchart TB\n  L1[第 1 课 · 文书技能样板] --> L2[skill-standards 怎么写好技能]\n  L2 --> L3[content-pipeline-skills 工序思维选修]\n  L3 --> L4[第 2 课 · 知识库弹药]\n  L4 --> L5[第 3 课 · Agent平台 项目助理]\n```\n\n- 本篇为**选修**，不影响本课验收（≥1 个文书技能跑通）。\n- 讲师可在「概念辨析」后推荐给有内容传播、机构宣传需求的学员。\n- 外部 Skill 由各自作者维护；国内优先经 [SkillHub](https://skillhub.cn) 安装，未收录的从 GitHub 获取源码。安装前请自行查看许可与隐私说明。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {
       if (navigator.clipboard && window.isSecureContext) {
-        try { await navigator.clipboard.writeText(text); return true; } catch {}
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
       }
       const textarea = document.createElement("textarea");
-      textarea.value = text; textarea.setAttribute("readonly", "");
-      textarea.style.position = "fixed"; textarea.style.left = "-9999px";
-      document.body.appendChild(textarea); textarea.focus(); textarea.select();
-      try { return document.execCommand("copy"); } finally { document.body.removeChild(textarea); }
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
     }
     document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
       button.addEventListener("click", async () => {
         const copied = await copyMarkdownText(markdownSource);
-        const oldText = button.textContent;
-        button.textContent = copied ? "已复制" : "复制失败，请下载";
-        setTimeout(() => { button.textContent = oldText; }, 1400);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
       });
     });
   </script>

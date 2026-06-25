@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Designing Agent Skills at Perplexity（延伸阅读 · 英文原文） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="Designing Agent Skills at Perplexity（延伸阅读 · 英文原文） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../index.html">第 1 课 · 技能</a>
+    <span aria-hidden="true">/</span>
+    <span>Designing Agent Skills at Perplexity（延伸阅读 · 英文原文）</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">课程材料</span><span>part-01-skill/references/skills_perplexity.md</span></div>
+      <h1 id="designing-agent-skills-at-perplexity延伸阅读-·-英文原文">Designing Agent Skills at Perplexity（延伸阅读 · 英文原文）</h1>
+<blockquote><p>课程导读见同目录 <a href="../skill-standards.html"><code>skill-standards.md</code></a> / <a href="../skill-standards.html"><code>skill-standards.html</code></a>。  </p><p>来源：Perplexity Agents 团队工程实践文章（课程归档副本）。</p></blockquote>
+<hr>
+<p>Title: Designing, Refining, and Maintaining Agent Skills at Perplexity</p>
+<p>URL Source: https://research.perplexity.ai/articles/designing-refining-and-maintaining-agent-skills-at-perplexity</p>
+<p>Markdown Content: Perplexity’s frontier agent products rest on a foundation of know-how and domain expertise packaged in modular <a href="https://agentskills.io/home">Agent Skills</a>. We maintain a carefully curated library of Skills across our technical environments. These Skills include many of the general-purpose utilities powering <a href="https://www.perplexity.ai/products/computer">Perplexity Computer</a>; vertical-specific capabilities in areas such as finance, law, and health; and a very long tail of modules for addressing user needs. Some Skills are infrequently invoked but critical _when_ invoked. To ensure a consistently excellent user experience, Perplexity’s Agents team prioritizes Skill quality just as much as code quality.</p>
+<p>The intuitions and best practices required to develop a high-quality Skill differ significantly from those required to build traditional software. The Agents team reviews many pull requests from excellent engineers who develop Skills in the course of their work. The result is almost always numerous comments and suggestions for revision. This is because many useful patterns for writing code become antipatterns in Skill creation.</p>
+<p>For example, if you take some of the aphorisms from <a href="https://peps.python.org/pep-0020/">PEP20 – The Zen of Python</a>, it quickly becomes clear that writing good Python code is unlike writing good Skills. Of the 20 lines of wisdom, at least half are fully wrong or actively misleading when writing Skills. Here are five of them:</p>
+<table><thead><tr><th><strong>Zen of Python</strong></th><th><strong>Zen of Skills</strong></th></tr></thead><tbody><tr><td>Simple is better than complex</td><td>A Skill is a folder, not a file. Complexity is the feature.</td></tr><tr><td>Explicit is better than implicit</td><td>Activation is implicit pattern matching. Progressive disclosure.</td></tr><tr><td>Sparse is better than dense</td><td>Context is expensive. Maximum signal per token.</td></tr><tr><td>Special cases aren’t special enough to break the rules</td><td>Gotchas ARE the special cases (they're the highest-value content).</td></tr><tr><td>If the implementation is easy to explain, it may be a good idea</td><td>If it's easy to explain, the model already knows it. Delete it.</td></tr></tbody></table>
+<p>This guide is the document that engineers across Perplexity use when developing and reviewing Skills. We’re also releasing this guide to the public so that our discoveries and learnings can benefit the broader community. Whether you’re an engineer designing production Skills in your day-to-day work, a Computer user looking to develop your own Skill in an area you know best, or both, this guide is for you.</p>
+<h2 id="what-is-a-skill">What is a Skill?</h2>
+<p>When you write a Skill, you aren’t writing plain old software (even though Skills are now part of the main logical engines for agent systems). Rather, you're building context for models and their environments. A Skill has different constraints and different design principles. If you write a Skill like you do code, you will fail.</p>
+<p>A Skill is at least four things, especially in the context of how we build them at Perplexity.</p>
+<h3 id="a-skill-is-a-directory">A Skill is a Directory</h3>
+<p>A Skill is not just a single <code>SKILL.md</code> file. In many cases, a Skill includes several files. Under the directory named after your Skill, you might have:</p>
+<ul><li><code>SKILL.md</code>: frontmatter and instructions</li></ul>
+<ul><li><code>scripts/</code>: code the agent runs, not reinvents</li></ul>
+<ul><li><code>references/</code>: heavy docs, loaded conditionally</li></ul>
+<ul><li><code>assets/</code>: templates, schemas, and data</li></ul>
+<ul><li><code>config.json</code>: first-run user setup</li></ul>
+<p>This hub-and-spoke pattern allows you to keep Skills very focused and tight, and one can use the folder structure in a very creative way. Sometimes, particularly intricate Skills benefit from multiple levels of hierarchy to help the model navigate better. Suppose a Skill requires knowledge across 300 topics, groupable into 20 subject matter areas. Reliably choosing the right topic among 300 is an unsolved challenge even for today’s best frontier models. It’s a much easier choice problem for a model to hone in on one of 20 areas, than among the 15 topics within that area.</p>
+<p>As one example of how multilevel hierarchy provides value, our team employed three levels of topical nesting within the Skills powering Computer’s U.S. income tax capabilities this past tax season. This hierarchy was absolutely indispensable given the complexity of tax law: in our early tests, presenting the model with a single folder containing all 1,945 sections of the U.S. Internal Revenue Code resulted in worse performance than not loading the Skill at all Organizing the information into logical subdivisions was indispensable for ensuring high-precision read operations.</p>
+<p>Yet this hierarchy did not come free. Increasing levels of hierarchy require increasing levels of curation across the information architecture to manage the resulting indirection. We devised quick reference guides, custom search utilities, and other tools to support the model in locating information with a minimum of indirection. In this case, doing the hard work of curation ultimately produced a positive end result: a Skill that allowed models to perform tax-related tasks much more capably than using general tools alone.</p>
+<p>!<a href="https://framerusercontent.com/images/StL77jSrvpQypM4nJ5omvZdkHQ.png">Image 1</a></p>
+<h3 id="a-skill-is-a-format">A Skill is a Format</h3>
+<p>A Skill is a format. The core root <code>SKILL.md</code> file must have both a name and a description. Furthermore, the Skill needs to exactly map to the directory name in which the Skill is located. The name must be all lower-case characters, have no spaces, and can use hyphens. The description is the routing trigger. This is a common failure point: the description is not internal documentation for what the Skill does. It amounts to instructions for the model for when to load the Skill. So, you will frequently see “Load when,” not “This Skill does.” This is important because of the way that most implementations inject the description into the model context.</p>
+<p>Within the frontmatter, there is also “<code>depends:</code>”, which allows you to create hierarchical Skill dependencies, and “<code>metadata:</code>”, which is used for reviews and evaluations. Different agent systems can even define their own frontmatter fields, to be used in a manner specific to those systems. As an alternative, Skill-specific metadata can be packaged in an auxiliary JSON or YAML configuration file. This is desirable when building agent systems that need to facilitate different types of runtime behavior per Skill without polluting the model’s context with minutiae. Finally, similar behavior is obtainable through stripping Skill frontmatter on read. Computer employs this methodology, which allows configuration to be preserved in the root <code>SKILL.md</code> file. Careful attention to detail is required in the parsing logic, and one might wish to implement conditional stripping if there are certain fields that are useful to have within the model context.</p>
+<h3 id="a-skill-is-invocable">A Skill is Invocable</h3>
+<p>A Skill is invocable. The agent loads a Skill at runtime. Importantly, Skills aren’t always bundled into the context. By default, most agent systems unfold Skills progressively upon specific need.</p>
+<p>There are at least three tiers of context costs in the way that we've implemented Skills in Computer. Here is the process:</p>
+<ol><li>Computer calls <code>load_skill(name=&quot;...&quot;)</code></li></ol>
+<ol><li>Computer copies the Skill directory into the isolated execution sandbox</li></ol>
+<ol><li>Computer recursively auto-loads dependencies in the “<code>depends:</code>” tag</li></ol>
+<ol><li>Computer then strips the frontmatter and the agent thus only sees the body and the additional files</li></ol>
+<p>Different agent systems can choose to expose Skill content in different ways. As an example, some systems might choose not to expose the file hierarchy at all, leaving it to the model to discover the hierarchy through filesystem operations. Other systems may choose to give the model a mapping of the entire filetree up to a certain truncation and/or depth limit. To keep context clean, Computer omits full file hierarchies from the invocation context; however, this is overridable on a per-Skill basis.</p>
+<h3 id="a-skill-is-progressive">A Skill is Progressive</h3>
+<p>Skills are progressive. In Computer, there are three different tiers of context costs, and we incur all three at various stages:</p>
+<table><thead><tr><th><strong>Tier</strong></th><th><strong>What loads</strong></th><th><strong>Budget</strong></th><th><strong>When you pay</strong></th></tr></thead><tbody><tr><td>Index</td><td><code>name: description</code> for every non-hidden Skill</td><td>~100 tokens per Skill</td><td>Every session, every user, always paid</td></tr><tr><td>Load</td><td>Full <code>SKILL.md</code> body</td><td>~5,000 tokens</td><td>~5,000 tokens</td></tr><tr><td>Runtime</td><td>Files in <code>scripts/</code>, <code>references/</code>, <code>assets/</code>, subskills, <code>FORMATTING.md</code>, <code>SPECIAL_CASES.md</code></td><td>Unbounded</td><td>Only when the agent reads them</td></tr></tbody></table>
+<p>Computer builds a Skill index that has the name and the description for every available Skill. The budget for this is around 100 tokens per Skill (shorter is even better). It’s so tight because you're paying this cost in every session, for every user. This is injected into the system prompt at the very beginning of the conversation. The model has access to a bunch of named Skills and descriptions so that it can decide whether to call “<code>load_skill()</code>”. The bar to getting into this index is extremely high. Your Skill needs to be very useful, and the description needs to be extremely dense and terse because everyone is paying the cost all the time.</p>
+<p>After the agent system loads the Skill, there’s the full <code>SKILL.md</code> body. Ideally, the body text does not exceed 5,000 tokens. Even then, you want every sentence to matter because once you load a Skill, the rest of the conversation has to pay that until you hit the compaction boundary. Many threads load anywhere between three and five different Skills, multiplying this cost. Skills with a lot of fluff will almost certainly degrade other Skills as well as overall agentic capabilities. In short, if your Skill loads and it doesn't do the right thing, that's wasted context.</p>
+<p>The final level of progression is scripts or special cases, like subskills or formatting. This is where you want to put unbounded conditional branched logic. The agent will only use it when it needs to, meaning there's a much lower bar for what you want to put in here.</p>
+<p>In the index, every token is important. The loaded Skill body is more relaxed, and the runtime is the most relaxed. This could be 20,000 tokens or zero tokens. This is the level at which you might think about expanding the context of the model in a progressive fashion.</p>
+<h2 id="when-do-you-need-a-skill">When do you need a Skill?</h2>
+<p>The Agents team is often asked to opine on whether a Skill is truly needed for a given domain or use case. Very rarely do we have a definitive answer from first principles alone. The only way to really figure this out is to start with your agent without the Skill, run several hero queries, and then figure out whether the agent is doing a good job.</p>
+<h3 id="when-you-need-a-skill">When you need a Skill</h3>
+<p>There are many tasks that are in distribution for trained models. You only need to apply a Skill if you want to change that behavior in some specific way that you can't with say, one sentence in your prompt. So, you need a Skill when the agent will get it wrong without special context, or if there's some inconsistency or non-determinism that you need to be extremely consistent across runs.</p>
+<p>It could be that your knowledge is durable but not in the training data. There could be cutoffs or enterprise specific workflows, or it could be a matter of taste. For example, we have several design-related Skills in Computer written by Henry Modisett (our head of design). The reason that every token exists in those Skills is because Henry has very good taste when it comes to designing websites and PDFs. Henry specifies which fonts to use and which fonts not to use, how those fonts _feel_, and other matters of judgment that the model can't learn from training data alone.</p>
+<h3 id="when-you-don’t-need-a-skill">When you don’t need a Skill</h3>
+<p>We see many Skills in which engineers have written a series of git commands that need to be executed in order. That’s unnecessary because the model already knows how to do that, meaning it makes for great documentation but a poor Skill.</p>
+<p>We see examples where Skills recapitulate instructions from the system prompt. You don't need a Skill for that. Knowledge relevant for the majority of requests should be included in global context, not in a conditionally loaded Skill</p>
+<p>If there's something that's changing faster than you can maintain it, you don't need a Skill. For example, if you're hitting some remote MCP endpoint and its tools or the versions of those tools are changing frequently, you shouldn't inject those into a Skill. If you do, you’ll just end up with drift and the model will make mistakes.</p>
+<h3 id="every-skill-is-a-tax">Every Skill is a tax</h3>
+<p>Here’s a useful test you can apply to every sentence in your Skill: “Would the agent get this wrong without this instruction?” If the sentence does not need to be there, it cannot afford to be there because everyone is paying this cost every single time. When you are deciding whether to add a Skill or not, remember this tax wherein every session and every user costs tokens.</p>
+<p>The following famous quote, which sounds much better in French, roughly translates to “I have only made this letter longer because I have not had the time to make it shorter.”</p>
+<blockquote><p>« Je n’ai fait celle-ci plus longue que parce que je n’ai pas eu le loisir de la faire plus courte. » — Blaise Pascal, Lettres Provinciales, 1657</p></blockquote>
+<p>Just like Pascal, you need to invest time in every Skill. It is hard to write a short Skill. If your Skill is easy to write, it is probably too long or shouldn’t exist. A good Skill is as short as it can be.</p>
+<p>If you find yourself trying to one-shot Skill generation and putting up PRs in five minutes, the results will almost certainly be subpar. In fact, early research has<a href="https://arxiv.org/abs/2602.12670">shown</a> that if you're using LLMs to write Skills, the LLM will probably not benefit from it: “Self-generated Skills provide no benefit on average, showing that models cannot reliably author the procedural knowledge they benefit from consuming.”</p>
+<h2 id="how-to-build-a-skill">How to build a Skill</h2>
+<p>Put another way, you need to inject your opinion into any Skill that you write. Follow these steps.</p>
+<h3 id="step-0-write-the-evals">Step 0: Write the Evals</h3>
+<p>Write some of the evals first. You can source evaluation cases from:</p>
+<ul><li>Real user queries: sample from production or your brain trust</li></ul>
+<ul><li>Known failures: The agent failed because the Skill didn't exist</li></ul>
+<ul><li>Neighbor confusion: Close to your domain boundary but routes to another Skill</li></ul>
+<p>At the very least, you should be making sure that you're testing that the Skill loads when needed. Ideally, you sample some of these, maybe from a production environment. You might also consider known error cases: maybe the whole reason that you set out to write the Skill is because of a specific failure you noticed or maybe you're refactoring and there's some confusion in two close domains that are covered by one Skill.</p>
+<p>Start with similar negative and positive examples. Negative examples are extremely powerful and can matter more than positive examples.</p>
+<h3 id="step-1-the-description">Step 1: The Description</h3>
+<p>This is the hardest line in the Skill. It’s a routing trigger, not documentation. To get the name and the description right, you don't care about the content of the Skill. You only care about whether the Skill is loaded and injected at the right points and is free of off-target side effects, which is the number one failure mode. Every time you add an additional Skill, you risk making every _other_ Skill slightly worse, so you need to make sure that you're minimizing regression.</p>
+<p>Again, a bad description describes what the Skill does or why it is useful. A good description says when the agent should load the Skill. For example, say you have something for monitoring pull requests. Don't write what the Skill does. Write what engineers say when they're frustrated and they want you to make sure that their PR works, like “babysit” or “watch CI” or “make sure this lands.”</p>
+<p>Here’s a quick checklist:</p>
+<ul><li>Starts with &quot;Load when...&quot;</li></ul>
+<ul><li>Target 50 words or fewer</li></ul>
+<ul><li>Describes the user’s intent, ideally from real queries</li></ul>
+<ul><li>Does not summarize the workflow</li></ul>
+<p>Real queries are what you can cover in an 80-20. Usually, two or three examples work well. It's not easy to add exactly and only as much as you need.</p>
+<h3 id="step-2-write-the-body">Step 2: Write the Body</h3>
+<p>Next, write the content of the Skill itself. Notice this is not Step 0 or Step 1.</p>
+<p>Communicating workflows to an LLM is completely different to communicating workflows to a colleague, or even to your runtime system. When learning a new software tool, an engineer might need to read the documentation, get a walkthrough from someone with experience, and learn how to use the tool. Meanwhile, for almost any software tool that has been around at least a year, you just need to mention its name and the LLM has all the information it needs.</p>
+<p>When you are writing the body, skip the obvious things. Many engineers have plenty of experience writing readme.md files that list out every command someone needs to run. It's easy to fall back into that when you're writing a Skill because it feels like you're writing documentation, but if you do that, your Skill will be garbage. So, don't write out a series of commands.</p>
+<p>For example, you don’t need to write, “<code>git log # find the commit; git checkout main; git checkout -b &lt;clean-branch&gt;; git cherry-pick &lt;commit&gt;;</code>”</p>
+<p>Instead, write, “Cherry-pick the commit onto a clean branch. Resolve conflicts preserving intent. If it can't land cleanly, explain why.”</p>
+<p>The model will do a much better job with the latter than with the former’s overly prescriptive series of commands, especially when things go wrong. Don't railroad, or be overly prescriptive, which is fragile, and instead be flexible where multiple approaches can work. Again, good documentation for humans is most often bad documentation for models.</p>
+<p>Next, focus on the gotchas or negative examples. These are extremely high-signal content because they often guide the model in terms of what not to do. If you add a line every time the agent trips up, you’ll learn by running it and the gotchas will grow organically.</p>
+<p>Lastly, if there’s any portion that's conditional or extremely heavy in content, take it out of the <code>SKILL.md</code>, which is the hub, and put it into one of the spokes. Put it into an accessory file that can be progressively loaded, which we’ll dive into next.</p>
+<h3 id="step-3-use-the-hierarchy">Step 3: Use the Hierarchy</h3>
+<p>Make use of the Skill hierarchy when you've got a script, references, or you’re using some specific tool:</p>
+<p><code>scripts/</code></p>
+<p>Deterministic logic the agent would reinvent every run Give it code to compose, not reconstruct <code>references/</code></p>
+<p>Heavy docs loaded only when a condition is met&quot;Read <code>api-errors.md</code> if API returns non-200&quot; <code>assets/</code></p>
+<p>Output templates the agent copies and fills<code>report-template.md</code>, output schemas <code>config.json</code></p>
+<p>First-run user setup Ask for the Slack channel, save, and reuse next time</p>
+<p>For anything that's conditional or branching from the main Skill, break it out into a folder. Remember, also, that multilevel hierarchy can be used for particularly intricate Skills. For these, you’ll want to give careful thought to whether the functionality should be implemented monolithically or as a collection of Skills (perhaps with <code>depends:</code> based loading relationships).</p>
+<h3 id="step-4-iterate">Step 4: Iterate</h3>
+<p>Next, do a bunch of iterations on a branch. Start on the main branch with no Skill, do some iterations, build your hero query set, and run a slew of evals. Anyone reviewing your Skill code will thank you for submitting a single changeset complete with an evaluation set. Reviewing consecutive incremental changes (except a new gotcha) is very hard, so try to minimize it.</p>
+<p>You’ll likely do many small word changes. Small word changes in descriptions can have an outsized impact on routing (including spillover effects on other Skills), so do all that work before Step 5.</p>
+<h3 id="step-5-ship">Step 5: Ship</h3>
+<p>Ship it.</p>
+<h2 id="how-to-maintain-a-skill">How to Maintain a Skill</h2>
+<p>Now that you’ve written a Skill, you have to maintain it.</p>
+<h3 id="the-gotchas-flywheel">The Gotchas Flywheel</h3>
+<p>From this point on, your list of gotchas tends to grow or change a lot. We often see engineers who make PRs that are un-evaled, for example, change the description. If you're changing the description after your Skill has been merged, you are off track. If you're making changes to the thing that decides whether to route your Skill, you need to write some evals that support the changes.</p>
+<p>Skills are append-mostly. The gotchas section accrues the most value over time:</p>
+<ul><li>Agent fails at something → Add a gotcha</li></ul>
+<ul><li>Agent loads the Skill off target → Tighten description and add negative evals</li></ul>
+<ul><li>Agent doesn't load the Skill when it should → Add keywords and positive evals</li></ul>
+<ul><li>System prompt changes → Check for contention or duplication</li></ul>
+<p>It's easy to notice a single failure case in internal testing or in production and add a gotcha. It’s a negative example so it’s not really changing explicit guidance, but it lets the model know, “Hey, there's this known failure.”</p>
+<p>As you move from the 80-20 to getting to a 99.9% or 99.99% success rate, it's easy to grow this gotcha list. As you see these negative examples, you should be appending mostly to the gotcha section. You shouldn't be adding longer instructions or changing the description.</p>
+<h3 id="eval-suites">Eval Suites</h3>
+<p>At Perplexity, we run many eval suites to check for different things. There are Skill loading and Skill file reads, which checks the precision, recall, and forbidden checks of the Skill loading itself. Will the agent route your Skill when it's supposed to? These ensure new Skills don’t break existing boundaries.</p>
+<p>There are also evals that can check for proper progressive loading. The agent might load the Skill, but does it read the accessory file or files? For example, if you have a finance Skill for finance queries, does it read the special <code>FORMATTING.md</code> file?</p>
+<p>There are also evals for Skills that test for end-to-end task completion within domains. We run the full agent loop and use an LLM judge to grade the results based on a rubric of well-defined criteria.</p>
+<p>Finally, it’s important to run these evals against different models. Computer supports at least three different orchestration model families: GPT, Claude Opus, and Claude Sonnet. You want to run your Skill loading and the domain Skills against these different agent orchestrators to ensure that you don't get different behavior. Sonnet and GPT behave quite differently when it comes to Skills.</p>
+<h3 id="final-thoughts-and-takeaways">Final thoughts and takeaways</h3>
+<p>The more Skills you build, the better you will get at building them. If you're not automating or trying to make more reproducible tasks that you're doing on a day-to-day basis using Skills, start immediately.</p>
+<p>The act of building Skills makes you better at building more Skills, but also, they're extremely good at automating business processes. If you can describe something you do every week before your standup, at the end of every sprint, or anything that you do as an engineer on a daily, weekly, or even quarterly basis, you should be writing a Skill to buy back your time.</p>
+<p>Can you automate postmortems? Can you review pull requests? Any task that you can do, you can at least have the first pass be an Agent Skill. It will save you significant time.</p>
+<p>That said, remember that a Skill isn’t easy or even always necessary. Less is more. A few other takeaways:</p>
+<ol><li>Write evals before the Skill. Include negative examples and forbidden loads for adjacent but distinct skills.</li></ol>
+<ol><li>The description is the hard part. &quot;Load when...&quot; (every word costs attention).</li></ol>
+<ol><li>Gotchas are extremely high-value content. Start thin, grow as the agent fails.</li></ol>
+<p>Remember that it is easy to break other pre-existing Skills by adding a new Skill, even though you didn’t touch it (beware of action at a distance).</p>
+<p>Use all the available tools every time you’re writing and maintaining a Skill. If you want to learn more, the <a href="https://agentskills.io/home">Agent Skills</a> website has plenty of good examples, and both our internal repository and the public ecosystem contain many examples of well-designed Skills.</p>
+      <div class="source-path">Markdown 原文：<a href="skills_perplexity.md">part-01-skill/references/skills_perplexity.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="claude_agent_skills.html"><span>上一份材料</span><strong>Agent Skills（延伸阅读 · 英文原文）</strong></a><a href="../skill-standards.html"><span>下一份材料</span><strong>技能标准与工程实践 · 延伸阅读</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="skills_perplexity.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="skills_perplexity.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#designing-agent-skills-at-perplexity延伸阅读-·-英文原文">Designing Agent Skills at Perplexity（延伸阅读 · 英文原文）</a>
+<a href="#what-is-a-skill">What is a Skill?</a>
+<a href="#a-skill-is-a-directory">A Skill is a Directory</a>
+<a href="#a-skill-is-a-format">A Skill is a Format</a>
+<a href="#a-skill-is-invocable">A Skill is Invocable</a>
+<a href="#a-skill-is-progressive">A Skill is Progressive</a>
+<a href="#when-do-you-need-a-skill">When do you need a Skill?</a>
+<a href="#when-you-need-a-skill">When you need a Skill</a>
+<a href="#when-you-don’t-need-a-skill">When you don’t need a Skill</a>
+<a href="#every-skill-is-a-tax">Every Skill is a tax</a>
+<a href="#how-to-build-a-skill">How to build a Skill</a>
+<a href="#step-0-write-the-evals">Step 0: Write the Evals</a>
+<a href="#step-1-the-description">Step 1: The Description</a>
+<a href="#step-2-write-the-body">Step 2: Write the Body</a>
+<a href="#step-3-use-the-hierarchy">Step 3: Use the Hierarchy</a>
+<a href="#step-4-iterate">Step 4: Iterate</a>
+<a href="#step-5-ship">Step 5: Ship</a>
+<a href="#how-to-maintain-a-skill">How to Maintain a Skill</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# Designing Agent Skills at Perplexity（延伸阅读 · 英文原文）\n\n> 课程导读见同目录 [`skill-standards.md`](../skill-standards.md) / [`skill-standards.html`](../skill-standards.html)。  \n> 来源：Perplexity Agents 团队工程实践文章（课程归档副本）。\n\n---\n\nTitle: Designing, Refining, and Maintaining Agent Skills at Perplexity\n\nURL Source: https://research.perplexity.ai/articles/designing-refining-and-maintaining-agent-skills-at-perplexity\n\nMarkdown Content:\nPerplexity’s frontier agent products rest on a foundation of know-how and domain expertise packaged in modular [Agent Skills](https://agentskills.io/home). We maintain a carefully curated library of Skills across our technical environments. These Skills include many of the general-purpose utilities powering [Perplexity Computer](https://www.perplexity.ai/products/computer); vertical-specific capabilities in areas such as finance, law, and health; and a very long tail of modules for addressing user needs. Some Skills are infrequently invoked but critical _when_ invoked. To ensure a consistently excellent user experience, Perplexity’s Agents team prioritizes Skill quality just as much as code quality.\n\nThe intuitions and best practices required to develop a high-quality Skill differ significantly from those required to build traditional software. The Agents team reviews many pull requests from excellent engineers who develop Skills in the course of their work. The result is almost always numerous comments and suggestions for revision. This is because many useful patterns for writing code become antipatterns in Skill creation.\n\nFor example, if you take some of the aphorisms from [PEP20 – The Zen of Python](https://peps.python.org/pep-0020/), it quickly becomes clear that writing good Python code is unlike writing good Skills. Of the 20 lines of wisdom, at least half are fully wrong or actively misleading when writing Skills. Here are five of them:\n\n| **Zen of Python** | **Zen of Skills** |\n| --- | --- |\n| Simple is better than complex | A Skill is a folder, not a file. Complexity is the feature. |\n| Explicit is better than implicit | Activation is implicit pattern matching. Progressive disclosure. |\n| Sparse is better than dense | Context is expensive. Maximum signal per token. |\n| Special cases aren’t special enough to break the rules | Gotchas ARE the special cases (they're the highest-value content). |\n| If the implementation is easy to explain, it may be a good idea | If it's easy to explain, the model already knows it. Delete it. |\n\nThis guide is the document that engineers across Perplexity use when developing and reviewing Skills. We’re also releasing this guide to the public so that our discoveries and learnings can benefit the broader community. Whether you’re an engineer designing production Skills in your day-to-day work, a Computer user looking to develop your own Skill in an area you know best, or both, this guide is for you.\n\n## What is a Skill?\n\nWhen you write a Skill, you aren’t writing plain old software (even though Skills are now part of the main logical engines for agent systems). Rather, you're building context for models and their environments. A Skill has different constraints and different design principles. If you write a Skill like you do code, you will fail.\n\nA Skill is at least four things, especially in the context of how we build them at Perplexity.\n\n### A Skill is a Directory\n\nA Skill is not just a single `SKILL.md` file. In many cases, a Skill includes several files. Under the directory named after your Skill, you might have:\n\n*   `SKILL.md`: frontmatter and instructions\n\n*   `scripts/`: code the agent runs, not reinvents\n\n*   `references/`: heavy docs, loaded conditionally\n\n*   `assets/`: templates, schemas, and data\n\n*   `config.json`: first-run user setup\n\nThis hub-and-spoke pattern allows you to keep Skills very focused and tight, and one can use the folder structure in a very creative way. Sometimes, particularly intricate Skills benefit from multiple levels of hierarchy to help the model navigate better. Suppose a Skill requires knowledge across 300 topics, groupable into 20 subject matter areas. Reliably choosing the right topic among 300 is an unsolved challenge even for today’s best frontier models. It’s a much easier choice problem for a model to hone in on one of 20 areas, than among the 15 topics within that area.\n\nAs one example of how multilevel hierarchy provides value, our team employed three levels of topical nesting within the Skills powering Computer’s U.S. income tax capabilities this past tax season. This hierarchy was absolutely indispensable given the complexity of tax law: in our early tests, presenting the model with a single folder containing all 1,945 sections of the U.S. Internal Revenue Code resulted in worse performance than not loading the Skill at all Organizing the information into logical subdivisions was indispensable for ensuring high-precision read operations.\n\nYet this hierarchy did not come free. Increasing levels of hierarchy require increasing levels of curation across the information architecture to manage the resulting indirection. We devised quick reference guides, custom search utilities, and other tools to support the model in locating information with a minimum of indirection. In this case, doing the hard work of curation ultimately produced a positive end result: a Skill that allowed models to perform tax-related tasks much more capably than using general tools alone.\n\n![Image 1](https://framerusercontent.com/images/StL77jSrvpQypM4nJ5omvZdkHQ.png)\n\n### A Skill is a Format\n\nA Skill is a format. The core root `SKILL.md` file must have both a name and a description. Furthermore, the Skill needs to exactly map to the directory name in which the Skill is located. The name must be all lower-case characters, have no spaces, and can use hyphens. The description is the routing trigger. This is a common failure point: the description is not internal documentation for what the Skill does. It amounts to instructions for the model for when to load the Skill. So, you will frequently see “Load when,” not “This Skill does.” This is important because of the way that most implementations inject the description into the model context.\n\nWithin the frontmatter, there is also “`depends:`”, which allows you to create hierarchical Skill dependencies, and “`metadata:`”, which is used for reviews and evaluations. Different agent systems can even define their own frontmatter fields, to be used in a manner specific to those systems. As an alternative, Skill-specific metadata can be packaged in an auxiliary JSON or YAML configuration file. This is desirable when building agent systems that need to facilitate different types of runtime behavior per Skill without polluting the model’s context with minutiae. Finally, similar behavior is obtainable through stripping Skill frontmatter on read. Computer employs this methodology, which allows configuration to be preserved in the root `SKILL.md` file. Careful attention to detail is required in the parsing logic, and one might wish to implement conditional stripping if there are certain fields that are useful to have within the model context.\n\n### A Skill is Invocable\n\nA Skill is invocable. The agent loads a Skill at runtime. Importantly, Skills aren’t always bundled into the context. By default, most agent systems unfold Skills progressively upon specific need.\n\nThere are at least three tiers of context costs in the way that we've implemented Skills in Computer. Here is the process:\n\n1.   Computer calls `load_skill(name=\"...\")`\n\n2.   Computer copies the Skill directory into the isolated execution sandbox\n\n3.   Computer recursively auto-loads dependencies in the “`depends:`” tag\n\n4.   Computer then strips the frontmatter and the agent thus only sees the body and the additional files\n\nDifferent agent systems can choose to expose Skill content in different ways. As an example, some systems might choose not to expose the file hierarchy at all, leaving it to the model to discover the hierarchy through filesystem operations. Other systems may choose to give the model a mapping of the entire filetree up to a certain truncation and/or depth limit. To keep context clean, Computer omits full file hierarchies from the invocation context; however, this is overridable on a per-Skill basis.\n\n### A Skill is Progressive\n\nSkills are progressive. In Computer, there are three different tiers of context costs, and we incur all three at various stages:\n\n| **Tier** | **What loads** | **Budget** | **When you pay** |\n| --- | --- | --- | --- |\n| Index | `name: description` for every non-hidden Skill | ~100 tokens per Skill | Every session, every user, always paid |\n| Load | Full `SKILL.md` body | ~5,000 tokens | ~5,000 tokens |\n| Runtime | Files in `scripts/`, `references/`, `assets/`, subskills, `FORMATTING.md`, `SPECIAL_CASES.md` | Unbounded | Only when the agent reads them |\n\nComputer builds a Skill index that has the name and the description for every available Skill. The budget for this is around 100 tokens per Skill (shorter is even better). It’s so tight because you're paying this cost in every session, for every user. This is injected into the system prompt at the very beginning of the conversation. The model has access to a bunch of named Skills and descriptions so that it can decide whether to call “`load_skill()`”. The bar to getting into this index is extremely high. Your Skill needs to be very useful, and the description needs to be extremely dense and terse because everyone is paying the cost all the time.\n\nAfter the agent system loads the Skill, there’s the full `SKILL.md` body. Ideally, the body text does not exceed 5,000 tokens. Even then, you want every sentence to matter because once you load a Skill, the rest of the conversation has to pay that until you hit the compaction boundary. Many threads load anywhere between three and five different Skills, multiplying this cost. Skills with a lot of fluff will almost certainly degrade other Skills as well as overall agentic capabilities. In short, if your Skill loads and it doesn't do the right thing, that's wasted context.\n\nThe final level of progression is scripts or special cases, like subskills or formatting. This is where you want to put unbounded conditional branched logic. The agent will only use it when it needs to, meaning there's a much lower bar for what you want to put in here.\n\nIn the index, every token is important. The loaded Skill body is more relaxed, and the runtime is the most relaxed. This could be 20,000 tokens or zero tokens. This is the level at which you might think about expanding the context of the model in a progressive fashion.\n\n## When do you need a Skill?\n\nThe Agents team is often asked to opine on whether a Skill is truly needed for a given domain or use case. Very rarely do we have a definitive answer from first principles alone. The only way to really figure this out is to start with your agent without the Skill, run several hero queries, and then figure out whether the agent is doing a good job.\n\n### When you need a Skill\n\nThere are many tasks that are in distribution for trained models. You only need to apply a Skill if you want to change that behavior in some specific way that you can't with say, one sentence in your prompt. So, you need a Skill when the agent will get it wrong without special context, or if there's some inconsistency or non-determinism that you need to be extremely consistent across runs.\n\nIt could be that your knowledge is durable but not in the training data. There could be cutoffs or enterprise specific workflows, or it could be a matter of taste. For example, we have several design-related Skills in Computer written by Henry Modisett (our head of design). The reason that every token exists in those Skills is because Henry has very good taste when it comes to designing websites and PDFs. Henry specifies which fonts to use and which fonts not to use, how those fonts _feel_, and other matters of judgment that the model can't learn from training data alone.\n\n### When you don’t need a Skill\n\nWe see many Skills in which engineers have written a series of git commands that need to be executed in order. That’s unnecessary because the model already knows how to do that, meaning it makes for great documentation but a poor Skill.\n\nWe see examples where Skills recapitulate instructions from the system prompt. You don't need a Skill for that. Knowledge relevant for the majority of requests should be included in global context, not in a conditionally loaded Skill\n\nIf there's something that's changing faster than you can maintain it, you don't need a Skill. For example, if you're hitting some remote MCP endpoint and its tools or the versions of those tools are changing frequently, you shouldn't inject those into a Skill. If you do, you’ll just end up with drift and the model will make mistakes.\n\n### Every Skill is a tax\n\nHere’s a useful test you can apply to every sentence in your Skill: “Would the agent get this wrong without this instruction?” If the sentence does not need to be there, it cannot afford to be there because everyone is paying this cost every single time. When you are deciding whether to add a Skill or not, remember this tax wherein every session and every user costs tokens.\n\nThe following famous quote, which sounds much better in French, roughly translates to “I have only made this letter longer because I have not had the time to make it shorter.”\n\n> « Je n’ai fait celle-ci plus longue que parce que je n’ai pas eu le loisir de la faire plus courte. » — Blaise Pascal, Lettres Provinciales, 1657\n\nJust like Pascal, you need to invest time in every Skill. It is hard to write a short Skill. If your Skill is easy to write, it is probably too long or shouldn’t exist. A good Skill is as short as it can be.\n\nIf you find yourself trying to one-shot Skill generation and putting up PRs in five minutes, the results will almost certainly be subpar. In fact, early research has[shown](https://arxiv.org/abs/2602.12670) that if you're using LLMs to write Skills, the LLM will probably not benefit from it: “Self-generated Skills provide no benefit on average, showing that models cannot reliably author the procedural knowledge they benefit from consuming.”\n\n## How to build a Skill\n\nPut another way, you need to inject your opinion into any Skill that you write. Follow these steps.\n\n### Step 0: Write the Evals\n\nWrite some of the evals first. You can source evaluation cases from:\n\n*   Real user queries: sample from production or your brain trust\n\n*   Known failures: The agent failed because the Skill didn't exist\n\n*   Neighbor confusion: Close to your domain boundary but routes to another Skill\n\nAt the very least, you should be making sure that you're testing that the Skill loads when needed. Ideally, you sample some of these, maybe from a production environment. You might also consider known error cases: maybe the whole reason that you set out to write the Skill is because of a specific failure you noticed or maybe you're refactoring and there's some confusion in two close domains that are covered by one Skill.\n\nStart with similar negative and positive examples. Negative examples are extremely powerful and can matter more than positive examples.\n\n### Step 1: The Description\n\nThis is the hardest line in the Skill. It’s a routing trigger, not documentation. To get the name and the description right, you don't care about the content of the Skill. You only care about whether the Skill is loaded and injected at the right points and is free of off-target side effects, which is the number one failure mode. Every time you add an additional Skill, you risk making every _other_ Skill slightly worse, so you need to make sure that you're minimizing regression.\n\nAgain, a bad description describes what the Skill does or why it is useful. A good description says when the agent should load the Skill. For example, say you have something for monitoring pull requests. Don't write what the Skill does. Write what engineers say when they're frustrated and they want you to make sure that their PR works, like “babysit” or “watch CI” or “make sure this lands.”\n\nHere’s a quick checklist:\n\n*   Starts with \"Load when...\"\n\n*   Target 50 words or fewer\n\n*   Describes the user’s intent, ideally from real queries\n\n*   Does not summarize the workflow\n\nReal queries are what you can cover in an 80-20. Usually, two or three examples work well. It's not easy to add exactly and only as much as you need.\n\n### Step 2: Write the Body\n\nNext, write the content of the Skill itself. Notice this is not Step 0 or Step 1.\n\nCommunicating workflows to an LLM is completely different to communicating workflows to a colleague, or even to your runtime system. When learning a new software tool, an engineer might need to read the documentation, get a walkthrough from someone with experience, and learn how to use the tool. Meanwhile, for almost any software tool that has been around at least a year, you just need to mention its name and the LLM has all the information it needs.\n\nWhen you are writing the body, skip the obvious things. Many engineers have plenty of experience writing readme.md files that list out every command someone needs to run. It's easy to fall back into that when you're writing a Skill because it feels like you're writing documentation, but if you do that, your Skill will be garbage. So, don't write out a series of commands.\n\nFor example, you don’t need to write, “`git log # find the commit; git checkout main; git checkout -b \u003cclean-branch>; git cherry-pick \u003ccommit>;`”\n\nInstead, write, “Cherry-pick the commit onto a clean branch. Resolve conflicts preserving intent. If it can't land cleanly, explain why.”\n\nThe model will do a much better job with the latter than with the former’s overly prescriptive series of commands, especially when things go wrong. Don't railroad, or be overly prescriptive, which is fragile, and instead be flexible where multiple approaches can work. Again, good documentation for humans is most often bad documentation for models.\n\nNext, focus on the gotchas or negative examples. These are extremely high-signal content because they often guide the model in terms of what not to do. If you add a line every time the agent trips up, you’ll learn by running it and the gotchas will grow organically.\n\nLastly, if there’s any portion that's conditional or extremely heavy in content, take it out of the `SKILL.md`, which is the hub, and put it into one of the spokes. Put it into an accessory file that can be progressively loaded, which we’ll dive into next.\n\n### Step 3: Use the Hierarchy\n\nMake use of the Skill hierarchy when you've got a script, references, or you’re using some specific tool:\n\n`scripts/`\n\nDeterministic logic the agent would reinvent every run Give it code to compose, not reconstruct\n`references/`\n\nHeavy docs loaded only when a condition is met\"Read `api-errors.md` if API returns non-200\"\n`assets/`\n\nOutput templates the agent copies and fills`report-template.md`, output schemas\n`config.json`\n\nFirst-run user setup Ask for the Slack channel, save, and reuse next time\n\nFor anything that's conditional or branching from the main Skill, break it out into a folder. Remember, also, that multilevel hierarchy can be used for particularly intricate Skills. For these, you’ll want to give careful thought to whether the functionality should be implemented monolithically or as a collection of Skills (perhaps with `depends:` based loading relationships).\n\n### Step 4: Iterate\n\nNext, do a bunch of iterations on a branch. Start on the main branch with no Skill, do some iterations, build your hero query set, and run a slew of evals. Anyone reviewing your Skill code will thank you for submitting a single changeset complete with an evaluation set. Reviewing consecutive incremental changes (except a new gotcha) is very hard, so try to minimize it.\n\nYou’ll likely do many small word changes. Small word changes in descriptions can have an outsized impact on routing (including spillover effects on other Skills), so do all that work before Step 5.\n\n### Step 5: Ship\n\nShip it.\n\n## How to Maintain a Skill\n\nNow that you’ve written a Skill, you have to maintain it.\n\n### The Gotchas Flywheel\n\nFrom this point on, your list of gotchas tends to grow or change a lot. We often see engineers who make PRs that are un-evaled, for example, change the description. If you're changing the description after your Skill has been merged, you are off track. If you're making changes to the thing that decides whether to route your Skill, you need to write some evals that support the changes.\n\nSkills are append-mostly. The gotchas section accrues the most value over time:\n\n*   Agent fails at something → Add a gotcha\n\n*   Agent loads the Skill off target → Tighten description and add negative evals\n\n*   Agent doesn't load the Skill when it should → Add keywords and positive evals\n\n*   System prompt changes → Check for contention or duplication\n\nIt's easy to notice a single failure case in internal testing or in production and add a gotcha. It’s a negative example so it’s not really changing explicit guidance, but it lets the model know, “Hey, there's this known failure.”\n\nAs you move from the 80-20 to getting to a 99.9% or 99.99% success rate, it's easy to grow this gotcha list. As you see these negative examples, you should be appending mostly to the gotcha section. You shouldn't be adding longer instructions or changing the description.\n\n### Eval Suites\n\nAt Perplexity, we run many eval suites to check for different things. There are Skill loading and Skill file reads, which checks the precision, recall, and forbidden checks of the Skill loading itself. Will the agent route your Skill when it's supposed to? These ensure new Skills don’t break existing boundaries.\n\nThere are also evals that can check for proper progressive loading. The agent might load the Skill, but does it read the accessory file or files? For example, if you have a finance Skill for finance queries, does it read the special `FORMATTING.md` file?\n\nThere are also evals for Skills that test for end-to-end task completion within domains. We run the full agent loop and use an LLM judge to grade the results based on a rubric of well-defined criteria.\n\nFinally, it’s important to run these evals against different models. Computer supports at least three different orchestration model families: GPT, Claude Opus, and Claude Sonnet. You want to run your Skill loading and the domain Skills against these different agent orchestrators to ensure that you don't get different behavior. Sonnet and GPT behave quite differently when it comes to Skills.\n\n### Final thoughts and takeaways\n\nThe more Skills you build, the better you will get at building them. If you're not automating or trying to make more reproducible tasks that you're doing on a day-to-day basis using Skills, start immediately.\n\nThe act of building Skills makes you better at building more Skills, but also, they're extremely good at automating business processes. If you can describe something you do every week before your standup, at the end of every sprint, or anything that you do as an engineer on a daily, weekly, or even quarterly basis, you should be writing a Skill to buy back your time.\n\nCan you automate postmortems? Can you review pull requests? Any task that you can do, you can at least have the first pass be an Agent Skill. It will save you significant time.\n\nThat said, remember that a Skill isn’t easy or even always necessary. Less is more. A few other takeaways:\n\n1.   Write evals before the Skill. Include negative examples and forbidden loads for adjacent but distinct skills.\n\n2.   The description is the hard part. \"Load when...\" (every word costs attention).\n\n3.   Gotchas are extremely high-value content. Start thin, grow as the agent fails.\n\nRemember that it is easy to break other pre-existing Skills by adding a new Skill, even though you didn’t touch it (beware of action at a distance).\n\nUse all the available tools every time you’re writing and maintaining a Skill. If you want to learn more, the [Agent Skills](https://agentskills.io/home) website has plenty of good examples, and both our internal repository and the public ecosystem contain many examples of well-designed Skills.\n\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
