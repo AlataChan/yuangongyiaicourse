@@ -68,7 +68,7 @@ env-ngo-closure-report/
 ## Files To Read    # 要参考哪些模板
 ```
 
-> 课堂上不必真的建文件夹：在 QoderWork 里**一个「角色」就是一个最小可用的技能**——把 Output Contract 和 Gotchas 粘进去、上传 2–3 份范例即可。第 3 课再迁到腾讯元器。
+> 课堂上不必真的建文件夹：在 QoderWork 里**一个「角色」就是一个最小可用的技能**——把 Output Contract 和 Gotchas 粘进去、上传 2–3 份范例即可。第 3 课再迁到 Agent平台。
 
 ## 五、三个即用技能样板（项目文书链）
 

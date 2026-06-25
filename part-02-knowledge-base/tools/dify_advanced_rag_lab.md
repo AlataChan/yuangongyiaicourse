@@ -2,13 +2,13 @@
 
 > 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益"新"力量/course/part-02-knowledge-base/tools/dify_advanced_rag_lab.md`
 >
-> 用途：L2+ 学员或助教使用。Dify 不替代本期主线腾讯元器，主要用于看清 RAG 检索机制和 frontmatter / metadata 对检索质量的影响。
+> 用途：L2+ 学员或助教使用。Dify 不替代本期主线 Agent平台，主要用于看清 RAG 检索机制和 frontmatter / metadata 对检索质量的影响。
 
 ## 定位
 
 | 项目 | 课程口径 |
 |------|----------|
-| 腾讯元器 | 本期组织层主线，优先用于项目助理上线 |
+| Agent平台 | 本期组织层主线，优先用于项目助理上线 |
 | Dify | 高阶训练场，用于理解检索模式、索引、rerank、metadata 过滤 |
 | 自建知识库 | 仅作为 L2+ 或后续代建路线，不要求全员掌握 |
 

@@ -105,7 +105,7 @@ a { color: inherit; }
 <h2 id="二官方定义agent-skill-是什么anthropic">二、官方定义：Agent Skill 是什么（Anthropic）</h2>
 <h3 id="21-技能-vs-一次性提示词">2.1 技能 vs 一次性提示词</h3>
 <ul><li><strong>一次性提示词</strong>：只服务当前这一轮对话，用完即丢。</li><li><strong>技能（Skill）</strong>：把流程、输出格式、边界规则封装成<strong>可复用模块</strong>；相关时由系统自动加载，不必每次重讲。</li></ul>
-<p>对本课而言：你在 QoderWork 里写的「结项报告助手」角色，就是最小可用技能；第 3 课再迁入腾讯元器工作流。</p>
+<p>对本课而言：你在 QoderWork 里写的「结项报告助手」角色，就是最小可用技能；第 3 课再迁入 Agent平台 工作流。</p>
 <h3 id="22-三层渐进加载progressive-disclosure">2.2 三层渐进加载（Progressive Disclosure）</h3>
 <p>技能内容分三层进入上下文，<strong>只有被用到才占 token</strong>：</p>
 <table><thead><tr><th>层级</th><th>何时加载</th><th>大约 token 成本</th><th>内容</th></tr></thead><tbody><tr><td><strong>L1 元数据</strong></td><td>会话启动时始终可见</td><td>~100 / 技能</td><td>YAML 里的 <code>name</code>、<code>description</code></td></tr><tr><td><strong>L2 指令正文</strong></td><td>技能被触发时</td><td>&lt;5k</td><td><code>SKILL.md</code> 主体：流程、输出契约、Gotchas</td></tr><tr><td><strong>L3 资源与脚本</strong></td><td>按需读取</td><td>几乎不限</td><td><code>assets/</code> 模板、<code>scripts/</code> 校验脚本、附属 md</td></tr></tbody></table>
@@ -165,7 +165,7 @@ Step 5  发布；之后主要靠追加 Gotchas 维护</code></pre>
   A[skill-standards 标准页] --&gt; B[学员手册 6 步实操]
   B --&gt; C[templates 样板库]
   C --&gt; D[skillopt 体检迭代]
-  D --&gt; E[第 3 课 挂载到元器]</code></pre>
+  D --&gt; E[第 3 课 挂载到 Agent平台]</code></pre>
 <ul><li>课前未读不影响上课；讲师可在第 1 课「概念辨析」后推荐自学。</li><li>第 2 课起，技能与知识库分工见 <code>part-02-knowledge-base/</code>。</li></ul>
       <div class="ref-cards">
         <a class="ref-card" href="references/claude_agent_skills.md" download><strong>Anthropic · Agent Skills（英文原文）</strong>官方定义、三层加载、安全与限制 → 下载 Markdown</a>

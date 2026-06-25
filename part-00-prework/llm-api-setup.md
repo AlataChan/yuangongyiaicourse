@@ -12,7 +12,7 @@
 
 | 层级 | 工具 | 是否需要自己买 Token |
 |------|------|---------------------|
-| **组织层** | 腾讯元器（第 2–5 课主线 Bot） | **不需要**——平台内置模型，按平台规则使用 |
+| **组织层** | Agent平台（第 2–5 课主线 Bot） | **不需要**——平台内置模型，按平台规则使用 |
 | **个人层** | QoderWork（第 1–2 课技能与本地知识库） | **需要**——连接外部大模型 API |
 | **自建补充** | OpenClaw + Lighthouse（可选试点） | **需要**——独立部署时自行配置模型 Key |
 
@@ -27,7 +27,7 @@
 | **主线** | 阿里云百炼 | QoderWork 默认对接、OpenClaw 试点、国内访问稳定 | [百炼控制台 · API Key](https://bailian.console.aliyun.com/?tab=api#/api) |
 | **辅助** | DeepSeek 开发者平台 | 百炼额度用尽时的备选、或偏好 DeepSeek 模型时 | [platform.deepseek.com](https://platform.deepseek.com/) |
 
-> 本期组织层教学以腾讯元器为准，百炼**不是**第 2–5 课 Bot 的主线平台，而是个人层与自建路线的模型来源。详见内部文档 `105_平台选型评估表.md`。
+> 本期组织层教学以 Agent平台 为准，百炼**不是**第 2–5 课 Bot 的主线平台，而是个人层与自建路线的模型来源。详见内部文档 `105_平台选型评估表.md`。
 
 ---
 
@@ -172,11 +172,11 @@ curl https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions \
 
 ## 七、常见问题
 
-**Q：腾讯元器也要买 Token 吗？**  
-A：不需要。元器 Bot 使用平台内置模型，按元器规则使用即可。
+**Q：Agent平台 也要买 Token 吗？**  
+A：不需要。Agent平台 Bot 使用平台内置模型，按 Agent平台 规则使用即可。
 
 **Q：必须用阿里云吗？**  
-A：个人层 QoderWork **必须**配置某一家的模型 API；课程推荐百炼为主、DeepSeek 为辅。组织层 Bot 仍走元器。
+A：个人层 QoderWork **必须**配置某一家的模型 API；课程推荐百炼为主、DeepSeek 为辅。组织层 Bot 仍走 Agent平台。
 
 **Q：子账号可以操作吗？**  
 A：可以。主账号在 RAM 中为子账号授予百炼「管理员」或「API-Key」页面权限即可。

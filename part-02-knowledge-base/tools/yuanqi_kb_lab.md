@@ -1,8 +1,8 @@
-# 腾讯元器知识库练习
+# Agent平台 知识库练习
 
 > 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益"新"力量/course/part-02-knowledge-base/tools/yuanqi_kb_lab.md`
 >
-> 用途：第 2 课组织层主线练习。目标是在腾讯元器中建立可被第 3 课项目助理调用的知识库。
+> 用途：第 2 课组织层主线练习。目标是在 Agent平台 中建立可被第 3 课项目助理调用的知识库。
 
 ## 上云前检查
 
