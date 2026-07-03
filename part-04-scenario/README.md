@@ -1,4 +1,4 @@
-# 第 4 课 · 场景深化：按模块定制 + 补齐第 2 个技能（学员手册）
+# 第 4 课 · 多技能协同：按模块定制 + 补齐第 2 个技能（学员手册）
 
 > 文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益"新"力量/course/part-04-scenario/README.md`
 >
