@@ -615,6 +615,80 @@
       </p>
     </section>
 
+    <!-- ================= Agent 核心概念 ================= -->
+    <section class="section" id="concepts" aria-labelledby="concepts-title">
+      <div class="section-head">
+        <div class="section-num reveal">🧠 Agent 核心概念</div>
+        <h2 class="section-title reveal" id="concepts-title">在动手之前——先理解 AI 智能体的性格、记忆与成长</h2>
+        <p class="section-desc reveal">前面你了解了这节课的目标：把技能和知识库编排成一个项目助理。在具体操作之前，花几分钟理解三个贯穿全程的核心概念——它们指导你将技能（第 1 课）、知识库（第 2 课）和系统提示词串成一个真正有用的智能体。</p>
+      </div>
+
+      <div class="concept-grid">
+        <!-- ① Agent 性格 -->
+        <div class="concept-card concept-persona reveal">
+          <div class="concept-icon" aria-hidden="true">🎭</div>
+          <h3>Agent 性格 = 系统提示词的灵魂</h3>
+          <p>系统提示词的三个组成部分——<strong>角色定位</strong>（"你是 XX 机构的项目助理"）、<strong>tone</strong>（亲切但专业）、<strong>红线</strong>（不编造、不泄密）——本质上是在<strong>定义 AI 智能体的性格</strong>。</p>
+          <p>一个好的性格是<strong>一致</strong>的：不管智能体在处理结项报告还是回答知识库查询，它都保持同一身份、同一语气。公益机构特别需要注意 tone 的设计——过于正式像政府文书，过于随意又不像机构品牌。找到你的"机构声音"。</p>
+          <p><strong>与前面操作的关系</strong>：本节课的步骤 3（修改欢迎语）和步骤 4（设置系统提示词）就是在做性格设计。写完系统提示词之后，你可以用"角色定位 / tone / 红线"三要素检验是否完整。</p>
+          <p style="margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--amber-soft);color:var(--amber-deep);font-size:0.86rem;"><strong>🧱 一个完整的 Agent = 四层编排</strong>：不只是 system prompt——它是由 <strong>system prompt（性格） + skills（能力） + 脚本/工具（行动） + reference/知识库（记忆）</strong> 四个组件共同构成的行为体。第 1 课学了 skills（能力），第 2 课学了 reference（记忆），这节课把它们和 system prompt（性格）编排在一起——你就在构建一个完整的智能体。</p>
+        </div>
+
+        <!-- ② Agent 的三层记忆 -->
+        <div class="concept-card concept-memory reveal">
+          <div class="concept-icon" aria-hidden="true">🧩</div>
+          <h3>Agent 的三层记忆</h3>
+          <p>一个智能体的"记性"不是单一概念——它至少有<strong>三层</strong>，各有各的用途和限制：</p>
+          <div class="memory-layers">
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">📝</span>
+              <span class="ml-label">短期记忆</span>
+              <span class="ml-desc">当前对话窗口<br>像便签，聊完就丢</span>
+            </div>
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">🗄️</span>
+              <span class="ml-label">长期记忆</span>
+              <span class="ml-desc">知识库 RAG<br>像档案柜，随时查阅</span>
+            </div>
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">📊</span>
+              <span class="ml-label">工具记忆</span>
+              <span class="ml-desc">数据库 / API<br>像账本，结构化存取</span>
+            </div>
+          </div>
+          <p>第 2 课的知识库 RAG 解决的是<strong>长期记忆</strong>——让智能体记住机构的项目、报告、案例。但学员常困惑的"为什么聊着聊着就忘了前面说的？"是<strong>短期记忆</strong>（上下文窗口）的限制——Agent平台 的对话窗口有限，超长对话中旧消息会被裁掉。</p>
+          <p><strong>工具记忆</strong>（连接到外部数据库或 API）在基础阶段暂不涉及，但如果你需要智能体读取实时的项目数据或捐赠记录，它就变得很重要。</p>
+        </div>
+
+        <!-- ③ 迭代改进循环 -->
+        <div class="concept-card concept-evolve reveal">
+          <div class="concept-icon" aria-hidden="true">🔄</div>
+          <h3>迭代改进：让智能体越用越准</h3>
+          <p>智能体不是"一次配好就完事"。后面的互测环节你收集了「准 / 不准 / 乱答」三类反馈——这本质上就是一次<strong>人工引导的迭代改进</strong>。</p>
+          <p>改进循环很简单：</p>
+          <p style="font-size:0.9rem;color:var(--forest);font-weight:600;text-align:center;padding:6px 0;">
+            🔍 互测反馈 → ✏️ 修改系统提示词/触发条件 → 🔄 再测 → ✅ 更准
+          </p>
+          <p>每次循环聚焦一个最痛的「不准」或「乱答」场景，改完马上验证。不要一次改太多——改一处、测一次、看效果。这和公益项目管理中的"迭代复盘"思路完全一致。</p>
+          <p>更进阶的做法（第 4-5 课会涉及）：把互测记录做成一个<strong>测试用例集</strong>，每次改完系统提示词都跑一遍，确保修了旧的 bug 没引入新的。</p>
+        </div>
+
+        <!-- ④ 延伸：OpenClaw 自建路线 -->
+        <div class="concept-card concept-extend reveal">
+          <div class="concept-icon" aria-hidden="true">🔧</div>
+          <div class="badge-optional">延伸 · 可选路线</div>
+          <h3>OpenClaw：给有技术储备的机构</h3>
+          <p>本课的主线平台是 <strong>Agent平台</strong>（零代码、开箱即用）。但如果你的机构有技术人员，或对数据自主可控有更高要求，<strong>OpenClaw + Lighthouse</strong> 是一条值得了解的补充路线。</p>
+          <p>OpenClaw 是一个 <strong>CLI 优先的 Agent 框架</strong>，它的设计哲学和本课所学完全一致：把技能（Skills）、知识库（RAG）、性格编排成一个统一的智能体。和 Agent平台 的核心区别在于承载方式：</p>
+          <p>
+            <strong>Agent平台</strong>：零代码 Web 端，性格写在后台文本框里，适合非技术人员日常运营<br>
+            <strong>OpenClaw / Claude Desktop</strong>：性格定义是一份文件，技能和知识库也以文件形式组织——整个智能体就是一个可 Git 版本管理的目录，适合有技术人员的机构深度定制
+          </p>
+          <p>不管走哪条路线，本课的核心概念——<strong>性格设计、三层记忆、迭代改进</strong>——是通用的。如果课后想探索 OpenClaw，可以从课前准备文档中的 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">LLM API 开通指南</a> 获取起点。</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= Architecture ================= -->
     <section class="section" id="architecture" aria-labelledby="arch-title">
       <div class="section-head">
@@ -636,8 +710,8 @@
 
           <!-- Layer 2: Intent recognition -->
           <div class="arch-node is-intent reveal">
-            <h3>意图识别层</h3>
-            <p>用户说了什么 → 应该分到哪个技能？</p>
+            <h3>意图识别</h3>
+            <p>用户说了什么 → 应该分到哪个技能？不是独立的后台设置——它就是你写在<strong>系统提示词里的路由规则</strong>。你定义了"当用户说X时走Y技能"，项目助理照做。</p>
             <div class="arch-intent-slots">
               <span class="arch-slot slot-doc">文书类意图</span>
               <span class="arch-slot slot-case">案例类意图</span>
@@ -797,80 +871,6 @@
           <li style="margin-bottom: 8px;"><strong>记录分类</strong>：每个回答标注「准 / 不准 / 乱答」</li>
           <li><strong>反馈交换</strong>：把记录还给对方，课后按反馈修一轮</li>
         </ol>
-      </div>
-    </section>
-
-    <!-- ================= Agent 核心概念（延伸阅读） ================= -->
-    <section class="section" id="concepts" aria-labelledby="concepts-title">
-      <div class="section-head">
-        <div class="section-num reveal">🧠 Agent 核心概念</div>
-        <h2 class="section-title reveal" id="concepts-title">不只配置——理解 AI 智能体的性格、记忆与成长</h2>
-        <p class="section-desc reveal">前面你完成了项目助理的组装和互测。现在花几分钟，从概念层面理解「性格」「记忆」「迭代改进」这些让智能体从"能用"走向"好用"的关键——也为课程后半段的 OpenClaw 自建路线铺个底。</p>
-      </div>
-
-      <div class="concept-grid">
-        <!-- ① Agent 性格 -->
-        <div class="concept-card concept-persona reveal">
-          <div class="concept-icon" aria-hidden="true">🎭</div>
-          <h3>Agent 性格 = 系统提示词的灵魂</h3>
-          <p>你刚才写的系统提示词——角色定位（"你是 XX 机构的项目助理"）、语气（亲切但专业）、能力边界（"不编造、不泄密"）——本质上就是在<strong>定义 AI 智能体的性格</strong>。</p>
-          <p>一个好的性格是<strong>一致</strong>的：它在回答结项报告时和回答知识库问题时，是同一个人、同一种语气。这种一致性来自三要素：<strong>角色定位</strong>（我是谁）、<strong>tone</strong>（怎么说话）、<strong>红线</strong>（绝对不做什么）。</p>
-          <p>公益机构尤其需要注意 <strong>tone 的设计</strong>：过于正式的政府文书风会让读者距离远，过于随意的自媒体腔又不符合机构品牌。找到你的"机构声音"——它决定了你的项目助理说什么话、怎么说话。</p>
-          <p style="margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--amber-soft);color:var(--amber-deep);font-size:0.86rem;"><strong>🧱 一个完整的 Agent = 四层编排</strong>：不只是 system prompt——它是由 <strong>system prompt（性格） + skills（能力） + 脚本/工具（行动） + reference/知识库（记忆）</strong> 四个组件共同构成的行为体。第 1 课学了 skills（能力），第 2 课学了 reference（记忆），这节课把它们和 system prompt（性格）编排在一起——你就在构建一个完整的智能体。</p>
-        </div>
-
-        <!-- ② Agent 的三层记忆 -->
-        <div class="concept-card concept-memory reveal">
-          <div class="concept-icon" aria-hidden="true">🧩</div>
-          <h3>Agent 的三层记忆</h3>
-          <p>一个智能体的"记性"不是单一概念——它至少有<strong>三层</strong>，各有各的用途和限制：</p>
-          <div class="memory-layers">
-            <div class="memory-layer">
-              <span class="ml-icon" aria-hidden="true">📝</span>
-              <span class="ml-label">短期记忆</span>
-              <span class="ml-desc">当前对话窗口<br>像便签，聊完就丢</span>
-            </div>
-            <div class="memory-layer">
-              <span class="ml-icon" aria-hidden="true">🗄️</span>
-              <span class="ml-label">长期记忆</span>
-              <span class="ml-desc">知识库 RAG<br>像档案柜，随时查阅</span>
-            </div>
-            <div class="memory-layer">
-              <span class="ml-icon" aria-hidden="true">📊</span>
-              <span class="ml-label">工具记忆</span>
-              <span class="ml-desc">数据库 / API<br>像账本，结构化存取</span>
-            </div>
-          </div>
-          <p>第 2 课的知识库 RAG 解决的是<strong>长期记忆</strong>——让智能体记住机构的项目、报告、案例。但学员常困惑的"为什么聊着聊着就忘了前面说的？"是<strong>短期记忆</strong>（上下文窗口）的限制——Agent平台 的对话窗口有限，超长对话中旧消息会被裁掉。</p>
-          <p><strong>工具记忆</strong>（连接到外部数据库或 API）在基础阶段暂不涉及，但如果你需要智能体读取实时的项目数据或捐赠记录，它就变得很重要。</p>
-        </div>
-
-        <!-- ③ 迭代改进循环 -->
-        <div class="concept-card concept-evolve reveal">
-          <div class="concept-icon" aria-hidden="true">🔄</div>
-          <h3>迭代改进：让智能体越用越准</h3>
-          <p>智能体不是"一次配好就完事"。刚才的互测环节，你收集了「准 / 不准 / 乱答」三类反馈——这本质上就是一次<strong>人工引导的迭代改进</strong>。</p>
-          <p>改进循环很简单：</p>
-          <p style="font-size:0.9rem;color:var(--forest);font-weight:600;text-align:center;padding:6px 0;">
-            🔍 互测反馈 → ✏️ 修改系统提示词/触发条件 → 🔄 再测 → ✅ 更准
-          </p>
-          <p>每次循环聚焦一个最痛的「不准」或「乱答」场景，改完马上验证。不要一次改太多——改一处、测一次、看效果。这和公益项目管理中的"迭代复盘"思路完全一致。</p>
-          <p>更进阶的做法（第 4-5 课会涉及）：把互测记录做成一个<strong>测试用例集</strong>，每次改完系统提示词都跑一遍，确保修了旧的 bug 没引入新的。</p>
-        </div>
-
-        <!-- ④ 延伸：OpenClaw 自建路线 -->
-        <div class="concept-card concept-extend reveal">
-          <div class="concept-icon" aria-hidden="true">🔧</div>
-          <div class="badge-optional">延伸 · 可选路线</div>
-          <h3>OpenClaw：给有技术储备的机构</h3>
-          <p>本课的主线平台是 <strong>Agent平台</strong>（零代码、开箱即用）。但如果你的机构有技术人员，或对数据自主可控有更高要求，<strong>OpenClaw + Lighthouse</strong> 是一条值得了解的补充路线。</p>
-          <p>OpenClaw 是一个 <strong>CLI 优先的 Agent 框架</strong>，它的设计哲学和本课所学完全一致：把技能（Skills）、知识库（RAG）、性格（<code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code>）编排成一个统一的智能体。和 Agent平台 的核心区别在于承载方式：</p>
-          <p>
-            <strong>Agent平台</strong>：零代码 Web 端，性格写在后台文本框里，适合非技术人员日常运营<br>
-            <strong>OpenClaw / Claude Desktop</strong>：性格定义是一份文件，技能和知识库也以文件形式组织——整个智能体就是一个可 Git 版本管理的目录，适合有技术人员的机构深度定制
-          </p>
-          <p>不管走哪条路线，本课的核心概念——<strong>性格设计、三层记忆、迭代改进</strong>——是通用的。如果课后想探索 OpenClaw，可以从课前准备文档中的 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">LLM API 开通指南</a> 获取起点。</p>
-        </div>
       </div>
     </section>
 
