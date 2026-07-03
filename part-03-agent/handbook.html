@@ -1380,8 +1380,7 @@
           <p>系统提示词的三个组成部分——<strong>角色定位</strong>（"你是 XX 机构的项目助理"）、<strong>tone</strong>（亲切但专业）、<strong>红线</strong>（不编造、不泄密）——本质上是在<strong>定义 AI 智能体的性格</strong>。</p>
           <p>一个好的性格是<strong>一致</strong>的：不管智能体在处理结项报告还是回答知识库查询，它都保持同一身份、同一语气。公益机构特别需要注意 tone 的设计——过于正式像政府文书，过于随意又不像机构品牌。找到你的"机构声音"。</p>
           <p><strong>与前面操作的关系</strong>：步骤 3（修改欢迎语）和步骤 4（设置系统提示词）就是在做性格设计。你现在可以回看自己的系统提示词，用"角色定位 / tone / 红线"三要素检验是否完整。</p>
-          <p style="margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--amber-soft);color:var(--amber-deep);font-size:0.86rem;"><strong>🧱 一个完整的 Agent = 四层编排</strong>：不只是 system prompt——它是由 <strong>system prompt（性格） + skills（能力） + 脚本/工具（行动） + reference/知识库（记忆）</strong> 四个组件共同构成的行为体。这就是为什么 WorkBuddy 叫它 <strong>Expert</strong>（一个完整的专家角色）、Qoder 叫它 <strong>Plugin</strong>（一个可插拔的能力包）、Agent平台 叫它 Bot——不同名字，同一本质，都是这四个组件的编排结果。</p>
-          <p style="margin-top:8px;padding:10px 14px;border-radius:8px;background:var(--moss-soft);color:var(--forest);font-size:0.86rem;"><strong>💡 不同平台，同一件事</strong>：在 Agent平台 里 system prompt 写在 Web 文本框；在 WorkBuddy 里它是一个可保存的 Expert 角色；在 Qoder 里它是可插拔的 Plugin 配置；在 OpenClaw / Claude Desktop 里它就是一份 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code> 文件。载体各异，本质不变。</p>
+          <p style="margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--amber-soft);color:var(--amber-deep);font-size:0.86rem;"><strong>🧱 一个完整的 Agent = 四层编排</strong>：不只是 system prompt——它是由 <strong>system prompt（性格） + skills（能力） + 脚本/工具（行动） + reference/知识库（记忆）</strong> 四个组件共同构成的行为体。第 1 课学了 skills（能力），第 2 课学了 reference（记忆），这节课把它们和 system prompt（性格）编排在一起——你就在构建一个完整的智能体。</p>
         </div>
 
         <!-- ② 三层记忆 -->
@@ -1430,10 +1429,8 @@
           <p>本课主平台是 <strong>Agent平台</strong>（零代码、开箱即用）。但如果你所在机构有技术人员，或对数据自主可控有更高要求，<strong>OpenClaw + Lighthouse</strong> 是一条值得了解的补充路线。</p>
           <p>OpenClaw 是 <strong>CLI 优先的 Agent 框架</strong>，设计哲学与本课完全一致——把技能、知识库、性格（<code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code>）编排成统一智能体。和 Agent平台 的核心区别在于承载方式：</p>
           <p>
-            <strong>Agent平台</strong>：零代码 Web 端，性格写在后台"系统提示词"文本框里<br>
-            <strong>WorkBuddy</strong>：个人层工具，以一个完整的<strong>Expert</strong>角色保存（prompt + skill + 脚本 + reference 的组合体）<br>
-            <strong>Qoder</strong>：个人层工具，以<strong>Plugin</strong>形式插拔配置（同样四层组合，强调可插拔性）<br>
-            <strong>OpenClaw / Claude Desktop</strong>：性格定义是一份 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code>（或 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">claude.md</code>）文件，整个智能体就是一个可 Git 版本管理的目录
+            <strong>Agent平台</strong>：零代码 Web 端，性格写在后台文本框里，适合非技术人员日常运营<br>
+            <strong>OpenClaw / Claude Desktop</strong>：性格定义是一份文件，技能和知识库也以文件形式组织——整个智能体就是一个可 Git 版本管理的目录，适合有技术人员的机构深度定制
           </p>
           <p>本课的核心概念——<strong>性格设计、三层记忆、迭代改进</strong>——无论走哪条路线都通用。如果课后想探索 OpenClaw，起点是课前准备文档中的 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">LLM API 开通指南</a>（自建补充那列），课程组也可提供代建支持。</p>
         </div>
