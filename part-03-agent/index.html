@@ -816,7 +816,7 @@
           <p>你刚才写的系统提示词——角色定位（"你是 XX 机构的项目助理"）、语气（亲切但专业）、能力边界（"不编造、不泄密"）——本质上就是在<strong>定义 AI 智能体的性格</strong>。</p>
           <p>一个好的性格是<strong>一致</strong>的：它在回答结项报告时和回答知识库问题时，是同一个人、同一种语气。这种一致性来自三要素：<strong>角色定位</strong>（我是谁）、<strong>tone</strong>（怎么说话）、<strong>红线</strong>（绝对不做什么）。</p>
           <p>公益机构尤其需要注意 <strong>tone 的设计</strong>：过于正式的政府文书风会让读者距离远，过于随意的自媒体腔又不符合机构品牌。找到你的"机构声音"——它决定了你的项目助理说什么话、怎么说话。</p>
-          <p style="margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--moss-soft);color:var(--forest);font-size:0.86rem;"><strong>💡 不同平台，同一份性格</strong>：在 Agent平台 里这是一段 Web 文本框中的系统提示词；在 OpenClaw / Claude Desktop 等现代框架中，它就是一份 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code> 或 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">claude.md</code> 文件——内容一样，只是载体不同。文件驱动的好处是可以 Git 版本管理、协作修改、追溯变更。</p>
+          <p style="margin-top:12px;padding:10px 14px;border-radius:8px;background:var(--moss-soft);color:var(--forest);font-size:0.86rem;"><strong>💡 不同平台，同一份性格</strong>：在 Agent平台 里这是一段 Web 文本框中的"系统提示词"；在 QoderWork 里它叫<strong>"专家"</strong>（一个可保存、可切换的角色配置）；在 OpenClaw / Claude Desktop 等现代框架中，它就是一份 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code> 或 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">claude.md</code> 文件。名称和载体不同，但内容完全一样——都是在定义这个智能体是谁、怎么说话、不做什么。</p>
         </div>
 
         <!-- ② Agent 的三层记忆 -->
@@ -866,8 +866,9 @@
           <p>本课的主线平台是 <strong>Agent平台</strong>（零代码、开箱即用）。但如果你的机构有技术人员，或对数据自主可控有更高要求，<strong>OpenClaw + Lighthouse</strong> 是一条值得了解的补充路线。</p>
           <p>OpenClaw 是一个 <strong>CLI 优先的 Agent 框架</strong>，它的设计哲学和本课所学完全一致：把技能（Skills）、知识库（RAG）、性格（<code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code>）编排成一个统一的智能体。和 Agent平台 的核心区别在于承载方式：</p>
           <p>
-            <strong>Agent平台</strong>：零代码 Web 端，系统提示词写在后台文本框里<br>
-            <strong>OpenClaw / Claude Desktop</strong>：性格定义是一份 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code>（或 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">claude.md</code>）文件，技能和知识库同样以文件形式组织——整个智能体就是一个可 Git 版本管理的目录
+            <strong>Agent平台</strong>：零代码 Web 端，性格写在后台"系统提示词"文本框里<br>
+            <strong>QoderWork</strong>：个人层工具，性格通过<strong>"专家"</strong>角色配置（可保存、可切换、可分享）<br>
+            <strong>OpenClaw / Claude Desktop</strong>：性格定义是一份 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">agent.md</code>（或 <code style="background:var(--panel);padding:2px 6px;border-radius:4px;">claude.md</code>）文件，整个智能体就是一个可 Git 版本管理的目录
           </p>
           <p>不管走哪条路线，本课的核心概念——<strong>性格设计、三层记忆、迭代改进</strong>——是通用的。如果课后想探索 OpenClaw，可以从课前准备文档中的 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">LLM API 开通指南</a> 获取起点。</p>
         </div>
