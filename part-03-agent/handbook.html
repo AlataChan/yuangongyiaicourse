@@ -647,6 +647,60 @@
     .quiz-check a:hover { color: var(--forest-light); border-bottom-color: var(--forest-light); }
     .note strong { color: var(--amber); }
 
+    /* ---------- Agent core concepts section ---------- */
+    .concept-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 12px; }
+    .concept-card {
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .concept-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .concept-card.concept-persona { border-top: 4px solid var(--amber); }
+    .concept-card.concept-memory { border-top: 4px solid var(--sky); }
+    .concept-card.concept-evolve { border-top: 4px solid var(--forest); }
+    .concept-card.concept-extend { border-top: 4px solid var(--moss); }
+    .concept-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .concept-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 10px; }
+    .concept-card.concept-persona h3 { color: var(--amber-deep); }
+    .concept-card.concept-memory h3 { color: var(--sky); }
+    .concept-card.concept-evolve h3 { color: var(--forest); }
+    .concept-card.concept-extend h3 { color: var(--forest-light); }
+    .concept-card p { margin: 0 0 12px; color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
+    .concept-card p:last-child { margin-bottom: 0; }
+
+    /* Memory layers mini-table */
+    .memory-layers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 10px 0 0;
+    }
+    .memory-layer {
+      padding: 12px 10px;
+      border-radius: 10px;
+      background: var(--sky-soft);
+      text-align: center;
+      font-size: 0.82rem;
+    }
+    .memory-layer .ml-icon { font-size: 1.2rem; display: block; margin-bottom: 4px; }
+    .memory-layer .ml-label { font-weight: 700; color: var(--sky); display: block; }
+    .memory-layer .ml-desc { color: var(--muted); font-size: 0.76rem; margin-top: 2px; }
+
+    .concept-extend .badge-optional {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
     .panel-card {
       padding: 32px 30px;
       border-radius: var(--radius);
@@ -707,7 +761,8 @@
     html.gsap-fallback .fb-card,
     html.gsap-fallback .feedback-results,
     html.gsap-fallback .hw-card,
-    html.gsap-fallback .panel-card {
+    html.gsap-fallback .panel-card,
+    html.gsap-fallback .concept-card {
       opacity: 1 !important;
       transform: none !important;
       visibility: visible !important;
@@ -1309,7 +1364,79 @@
       <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q9">Q9</a></p>
     </section>
 
-    <!-- ================= Section 8: Next Step CTA ================= -->
+    <!-- ================= Section 8: Agent 核心概念（延伸阅读） ================= -->
+    <section class="section" id="concepts" aria-labelledby="concepts-title">
+      <div class="section-head">
+        <div class="section-num reveal">🧠 Agent 核心概念（延伸阅读）</div>
+        <h2 class="section-title reveal" id="concepts-title">不只配置——理解 AI 智能体的性格、记忆与成长</h2>
+        <p class="section-desc reveal">前面完成了 7 个操作步骤和互测。现在从概念层面复盘：你刚才写的系统提示词本质是什么？知识库 RAG 解决了什么记忆问题？互测反馈怎么转化为持续改进？这些概念在 Agent平台 和 OpenClaw 上通用。</p>
+      </div>
+
+      <div class="concept-grid">
+        <!-- ① 性格 -->
+        <div class="concept-card concept-persona reveal">
+          <div class="concept-icon" aria-hidden="true">🎭</div>
+          <h3>Agent 性格 = 系统提示词的灵魂</h3>
+          <p>系统提示词的三个组成部分——<strong>角色定位</strong>（"你是 XX 机构的项目助理"）、<strong>tone</strong>（亲切但专业）、<strong>红线</strong>（不编造、不泄密）——本质上是在<strong>定义 AI 智能体的性格</strong>。</p>
+          <p>一个好的性格是<strong>一致</strong>的：不管智能体在处理结项报告还是回答知识库查询，它都保持同一身份、同一语气。公益机构特别需要注意 tone 的设计——过于正式像政府文书，过于随意又不像机构品牌。找到你的"机构声音"。</p>
+          <p><strong>与前面操作的关系</strong>：步骤 3（修改欢迎语）和步骤 4（设置系统提示词）就是在做性格设计。你现在可以回看自己的系统提示词，用"角色定位 / tone / 红线"三要素检验是否完整。</p>
+        </div>
+
+        <!-- ② 三层记忆 -->
+        <div class="concept-card concept-memory reveal">
+          <div class="concept-icon" aria-hidden="true">🧩</div>
+          <h3>Agent 的三层记忆：为什么知识库 ≠ 全部记性</h3>
+          <p>学员常问"为什么智能体聊着聊着就忘了前面说的？"——这说明"记忆"不是单一概念。一个智能体至少有三层记忆：</p>
+          <div class="memory-layers">
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">📝</span>
+              <span class="ml-label">短期记忆</span>
+              <span class="ml-desc">当前对话窗口<br>像便签，聊完就丢</span>
+            </div>
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">🗄️</span>
+              <span class="ml-label">长期记忆</span>
+              <span class="ml-desc">知识库 RAG<br>像档案柜，随时查阅</span>
+            </div>
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">📊</span>
+              <span class="ml-label">工具记忆</span>
+              <span class="ml-desc">数据库 / API<br>像账本，结构化存取</span>
+            </div>
+          </div>
+          <p><strong>短期记忆</strong>（上下文窗口）是对话中最近的消息，有长度限制——这解释了"聊着聊着忘了"。<strong>长期记忆</strong>就是第 2 课的知识库 RAG + 本课步骤 6 的上传操作——让智能体跨越对话记住机构的资料。<strong>工具记忆</strong>（连接外部数据库或 API）基础阶段暂不涉及，但如果你的机构有捐赠管理系统或项目数据库，以后可以接入。</p>
+          <p><strong>常见误区</strong>：以为知识库 RAG 能解决所有"忘记"问题。实际上，如果用户在<strong>同一对话中</strong>说了"我叫张三"，然后聊了 50 轮再问"我叫什么？"，智能体可能因短期记忆窗口溢出而忘记——这与知识库无关。</p>
+        </div>
+
+        <!-- ③ 迭代改进 -->
+        <div class="concept-card concept-evolve reveal">
+          <div class="concept-icon" aria-hidden="true">🔄</div>
+          <h3>迭代改进：把互测反馈变成持续优化</h3>
+          <p>智能体不是"一次配好就完事"。刚才的互测环节收集了「准 / 不准 / 乱答」三类反馈——这就是<strong>人工引导的迭代改进循环</strong>：</p>
+          <p style="font-size:0.9rem;color:var(--forest);font-weight:600;text-align:center;padding:6px 0;">
+            🔍 互测反馈 → ✏️ 修改系统提示词/触发条件 → 🔄 再测 → ✅ 更准
+          </p>
+          <p><strong>实践建议</strong>：每次循环只聚焦一个最痛的「不准」或「乱答」场景。比如绿源从互测发现两个问题——（1）缺少"活动通知"边界声明，（2）缺少"无财务数据"时的拒绝策略。先改一个、测一次、确认修复，再改下一个。这和公益项目管理中的"迭代复盘"思路完全一致。</p>
+          <p><strong>进阶做法</strong>（第 4-5 课会涉及）：把互测的 5 个问题存成一个<strong>回归测试集</strong>。每次改完系统提示词，跑一遍全部 5 个问题——确保修了旧 bug 没引入新的。</p>
+        </div>
+
+        <!-- ④ OpenClaw 延伸 -->
+        <div class="concept-card concept-extend reveal">
+          <div class="concept-icon" aria-hidden="true">🔧</div>
+          <div class="badge-optional">延伸 · 可选路线</div>
+          <h3>OpenClaw + Lighthouse：给有技术储备的机构</h3>
+          <p>本课主平台是 <strong>Agent平台</strong>（零代码、开箱即用）。但如果你所在机构有技术人员，或对数据自主可控有更高要求，<strong>OpenClaw + Lighthouse</strong> 是一条值得了解的补充路线。</p>
+          <p>OpenClaw 是 <strong>CLI 优先的 Agent 框架</strong>，设计哲学与本课完全一致——把技能、知识库、系统提示词编排成统一智能体。区别：</p>
+          <p>
+            <strong>Agent平台</strong>：零代码 Web 端，适合日常运营、非技术人员可用<br>
+            <strong>OpenClaw</strong>：命令行 + 配置文件驱动，支持 Git 版本管理，适合技术团队深度定制
+          </p>
+          <p>本课的核心概念——<strong>性格设计、三层记忆、迭代改进</strong>——无论走哪条路线都通用。如果课后想探索 OpenClaw，起点是课前准备文档中的 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">LLM API 开通指南</a>（自建补充那列），课程组也可提供代建支持。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Section 9: Next Step CTA ================= -->
     <section class="section" style="padding-top:0;">
       <div class="next reveal">
         <div class="eyebrow">下一步 · 第 4 课</div>

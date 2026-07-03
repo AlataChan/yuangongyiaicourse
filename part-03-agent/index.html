@@ -388,6 +388,60 @@
     .note { margin-top: 24px; padding: 18px 20px; border-radius: 12px; background: var(--amber-soft); color: var(--amber-deep); font-size: 0.92rem; font-weight: 500; }
     .note strong { color: var(--forest); }
 
+    /* ---------- Agent core concepts section ---------- */
+    .concept-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 12px; }
+    .concept-card {
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .concept-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .concept-card.concept-persona { border-top: 4px solid var(--amber); }
+    .concept-card.concept-memory { border-top: 4px solid var(--sky); }
+    .concept-card.concept-evolve { border-top: 4px solid var(--forest); }
+    .concept-card.concept-extend { border-top: 4px solid var(--moss); }
+    .concept-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .concept-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.14rem; margin: 0 0 10px; }
+    .concept-card.concept-persona h3 { color: var(--amber-deep); }
+    .concept-card.concept-memory h3 { color: var(--sky); }
+    .concept-card.concept-evolve h3 { color: var(--forest); }
+    .concept-card.concept-extend h3 { color: var(--forest-light); }
+    .concept-card p { margin: 0 0 12px; color: var(--muted); font-size: 0.92rem; line-height: 1.55; }
+    .concept-card p:last-child { margin-bottom: 0; }
+
+    /* Memory layers mini-table */
+    .memory-layers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 10px 0 0;
+    }
+    .memory-layer {
+      padding: 12px 10px;
+      border-radius: 10px;
+      background: var(--sky-soft);
+      text-align: center;
+      font-size: 0.82rem;
+    }
+    .memory-layer .ml-icon { font-size: 1.2rem; display: block; margin-bottom: 4px; }
+    .memory-layer .ml-label { font-weight: 700; color: var(--sky); display: block; }
+    .memory-layer .ml-desc { color: var(--muted); font-size: 0.76rem; margin-top: 2px; }
+
+    .concept-extend .badge-optional {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
     /* ---------- Next step ---------- */
     .next {
       max-width: var(--max);
@@ -436,7 +490,8 @@
     html.gsap-fallback .step-card,
     html.gsap-fallback .wf-card,
     html.gsap-fallback .test-card,
-    html.gsap-fallback .panel-card {
+    html.gsap-fallback .panel-card,
+    html.gsap-fallback .concept-card {
       opacity: 1 !important;
       transform: none !important;
       visibility: visible !important;
@@ -745,6 +800,79 @@
       </div>
     </section>
 
+    <!-- ================= Agent 核心概念（延伸阅读） ================= -->
+    <section class="section" id="concepts" aria-labelledby="concepts-title">
+      <div class="section-head">
+        <div class="section-num reveal">🧠 Agent 核心概念</div>
+        <h2 class="section-title reveal" id="concepts-title">不只配置——理解 AI 智能体的性格、记忆与成长</h2>
+        <p class="section-desc reveal">前面你完成了项目助理的组装和互测。现在花几分钟，从概念层面理解「性格」「记忆」「迭代改进」这些让智能体从"能用"走向"好用"的关键——也为课程后半段的 OpenClaw 自建路线铺个底。</p>
+      </div>
+
+      <div class="concept-grid">
+        <!-- ① Agent 性格 -->
+        <div class="concept-card concept-persona reveal">
+          <div class="concept-icon" aria-hidden="true">🎭</div>
+          <h3>Agent 性格 = 系统提示词的灵魂</h3>
+          <p>你刚才写的系统提示词——角色定位（"你是 XX 机构的项目助理"）、语气（亲切但专业）、能力边界（"不编造、不泄密"）——本质上就是在<strong>定义 AI 智能体的性格</strong>。</p>
+          <p>一个好的性格是<strong>一致</strong>的：它在回答结项报告时和回答知识库问题时，是同一个人、同一种语气。这种一致性来自三要素：<strong>角色定位</strong>（我是谁）、<strong>tone</strong>（怎么说话）、<strong>红线</strong>（绝对不做什么）。</p>
+          <p>公益机构尤其需要注意 <strong>tone 的设计</strong>：过于正式的政府文书风会让读者距离远，过于随意的自媒体腔又不符合机构品牌。找到你的"机构声音"——它决定了你的项目助理说什么话、怎么说话。</p>
+        </div>
+
+        <!-- ② Agent 的三层记忆 -->
+        <div class="concept-card concept-memory reveal">
+          <div class="concept-icon" aria-hidden="true">🧩</div>
+          <h3>Agent 的三层记忆</h3>
+          <p>一个智能体的"记性"不是单一概念——它至少有<strong>三层</strong>，各有各的用途和限制：</p>
+          <div class="memory-layers">
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">📝</span>
+              <span class="ml-label">短期记忆</span>
+              <span class="ml-desc">当前对话窗口<br>像便签，聊完就丢</span>
+            </div>
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">🗄️</span>
+              <span class="ml-label">长期记忆</span>
+              <span class="ml-desc">知识库 RAG<br>像档案柜，随时查阅</span>
+            </div>
+            <div class="memory-layer">
+              <span class="ml-icon" aria-hidden="true">📊</span>
+              <span class="ml-label">工具记忆</span>
+              <span class="ml-desc">数据库 / API<br>像账本，结构化存取</span>
+            </div>
+          </div>
+          <p>第 2 课的知识库 RAG 解决的是<strong>长期记忆</strong>——让智能体记住机构的项目、报告、案例。但学员常困惑的"为什么聊着聊着就忘了前面说的？"是<strong>短期记忆</strong>（上下文窗口）的限制——Agent平台 的对话窗口有限，超长对话中旧消息会被裁掉。</p>
+          <p><strong>工具记忆</strong>（连接到外部数据库或 API）在基础阶段暂不涉及，但如果你需要智能体读取实时的项目数据或捐赠记录，它就变得很重要。</p>
+        </div>
+
+        <!-- ③ 迭代改进循环 -->
+        <div class="concept-card concept-evolve reveal">
+          <div class="concept-icon" aria-hidden="true">🔄</div>
+          <h3>迭代改进：让智能体越用越准</h3>
+          <p>智能体不是"一次配好就完事"。刚才的互测环节，你收集了「准 / 不准 / 乱答」三类反馈——这本质上就是一次<strong>人工引导的迭代改进</strong>。</p>
+          <p>改进循环很简单：</p>
+          <p style="font-size:0.9rem;color:var(--forest);font-weight:600;text-align:center;padding:6px 0;">
+            🔍 互测反馈 → ✏️ 修改系统提示词/触发条件 → 🔄 再测 → ✅ 更准
+          </p>
+          <p>每次循环聚焦一个最痛的「不准」或「乱答」场景，改完马上验证。不要一次改太多——改一处、测一次、看效果。这和公益项目管理中的"迭代复盘"思路完全一致。</p>
+          <p>更进阶的做法（第 4-5 课会涉及）：把互测记录做成一个<strong>测试用例集</strong>，每次改完系统提示词都跑一遍，确保修了旧的 bug 没引入新的。</p>
+        </div>
+
+        <!-- ④ 延伸：OpenClaw 自建路线 -->
+        <div class="concept-card concept-extend reveal">
+          <div class="concept-icon" aria-hidden="true">🔧</div>
+          <div class="badge-optional">延伸 · 可选路线</div>
+          <h3>OpenClaw：给有技术储备的机构</h3>
+          <p>本课的主线平台是 <strong>Agent平台</strong>（零代码、开箱即用）。但如果你的机构有技术人员，或对数据自主可控有更高要求，<strong>OpenClaw + Lighthouse</strong> 是一条值得了解的补充路线。</p>
+          <p>OpenClaw 是一个 <strong>CLI 优先的 Agent 框架</strong>，它的设计哲学和本课所学完全一致：把技能（Skills）、知识库（RAG）、系统提示词（性格）编排成一个统一的智能体。区别在于：</p>
+          <p>
+            <strong>Agent平台</strong>：零代码 Web 端，适合日常运营<br>
+            <strong>OpenClaw</strong>：命令行 + 配置文件驱动，可以版本管理（Git），适合技术团队深度定制
+          </p>
+          <p>不管走哪条路线，本课的核心概念——<strong>性格设计、三层记忆、迭代改进</strong>——是通用的。如果课后想探索 OpenClaw，可以从课前准备文档中的 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">LLM API 开通指南</a> 获取起点。</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= Next step ================= -->
     <section class="section" style="padding-top:0;">
       <div class="next reveal">
@@ -807,7 +935,7 @@
       var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
       if (reduceMotion) {
-        gsap.set(".reveal, .arch-node, .step-card, .wf-card, .test-card, .panel-card", { autoAlpha: 1, y: 0 });
+        gsap.set(".reveal, .arch-node, .step-card, .wf-card, .test-card, .panel-card, .concept-card", { autoAlpha: 1, y: 0 });
         return;
       }
 
@@ -849,6 +977,14 @@
       ScrollTrigger.batch(".step-card, .wf-card, .test-card", {
         start: "top 90%",
         onEnter: function(batch) { gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.1, duration: 0.6, overwrite: true }); },
+        onLeaveBack: function(batch) { gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true }); }
+      });
+
+      // ---------- 概念卡片：独立批处理 ----------
+      gsap.set(".concept-card", { y: 40, autoAlpha: 0 });
+      ScrollTrigger.batch(".concept-card", {
+        start: "top 90%",
+        onEnter: function(batch) { gsap.to(batch, { y: 0, autoAlpha: 1, stagger: 0.12, duration: 0.6, overwrite: true }); },
         onLeaveBack: function(batch) { gsap.set(batch, { y: 40, autoAlpha: 0, overwrite: true }); }
       });
 
