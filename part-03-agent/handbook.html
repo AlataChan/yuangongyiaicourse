@@ -647,6 +647,104 @@
     .quiz-check a:hover { color: var(--forest-light); border-bottom-color: var(--forest-light); }
     .note strong { color: var(--amber); }
 
+    /* ---------- Basics terminology section ---------- */
+    .basics-list { display: grid; gap: 18px; margin-top: 12px; }
+    .term-card {
+      padding: 24px 26px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--forest);
+      will-change: transform, opacity;
+      transition: transform 200ms ease, box-shadow 200ms ease;
+    }
+    .term-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .term-card.term-tool { border-left-color: var(--amber); }
+    .term-card.term-api { border-left-color: var(--sky); }
+    .term-card.term-mcp { border-left-color: var(--moss); }
+    .term-card.term-wf { border-left-color: var(--amber-deep); }
+    .term-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-weight: 800;
+      font-size: 0.82rem;
+      margin-bottom: 10px;
+    }
+    .term-card h3 { font-family: "Noto Serif SC", serif; font-size: 1.12rem; margin: 0 0 8px; color: var(--ink); }
+    .term-def {
+      margin: 0 0 14px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--panel);
+      color: var(--forest);
+      font-weight: 600;
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+    .term-block { margin: 0 0 10px; color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+    .term-block:last-child { margin-bottom: 0; }
+    .term-block strong { color: var(--ink); }
+    .term-card .badge-extend {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-size: 0.72rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .basics-flow {
+      margin-top: 28px;
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .basics-flow h3 {
+      font-family: "Noto Serif SC", serif;
+      font-size: 1.05rem;
+      color: var(--forest);
+      margin: 0 0 18px;
+      text-align: center;
+    }
+    .basics-chain {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 6px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .basics-chain .bc-node {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--moss-soft);
+      color: var(--forest);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .basics-chain .bc-node.is-core {
+      background: var(--forest);
+      color: #fff;
+    }
+    .basics-chain .bc-node.is-extend {
+      background: var(--panel);
+      border: 1px dashed var(--line);
+      color: var(--muted);
+    }
+    .basics-chain .bc-arrow { color: var(--amber); font-weight: 700; }
+
     /* ---------- Agent core concepts section ---------- */
     .concept-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 12px; }
     .concept-card {
@@ -762,7 +860,8 @@
     html.gsap-fallback .feedback-results,
     html.gsap-fallback .hw-card,
     html.gsap-fallback .panel-card,
-    html.gsap-fallback .concept-card {
+    html.gsap-fallback .concept-card,
+    html.gsap-fallback .term-card {
       opacity: 1 !important;
       transform: none !important;
       visibility: visible !important;
@@ -849,6 +948,8 @@
       </a>
       <nav class="header-nav" aria-label="学员手册导航">
         <a class="nav-link" href="../index.html">课程首页</a>
+        <a class="nav-link" href="#basics">五个基础词</a>
+        <a class="nav-link" href="#concepts">性格与记忆</a>
         <a class="nav-link" href="#architecture">项目助理架构</a>
         <a class="nav-link" href="#setup">Agent平台 首配</a>
         <a class="nav-link" href="#workflows">工作流</a>
@@ -889,7 +990,7 @@
           开始 Agent平台 首配
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
-        <a class="btn btn-ghost" href="#architecture">先看项目助理架构</a>
+        <a class="btn btn-ghost" href="#basics">先弄懂五个基础词</a>
       </div>
     </section>
 
@@ -909,12 +1010,92 @@
       </div>
     </div>
 
-    <!-- ================= Section 2: Agent 核心概念 ================= -->
+    <!-- ================= Section 2: Basics terminology ================= -->
+    <section class="section" id="basics" aria-labelledby="basics-title">
+      <div class="section-head">
+        <div class="section-num reveal">📚 五个基础词</div>
+        <h2 class="section-title reveal" id="basics-title">在动手之前（上）——先弄懂五个基础词</h2>
+        <p class="section-desc reveal">后面你会在 Agent平台 里配置项目助理。在此之前，先用几分钟扫一遍<strong>智能体、工具、接口、工作流</strong>（以及延伸概念 MCP）——它们把第 1 课的技能、第 2 课的知识库串成「能办事的助理」，而不是「只会聊天的窗口」。</p>
+      </div>
+
+      <div class="basics-list">
+        <div class="term-card term-agent reveal">
+          <span class="term-num">1</span>
+          <h3>智能体</h3>
+          <p class="term-def">围绕一个明确目标，能<strong>自主规划并执行多步任务</strong>的 AI 助理——不只回答一句话，而是把「流水账 → 抽取 → 检索 → 生成报告」这类流程跑完。</p>
+          <p class="term-block"><strong>例子（绿源）</strong>：用户说「帮我把这份活动流水账写成结项报告」，项目助理依次抽取关键信息、检索历史项目书、生成六章节报告并列出缺失项——而不是只回一句「好的，我可以帮你写报告」。</p>
+          <p class="term-block"><strong>和聊天的区别</strong>：聊天侧重<strong>一问一答</strong>；智能体侧重<strong>多步完成目标</strong>，必要时调用工具、检索知识库，并在关键节点停下来问你。</p>
+          <p class="term-block"><strong>本课对应</strong>：你在 Agent平台 里配置的「项目助理」就是一个智能体；后面的架构图、工作流与配置步骤都是在给它「加能力、定流程」。</p>
+        </div>
+
+        <div class="term-card term-tool reveal">
+          <span class="term-num">2</span>
+          <h3>工具</h3>
+          <p class="term-def">智能体可以<strong>主动调用</strong>的外部能力——查表、读文件、生成文档、检索知识库等，相当于助理手里的「具体动作」。</p>
+          <p class="term-block"><strong>例子（绿源）</strong>：结项报告技能、知识库检索、信息抽取节点——每个都是智能体在流程里「伸手去用」的一项能力。</p>
+          <p class="term-block"><strong>和第 1 课「技能」的关系</strong>：第 1 课写的技能，在本课被<strong>挂载进智能体</strong>，变成它可调用的工具之一；用户不必记住技能名字，智能体按意图替你选用。</p>
+          <p class="term-block"><strong>本课对应</strong>：步骤 5「连接技能与知识库」——把前两课的资产挂到项目助理上。</p>
+        </div>
+
+        <div class="term-card term-api reveal">
+          <span class="term-num">3</span>
+          <h3>接口</h3>
+          <p class="term-def">两个系统之间<strong>按约定规则交换数据</strong>的通道——像插座与插头，让工具能连上外部服务或大模型。</p>
+          <p class="term-block"><strong>例子</strong>：大模型服务提供「发送问题、拿回回答」的数据通道；知识库服务提供「上传文档、发起检索」的通道。</p>
+          <p class="term-block"><strong>和聊天的区别</strong>：聊天是你直接和 AI 对话；接口是<strong>系统与系统</strong>在后台传数据——用户通常看不见，但智能体要靠它才能「真的办事」。</p>
+          <p class="term-block"><strong>本课对应</strong>：<strong>Agent平台</strong> 组织层已内置大模型与知识库能力，<strong>不需自购接口</strong>；若用 <strong>QoderWork</strong> 等个人工作台深度调试，可参考课前 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">大模型接口开通指南</a>。</p>
+        </div>
+
+        <div class="term-card term-mcp reveal">
+          <span class="term-num">4</span>
+          <span class="badge-extend">延伸 · 可选</span>
+          <h3>MCP（模型上下文协议）</h3>
+          <p class="term-def">一种<strong>标准化的连接方式</strong>，让 AI 智能体用统一格式接入各类外部工具与数据源——好比「通用转接头」，减少每家工具各写一套对接的麻烦。</p>
+          <p class="term-block"><strong>例子</strong>：同一套 MCP 配置，可让智能体连接文档库、表格或内部系统，而不必为每个系统单独写插件。</p>
+          <p class="term-block"><strong>本课对应</strong>：本课主线在 <strong>Agent平台</strong> 零代码编排，<strong>不展开 MCP 实操</strong>；知道它是「工具的标准连接层」即可，有技术储备的机构可在课后延伸探索。</p>
+        </div>
+
+        <div class="term-card term-wf reveal">
+          <span class="term-num">5</span>
+          <h3>工作流</h3>
+          <p class="term-def">智能体完成任务时的<strong>步骤顺序</strong>——先做什么、后做什么、哪一步必须停下来问人、哪一步可以自动往下走。</p>
+          <p class="term-block"><strong>例子（绿源）</strong>：M1 文书链「输入 → 信息抽取 → 知识库检索 → 生成 → 缺失项清单」；M2 案例链在写入知识库前必经「脱敏」节点。</p>
+          <p class="term-block"><strong>和聊天的区别</strong>：聊天没有固定顺序；工作流把<strong>机构经验固化成管道</strong>，保证每次输出结构一致、关键步骤不跳过。</p>
+          <p class="term-block"><strong>本课对应</strong>：后面的 M1 / M2 / M3 三条模块工作流，以及互测后的「改一步、测一步」迭代，都是在打磨工作流。</p>
+        </div>
+      </div>
+
+      <div class="basics-flow reveal">
+        <h3>五个词如何串成「项目助理」</h3>
+        <div class="basics-chain">
+          <span class="bc-node">用户一句话</span>
+          <span class="bc-arrow">→</span>
+          <span class="bc-node is-core">智能体</span>
+          <span class="bc-arrow">→</span>
+          <span class="bc-node">工作流</span>
+          <span class="bc-arrow">→</span>
+          <span class="bc-node">工具</span>
+          <span class="bc-arrow">→</span>
+          <span class="bc-node">知识库 + 技能</span>
+        </div>
+        <div class="basics-chain" style="margin-top:12px;">
+          <span class="bc-node">工具</span>
+          <span class="bc-arrow">↔</span>
+          <span class="bc-node">接口</span>
+          <span class="bc-arrow">·</span>
+          <span class="bc-node is-extend">MCP（延伸 · 标准连接）</span>
+        </div>
+      </div>
+
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q1">Q1</a> · <a href="quiz.html#q2">Q2</a> · <a href="quiz.html#q3">Q3</a></p>
+    </section>
+
+    <!-- ================= Section 3: Agent 核心概念 ================= -->
     <section class="section" id="concepts" aria-labelledby="concepts-title">
       <div class="section-head">
         <div class="section-num reveal">🧠 智能体核心概念</div>
-        <h2 class="section-title reveal" id="concepts-title">在动手之前——先理解 AI 智能体的性格、记忆与成长</h2>
-        <p class="section-desc reveal">前面了解了这节课的目标：把技能和知识库编排成一个项目助理。在具体操作之前，花几分钟理解三个贯穿全程的核心概念——它们指导你将技能（第 1 课）、知识库（第 2 课）和系统提示词串成一个真正有用的智能体。</p>
+        <h2 class="section-title reveal" id="concepts-title">在动手之前（下）——先理解 AI 智能体的性格、记忆与成长</h2>
+        <p class="section-desc reveal">弄懂五个基础词之后，再花几分钟理解三个贯穿全程的核心概念——它们指导你将技能（第 1 课）、知识库（第 2 课）和系统提示词串成一个真正有用、风格一致、能持续改进的智能体。</p>
       </div>
 
       <div class="concept-grid">
@@ -1051,7 +1232,7 @@
           <p>统一入口 + 意图路由 + 按需加载技能 + 知识库增强。用户说「帮我写结项报告」时加载结项技能 + 检索历史报告；问「去年做了哪些项目」时走知识库检索。</p>
         </div>
       </div>
-      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q1">Q1</a> · <a href="quiz.html#q2">Q2</a></p>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q4">Q4</a> · <a href="quiz.html#q5">Q5</a></p>
     </section>
 
     <!-- ================= Section 3: Setup ================= -->
@@ -1160,7 +1341,7 @@
           <div class="prompt-annotation">&#128204; 红线规则：这三条是安全底线，防止幻觉、隐私泄露和跑题</div>
         </div>
       </div>
-      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q3">Q3</a> · <a href="quiz.html#q8">Q8</a></p>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q6">Q6</a> · <a href="quiz.html#q11">Q11</a></p>
     </section>
 
     <!-- ================= Section 4: Mount Skills & KB ================= -->
@@ -1278,7 +1459,7 @@
       <div class="note reveal">
         <strong>调试技巧：</strong>如果测试中发现问题，先检查三个地方：1）系统提示词的意图路由规则是否覆盖了该场景；2）知识库中是否有对应的文档；3）技能的触发条件是否太宽或太窄。
       </div>
-      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q4">Q4</a></p>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q7">Q7</a></p>
     </section>
 
     <!-- ================= Section 5: Workflows ================= -->
@@ -1341,7 +1522,7 @@
           适合有专职传播岗、每周至少发 1 篇公众号的机构。建议搭配 M1 或 M2 作为基础。
         </div>
       </div>
-      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q5">Q5</a> · <a href="quiz.html#q6">Q6</a> · <a href="quiz.html#q10">Q10</a>（开放题）</p>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q8">Q8</a> · <a href="quiz.html#q9">Q9</a> · <a href="quiz.html#q13">Q13</a>（开放题）</p>
     </section>
 
     <!-- ================= Section 6: Cross-testing ================= -->
@@ -1404,7 +1585,7 @@
       <div class="note reveal">
         <strong>互测后修复优先级：</strong>先修「乱答」（意图路由问题）→ 再修「不准」（知识库缺料或触发条件偏差）→ 最后优化「准」的回答质量。绿源需要：1）补充财务边界声明；2）在系统提示词中明确「活动通知」不在能力范围。
       </div>
-      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q7">Q7</a></p>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q10">Q10</a></p>
     </section>
 
     <!-- ================= Section 7: Homework ================= -->
@@ -1435,7 +1616,7 @@
           <p>验收标准：3 人内测后，根据反馈至少修改 2 处系统提示词或触发条件。</p>
         </div>
       </div>
-      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q9">Q9</a></p>
+      <p class="quiz-check reveal"><span aria-hidden="true">✅</span> 检验理解 → 课后测验 <a href="quiz.html#q12">Q12</a></p>
     </section>
 
     <!-- ================= Section 9: Next Step CTA ================= -->

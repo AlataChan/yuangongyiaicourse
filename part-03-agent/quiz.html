@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>第 3 课 · 课后测验（10 题） | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="环境公益 AI 赋能实战营 第 3 课「AI智能体」课后测验：10 道自测题，覆盖项目助理架构、意图路由、知识库增强、模块工作流。含答案与解析。">
+  <title>第 3 课 · 课后测验（13 题） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="环境公益 AI 赋能实战营 第 3 课「AI智能体」课后测验：13 道自测题，覆盖五个基础词、项目助理架构、意图路由、知识库增强、模块工作流。含答案与解析。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <style>
     :root{
@@ -159,8 +159,8 @@
 
   <main class="wrap">
     <div class="eyebrow">③ 第 3 课 · 课后测验</div>
-    <h1 class="title">AI智能体：课后测验（10 题）</h1>
-    <p class="lead">围绕「项目助理架构、意图路由、知识库增强、三模块工作流」自测。先独立作答，再展开核对答案与解析。客观题为主，最后一题为开放简答。</p>
+    <h1 class="title">AI智能体：课后测验（13 题）</h1>
+    <p class="lead">围绕「五个基础词、项目助理架构、意图路由、知识库增强、三模块工作流」自测。先独立作答，再展开核对答案与解析。客观题为主，最后一题为开放简答。</p>
 
     <div class="toolbar">
       <button class="btn btn-primary" type="button" data-action="show-all">显示全部答案</button>
@@ -169,7 +169,7 @@
     <p class="hint">建议先全部独立作答后再核对。开放题给出参考方向，不唯一。</p>
 
     <div class="bind">
-      <strong>本测验对应《学员手册》各章节，覆盖第 3 课 3 项教学目标（项目助理架构 / Agent平台 配置与挂载 / 工作流调试）。</strong>
+      <strong>本测验对应《学员手册》各章节，覆盖第 3 课 3 项教学目标（五个基础词 / 项目助理架构 / Agent平台 配置与挂载 / 工作流调试）。</strong>
       每题右上角标注其「对应手册章节 + 课程首页对应模块」，点击即可跳转复习。建议先学完手册再作答。
       <br>
       <a class="bind-cta" href="handbook.html">建议先学完 → 学员手册</a>
@@ -177,6 +177,45 @@
 
     <ol class="quiz">
       <li class="q" id="q1">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#basics">手册·五个基础词</a><a href="index.html#basics">首页·基础词</a></span></div>
+        <p class="q-stem">下列哪项最能体现「智能体」而非「普通聊天」？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>用户问天气，AI 回答今天晴天</span></li>
+          <li><span class="k">B</span><span>用户给流水账，AI 依次抽取、检索、生成结项报告并列出缺失项</span></li>
+          <li><span class="k">C</span><span>用户打招呼，AI 回「你好」</span></li>
+          <li><span class="k">D</span><span>用户问机构历史，AI 说「我不清楚」</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：B</span><p>智能体围绕目标执行多步任务；A/C/D 都是单次问答，没有完成完整流程。</p></div></details>
+      </li>
+
+      <li class="q" id="q2">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#basics">手册·工作流</a><a href="index.html#basics">首页·基础词</a></span></div>
+        <p class="q-stem">工作流设计中最关键、也最容易被忽略的一点是什么？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>步骤越多越好</span></li>
+          <li><span class="k">B</span><span>在关键节点（如信息不全、需确认脱敏）停下来问人</span></li>
+          <li><span class="k">C</span><span>完全不需要人工参与</span></li>
+          <li><span class="k">D</span><span>随机决定下一步</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：B</span><p>工作流既要固化步骤，也要在需要确认或缺信息时「人机协同」——例如 M2 脱敏节点。</p></div></details>
+      </li>
+
+      <li class="q" id="q3">
+        <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
+          <span class="q-src"><a href="handbook.html#basics">手册·工具与接口</a><a href="index.html#basics">首页·基础词</a></span></div>
+        <p class="q-stem">「工具」与「接口」的关系，下列说法正确的是？</p>
+        <ul class="opts">
+          <li><span class="k">A</span><span>工具是智能体可调用的能力；接口是系统之间按规则交换数据的通道</span></li>
+          <li><span class="k">B</span><span>工具和接口是完全相同的概念</span></li>
+          <li><span class="k">C</span><span>接口只能用于聊天，不能给智能体用</span></li>
+          <li><span class="k">D</span><span>工具不需要任何接口就能连接外部系统</span></li>
+        </ul>
+        <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A</span><p>工具是「能做什么」；接口是后台传数据的通道。Agent平台 组织层已内置常用能力，学员主线不需自购接口。</p></div></details>
+      </li>
+
+      <li class="q" id="q4">
         <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
           <span class="q-src"><a href="handbook.html#architecture">手册·助理架构</a><a href="index.html#architecture">首页·架构</a></span></div>
         <p class="q-stem">项目助理 AI智能体的核心构成，<strong>不包括</strong>下列哪一项？</p>
@@ -189,7 +228,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：D</span><p>项目助理是「统一入口 + 多技能路由 + 知识库增强」，是辅助而非替代人。</p></div></details>
       </li>
 
-      <li class="q" id="q2">
+      <li class="q" id="q5">
         <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
           <span class="q-src"><a href="handbook.html#architecture">手册·意图路由</a><a href="index.html#architecture">首页·架构</a></span></div>
         <p class="q-stem">AI智能体收到用户输入后，通常的第一步是？</p>
@@ -202,7 +241,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A</span><p>先识别意图，再路由到对应技能与知识库。</p></div></details>
       </li>
 
-      <li class="q" id="q3">
+      <li class="q" id="q6">
         <div class="q-head"><span class="q-num"></span><span class="q-type multi">多选</span>
           <span class="q-src"><a href="handbook.html#setup">手册·Agent平台 首配</a><a href="index.html#steps">首页·配置步骤</a></span></div>
         <p class="q-stem">在 Agent平台 首配项目助理时，通常需要修改哪些？（多选）</p>
@@ -215,7 +254,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A、B、C</span><p>Fork 母版后改机构名、欢迎语、tone；不涉及他人账号密码。</p></div></details>
       </li>
 
-      <li class="q" id="q4">
+      <li class="q" id="q7">
         <div class="q-head"><span class="q-num"></span><span class="q-type tf">判断</span>
           <span class="q-src"><a href="handbook.html#mount">手册·连接资产</a><a href="index.html#steps">首页·配置步骤</a></span></div>
         <p class="q-stem">知识库 RAG 的作用，是让智能体回答时能引用机构自己的事实与案例。</p>
@@ -226,7 +265,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：对</span><p>RAG 让回答基于机构知识库，而非泛泛而谈或编造。</p></div></details>
       </li>
 
-      <li class="q" id="q5">
+      <li class="q" id="q8">
         <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
           <span class="q-src"><a href="handbook.html#workflows">手册·工作流管道</a><a href="index.html#workflows">首页·工作流</a></span></div>
         <p class="q-stem">M1 文书链工作流的典型顺序是？</p>
@@ -239,7 +278,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A</span><p>抽取素材→检索历史项目书/资助方偏好→生成→提示缺失项。</p></div></details>
       </li>
 
-      <li class="q" id="q6">
+      <li class="q" id="q9">
         <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
           <span class="q-src"><a href="handbook.html#workflows">手册·工作流管道</a><a href="index.html#workflows">首页·工作流</a></span></div>
         <p class="q-stem">M2 案例库工作流中，写入知识库前必经的节点是？</p>
@@ -252,7 +291,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A</span><p>原始记录先经脱敏，再结构化、写入知识库或输出案例卡片。</p></div></details>
       </li>
 
-      <li class="q" id="q7">
+      <li class="q" id="q10">
         <div class="q-head"><span class="q-num"></span><span class="q-type multi">多选</span>
           <span class="q-src"><a href="handbook.html#cross-test">手册·互测</a><a href="index.html#testing">首页·互测</a></span></div>
         <p class="q-stem">第 3 课互测收集的三类反馈包括？（多选）</p>
@@ -265,7 +304,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A、B、C</span><p>扫码互测收集「准 / 不准 / 乱答」三类，用于定位改进点。</p></div></details>
       </li>
 
-      <li class="q" id="q8">
+      <li class="q" id="q11">
         <div class="q-head"><span class="q-num"></span><span class="q-type tf">判断</span>
           <span class="q-src"><a href="handbook.html#setup">手册·系统提示词</a><a href="index.html#steps">首页·配置步骤</a></span></div>
         <p class="q-stem">在系统提示词里嵌入各技能的触发条件，是为了让智能体「该用哪个技能才用哪个」。</p>
@@ -276,7 +315,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：对</span><p>触发条件 = 路由依据，避免误调用或漏调用技能。</p></div></details>
       </li>
 
-      <li class="q" id="q9">
+      <li class="q" id="q12">
         <div class="q-head"><span class="q-num"></span><span class="q-type">单选</span>
           <span class="q-src"><a href="handbook.html#homework">手册·分层作业</a><a href="index.html#testing">首页·互测</a></span></div>
         <p class="q-stem">第 3 课 L1「用起来」层的最低验收要求是？</p>
@@ -289,7 +328,7 @@
         <details class="ans"><summary>显示答案与解析</summary><div class="ans-body"><span class="key">答案：A</span><p>L1：对话 Bot + 1 知识库，自测 10 问；L2 升级为多步工作流 + 插件 + 内测。</p></div></details>
       </li>
 
-      <li class="q" id="q10">
+      <li class="q" id="q13">
         <div class="q-head"><span class="q-num"></span><span class="q-type open">简答</span>
           <span class="q-src"><a href="handbook.html#workflows">手册·工作流管道</a><a href="index.html#workflows">首页·工作流</a></span></div>
         <p class="q-stem">写出你机构项目助理「主工作流」的 4 个关键步骤。</p>
