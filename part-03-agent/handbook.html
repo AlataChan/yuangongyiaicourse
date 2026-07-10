@@ -145,6 +145,24 @@
     }
     .section-desc { max-width: 680px; color: var(--muted); font-size: 1.02rem; }
     .section-head { margin-bottom: 28px; }
+    .concept-figure {
+      margin: 26px 0 28px;
+    }
+    .concept-figure img {
+      display: block;
+      width: 100%;
+      max-width: 936px;
+      height: auto;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .concept-figure.is-wide {
+      margin-top: 8px;
+      margin-bottom: 32px;
+    }
 
     /* ---------- Breadcrumb ---------- */
     .crumb { max-width: var(--max); margin: 0 auto; padding: 22px 24px 0; font-size: 0.86rem; color: var(--muted); font-weight: 600; }
@@ -1098,6 +1116,10 @@
         <p class="section-desc reveal">弄懂五个基础词之后，再花几分钟理解三个贯穿全程的核心概念——它们指导你将技能（第 1 课）、知识库（第 2 课）和系统提示词串成一个真正有用、风格一致、能持续改进的智能体。</p>
       </div>
 
+      <figure class="concept-figure reveal">
+        <img src="assets/illustrations/agent-four-components.png" alt="完整 AI智能体由性格、能力、行动、记忆四个部分构成的图解" loading="lazy" decoding="async">
+      </figure>
+
       <div class="concept-grid">
         <!-- ① 性格 -->
         <div class="concept-card concept-persona reveal">
@@ -1162,6 +1184,10 @@
           <p>不管走哪条路线，本课的核心概念——<strong>性格设计、三层记忆、迭代改进</strong>——是通用的。如果课后想探索 OpenClaw，可以从课前准备文档中的 <a href="../part-00-prework/llm-api-setup.html" style="color:var(--forest);font-weight:700;border-bottom:1px solid rgba(26,77,62,.4);">大模型接口开通指南</a> 获取起点。</p>
         </div>
       </div>
+
+      <figure class="concept-figure reveal">
+        <img src="assets/illustrations/agent-memory-layers.png" alt="AI智能体短期记忆、长期记忆、工具记忆三层结构图解" loading="lazy" decoding="async">
+      </figure>
     </section>
 
     <!-- ================= Section 3: Architecture ================= -->
@@ -1171,6 +1197,10 @@
         <h2 class="section-title reveal" id="arch-title">项目助理 = 统一入口 + 意图路由 + 按需加载技能 + 知识库增强</h2>
         <p class="section-desc reveal">用户不需要知道背后有几个技能、几个知识库——只需要一个入口，说清楚自己要什么，项目助理替你分拣、检索、组装。</p>
       </div>
+
+      <figure class="concept-figure is-wide reveal">
+        <img src="assets/illustrations/project-assistant-architecture.png" alt="项目助理统一入口、意图路由、技能调用、知识增强、结构输出图解" loading="lazy" decoding="async">
+      </figure>
 
       <!-- Architecture diagram -->
       <div class="arch-diagram">
@@ -1502,7 +1532,7 @@
           <div class="wf-step"><div class="wf-step-icon">3</div>输出：写入知识库 + 输出案例卡片</div>
         </div>
         <div class="wf-highlight">
-          适合已运营 3 年以上、积累了大量案例但从未系统整理的机构。绿源计划在第 4 课深化此模块。
+          适合已运营 3 年以上、积累了大量案例但从未系统整理的机构。第 4 课可把它拆成案例专责智能体，并接入主控分派与审核收口。
         </div>
       </div>
 
@@ -1623,11 +1653,11 @@
     <section class="section" style="padding-top:0;">
       <div class="next reveal">
         <div class="eyebrow">下一步 · 第 4 课</div>
-        <h2>项目助理跑通了——下一步，深化场景并补齐第 2 个技能</h2>
-        <p>项目助理「什么都能聊一点」不等于「什么都好用」。第 4 课教你选定机构最重要的 1-2 个场景（比如结项报告 + 案例检索），纵深打磨——补齐第 2 个技能、调优工作流、把准确率从「能用」拉到「好用」。</p>
+        <h2>项目助理跑通了——下一步，拆成多智能体协作</h2>
+        <p>第 3 课把技能和知识库编排成一个项目助理。第 4 课会把一个主场景拆成主控智能体、专责智能体和审核收口，用结构化交接协议完成联合工作。</p>
         <div class="next-actions">
           <a class="btn btn-primary" href="../part-04-scenario/index.html">
-            进入第 4 课 · 多技能协同
+            进入第 4 课 · 多智能体协作
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </a>
           <a class="btn btn-ghost" href="index.html">返回课程概览</a>

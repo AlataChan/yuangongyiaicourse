@@ -39,7 +39,7 @@
 | 第 1 课 技能 | `part-01-skill/quiz.html` | `handbook.html` | `index.html` |
 | 第 2 课 知识库 | `part-02-knowledge-base/quiz.html` | `handbook.html` | `index.html` |
 | 第 3 课 AI智能体 | `part-03-agent/quiz.html` | `handbook.html` | `index.html` |
-| 第 4 课 场景深化 | `part-04-scenario/quiz.html` | `handbook.html` | `index.html` |
+| 第 4 课 多智能体协作 | `part-04-scenario/quiz.html` | `handbook.html` | `index.html` |
 | 第 5 课 预发布 | `part-05-prelaunch/quiz.html` | `handbook.html` | `index.html` |
 
 课前 `part-00-prework` **不设测验**（立项书产出评估，见 102/104）。

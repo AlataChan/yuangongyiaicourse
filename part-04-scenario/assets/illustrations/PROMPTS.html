@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>活动复盘技能（传播运营模块 · M3） | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="活动复盘技能（传播运营模块 · M3） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <title>第 4 课多智能体协作概念图 · PROMPTS | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 4 课多智能体协作概念图 · PROMPTS · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -310,49 +310,40 @@ a { color: inherit; }
   <nav class="crumb" aria-label="面包屑">
     <a href="../../../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <a href="../../../skills.html">技能库</a>
+    <a href="../../index.html">第 4 课 · 多智能体协作</a>
     <span aria-hidden="true">/</span>
-    <span>活动复盘技能（传播运营模块 · M3）</span>
+    <span>第 4 课多智能体协作概念图 · PROMPTS</span>
   </nav>
   <main class="layout">
     <article class="doc">
-      <div class="doc-kicker"><span class="doc-type">Skill 样板</span><span>part-04-scenario/skills/env-ngo-activity-recap/SKILL.md</span></div>
-      <hr>
-<p>name: env-ngo-activity-recap description: &gt;- Load when the user provides activity photos, attendance logs, or brief event notes and needs a structured recap post (for WeChat, newsletter, or internal report) for an environmental nonprofit. Do not load for closure reports, case extraction, or FAQ generation. disable-model-invocation: true</p>
-<hr>
-<h1 id="活动复盘技能传播运营模块-·-m3">活动复盘技能（传播运营模块 · M3）</h1>
-<p>把活动现场的照片说明、签到记录、简要笔记转成一篇结构清晰、可直接发公众号或内部通讯的活动复盘帖。这是第 4 课「多智能体协作」中可作为传播写作员调用的样板技能，学员可 Fork 后改成自己机构的版本。</p>
-<h2 id="when-to-use">When To Use</h2>
-<ul><li>用户提供了一次活动的现场记录（照片说明、签到表、活动笔记、志愿者反馈等）。</li><li>用户想要的是一篇<strong>活动复盘/活动回顾帖</strong>，用于公众号推送、机构月报或社群分享。</li><li>触发关键词：活动复盘、活动回顾、写推文、活动总结帖、公众号稿。</li></ul>
-<p>不要用于：写结项报告（用 <code>env-ngo-closure-report</code>）、萃取标准案例入库（用 <code>env-ngo-case-extract</code>）、回答社群常见问题（用 <code>env-ngo-community-faq</code>）。</p>
-<h2 id="workflow">Workflow</h2>
-<ol><li>读取用户提供的活动原始材料，提取「活动是什么 → 怎么做的 → 有什么反馈/成果」。</li><li>对照 <code>assets/recap_template.md</code> 的结构组织内容。</li><li>写出适合社交媒体阅读习惯的文风：开头有钩子、段落短、有人物细节、结尾有呼吁。</li><li>所有个人信息在输出前脱敏。</li><li>若照片说明中提及人脸，提醒用户发布前确认肖像授权。</li></ol>
-<h2 id="required-inputs">Required Inputs</h2>
-<ul><li>活动名称、时间、地点。</li><li>原始材料：活动笔记、照片说明、签到数据、志愿者/参与者反馈（至少一种）。</li><li>可选：目标发布渠道（公众号/社群/内部月报），以便调整语气。</li></ul>
-<h2 id="output-contract">Output Contract</h2>
-<p>输出 Markdown，包含以下结构：</p>
-<ol><li><strong>标题</strong>（≤15 字，有画面感或悬念感）</li><li><strong>导语</strong>（1–2 句钩子，让读者想看下去）</li><li><strong>活动过程</strong>（3–5 个短段落，按时间线或亮点组织，穿插参与者引述）</li><li><strong>数据亮点</strong>（用列表或短句呈现关键数字，仅用有出处的数据）</li><li><strong>参与者声音</strong>（1–2 条脱敏后的原话或近似引述）</li><li><strong>下一步/呼吁</strong>（预告下次活动或招募、关注引导）</li></ol>
-<p>语言：活泼但不浮夸，适合公众号阅读节奏。篇幅 400–800 字。</p>
-<h2 id="gotchas">Gotchas</h2>
-<ul><li>不要编造参与者引述；没有原话就不写「参与者声音」板块，改为观察描述。</li><li>数据只用用户提供的数字，<strong>不估算不编造</strong>。</li><li>个人信息必须脱敏（姓名→代号，删除联系方式）。</li><li>涉及照片中人脸的描述，提醒 <code>[发布前请确认肖像授权]</code>。</li><li>避免「圆满成功」「取得丰硕成果」等套话，用具体细节替代。</li><li>若用户指定渠道为「内部月报」，语气可更客观简练；默认按公众号风格。</li></ul>
-<h2 id="files-to-read">Files To Read</h2>
-<ul><li><code>assets/recap_template.md</code>：复盘帖结构模板（必读）。</li></ul>
-      <div class="source-path">Markdown 原文：<a href="SKILL.md">part-04-scenario/skills/env-ngo-activity-recap/SKILL.md</a></div>
-      <nav class="doc-nav" aria-label="材料前后导航"><a href="../../README.html"><span>上一份材料</span><strong>第 4 课 · 多智能体协作：从项目助理到任务小队（学员手册）</strong></a><a href="../env-ngo-case-extract/SKILL.html"><span>下一份材料</span><strong>案例萃取技能（案例库模块 · M2）</strong></a></nav>
+      <div class="doc-kicker"><span class="doc-type">样板素材</span><span>part-04-scenario/assets/illustrations/PROMPTS.md</span></div>
+      <h1 id="第-4-课多智能体协作概念图-·-prompts">第 4 课多智能体协作概念图 · PROMPTS</h1>
+<p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-04-scenario/assets/illustrations/PROMPTS.md</code></p>
+<p>用途：记录第 4 课新版「多智能体协作」页面使用的归藏风格概念图提示词与资产路径，便于后续复现、替换或重新生成。</p>
+<h2 id="视觉系统">视觉系统</h2>
+<ul><li>风格：归藏风格材料插画；Swiss editorial 3D；米白背景；黑色线条；灰白材质；轻微投影。</li><li>主强调色：IKB Blue <code>#002FA7</code>。</li><li>比例：宽横图 <code>1.9:1</code>，适配课程网页图文区。</li><li>文字：简体中文短标签，单图 4 个以内。</li></ul>
+<h2 id="图-1多智能体任务小队">图 1：多智能体任务小队</h2>
+<ul><li>输出路径：<code>course/part-04-scenario/assets/illustrations/multi-agent-team.png</code></li><li>原始生成路径：<code>/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_lw92iVX4ORYZZ2kZJczsFzFG.png</code></li><li>用途：解释「一个项目助理」升级为「主控 + 多个专责智能体 + 审核收口」。</li></ul>
+<pre><code class="language-text">Use case: stylized-concept. Asset type: wide horizontal 1.9:1 labeled material illustration for a course webpage hero image. Primary request: Multi-agent teamwork shown as a central routing hub. Incoming work cards enter from the left, the central coordinator splits them into three specialist agents working in parallel, then the branches merge into a reviewed final document on the right. The image should clearly explain that one project assistant becomes a small task team. Chinese labels: Add four short Simplified Chinese labels as clean printed callouts inside the illustration: &quot;用户任务&quot;, &quot;主控分派&quot;, &quot;专责处理&quot;, &quot;审核收口&quot;. Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges. Style/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors. Composition/framing: 1.9:1 composition, full subject visible, centered vertically, generous safe margins on all sides, no crop, designed for a 936x500 image well. Lighting/mood: crisp studio light, calm analytical mood. Constraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.</code></pre>
+<h2 id="图-2多智能体交接协议">图 2：多智能体交接协议</h2>
+<ul><li>输出路径：<code>course/part-04-scenario/assets/illustrations/handoff-contract.png</code></li><li>原始生成路径：<code>/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_nE0L3tC5y06pN8pkOhJPtj0d.png</code></li><li>用途：解释「智能体之间传递结构化任务包，而不是含糊聊天记录」。</li></ul>
+<pre><code class="language-text">Use case: stylized-concept. Asset type: wide horizontal 1.9:1 labeled material illustration for a course webpage concept section. Primary request: A multi-agent handoff contract shown as a left-to-right pipeline. A user request enters as a simple card, the first agent extracts a clean task packet, the packet passes through a blue handoff bridge, the next agent works from the packet, and a human review gate checks the final output. The image should explain that agents should pass structured handoff packets, not vague chat history. Chinese labels: Add four short Simplified Chinese labels as clean printed callouts inside the illustration: &quot;任务包&quot;, &quot;交接&quot;, &quot;接手&quot;, &quot;人审&quot;. Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges. Style/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, bridge, active blocks, and label connectors. Composition/framing: 1.9:1 composition, full subject visible, centered vertically, generous safe margins on all sides, no crop, designed for a 936x500 image well. Lighting/mood: crisp studio light, calm analytical mood. Constraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.</code></pre>
+<h2 id="质检记录">质检记录</h2>
+<ul><li>图 1：四个中文标签清晰；主体完整；无水印、无英文；适合解释主控分派与审核收口。</li><li>图 2：四个中文标签清晰；交接桥隐喻明确；无水印、无英文；适合解释任务包交接。</li></ul>
+      <div class="source-path">Markdown 原文：<a href="PROMPTS.md">part-04-scenario/assets/illustrations/PROMPTS.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../../skills/env-ngo-wechat-template/SKILL.html"><span>上一份材料</span><strong>公众号模板复刻技能（传播运营模块 · M3 · Pipeline Step 2）</strong></a><a href="../../skills/env-ngo-activity-recap/assets/recap_template.html"><span>下一份材料</span><strong>&lt;活动标题（≤15 字，有画面感）&gt;</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
       <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
-      <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
-      <a class="btn btn-ghost" href="SKILL.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <a class="btn btn-primary" href="PROMPTS.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="PROMPTS.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
-      <nav class="toc" aria-label="本文目录"><a href="#活动复盘技能传播运营模块-·-m3">活动复盘技能（传播运营模块 · M3）</a>
-<a href="#when-to-use">When To Use</a>
-<a href="#workflow">Workflow</a>
-<a href="#required-inputs">Required Inputs</a>
-<a href="#output-contract">Output Contract</a>
-<a href="#gotchas">Gotchas</a>
-<a href="#files-to-read">Files To Read</a></nav>
+      <nav class="toc" aria-label="本文目录"><a href="#第-4-课多智能体协作概念图-·-prompts">第 4 课多智能体协作概念图 · PROMPTS</a>
+<a href="#视觉系统">视觉系统</a>
+<a href="#图-1多智能体任务小队">图 1：多智能体任务小队</a>
+<a href="#图-2多智能体交接协议">图 2：多智能体交接协议</a>
+<a href="#质检记录">质检记录</a></nav>
     </aside>
   </main>
   <footer class="site-footer">
@@ -365,7 +356,7 @@ a { color: inherit; }
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"---\nname: env-ngo-activity-recap\ndescription: >-\n  Load when the user provides activity photos, attendance logs, or brief\n  event notes and needs a structured recap post (for WeChat, newsletter,\n  or internal report) for an environmental nonprofit. Do not load for\n  closure reports, case extraction, or FAQ generation.\ndisable-model-invocation: true\n---\n\n# 活动复盘技能（传播运营模块 · M3）\n\n把活动现场的照片说明、签到记录、简要笔记转成一篇结构清晰、可直接发公众号或内部通讯的活动复盘帖。这是第 4 课「多智能体协作」中可作为传播写作员调用的样板技能，学员可 Fork 后改成自己机构的版本。\n\n## When To Use\n\n- 用户提供了一次活动的现场记录（照片说明、签到表、活动笔记、志愿者反馈等）。\n- 用户想要的是一篇**活动复盘/活动回顾帖**，用于公众号推送、机构月报或社群分享。\n- 触发关键词：活动复盘、活动回顾、写推文、活动总结帖、公众号稿。\n\n不要用于：写结项报告（用 `env-ngo-closure-report`）、萃取标准案例入库（用 `env-ngo-case-extract`）、回答社群常见问题（用 `env-ngo-community-faq`）。\n\n## Workflow\n\n1. 读取用户提供的活动原始材料，提取「活动是什么 → 怎么做的 → 有什么反馈/成果」。\n2. 对照 `assets/recap_template.md` 的结构组织内容。\n3. 写出适合社交媒体阅读习惯的文风：开头有钩子、段落短、有人物细节、结尾有呼吁。\n4. 所有个人信息在输出前脱敏。\n5. 若照片说明中提及人脸，提醒用户发布前确认肖像授权。\n\n## Required Inputs\n\n- 活动名称、时间、地点。\n- 原始材料：活动笔记、照片说明、签到数据、志愿者/参与者反馈（至少一种）。\n- 可选：目标发布渠道（公众号/社群/内部月报），以便调整语气。\n\n## Output Contract\n\n输出 Markdown，包含以下结构：\n\n1. **标题**（≤15 字，有画面感或悬念感）\n2. **导语**（1–2 句钩子，让读者想看下去）\n3. **活动过程**（3–5 个短段落，按时间线或亮点组织，穿插参与者引述）\n4. **数据亮点**（用列表或短句呈现关键数字，仅用有出处的数据）\n5. **参与者声音**（1–2 条脱敏后的原话或近似引述）\n6. **下一步/呼吁**（预告下次活动或招募、关注引导）\n\n语言：活泼但不浮夸，适合公众号阅读节奏。篇幅 400–800 字。\n\n## Gotchas\n\n- 不要编造参与者引述；没有原话就不写「参与者声音」板块，改为观察描述。\n- 数据只用用户提供的数字，**不估算不编造**。\n- 个人信息必须脱敏（姓名→代号，删除联系方式）。\n- 涉及照片中人脸的描述，提醒 `[发布前请确认肖像授权]`。\n- 避免「圆满成功」「取得丰硕成果」等套话，用具体细节替代。\n- 若用户指定渠道为「内部月报」，语气可更客观简练；默认按公众号风格。\n\n## Files To Read\n\n- `assets/recap_template.md`：复盘帖结构模板（必读）。\n"</script>
+  <script type="application/json" id="markdown-source">"# 第 4 课多智能体协作概念图 · PROMPTS\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-04-scenario/assets/illustrations/PROMPTS.md`\n\n用途：记录第 4 课新版「多智能体协作」页面使用的归藏风格概念图提示词与资产路径，便于后续复现、替换或重新生成。\n\n## 视觉系统\n\n- 风格：归藏风格材料插画；Swiss editorial 3D；米白背景；黑色线条；灰白材质；轻微投影。\n- 主强调色：IKB Blue `#002FA7`。\n- 比例：宽横图 `1.9:1`，适配课程网页图文区。\n- 文字：简体中文短标签，单图 4 个以内。\n\n## 图 1：多智能体任务小队\n\n- 输出路径：`course/part-04-scenario/assets/illustrations/multi-agent-team.png`\n- 原始生成路径：`/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_lw92iVX4ORYZZ2kZJczsFzFG.png`\n- 用途：解释「一个项目助理」升级为「主控 + 多个专责智能体 + 审核收口」。\n\n```text\nUse case: stylized-concept. Asset type: wide horizontal 1.9:1 labeled material illustration for a course webpage hero image. Primary request: Multi-agent teamwork shown as a central routing hub. Incoming work cards enter from the left, the central coordinator splits them into three specialist agents working in parallel, then the branches merge into a reviewed final document on the right. The image should clearly explain that one project assistant becomes a small task team. Chinese labels: Add four short Simplified Chinese labels as clean printed callouts inside the illustration: \"用户任务\", \"主控分派\", \"专责处理\", \"审核收口\". Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges. Style/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors. Composition/framing: 1.9:1 composition, full subject visible, centered vertically, generous safe margins on all sides, no crop, designed for a 936x500 image well. Lighting/mood: crisp studio light, calm analytical mood. Constraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.\n```\n\n## 图 2：多智能体交接协议\n\n- 输出路径：`course/part-04-scenario/assets/illustrations/handoff-contract.png`\n- 原始生成路径：`/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_nE0L3tC5y06pN8pkOhJPtj0d.png`\n- 用途：解释「智能体之间传递结构化任务包，而不是含糊聊天记录」。\n\n```text\nUse case: stylized-concept. Asset type: wide horizontal 1.9:1 labeled material illustration for a course webpage concept section. Primary request: A multi-agent handoff contract shown as a left-to-right pipeline. A user request enters as a simple card, the first agent extracts a clean task packet, the packet passes through a blue handoff bridge, the next agent works from the packet, and a human review gate checks the final output. The image should explain that agents should pass structured handoff packets, not vague chat history. Chinese labels: Add four short Simplified Chinese labels as clean printed callouts inside the illustration: \"任务包\", \"交接\", \"接手\", \"人审\". Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges. Style/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, bridge, active blocks, and label connectors. Composition/framing: 1.9:1 composition, full subject visible, centered vertically, generous safe margins on all sides, no crop, designed for a 936x500 image well. Lighting/mood: crisp studio light, calm analytical mood. Constraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.\n```\n\n## 质检记录\n\n- 图 1：四个中文标签清晰；主体完整；无水印、无英文；适合解释主控分派与审核收口。\n- 图 2：四个中文标签清晰；交接桥隐喻明确；无水印、无英文；适合解释任务包交接。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

@@ -135,6 +135,17 @@ a { color: inherit; }
 .doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
 .doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
 .doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc img {
+  display: block;
+  width: 100%;
+  max-width: 936px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
 .doc blockquote {
   margin: 18px 0;
   padding: 14px 18px;
@@ -308,10 +319,14 @@ a { color: inherit; }
       <div class="doc-kicker"><span class="doc-type">交接包</span><span>bridge-materials/templates/04_to_05_release_candidate_pack.md</span></div>
       <h1 id="第-4-→-第-5-课交接包场景闭环交给发布候选">第 4 → 第 5 课交接包：场景闭环交给发布候选</h1>
 <p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/04_to_05_release_candidate_pack.md</code></p>
-<p>用途：第 4 课下课前填写，第 5 课用于判断是否进入内测预发布。</p>
+<p>用途：第 4 课下课前填写，第 5 课用于判断多智能体协作链是否可以进入内测预发布。</p>
 <h2 id="1-场景闭环卡">1. 场景闭环卡</h2>
-<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>主场景名称</td><td></td></tr><tr><td>目标使用者</td><td></td></tr><tr><td>真实输入</td><td>用户会提供什么材料或问题</td></tr><tr><td>项目助理处理</td><td>调用哪些 Skill / 知识库 / 工作流</td></tr><tr><td>输出结果</td><td>交付什么格式</td></tr><tr><td>人工审核点</td><td>哪一步必须由人确认</td></tr><tr><td>成功标准</td><td>什么情况算这条链路跑通</td></tr></tbody></table>
-<h2 id="2-闭环链路">2. 闭环链路</h2>
+<table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>主场景名称</td><td></td></tr><tr><td>目标使用者</td><td></td></tr><tr><td>真实输入</td><td>用户会提供什么材料或问题</td></tr><tr><td>协作链路</td><td>主控如何分派，哪些专责智能体依次处理</td></tr><tr><td>输出结果</td><td>交付什么格式</td></tr><tr><td>人工审核点</td><td>哪个智能体之后必须由人确认</td></tr><tr><td>成功标准</td><td>什么情况算这条链路跑通</td></tr></tbody></table>
+<h2 id="2-多智能体角色卡">2. 多智能体角色卡</h2>
+<table><thead><tr><th>智能体角色</th><th>只负责什么</th><th>输入</th><th>输出</th><th>停止条件</th><th>人工介入点</th></tr></thead><tbody><tr><td>主控智能体</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>资料员智能体</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>写作/执行智能体</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>审核员智能体</td><td></td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<h2 id="3-交接协议检查">3. 交接协议检查</h2>
+<table><thead><tr><th>上游 → 下游</th><th>是否有交接包</th><th>已确认事实</th><th>不确定项</th><th>风险标签</th><th>是否通过</th></tr></thead><tbody><tr><td>主控 → 资料员</td><td>是 / 否</td><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td>资料员 → 写作/执行</td><td>是 / 否</td><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td>写作/执行 → 审核员</td><td>是 / 否</td><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td>审核员 → 人工确认</td><td>是 / 否</td><td></td><td></td><td></td><td>是 / 否</td></tr></tbody></table>
+<h2 id="4-闭环链路">4. 闭环链路</h2>
 <pre><code class="language-text">输入：
   ↓
 项目助理判断：
@@ -325,26 +340,26 @@ Skill / 知识库 / 工作流：
 反馈写回：</code></pre>
 <p>反馈写回规则：</p>
 <table><thead><tr><th>反馈类型</th><th>写回哪里</th><th>谁负责</th></tr></thead><tbody><tr><td>输出格式问题</td><td>Skill 输出契约 / Gotchas</td><td></td></tr><tr><td>事实缺失</td><td>知识库资料 / metadata</td><td></td></tr><tr><td>路由错误</td><td>Agent 路由表</td><td></td></tr><tr><td>合规风险</td><td>边界卡 / 拒答规则</td><td></td></tr></tbody></table>
-<h2 id="3-能力缺口判断">3. 能力缺口判断</h2>
+<h2 id="5-能力缺口判断">5. 能力缺口判断</h2>
 <table><thead><tr><th>缺口</th><th>是否存在</th><th>处理方式</th></tr></thead><tbody><tr><td>需要第二个 Skill</td><td>是 / 否</td><td></td></tr><tr><td>需要补知识库资料</td><td>是 / 否</td><td></td></tr><tr><td>需要改路由</td><td>是 / 否</td><td></td></tr><tr><td>需要加人工审核点</td><td>是 / 否</td><td></td></tr><tr><td>需要限制使用范围</td><td>是 / 否</td><td></td></tr></tbody></table>
 <p>判断原则：只有当主场景闭环需要，才补第二个 Skill；不要为了“数量好看”加能力。</p>
-<h2 id="4-skill-稳定性检查">4. Skill 稳定性检查</h2>
+<h2 id="6-技能稳定性检查">6. 技能稳定性检查</h2>
 <table><thead><tr><th>Skill</th><th>当前状态</th><th>必测用例数</th><th>通过数</th><th>主要问题</th><th>是否允许进入内测</th></tr></thead><tbody><tr><td></td><td>草稿 / 可用 / 稳定</td><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td></td><td>草稿 / 可用 / 稳定</td><td></td><td></td><td></td><td>是 / 否</td></tr></tbody></table>
-<h2 id="5-场景验收测试">5. 场景验收测试</h2>
+<h2 id="7-场景验收测试">7. 场景验收测试</h2>
 <p>至少覆盖 5 类测试。</p>
 <table><thead><tr><th>#</th><th>测试类型</th><th>测试问题/任务</th><th>命中的 Skill</th><th>是否需要知识库</th><th>期望结果</th><th>实际结果</th><th>是否符合输出契约</th><th>失败写回哪里</th><th>是否通过</th></tr></thead><tbody><tr><td>1</td><td>正常任务</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>2</td><td>知识库检索</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>3</td><td>Skill 触发</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>4</td><td>缺信息</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr><tr><td>5</td><td>敏感信息/越界</td><td></td><td></td><td>是 / 否</td><td></td><td></td><td>是 / 否</td><td>Skill / 知识库 / 路由 / 边界</td><td>是 / 否</td></tr></tbody></table>
-<h2 id="6-缺陷分级">6. 缺陷分级</h2>
+<h2 id="8-缺陷分级">8. 缺陷分级</h2>
 <table><thead><tr><th>级别</th><th>定义</th><th>例子</th><th>发布判断</th></tr></thead><tbody><tr><td>P0</td><td>会造成错误承诺、隐私风险、严重误导</td><td>编造资助结果、泄露个人信息</td><td>必须修复后才能内测</td></tr><tr><td>P1</td><td>影响主场景完成，但可人工绕过</td><td>路由偶发错误、格式经常不对</td><td>修复或写清绕行方式</td></tr><tr><td>P2</td><td>不影响主流程的小问题</td><td>文案不够自然、按钮说明不清</td><td>可带入内测观察</td></tr></tbody></table>
 <p>缺陷清单：</p>
 <table><thead><tr><th>#</th><th>缺陷描述</th><th>级别</th><th>责任人</th><th>修复方式</th><th>状态</th></tr></thead><tbody><tr><td>1</td><td></td><td>P0 / P1 / P2</td><td></td><td></td><td>未修 / 已修 / 观察</td></tr><tr><td>2</td><td></td><td>P0 / P1 / P2</td><td></td><td></td><td>未修 / 已修 / 观察</td></tr><tr><td>3</td><td></td><td>P0 / P1 / P2</td><td></td><td></td><td>未修 / 已修 / 观察</td></tr></tbody></table>
-<h2 id="7-发布候选判断">7. 发布候选判断</h2>
+<h2 id="9-发布候选判断">9. 发布候选判断</h2>
 <table><thead><tr><th>判断项</th><th>标准</th><th>当前状态</th></tr></thead><tbody><tr><td>P0 缺陷</td><td>0 个未修复</td><td>通过 / 不通过</td></tr><tr><td>主场景验收</td><td>至少 4/5 通过</td><td>通过 / 不通过</td></tr><tr><td>人工审核点</td><td>已明确</td><td>通过 / 不通过</td></tr><tr><td>合规边界</td><td>已写入拒答/转人工规则</td><td>通过 / 不通过</td></tr><tr><td>内测对象</td><td>已确定 2-3 人</td><td>通过 / 不通过</td></tr></tbody></table>
 <p>结论：</p>
 <pre><code class="language-text">□ Go：进入第 5 课内测预发布
 □ Conditional Go：允许内测，但必须先处理以下事项：
 □ No-Go：暂不内测，先回到第 4 课修闭环</code></pre>
       <div class="source-path">Markdown 原文：<a href="04_to_05_release_candidate_pack.md">bridge-materials/templates/04_to_05_release_candidate_pack.md</a></div>
-      <nav class="doc-nav" aria-label="材料前后导航"><a href="03_to_04_agent_scenario_handoff.html"><span>上一份材料</span><strong>第 3 → 第 4 课交接包：项目助理交给场景闭环</strong></a><a href="05_to_workshop_release_review_pack.html"><span>下一份材料</span><strong>第 5 → 工作坊交接包：预发布交给发布复盘</strong></a></nav>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="03_to_04_agent_scenario_handoff.html"><span>上一份材料</span><strong>第 3 → 第 4 课交接包：项目助理交给多智能体协作</strong></a><a href="05_to_workshop_release_review_pack.html"><span>下一份材料</span><strong>第 5 → 工作坊交接包：预发布交给发布复盘</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
@@ -354,12 +369,14 @@ Skill / 知识库 / 工作流：
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
       <nav class="toc" aria-label="本文目录"><a href="#第-4-→-第-5-课交接包场景闭环交给发布候选">第 4 → 第 5 课交接包：场景闭环交给发布候选</a>
 <a href="#1-场景闭环卡">1. 场景闭环卡</a>
-<a href="#2-闭环链路">2. 闭环链路</a>
-<a href="#3-能力缺口判断">3. 能力缺口判断</a>
-<a href="#4-skill-稳定性检查">4. Skill 稳定性检查</a>
-<a href="#5-场景验收测试">5. 场景验收测试</a>
-<a href="#6-缺陷分级">6. 缺陷分级</a>
-<a href="#7-发布候选判断">7. 发布候选判断</a></nav>
+<a href="#2-多智能体角色卡">2. 多智能体角色卡</a>
+<a href="#3-交接协议检查">3. 交接协议检查</a>
+<a href="#4-闭环链路">4. 闭环链路</a>
+<a href="#5-能力缺口判断">5. 能力缺口判断</a>
+<a href="#6-技能稳定性检查">6. 技能稳定性检查</a>
+<a href="#7-场景验收测试">7. 场景验收测试</a>
+<a href="#8-缺陷分级">8. 缺陷分级</a>
+<a href="#9-发布候选判断">9. 发布候选判断</a></nav>
     </aside>
   </main>
   <footer class="site-footer">
@@ -372,7 +389,7 @@ Skill / 知识库 / 工作流：
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# 第 4 → 第 5 课交接包：场景闭环交给发布候选\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/04_to_05_release_candidate_pack.md`\n\n用途：第 4 课下课前填写，第 5 课用于判断是否进入内测预发布。\n\n## 1. 场景闭环卡\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 目标使用者 | |\n| 真实输入 | 用户会提供什么材料或问题 |\n| 项目助理处理 | 调用哪些 Skill / 知识库 / 工作流 |\n| 输出结果 | 交付什么格式 |\n| 人工审核点 | 哪一步必须由人确认 |\n| 成功标准 | 什么情况算这条链路跑通 |\n\n## 2. 闭环链路\n\n```text\n输入：\n  ↓\n项目助理判断：\n  ↓\nSkill / 知识库 / 工作流：\n  ↓\n人工审核：\n  ↓\n最终产出：\n  ↓\n反馈写回：\n```\n\n反馈写回规则：\n\n| 反馈类型 | 写回哪里 | 谁负责 |\n|----------|----------|--------|\n| 输出格式问题 | Skill 输出契约 / Gotchas | |\n| 事实缺失 | 知识库资料 / metadata | |\n| 路由错误 | Agent 路由表 | |\n| 合规风险 | 边界卡 / 拒答规则 | |\n\n## 3. 能力缺口判断\n\n| 缺口 | 是否存在 | 处理方式 |\n|------|----------|----------|\n| 需要第二个 Skill | 是 / 否 | |\n| 需要补知识库资料 | 是 / 否 | |\n| 需要改路由 | 是 / 否 | |\n| 需要加人工审核点 | 是 / 否 | |\n| 需要限制使用范围 | 是 / 否 | |\n\n判断原则：只有当主场景闭环需要，才补第二个 Skill；不要为了“数量好看”加能力。\n\n## 4. Skill 稳定性检查\n\n| Skill | 当前状态 | 必测用例数 | 通过数 | 主要问题 | 是否允许进入内测 |\n|-------|----------|------------|--------|----------|------------------|\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n\n## 5. 场景验收测试\n\n至少覆盖 5 类测试。\n\n| # | 测试类型 | 测试问题/任务 | 命中的 Skill | 是否需要知识库 | 期望结果 | 实际结果 | 是否符合输出契约 | 失败写回哪里 | 是否通过 |\n|---|----------|---------------|---------------|----------------|----------|----------|------------------|--------------|----------|\n| 1 | 正常任务 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 2 | 知识库检索 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 3 | Skill 触发 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 4 | 缺信息 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 5 | 敏感信息/越界 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n\n## 6. 缺陷分级\n\n| 级别 | 定义 | 例子 | 发布判断 |\n|------|------|------|----------|\n| P0 | 会造成错误承诺、隐私风险、严重误导 | 编造资助结果、泄露个人信息 | 必须修复后才能内测 |\n| P1 | 影响主场景完成，但可人工绕过 | 路由偶发错误、格式经常不对 | 修复或写清绕行方式 |\n| P2 | 不影响主流程的小问题 | 文案不够自然、按钮说明不清 | 可带入内测观察 |\n\n缺陷清单：\n\n| # | 缺陷描述 | 级别 | 责任人 | 修复方式 | 状态 |\n|---|----------|------|--------|----------|------|\n| 1 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 2 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 3 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n\n## 7. 发布候选判断\n\n| 判断项 | 标准 | 当前状态 |\n|--------|------|----------|\n| P0 缺陷 | 0 个未修复 | 通过 / 不通过 |\n| 主场景验收 | 至少 4/5 通过 | 通过 / 不通过 |\n| 人工审核点 | 已明确 | 通过 / 不通过 |\n| 合规边界 | 已写入拒答/转人工规则 | 通过 / 不通过 |\n| 内测对象 | 已确定 2-3 人 | 通过 / 不通过 |\n\n结论：\n\n```text\n□ Go：进入第 5 课内测预发布\n□ Conditional Go：允许内测，但必须先处理以下事项：\n□ No-Go：暂不内测，先回到第 4 课修闭环\n```\n"</script>
+  <script type="application/json" id="markdown-source">"# 第 4 → 第 5 课交接包：场景闭环交给发布候选\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/04_to_05_release_candidate_pack.md`\n\n用途：第 4 课下课前填写，第 5 课用于判断多智能体协作链是否可以进入内测预发布。\n\n## 1. 场景闭环卡\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 目标使用者 | |\n| 真实输入 | 用户会提供什么材料或问题 |\n| 协作链路 | 主控如何分派，哪些专责智能体依次处理 |\n| 输出结果 | 交付什么格式 |\n| 人工审核点 | 哪个智能体之后必须由人确认 |\n| 成功标准 | 什么情况算这条链路跑通 |\n\n\n## 2. 多智能体角色卡\n\n| 智能体角色 | 只负责什么 | 输入 | 输出 | 停止条件 | 人工介入点 |\n|------------|------------|------|------|----------|------------|\n| 主控智能体 | | | | | |\n| 资料员智能体 | | | | | |\n| 写作/执行智能体 | | | | | |\n| 审核员智能体 | | | | | |\n\n## 3. 交接协议检查\n\n| 上游 → 下游 | 是否有交接包 | 已确认事实 | 不确定项 | 风险标签 | 是否通过 |\n|-------------|----------------|------------|----------|----------|----------|\n| 主控 → 资料员 | 是 / 否 | | | | 是 / 否 |\n| 资料员 → 写作/执行 | 是 / 否 | | | | 是 / 否 |\n| 写作/执行 → 审核员 | 是 / 否 | | | | 是 / 否 |\n| 审核员 → 人工确认 | 是 / 否 | | | | 是 / 否 |\n\n## 4. 闭环链路\n\n```text\n输入：\n  ↓\n项目助理判断：\n  ↓\nSkill / 知识库 / 工作流：\n  ↓\n人工审核：\n  ↓\n最终产出：\n  ↓\n反馈写回：\n```\n\n反馈写回规则：\n\n| 反馈类型 | 写回哪里 | 谁负责 |\n|----------|----------|--------|\n| 输出格式问题 | Skill 输出契约 / Gotchas | |\n| 事实缺失 | 知识库资料 / metadata | |\n| 路由错误 | Agent 路由表 | |\n| 合规风险 | 边界卡 / 拒答规则 | |\n\n## 5. 能力缺口判断\n\n| 缺口 | 是否存在 | 处理方式 |\n|------|----------|----------|\n| 需要第二个 Skill | 是 / 否 | |\n| 需要补知识库资料 | 是 / 否 | |\n| 需要改路由 | 是 / 否 | |\n| 需要加人工审核点 | 是 / 否 | |\n| 需要限制使用范围 | 是 / 否 | |\n\n判断原则：只有当主场景闭环需要，才补第二个 Skill；不要为了“数量好看”加能力。\n\n## 6. 技能稳定性检查\n\n| Skill | 当前状态 | 必测用例数 | 通过数 | 主要问题 | 是否允许进入内测 |\n|-------|----------|------------|--------|----------|------------------|\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n| | 草稿 / 可用 / 稳定 | | | | 是 / 否 |\n\n## 7. 场景验收测试\n\n至少覆盖 5 类测试。\n\n| # | 测试类型 | 测试问题/任务 | 命中的 Skill | 是否需要知识库 | 期望结果 | 实际结果 | 是否符合输出契约 | 失败写回哪里 | 是否通过 |\n|---|----------|---------------|---------------|----------------|----------|----------|------------------|--------------|----------|\n| 1 | 正常任务 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 2 | 知识库检索 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 3 | Skill 触发 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 4 | 缺信息 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n| 5 | 敏感信息/越界 | | | 是 / 否 | | | 是 / 否 | Skill / 知识库 / 路由 / 边界 | 是 / 否 |\n\n## 8. 缺陷分级\n\n| 级别 | 定义 | 例子 | 发布判断 |\n|------|------|------|----------|\n| P0 | 会造成错误承诺、隐私风险、严重误导 | 编造资助结果、泄露个人信息 | 必须修复后才能内测 |\n| P1 | 影响主场景完成，但可人工绕过 | 路由偶发错误、格式经常不对 | 修复或写清绕行方式 |\n| P2 | 不影响主流程的小问题 | 文案不够自然、按钮说明不清 | 可带入内测观察 |\n\n缺陷清单：\n\n| # | 缺陷描述 | 级别 | 责任人 | 修复方式 | 状态 |\n|---|----------|------|--------|----------|------|\n| 1 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 2 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n| 3 | | P0 / P1 / P2 | | | 未修 / 已修 / 观察 |\n\n## 9. 发布候选判断\n\n| 判断项 | 标准 | 当前状态 |\n|--------|------|----------|\n| P0 缺陷 | 0 个未修复 | 通过 / 不通过 |\n| 主场景验收 | 至少 4/5 通过 | 通过 / 不通过 |\n| 人工审核点 | 已明确 | 通过 / 不通过 |\n| 合规边界 | 已写入拒答/转人工规则 | 通过 / 不通过 |\n| 内测对象 | 已确定 2-3 人 | 通过 / 不通过 |\n\n结论：\n\n```text\n□ Go：进入第 5 课内测预发布\n□ Conditional Go：允许内测，但必须先处理以下事项：\n□ No-Go：暂不内测，先回到第 4 课修闭环\n```\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

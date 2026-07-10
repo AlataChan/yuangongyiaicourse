@@ -135,6 +135,17 @@ a { color: inherit; }
 .doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
 .doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
 .doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc img {
+  display: block;
+  width: 100%;
+  max-width: 936px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
 .doc blockquote {
   margin: 18px 0;
   padding: 14px 18px;
@@ -310,7 +321,7 @@ a { color: inherit; }
 <p>name: env-ngo-community-faq description: &gt;- Load when the user provides community chat logs, recurring questions from volunteers or beneficiaries, or wants to build a FAQ document for an environmental nonprofit's community channels. Do not load for closure reports, case extraction, or activity recaps. disable-model-invocation: true</p>
 <hr>
 <h1 id="社群-faq-技能传播运营模块-·-m3">社群 FAQ 技能（传播运营模块 · M3）</h1>
-<p>从社群聊天记录、志愿者/受益人反复提出的问题中，整理出一份结构化 FAQ 文档，供社群管理员快速回复或作为公众号「常见问题」板块。这是第 4 课「场景深化」的 M3 第二样板技能，与 <code>env-ngo-activity-recap</code> 组成传播运营模块的「≥2 技能」组合。</p>
+<p>从社群聊天记录、志愿者/受益人反复提出的问题中，整理出一份结构化 FAQ 文档，供社群管理员快速回复或作为公众号「常见问题」板块。这是第 4 课「多智能体协作」中可作为社群答疑员调用的样板技能，常接在知识库检索之后。</p>
 <h2 id="when-to-use">When To Use</h2>
 <ul><li>用户提供了社群聊天截图/文字记录、志愿者常问问题列表、或受益人咨询记录。</li><li>用户想要的是一份<strong>结构化的 FAQ / 常见问题解答</strong>，用于社群置顶、公众号菜单或内部客服手册。</li><li>触发关键词：FAQ、常见问题、社群问答、自动回复、快捷回复、问题整理。</li></ul>
 <p>不要用于：写活动复盘帖（用 <code>env-ngo-activity-recap</code>）、写结项报告（用 <code>env-ngo-closure-report</code>）、萃取案例（用 <code>env-ngo-case-extract</code>）。</p>
@@ -356,7 +367,7 @@ a { color: inherit; }
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"---\nname: env-ngo-community-faq\ndescription: >-\n  Load when the user provides community chat logs, recurring questions\n  from volunteers or beneficiaries, or wants to build a FAQ document for\n  an environmental nonprofit's community channels. Do not load for\n  closure reports, case extraction, or activity recaps.\ndisable-model-invocation: true\n---\n\n# 社群 FAQ 技能（传播运营模块 · M3）\n\n从社群聊天记录、志愿者/受益人反复提出的问题中，整理出一份结构化 FAQ 文档，供社群管理员快速回复或作为公众号「常见问题」板块。这是第 4 课「场景深化」的 M3 第二样板技能，与 `env-ngo-activity-recap` 组成传播运营模块的「≥2 技能」组合。\n\n## When To Use\n\n- 用户提供了社群聊天截图/文字记录、志愿者常问问题列表、或受益人咨询记录。\n- 用户想要的是一份**结构化的 FAQ / 常见问题解答**，用于社群置顶、公众号菜单或内部客服手册。\n- 触发关键词：FAQ、常见问题、社群问答、自动回复、快捷回复、问题整理。\n\n不要用于：写活动复盘帖（用 `env-ngo-activity-recap`）、写结项报告（用 `env-ngo-closure-report`）、萃取案例（用 `env-ngo-case-extract`）。\n\n## Workflow\n\n1. 读取用户提供的聊天记录/问题列表，识别高频问题并归类。\n2. 对照 `assets/faq_template.md` 的结构，按类目组织问答。\n3. 答案**必须**基于机构知识库或用户提供的官方信息，不编造政策、时间、联系方式。\n4. 个人信息在输出前脱敏。\n5. 对于无法确定答案的问题，标注「需机构确认」。\n\n## Required Inputs\n\n- 问题来源：社群聊天记录、志愿者常问问题列表、受益人咨询记录（至少一种）。\n- 可选：机构官方信息（活动日程、报名方式、联系渠道）用于核实答案准确性。\n\n## Output Contract\n\n输出 Markdown，结构如下：\n\n1. **文档标题**（如「XX 项目社群常见问题」）\n2. **快速索引**（问题编号 + 一句话概括，方便跳转）\n3. **分类问答**（按类目分组，每个 Q&A 格式统一）：\n   - 类目标题（如「活动报名」「志愿者管理」「环保知识」）\n   - Q：\u003c问题>\n   - A：\u003c回答>（≤150 字，口语化但准确）\n4. **待确认问题**（有人问过但机构尚未给出官方答案的问题）\n\n每条回答 50–150 字，口语化、直接。总条目建议 8–20 条。\n\n## Gotchas\n\n- 答案必须基于用户提供的信息或知识库内容，**不编造活动时间、报名链接、联系方式**。\n- 无法确认的答案统一标注 `[需机构确认]`，不要猜测。\n- 聊天记录中的个人信息（群昵称、手机号、微信号）必须脱敏。\n- 合并近似问题（如「怎么报名」和「在哪报名」），避免重复。\n- 涉及政策法规的回答，标注信息时效（如「截至 2026 年 X 月」）。\n- 避免官方套话，用社群成员能听懂的语言回答。\n\n## Files To Read\n\n- `assets/faq_template.md`：FAQ 输出结构模板（必读）。\n"</script>
+  <script type="application/json" id="markdown-source">"---\nname: env-ngo-community-faq\ndescription: >-\n  Load when the user provides community chat logs, recurring questions\n  from volunteers or beneficiaries, or wants to build a FAQ document for\n  an environmental nonprofit's community channels. Do not load for\n  closure reports, case extraction, or activity recaps.\ndisable-model-invocation: true\n---\n\n# 社群 FAQ 技能（传播运营模块 · M3）\n\n从社群聊天记录、志愿者/受益人反复提出的问题中，整理出一份结构化 FAQ 文档，供社群管理员快速回复或作为公众号「常见问题」板块。这是第 4 课「多智能体协作」中可作为社群答疑员调用的样板技能，常接在知识库检索之后。\n\n## When To Use\n\n- 用户提供了社群聊天截图/文字记录、志愿者常问问题列表、或受益人咨询记录。\n- 用户想要的是一份**结构化的 FAQ / 常见问题解答**，用于社群置顶、公众号菜单或内部客服手册。\n- 触发关键词：FAQ、常见问题、社群问答、自动回复、快捷回复、问题整理。\n\n不要用于：写活动复盘帖（用 `env-ngo-activity-recap`）、写结项报告（用 `env-ngo-closure-report`）、萃取案例（用 `env-ngo-case-extract`）。\n\n## Workflow\n\n1. 读取用户提供的聊天记录/问题列表，识别高频问题并归类。\n2. 对照 `assets/faq_template.md` 的结构，按类目组织问答。\n3. 答案**必须**基于机构知识库或用户提供的官方信息，不编造政策、时间、联系方式。\n4. 个人信息在输出前脱敏。\n5. 对于无法确定答案的问题，标注「需机构确认」。\n\n## Required Inputs\n\n- 问题来源：社群聊天记录、志愿者常问问题列表、受益人咨询记录（至少一种）。\n- 可选：机构官方信息（活动日程、报名方式、联系渠道）用于核实答案准确性。\n\n## Output Contract\n\n输出 Markdown，结构如下：\n\n1. **文档标题**（如「XX 项目社群常见问题」）\n2. **快速索引**（问题编号 + 一句话概括，方便跳转）\n3. **分类问答**（按类目分组，每个 Q&A 格式统一）：\n   - 类目标题（如「活动报名」「志愿者管理」「环保知识」）\n   - Q：\u003c问题>\n   - A：\u003c回答>（≤150 字，口语化但准确）\n4. **待确认问题**（有人问过但机构尚未给出官方答案的问题）\n\n每条回答 50–150 字，口语化、直接。总条目建议 8–20 条。\n\n## Gotchas\n\n- 答案必须基于用户提供的信息或知识库内容，**不编造活动时间、报名链接、联系方式**。\n- 无法确认的答案统一标注 `[需机构确认]`，不要猜测。\n- 聊天记录中的个人信息（群昵称、手机号、微信号）必须脱敏。\n- 合并近似问题（如「怎么报名」和「在哪报名」），避免重复。\n- 涉及政策法规的回答，标注信息时效（如「截至 2026 年 X 月」）。\n- 避免官方套话，用社群成员能听懂的语言回答。\n\n## Files To Read\n\n- `assets/faq_template.md`：FAQ 输出结构模板（必读）。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>第 3 → 第 4 课交接包：项目助理交给场景闭环 | 环境公益 AI 赋能实战营</title>
-  <meta name="description" content="第 3 → 第 4 课交接包：项目助理交给场景闭环 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <title>第 3 → 第 4 课交接包：项目助理交给多智能体协作 | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 3 → 第 4 课交接包：项目助理交给多智能体协作 · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,6 +135,17 @@ a { color: inherit; }
 .doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
 .doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
 .doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc img {
+  display: block;
+  width: 100%;
+  max-width: 936px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
 .doc blockquote {
   margin: 18px 0;
   padding: 14px 18px;
@@ -301,14 +312,14 @@ a { color: inherit; }
     <span aria-hidden="true">/</span>
     <a href="../README.html">关键交付物</a>
     <span aria-hidden="true">/</span>
-    <span>第 3 → 第 4 课交接包：项目助理交给场景闭环</span>
+    <span>第 3 → 第 4 课交接包：项目助理交给多智能体协作</span>
   </nav>
   <main class="layout">
     <article class="doc">
       <div class="doc-kicker"><span class="doc-type">交接包</span><span>bridge-materials/templates/03_to_04_agent_scenario_handoff.md</span></div>
-      <h1 id="第-3-→-第-4-课交接包项目助理交给场景闭环">第 3 → 第 4 课交接包：项目助理交给场景闭环</h1>
+      <h1 id="第-3-→-第-4-课交接包项目助理交给多智能体协作">第 3 → 第 4 课交接包：项目助理交给多智能体协作</h1>
 <p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/bridge-materials/templates/03_to_04_agent_scenario_handoff.md</code></p>
-<p>用途：第 3 课下课前填写，第 4 课用于选择主场景、判断闭环缺口、决定是否补第二个 Skill。</p>
+<p>用途：第 3 课下课前填写，第 4 课用于选择主场景、判断协作缺口、拆出多智能体角色与交接协议。</p>
 <h2 id="1-项目助理边界卡">1. 项目助理边界卡</h2>
 <table><thead><tr><th>项目</th><th>填写</th></tr></thead><tbody><tr><td>项目助理名称</td><td></td></tr><tr><td>主要服务对象</td><td>本机构同事 / 志愿者 / 合作伙伴 / 公众 / 其他：</td></tr><tr><td>能处理的 3 类问题</td><td>1.  2.  3.</td></tr><tr><td>明确不处理的 3 类问题</td><td>1.  2.  3.</td></tr><tr><td>需要人工审核的情形</td><td></td></tr><tr><td>需要拒答或转人工的情形</td><td></td></tr></tbody></table>
 <h2 id="2-已挂载资产">2. 已挂载资产</h2>
@@ -356,6 +367,15 @@ Skill 2 最容易翻车的 3 点：</code></pre>
 现在卡住它的最大缺口是：
 
 如果第 4 课只能修一个问题，我会先修：</code></pre>
+<h2 id="7-多智能体拆分草图">7. 多智能体拆分草图</h2>
+<p>第 4 课开场前，先粗略判断这条主场景是否需要拆成多智能体协作。</p>
+<table><thead><tr><th>候选角色</th><th>负责什么</th><th>输入</th><th>输出</th><th>需要人审吗</th></tr></thead><tbody><tr><td>主控智能体</td><td>判断任务类型、分派下一步</td><td>用户任务、边界卡</td><td>分派结果、交接包</td><td>是 / 否</td></tr><tr><td>资料员智能体</td><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td>写作/执行智能体</td><td></td><td></td><td></td><td>是 / 否</td></tr><tr><td>审核员智能体</td><td></td><td></td><td></td><td>是 / 否</td></tr></tbody></table>
+<p>初步停止条件：</p>
+<pre><code class="language-text">什么情况下不能继续自动处理：
+
+什么情况下必须交给人：
+
+什么情况下可以自动进入下一步：</code></pre>
       <div class="source-path">Markdown 原文：<a href="03_to_04_agent_scenario_handoff.md">bridge-materials/templates/03_to_04_agent_scenario_handoff.md</a></div>
       <nav class="doc-nav" aria-label="材料前后导航"><a href="02_to_03_kb_agent_handoff.html"><span>上一份材料</span><strong>第 2 → 第 3 课交接包：知识库交给项目助理</strong></a><a href="04_to_05_release_candidate_pack.html"><span>下一份材料</span><strong>第 4 → 第 5 课交接包：场景闭环交给发布候选</strong></a></nav>
     </article>
@@ -365,7 +385,7 @@ Skill 2 最容易翻车的 3 点：</code></pre>
       <a class="btn btn-primary" href="03_to_04_agent_scenario_handoff.md" download>下载 Markdown</a>
       <a class="btn btn-ghost" href="03_to_04_agent_scenario_handoff.md" style="margin-top:10px;">查看 Markdown 原文</a>
       <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
-      <nav class="toc" aria-label="本文目录"><a href="#第-3-→-第-4-课交接包项目助理交给场景闭环">第 3 → 第 4 课交接包：项目助理交给场景闭环</a>
+      <nav class="toc" aria-label="本文目录"><a href="#第-3-→-第-4-课交接包项目助理交给多智能体协作">第 3 → 第 4 课交接包：项目助理交给多智能体协作</a>
 <a href="#1-项目助理边界卡">1. 项目助理边界卡</a>
 <a href="#2-已挂载资产">2. 已挂载资产</a>
 <a href="#21-skill-接口清单">2.1 Skill 接口清单</a>
@@ -373,7 +393,8 @@ Skill 2 最容易翻车的 3 点：</code></pre>
 <a href="#3-路由表">3. 路由表</a>
 <a href="#4-主工作流最小闭环">4. 主工作流最小闭环</a>
 <a href="#5-10-问诊断表">5. 10 问诊断表</a>
-<a href="#6-交给第-4-课的主场景">6. 交给第 4 课的主场景</a></nav>
+<a href="#6-交给第-4-课的主场景">6. 交给第 4 课的主场景</a>
+<a href="#7-多智能体拆分草图">7. 多智能体拆分草图</a></nav>
     </aside>
   </main>
   <footer class="site-footer">
@@ -386,7 +407,7 @@ Skill 2 最容易翻车的 3 点：</code></pre>
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"# 第 3 → 第 4 课交接包：项目助理交给场景闭环\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/03_to_04_agent_scenario_handoff.md`\n\n用途：第 3 课下课前填写，第 4 课用于选择主场景、判断闭环缺口、决定是否补第二个 Skill。\n\n## 1. 项目助理边界卡\n\n| 项目 | 填写 |\n|------|------|\n| 项目助理名称 | |\n| 主要服务对象 | 本机构同事 / 志愿者 / 合作伙伴 / 公众 / 其他： |\n| 能处理的 3 类问题 | 1.  2.  3. |\n| 明确不处理的 3 类问题 | 1.  2.  3. |\n| 需要人工审核的情形 | |\n| 需要拒答或转人工的情形 | |\n\n## 2. 已挂载资产\n\n### 2.1 Skill 接口清单\n\n| Skill 名称 | 触发条件 | 输入要求 | 输出契约 | 成功标准 | 知识库依赖 | 不适用场景 | 稳定性状态 |\n|------------|----------|----------|----------|----------|------------|------------|------------|\n| | | | | | | | 草稿 / 可用 / 稳定 |\n| | | | | | | | 草稿 / 可用 / 稳定 |\n\n必填 Gotchas：\n\n```text\nSkill 1 最容易翻车的 3 点：\n\nSkill 2 最容易翻车的 3 点：\n```\n\n评测用例：\n\n| Skill | 必测问题 | 期望输出 | 是否通过 |\n|-------|----------|----------|----------|\n| | | | 是 / 否 |\n| | | | 是 / 否 |\n\n### 2.2 知识库接口清单\n\n| 知识库名称 | 资料范围 | 允许回答范围 | Top-K/检索设置 | 不能回答什么 |\n|------------|----------|--------------|----------------|--------------|\n| | | | | |\n| | | | | |\n\n## 3. 路由表\n\n| 用户问题类型 | 判定条件 | 调用 Skill | 相邻易混 Skill | 优先归属规则 | 是否检索知识库 | 输出形式 | 需要追问的条件 | 超边界处理 |\n|--------------|----------|------------|----------------|--------------|----------------|----------|----------------|------------|\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n\n兜底规则：\n\n```text\n当用户意图不清时：\n\n当 Skill 和知识库都可能适用时：\n\n当知识库没有依据时：\n```\n\n## 4. 主工作流最小闭环\n\n先只写一条主工作流，不要同时扩三个模块。\n\n```text\n用户输入：\n  ↓\n路由判定：\n  ↓\n检索 / 不检索：\n  ↓\n调用 Skill / 直接回答：\n  ↓\n输出结果：\n  ↓\n记录问题并人工复核：\n```\n\n## 5. 10 问诊断表\n\n| # | 测试问题 | 覆盖类型 | 期望行为 | 实际表现 | 问题归因 |\n|---|----------|----------|----------|----------|----------|\n| 1 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 2 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 3 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 4 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 5 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 6 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 7 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 8 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 9 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 10 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n\n诊断规则：\n\n| 问题归因 | 第 4 课优先修什么 |\n|----------|------------------|\n| 边界错 | 改项目助理边界卡 |\n| 路由错 | 改路由表和触发条件 |\n| 知识库错 | 回补资料、metadata、检索参数 |\n| Skill 错 | 改输出契约、Gotchas、输入要求 |\n| 工作流错 | 简化步骤，补人工审核点 |\n\n## 6. 交给第 4 课的主场景\n\n第 4 课只选一个主场景先闭环：\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 为什么优先做它 | |\n| 当前最常失败的问题 | |\n| 闭环缺口 | Skill / 知识库 / 路由 / 人工审核 / 其他： |\n| 是否需要补第二个 Skill | 是 / 否 / 待确认 |\n\n第 4 课开场要回答：\n\n```text\n我最想让项目助理稳定完成的真实任务是：\n\n现在卡住它的最大缺口是：\n\n如果第 4 课只能修一个问题，我会先修：\n```\n"</script>
+  <script type="application/json" id="markdown-source">"# 第 3 → 第 4 课交接包：项目助理交给多智能体协作\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/bridge-materials/templates/03_to_04_agent_scenario_handoff.md`\n\n用途：第 3 课下课前填写，第 4 课用于选择主场景、判断协作缺口、拆出多智能体角色与交接协议。\n\n## 1. 项目助理边界卡\n\n| 项目 | 填写 |\n|------|------|\n| 项目助理名称 | |\n| 主要服务对象 | 本机构同事 / 志愿者 / 合作伙伴 / 公众 / 其他： |\n| 能处理的 3 类问题 | 1.  2.  3. |\n| 明确不处理的 3 类问题 | 1.  2.  3. |\n| 需要人工审核的情形 | |\n| 需要拒答或转人工的情形 | |\n\n## 2. 已挂载资产\n\n### 2.1 Skill 接口清单\n\n| Skill 名称 | 触发条件 | 输入要求 | 输出契约 | 成功标准 | 知识库依赖 | 不适用场景 | 稳定性状态 |\n|------------|----------|----------|----------|----------|------------|------------|------------|\n| | | | | | | | 草稿 / 可用 / 稳定 |\n| | | | | | | | 草稿 / 可用 / 稳定 |\n\n必填 Gotchas：\n\n```text\nSkill 1 最容易翻车的 3 点：\n\nSkill 2 最容易翻车的 3 点：\n```\n\n评测用例：\n\n| Skill | 必测问题 | 期望输出 | 是否通过 |\n|-------|----------|----------|----------|\n| | | | 是 / 否 |\n| | | | 是 / 否 |\n\n### 2.2 知识库接口清单\n\n| 知识库名称 | 资料范围 | 允许回答范围 | Top-K/检索设置 | 不能回答什么 |\n|------------|----------|--------------|----------------|--------------|\n| | | | | |\n| | | | | |\n\n## 3. 路由表\n\n| 用户问题类型 | 判定条件 | 调用 Skill | 相邻易混 Skill | 优先归属规则 | 是否检索知识库 | 输出形式 | 需要追问的条件 | 超边界处理 |\n|--------------|----------|------------|----------------|--------------|----------------|----------|----------------|------------|\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n| | | | | | 是 / 否 | | | |\n\n兜底规则：\n\n```text\n当用户意图不清时：\n\n当 Skill 和知识库都可能适用时：\n\n当知识库没有依据时：\n```\n\n## 4. 主工作流最小闭环\n\n先只写一条主工作流，不要同时扩三个模块。\n\n```text\n用户输入：\n  ↓\n路由判定：\n  ↓\n检索 / 不检索：\n  ↓\n调用 Skill / 直接回答：\n  ↓\n输出结果：\n  ↓\n记录问题并人工复核：\n```\n\n## 5. 10 问诊断表\n\n| # | 测试问题 | 覆盖类型 | 期望行为 | 实际表现 | 问题归因 |\n|---|----------|----------|----------|----------|----------|\n| 1 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 2 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 3 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 4 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 5 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 6 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 7 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 8 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 9 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n| 10 | | 边界 / Skill / 知识库 / 工作流 / 输出 | | | |\n\n诊断规则：\n\n| 问题归因 | 第 4 课优先修什么 |\n|----------|------------------|\n| 边界错 | 改项目助理边界卡 |\n| 路由错 | 改路由表和触发条件 |\n| 知识库错 | 回补资料、metadata、检索参数 |\n| Skill 错 | 改输出契约、Gotchas、输入要求 |\n| 工作流错 | 简化步骤，补人工审核点 |\n\n## 6. 交给第 4 课的主场景\n\n第 4 课只选一个主场景先闭环：\n\n| 项目 | 填写 |\n|------|------|\n| 主场景名称 | |\n| 为什么优先做它 | |\n| 当前最常失败的问题 | |\n| 闭环缺口 | Skill / 知识库 / 路由 / 人工审核 / 其他： |\n| 是否需要补第二个 Skill | 是 / 否 / 待确认 |\n\n第 4 课开场要回答：\n\n```text\n我最想让项目助理稳定完成的真实任务是：\n\n现在卡住它的最大缺口是：\n\n如果第 4 课只能修一个问题，我会先修：\n```\n\n\n## 7. 多智能体拆分草图\n\n第 4 课开场前，先粗略判断这条主场景是否需要拆成多智能体协作。\n\n| 候选角色 | 负责什么 | 输入 | 输出 | 需要人审吗 |\n|----------|----------|------|------|------------|\n| 主控智能体 | 判断任务类型、分派下一步 | 用户任务、边界卡 | 分派结果、交接包 | 是 / 否 |\n| 资料员智能体 | | | | 是 / 否 |\n| 写作/执行智能体 | | | | 是 / 否 |\n| 审核员智能体 | | | | 是 / 否 |\n\n初步停止条件：\n\n```text\n什么情况下不能继续自动处理：\n\n什么情况下必须交给人：\n\n什么情况下可以自动进入下一步：\n```\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

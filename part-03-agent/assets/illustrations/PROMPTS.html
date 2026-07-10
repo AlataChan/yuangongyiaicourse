@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>第 3 课 AI智能体概念图 · PROMPTS | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="第 3 课 AI智能体概念图 · PROMPTS · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc img {
+  display: block;
+  width: 100%;
+  max-width: 936px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../../../skills.html">技能库</a>
+        <a class="btn btn-ghost" href="../../../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../../index.html">第 3 课 · AI智能体</a>
+    <span aria-hidden="true">/</span>
+    <span>第 3 课 AI智能体概念图 · PROMPTS</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">样板素材</span><span>part-03-agent/assets/illustrations/PROMPTS.md</span></div>
+      <h1 id="第-3-课-ai智能体概念图-·-prompts">第 3 课 AI智能体概念图 · PROMPTS</h1>
+<p>文件路径：<code>/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益&quot;新&quot;力量/course/part-03-agent/assets/illustrations/PROMPTS.md</code></p>
+<p>用途：记录第 3 课「AI智能体编排」页面与学员手册使用的归藏风格概念图提示词与资产路径，便于后续复现、替换或重新生成。</p>
+<h2 id="视觉系统">视觉系统</h2>
+<ul><li>风格：归藏风格材料插画；Swiss editorial 3D；米白背景；黑色线条；灰白材质；轻微投影。</li><li>主强调色：IKB Blue <code>#002FA7</code>。</li><li>比例：宽横图 <code>1.9:1</code>，适配课程网页图文区。</li><li>文字：简体中文短标签，单图 3-5 个。</li></ul>
+<h2 id="图-1项目助理架构">图 1：项目助理架构</h2>
+<ul><li>输出路径：<code>course/part-03-agent/assets/illustrations/project-assistant-architecture.png</code></li><li>原始生成路径：<code>/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_p75PFX0CDOt8J6AySw37h7Ty.png</code></li><li>用途：解释「统一入口 + 意图路由 + 技能调用 + 知识库增强 + 结构输出」。</li></ul>
+<pre><code class="language-text">Use case: stylized-concept
+Asset type: wide horizontal 1.9:1 labeled material illustration for a course webpage and Markdown handout.
+Primary request: Project assistant architecture shown as a left-to-right pipeline. A single user message enters from the left, passes through a central intent routing hub, then routes into skill cards and a knowledge-base drawer, and finally exits as a structured answer document on the right. The image should explain that a project assistant combines one entrance, intent routing, skill calling, knowledge enhancement, and structured output.
+Chinese labels: Add five short Simplified Chinese labels as clean printed callouts inside the illustration: &quot;用户入口&quot;, &quot;意图路由&quot;, &quot;技能调用&quot;, &quot;知识增强&quot;, &quot;结构输出&quot;. Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges.
+Style/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors.
+Composition/framing: wide horizontal 1.9:1 composition, subject fills the width naturally, centered vertically, generous safe margins on all sides, full subject visible, no crop, designed for a 936x500 image well.
+Lighting/mood: crisp studio light, calm analytical mood.
+Constraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.</code></pre>
+<h2 id="图-2智能体四要素">图 2：智能体四要素</h2>
+<ul><li>输出路径：<code>course/part-03-agent/assets/illustrations/agent-four-components.png</code></li><li>原始生成路径：<code>/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_o6MGcGCVE9hJRfWo4b7GBK0D.png</code></li><li>用途：解释「完整智能体不是一段提示词，而是性格、能力、行动、记忆共同构成」。</li></ul>
+<pre><code class="language-text">Use case: stylized-concept
+Asset type: wide horizontal 1.9:1 labeled material illustration for a course webpage and Markdown handout.
+Primary request: A complete AI agent shown as a four-part layer stack. Build a compact physical model with four stacked rounded slabs or modular blocks: system prompt/personality at the top as a calm face card, skills/capability as a toolbox card, tools/action as a robotic hand or connector card, and knowledge base/memory as a file cabinet card. The image should explain that an agent is not only a prompt; it is personality, capability, action, and memory working together.
+Chinese labels: Add four short Simplified Chinese labels as clean printed callouts inside the illustration: &quot;性格&quot;, &quot;能力&quot;, &quot;行动&quot;, &quot;记忆&quot;. Place each label near the matching layer; keep labels horizontal, large, high-contrast, readable, and away from edges.
+Style/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors.
+Composition/framing: wide horizontal 1.9:1 composition, centered four-layer stack, full subject visible, generous safe margins on all sides, no crop, designed for a 936x500 image well.
+Lighting/mood: crisp studio light, calm analytical mood.
+Constraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.</code></pre>
+<h2 id="图-3智能体三层记忆">图 3：智能体三层记忆</h2>
+<ul><li>输出路径：<code>course/part-03-agent/assets/illustrations/agent-memory-layers.png</code></li><li>原始生成路径：<code>/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_bCFa7lI9vOAALwvC5gOcDvvb.png</code></li><li>用途：解释「知识库只是长期记忆，不能替代短期上下文和外部工具数据」。</li></ul>
+<pre><code class="language-text">Use case: stylized-concept
+Asset type: wide horizontal 1.9:1 labeled material illustration for a course webpage and Markdown handout.
+Primary request: AI agent memory layers shown as three clearly separated physical memory objects on one shared base: a small sticky-note conversation strip for short-term memory on the left, a file cabinet / archive drawer for long-term knowledge-base memory in the center, and a connected database / interface ledger for tool memory on the right. Add a subtle blue flow line showing the agent can read from different memory sources depending on the task. The image should explain that knowledge base memory is only one part of an agent's memory.
+Chinese labels: Add three short Simplified Chinese labels as clean printed callouts inside the illustration: &quot;短期记忆&quot;, &quot;长期记忆&quot;, &quot;工具记忆&quot;. Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges.
+Style/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors.
+Composition/framing: wide horizontal 1.9:1 composition, three objects evenly spaced left to right, full subject visible, generous safe margins on all sides, no crop, designed for a 936x500 image well.
+Lighting/mood: crisp studio light, calm analytical mood.
+Constraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.</code></pre>
+<h2 id="质检记录">质检记录</h2>
+<ul><li>图 1：五个中文标签清晰；流程方向明确；无水印、无英文；适合解释项目助理的单智能体编排。</li><li>图 2：四个中文标签清晰；四层结构明确；无水印、无英文；适合纠正「智能体 = 提示词」的误区。</li><li>图 3：三个中文标签清晰；三类记忆的物理隐喻明确；无水印、无英文；适合解释知识库与上下文记忆的区别。</li></ul>
+      <div class="source-path">Markdown 原文：<a href="PROMPTS.md">part-03-agent/assets/illustrations/PROMPTS.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../../README.html"><span>上一份材料</span><strong>第 3 课 · AI智能体编排：组装「项目助理」（学员手册）</strong></a><a href="../../../part-04-scenario/README.html"><span>下一份材料</span><strong>第 4 课 · 多智能体协作：从项目助理到任务小队（学员手册）</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="PROMPTS.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="PROMPTS.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#第-3-课-ai智能体概念图-·-prompts">第 3 课 AI智能体概念图 · PROMPTS</a>
+<a href="#视觉系统">视觉系统</a>
+<a href="#图-1项目助理架构">图 1：项目助理架构</a>
+<a href="#图-2智能体四要素">图 2：智能体四要素</a>
+<a href="#图-3智能体三层记忆">图 3：智能体三层记忆</a>
+<a href="#质检记录">质检记录</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"# 第 3 课 AI智能体概念图 · PROMPTS\n\n文件路径：`/Users/apple/Documents/4.0 Sanyuan/2.4 环境公益\"新\"力量/course/part-03-agent/assets/illustrations/PROMPTS.md`\n\n用途：记录第 3 课「AI智能体编排」页面与学员手册使用的归藏风格概念图提示词与资产路径，便于后续复现、替换或重新生成。\n\n## 视觉系统\n\n- 风格：归藏风格材料插画；Swiss editorial 3D；米白背景；黑色线条；灰白材质；轻微投影。\n- 主强调色：IKB Blue `#002FA7`。\n- 比例：宽横图 `1.9:1`，适配课程网页图文区。\n- 文字：简体中文短标签，单图 3-5 个。\n\n## 图 1：项目助理架构\n\n- 输出路径：`course/part-03-agent/assets/illustrations/project-assistant-architecture.png`\n- 原始生成路径：`/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_p75PFX0CDOt8J6AySw37h7Ty.png`\n- 用途：解释「统一入口 + 意图路由 + 技能调用 + 知识库增强 + 结构输出」。\n\n```text\nUse case: stylized-concept\nAsset type: wide horizontal 1.9:1 labeled material illustration for a course webpage and Markdown handout.\nPrimary request: Project assistant architecture shown as a left-to-right pipeline. A single user message enters from the left, passes through a central intent routing hub, then routes into skill cards and a knowledge-base drawer, and finally exits as a structured answer document on the right. The image should explain that a project assistant combines one entrance, intent routing, skill calling, knowledge enhancement, and structured output.\nChinese labels: Add five short Simplified Chinese labels as clean printed callouts inside the illustration: \"用户入口\", \"意图路由\", \"技能调用\", \"知识增强\", \"结构输出\". Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges.\nStyle/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors.\nComposition/framing: wide horizontal 1.9:1 composition, subject fills the width naturally, centered vertically, generous safe margins on all sides, full subject visible, no crop, designed for a 936x500 image well.\nLighting/mood: crisp studio light, calm analytical mood.\nConstraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.\n```\n\n## 图 2：智能体四要素\n\n- 输出路径：`course/part-03-agent/assets/illustrations/agent-four-components.png`\n- 原始生成路径：`/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_o6MGcGCVE9hJRfWo4b7GBK0D.png`\n- 用途：解释「完整智能体不是一段提示词，而是性格、能力、行动、记忆共同构成」。\n\n```text\nUse case: stylized-concept\nAsset type: wide horizontal 1.9:1 labeled material illustration for a course webpage and Markdown handout.\nPrimary request: A complete AI agent shown as a four-part layer stack. Build a compact physical model with four stacked rounded slabs or modular blocks: system prompt/personality at the top as a calm face card, skills/capability as a toolbox card, tools/action as a robotic hand or connector card, and knowledge base/memory as a file cabinet card. The image should explain that an agent is not only a prompt; it is personality, capability, action, and memory working together.\nChinese labels: Add four short Simplified Chinese labels as clean printed callouts inside the illustration: \"性格\", \"能力\", \"行动\", \"记忆\". Place each label near the matching layer; keep labels horizontal, large, high-contrast, readable, and away from edges.\nStyle/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors.\nComposition/framing: wide horizontal 1.9:1 composition, centered four-layer stack, full subject visible, generous safe margins on all sides, no crop, designed for a 936x500 image well.\nLighting/mood: crisp studio light, calm analytical mood.\nConstraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.\n```\n\n## 图 3：智能体三层记忆\n\n- 输出路径：`course/part-03-agent/assets/illustrations/agent-memory-layers.png`\n- 原始生成路径：`/Users/apple/.codex/generated_images/019f49d9-55ce-7e70-bee0-4cff8eb7c436/call_bCFa7lI9vOAALwvC5gOcDvvb.png`\n- 用途：解释「知识库只是长期记忆，不能替代短期上下文和外部工具数据」。\n\n```text\nUse case: stylized-concept\nAsset type: wide horizontal 1.9:1 labeled material illustration for a course webpage and Markdown handout.\nPrimary request: AI agent memory layers shown as three clearly separated physical memory objects on one shared base: a small sticky-note conversation strip for short-term memory on the left, a file cabinet / archive drawer for long-term knowledge-base memory in the center, and a connected database / interface ledger for tool memory on the right. Add a subtle blue flow line showing the agent can read from different memory sources depending on the task. The image should explain that knowledge base memory is only one part of an agent's memory.\nChinese labels: Add three short Simplified Chinese labels as clean printed callouts inside the illustration: \"短期记忆\", \"长期记忆\", \"工具记忆\". Place each label near the matching object; keep labels horizontal, large, high-contrast, readable, and away from edges.\nStyle/medium: clean Swiss editorial 3D vector-like material illustration, off-white background, black ink lines, refined gray surfaces, one vivid IKB blue accent (#002FA7) used for arrows, dots, active blocks, and label connectors.\nComposition/framing: wide horizontal 1.9:1 composition, three objects evenly spaced left to right, full subject visible, generous safe margins on all sides, no crop, designed for a 936x500 image well.\nLighting/mood: crisp studio light, calm analytical mood.\nConstraints: no extra words beyond the specified Chinese labels, no English labels, no numbers, no logo, no watermark, no poster frame, no page title, no decorative blobs, no gradient background.\n```\n\n## 质检记录\n\n- 图 1：五个中文标签清晰；流程方向明确；无水印、无英文；适合解释项目助理的单智能体编排。\n- 图 2：四个中文标签清晰；四层结构明确；无水印、无英文；适合纠正「智能体 = 提示词」的误区。\n- 图 3：三个中文标签清晰；三类记忆的物理隐喻明确；无水印、无英文；适合解释知识库与上下文记忆的区别。\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
