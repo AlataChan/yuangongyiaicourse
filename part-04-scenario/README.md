@@ -188,7 +188,7 @@
 | 写作员智能体（初稿撰写） | 按提纲与素材卡生成初稿 | 提纲卡、素材卡 | 初稿 + 配图候选 + 仍未解决的占位符 | 不补无来源事实；不删除「待确认」标记 |
 | 审核员智能体（发布审校） | 独立检查事实、隐私、授权、语气和对外承诺 | 初稿、素材卡、脱敏与发布规则 | 审校单 + 退回对象 + 是否建议进入人审 | 不把「自查通过」宣布为「已可发布」 |
 
-可 Fork：`env-ngo-wechat-research` / `template` / `humanize` / `publish` + `env-ngo-story-desensitize`。
+可 Fork：`env-ngo-wechat-research` / `env-ngo-wechat-template` / `env-ngo-wechat-humanize` / `env-ngo-wechat-publish` + `env-ngo-story-desensitize`。
 
 ### 5.5 交接的不是「一段聊天」，而是可检查的任务包
 
