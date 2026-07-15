@@ -15,7 +15,7 @@
  .doc-layout{max-width:var(--max);margin:0 auto;padding:34px 24px 72px;display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:26px}.article{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:34px;box-shadow:var(--shadow)}.article h1,.article h2,.article h3{font-family:"Noto Serif SC",serif;color:var(--forest)}.article h1{font-size:clamp(1.9rem,4vw,2.85rem);line-height:1.14;margin:0 0 14px}.article h2{font-size:1.55rem;margin:34px 0 14px;padding-top:22px;border-top:1px solid var(--line)}.article h3{font-size:1.12rem;margin:24px 0 10px}.article p,.article li{color:var(--ink)}.article ul,.article ol{padding-left:1.35rem}.side{position:sticky;top:88px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:var(--shadow)}.side h2{font-size:1rem;margin:0 0 10px;color:var(--forest)}.side a{display:block;padding:7px 0;color:var(--muted);font-weight:800}.side a:hover{color:var(--forest)}.article img{width:100%;height:auto;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}pre{overflow:auto;background:#10241d;color:#e8f4ec;padding:16px;border-radius:8px}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}@media(max-width:900px){.doc-layout{grid-template-columns:1fr}.side{position:static;order:-1}.article{padding:24px 18px}}</style>
 </head>
 <body>
-  <header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">AI</span><span>环境公益 AI 赋能实战营</span></a><nav class="header-nav"><a href="index.html">课程概览</a><a href="#patterns">协作模式</a><a href="#handoff">交接协议</a><a href="#testing">验收测试</a><a class="nav-cta" href="quiz.html">课后测验</a></nav></div></header>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">AI</span><span>环境公益 AI 赋能实战营</span></a><nav class="header-nav"><a href="index.html">课程概览</a><a href="scenario-squads.html">任务小队</a><a href="#handoff">交接协议</a><a href="#testing">验收测试</a><a class="nav-cta" href="quiz.html">课后测验</a></nav></div></header>
   <nav class="crumb"><a href="../index.html">课程首页</a> / <a href="index.html">第 4 课 · 多智能体协作</a> / 学员手册</nav>
   <main class="doc-layout">
     <article class="article">
@@ -42,9 +42,15 @@
       <h2 id="case">四、课堂案例：青澜公众号任务小队</h2>
       <p>虚构机构「青澜环境政策研究中心」要把社区减塑活动做成公众号推文。单一项目助理容易直接写稿，跳过事实核对、语气匹配和脱敏审核。多智能体版本拆成五个角色。</p>
       <div class="flow"><div class="flow-step"><strong>主控</strong><span>判断任务与边界</span></div><div class="flow-step"><strong>资料员</strong><span>搜集事实和来源</span></div><div class="flow-step"><strong>结构员</strong><span>组织提纲和语气</span></div><div class="flow-step"><strong>写作员</strong><span>生成初稿</span></div><div class="flow-step"><strong>审核员</strong><span>检查风险并交给人审</span></div></div>
+      <p class="callout" style="margin-top:18px"><strong>不止公众号。</strong>文书链、案例沉淀、台账→推文、节点↔FAQ 等场景，已收敛为可对照的任务小队模板。请打开 <a href="scenario-squads.html">场景型任务小队样板库</a>，按自己的 MVP 选一条再动手。</p>
 
-      <h2 id="practice">五、课堂练习</h2>
-      <ol><li>只选一个主场景，不同时拆三条链路。</li><li>写 2-4 张角色卡：名称、职责、必读资料、输出格式、不能做什么。</li><li>为相邻两个智能体写一份交接包。</li><li>标出共享状态：全局共享、局部共享、人工保留。</li><li>设置停止条件：缺事实、含隐私、越权承诺、发布前确认。</li></ol>
+      <h2 id="squads">五、场景型任务小队（与学员指引联动）</h2>
+      <p>多技能挂载之后，要用多智能体协作稳住质量。公开样板库提供三条深写小队 + 速查表；个人细节仍对照自己的学员指引，公开页不含真实机构名。</p>
+      <div class="grid grid-3" style="margin:16px 0 8px"><article class="card"><span class="tag">M1</span><h3>文书小队</h3><p>资料 → 文书 → 指标核对 → 审核。适合立项/结项。</p></article><article class="card"><span class="tag">M2</span><h3>案例沉淀小队</h3><p>整理 → 脱敏 → 萃取 → 入库。适合语音/现场记录。</p></article><article class="card"><span class="tag tag-blue">M3</span><h3>传播小队</h3><p>主控分派 + 流水线写作审核。含周报→推文与节点↔FAQ。</p></article></div>
+      <p><a class="btn btn-primary" href="scenario-squads.html" style="display:inline-flex;margin-top:8px">打开样板库全文</a>　<a href="../student-guides/README.html">学员指引总索引</a></p>
+
+      <h2 id="practice">六、课堂练习</h2>
+      <ol><li>打开自己的学员指引，确认 MVP；对照样板库速查表只选一条小队。</li><li>写 2-4 张角色卡：名称、职责、必读资料、输出格式、不能做什么。</li><li>为相邻两个智能体写一份交接包。</li><li>标出共享状态：全局共享、局部共享、人工保留。</li><li>设置停止条件：缺事实、含隐私、越权承诺、发布前确认。</li></ol>
       <pre><code>【交接包】
 任务目标：
 输入材料：
@@ -55,13 +61,14 @@
 停止条件：
 下一步交给：</code></pre>
 
-      <h2 id="testing">六、协作验收测试</h2>
+      <h2 id="testing">七、协作验收测试</h2>
+      <p>优先使用样板库里该小队的预制 5 条题干；通过标准如下。</p>
       <div class="table-wrap"><table><thead><tr><th>测试类型</th><th>通过标准</th></tr></thead><tbody><tr><td>正常任务</td><td>主控分派正确，交接包完整</td></tr><tr><td>缺资料</td><td>能列缺失项，不编造</td></tr><tr><td>易混任务</td><td>能追问或分派到正确角色</td></tr><tr><td>合规风险</td><td>审核员拦截并进入人工确认</td></tr><tr><td>返工闭环</td><td>审核未通过时，只返工问题部分</td></tr></tbody></table></div>
 
-      <h2 id="homework">七、课后作业</h2>
-      <p><strong>入门：</strong>提交 1 张协作图、2 张角色卡、1 份交接包。</p><p><strong>进阶：</strong>提交 4 张以上角色卡、3 份交接包、5 条协作测试记录，至少 4 条通过。</p>
+      <h2 id="homework">八、课后作业</h2>
+      <p><strong>入门：</strong>提交 1 张协作图、2 张角色卡、1 份交接包（须标明对应样板库哪条小队）。</p><p><strong>进阶：</strong>提交 4 张以上角色卡、3 份交接包、5 条协作测试记录，至少 4 条通过。</p>
     </article>
-    <aside class="side"><h2>手册目录</h2><a href="#why-multi">为什么需要多智能体</a><a href="#difference">三种形态</a><a href="#patterns">四种协作模式</a><a href="#handoff">交接协议</a><a href="#case">青澜案例</a><a href="#practice">课堂练习</a><a href="#testing">协作测试</a><a href="#homework">课后作业</a></aside>
+    <aside class="side"><h2>手册目录</h2><a href="#why-multi">为什么需要多智能体</a><a href="#difference">三种形态</a><a href="#patterns">四种协作模式</a><a href="#handoff">交接协议</a><a href="#case">青澜案例</a><a href="#squads">场景型任务小队</a><a href="#practice">课堂练习</a><a href="#testing">协作测试</a><a href="#homework">课后作业</a><a href="scenario-squads.html">打开样板库</a></aside>
   </main>
   <footer class="footer"><div class="footer-inner"><div>环境公益 AI 赋能实战营 · 第 4 课学员手册</div><div><a href="index.html">课程概览</a>　<a href="quiz.html">课后测验</a></div></div></footer>
 </body>
