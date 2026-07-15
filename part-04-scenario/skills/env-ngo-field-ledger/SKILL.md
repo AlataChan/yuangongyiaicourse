@@ -19,7 +19,7 @@ disable-model-invocation: true
 - 用户要的是**周报 / 月报 / 阶段执行报告**（数据驱动、固定模板），不是结项长报告或公众号推文。
 - 触发关键词：台账、周报、月报、站点数据汇总、原始台账核对、周期报告。
 
-不要用于：只有叙事性流水账、无表格数据（用 `env-ngo-closure-report`）；写活动复盘帖（用 `env-ngo-activity-recap`）；从项目书生成 OKR 清单（另建文书 Skill）。
+不要用于：只有叙事性流水账、无表格数据（用 `env-ngo-closure-report`）；写活动复盘帖（用 `env-ngo-activity-recap`）；从项目书生成 OKR 清单（用 `env-ngo-okr-checklist`）。
 
 ## Workflow
 

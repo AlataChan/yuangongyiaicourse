@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>行业监测简报技能（案例沉淀模块 · M2） | 环境公益 AI 赋能实战营</title>
+  <meta name="description" content="行业监测简报技能（案例沉淀模块 · M2） · 环境公益 AI 赋能实战营课程材料页面，提供网页阅读与 Markdown 下载入口。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a4d3e'/%3E%3Cpath d='M16 6c-4 6-8 9-8 14a8 8 0 0016 0c0-5-4-8-8-14z' fill='%238fd4b0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg: #eef3ef;
+  --paper: #fafcf9;
+  --panel: #f2f7f3;
+  --ink: #14261f;
+  --muted: #5a6f64;
+  --line: #d4e0d8;
+  --forest: #1a4d3e;
+  --forest-light: #2d6b58;
+  --moss: #8fd4b0;
+  --moss-soft: #d8f0e4;
+  --amber-soft: #fff3e0;
+  --shadow: 0 18px 42px rgba(20, 38, 31, 0.08);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--bg); }
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Source Sans 3", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  line-height: 1.68;
+  background:
+    linear-gradient(180deg, rgba(250, 252, 249, 0.92), rgba(238, 243, 239, 0.78) 32%, rgba(238, 243, 239, 1)),
+    repeating-linear-gradient(90deg, rgba(26, 77, 62, 0.035) 0, rgba(26, 77, 62, 0.035) 1px, transparent 1px, transparent 92px),
+    var(--bg);
+}
+a { color: inherit; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(212, 224, 216, 0.86);
+  background: rgba(238, 243, 239, 0.9);
+  backdrop-filter: blur(16px);
+}
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--forest);
+  font-family: "Noto Serif SC", serif;
+  font-weight: 800;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--moss);
+  background: var(--forest);
+}
+.header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid var(--line);
+}
+.btn-primary { color: #fff; background: var(--forest); border-color: var(--forest); }
+.btn-ghost { color: var(--forest); background: var(--paper); }
+.crumb {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 24px 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.crumb a { color: var(--forest); font-weight: 800; text-decoration: none; }
+.layout {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 24px 76px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 28px;
+}
+.doc {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 38px;
+  background: rgba(250, 252, 249, 0.96);
+  box-shadow: var(--shadow);
+}
+.doc-kicker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.doc-type {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--moss-soft);
+  color: var(--forest);
+  font-weight: 900;
+}
+.doc h1, .doc h2, .doc h3 {
+  font-family: "Noto Serif SC", serif;
+  line-height: 1.22;
+}
+.doc h1 { margin: 0 0 18px; font-size: clamp(1.8rem, 4vw, 2.65rem); color: var(--forest); }
+.doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
+.doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
+.doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc img {
+  display: block;
+  width: 100%;
+  max-width: 936px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.doc blockquote {
+  margin: 18px 0;
+  padding: 14px 18px;
+  border-left: 4px solid var(--moss);
+  border-radius: 0 12px 12px 0;
+  background: var(--moss-soft);
+  color: var(--forest);
+}
+.doc code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: #edf3ee;
+  color: #123d31;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.doc pre {
+  overflow-x: auto;
+  padding: 16px;
+  border-radius: 14px;
+  background: #10241d;
+  color: #e8f4ec;
+}
+.doc pre code { padding: 0; background: transparent; color: inherit; overflow-wrap: normal; word-break: normal; }
+.doc table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 18px 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  -webkit-overflow-scrolling: touch;
+}
+.doc th, .doc td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; }
+.doc th { background: var(--moss-soft); color: var(--forest); text-align: left; }
+.doc tr:nth-child(even) td { background: #f7faf7; }
+.doc hr { border: 0; border-top: 1px solid var(--line); margin: 30px 0; }
+.doc a { color: var(--forest); font-weight: 800; text-decoration-color: rgba(26, 77, 62, 0.25); }
+.side {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(250, 252, 249, 0.9);
+}
+.side-title { margin: 0 0 10px; color: var(--forest); font-weight: 900; }
+.side-note { margin: 10px 0 0; color: var(--muted); font-size: 0.9rem; }
+.toc { display: grid; gap: 7px; margin-top: 14px; }
+.toc a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.toc a:hover { color: var(--forest); }
+.source-path {
+  margin-top: 26px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  color: #725126;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.source-path a { color: #6b4b1f; font-weight: 900; }
+.doc-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+.doc-nav a {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--forest);
+  text-decoration: none;
+}
+.doc-nav span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.doc-nav strong { display: block; margin-top: 2px; }
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 24px;
+  color: var(--muted);
+  background: rgba(250, 252, 249, 0.7);
+}
+.course-footer-line {
+  max-width: 1080px;
+  margin: 0 auto 18px;
+  text-align: center;
+  font-size: 0.92rem;
+}
+.org-footer {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  border: 1px solid rgba(143, 212, 176, 0.22);
+  border-radius: 16px;
+  background: #10241d;
+  color: rgba(234, 250, 241, 0.86);
+  text-align: left;
+}
+.org-footer-logo {
+  width: 138px;
+  max-width: 100%;
+  display: block;
+}
+.org-footer h2 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-family: "Noto Serif SC", serif;
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+.org-footer p {
+  margin: 0;
+  color: rgba(234, 250, 241, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.76;
+}
+@media (max-width: 920px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { position: static; order: -1; }
+  .org-footer { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .header-inner { align-items: flex-start; flex-direction: column; }
+  .doc { padding: 26px 20px; border-radius: 14px; }
+  .doc-nav { grid-template-columns: 1fr; }
+  .btn { width: 100%; justify-content: center; }
+  .org-footer { padding: 22px 18px; }
+  .org-footer-logo { width: 120px; }
+}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../../../index.html">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <span>环境公益 AI 赋能实战营</span>
+      </a>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="../../../skills.html">技能库</a>
+        <a class="btn btn-ghost" href="../../../resources.html">资料中心</a>
+        <button class="btn btn-ghost" type="button" data-copy-markdown>复制 Markdown</button>
+      </div>
+    </div>
+  </header>
+  <nav class="crumb" aria-label="面包屑">
+    <a href="../../../index.html">课程首页</a>
+    <span aria-hidden="true">/</span>
+    <a href="../../../skills.html">技能库</a>
+    <span aria-hidden="true">/</span>
+    <span>行业监测简报技能（案例沉淀模块 · M2）</span>
+  </nav>
+  <main class="layout">
+    <article class="doc">
+      <div class="doc-kicker"><span class="doc-type">Skill 样板</span><span>part-04-scenario/skills/env-ngo-industry-brief/SKILL.md</span></div>
+      <hr>
+<p>name: env-ngo-industry-brief description: &gt;- Load when the user needs a short industry monitoring brief for an environmental nonprofit — e.g. weekly/monthly digests of policy, meetings, peer projects, or research under given keywords and a date range. Do not load for full policy research papers, project proposals, closure reports, or social-media copy. disable-model-invocation: true</p>
+<hr>
+<h1 id="行业监测简报技能案例沉淀模块-·-m2">行业监测简报技能（案例沉淀模块 · M2）</h1>
+<p>把「按关键词扫一圈近期动态」固化成<strong>可分享的短简报</strong>：分类清晰、条目可溯源、篇幅可控。适合多区域/多办公室共用同一份监测输出。</p>
+<h2 id="when-to-use">When To Use</h2>
+<ul><li>用户给出<strong>日期范围 + 关键词清单</strong>，要一份行业动态简报（周报/月报量级）。</li><li>用户要的是<strong>监测摘要</strong>，不是深度政策综述、项目书或结项报告。</li><li>触发关键词：行业简报、行业动态、本周监测、种子简报、政策动态速览、对标项目扫描。</li></ul>
+<p>不要用于：长篇政策研究综述（用 <code>env-ngo-policy-research</code>）；写项目立项书（用 <code>env-ngo-proposal-draft</code>）；资讯标题列表摘要但不做分类简报（用 <code>env-ngo-news-digest</code>）。</p>
+<h2 id="workflow">Workflow</h2>
+<ol><li>确认日期范围、领域关键词、关注类别（默认四类：政策发布 / 行业会议 / 重要项目 / 学术进展）。</li><li>仅基于用户提供的链接、粘贴文本或已授权检索结果归纳；<strong>无法核实的不写进正文</strong>。</li><li>对照 <code>assets/brief_template.md</code> 填充分类条目。</li><li>每条写清：标题、约 80 字摘要、来源（文件名或 URL）、日期（若有）。</li><li>全篇控制在约 800 字；超出则合并次要条目或移入「可选阅读」。</li></ol>
+<h2 id="required-inputs">Required Inputs</h2>
+<ul><li>日期范围（起止）。</li><li>关键词清单（≥2 个）。</li><li>信息来源：用户粘贴的新闻/政策摘录、链接列表，或检索结果文本。</li><li>可选：机构关注的子领域标签、历史简报样本（对齐语气）。</li></ul>
+<h2 id="output-contract">Output Contract</h2>
+<p>输出 Markdown，结构必须与 <code>assets/brief_template.md</code> 一致：</p>
+<ol><li><strong>简报抬头</strong>（周期、关键词、撰写说明）</li><li><strong>政策发布</strong></li><li><strong>行业会议 / 活动</strong></li><li><strong>重要项目 / 对标实践</strong></li><li><strong>学术 / 研究报告进展</strong>（可无则写「本期无」）</li><li><strong>缺失项 / 待核实清单</strong></li></ol>
+<p>语言：中文；每条摘要约 80 字；全篇建议 ≤800 字。</p>
+<h2 id="gotchas">Gotchas</h2>
+<ul><li><strong>政策文件名称原文引用</strong>，不自行改写简称易混版本号。</li><li>无来源的条目<strong>不得写入正文</strong>，列入「待核实」。</li><li>不以简报名义做因果归因或「行业必将如何」式判断。</li><li>涉及机构/人名时脱敏为泛称（如「某省级项目」「某协会」）。</li><li>不要把模板示例数据当成真实监测结果。</li><li>多区域共用时：只输出事实摘要，区域差异化建议留给人工。</li></ul>
+<h2 id="files-to-read">Files To Read</h2>
+<ul><li><code>assets/brief_template.md</code>：简报输出结构（必读）。</li><li><code>assets/example_input_clips.md</code>：脱敏资讯摘录取样。</li></ul>
+      <div class="source-path">Markdown 原文：<a href="SKILL.md">part-04-scenario/skills/env-ngo-industry-brief/SKILL.md</a></div>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../env-ngo-field-ledger/SKILL.html"><span>上一份材料</span><strong>现场数据台账技能（案例沉淀模块 · M2）</strong></a><a href="../env-ngo-news-digest/SKILL.html"><span>下一份材料</span><strong>环保资讯摘要技能（传播运营 / 知识监测 · M3）</strong></a></nav>
+    </article>
+    <aside class="side">
+      <p class="side-title">材料操作</p>
+      <button class="btn btn-ghost" type="button" data-copy-markdown style="width:100%;justify-content:center;">复制 Markdown</button>
+      <a class="btn btn-primary" href="SKILL.md" download>下载 Markdown</a>
+      <a class="btn btn-ghost" href="SKILL.md" style="margin-top:10px;">查看 Markdown 原文</a>
+      <p class="side-note">网页用于在线阅读；需要带回机构填写、复制或二次编辑时，请复制或下载 Markdown 原文。</p>
+      <nav class="toc" aria-label="本文目录"><a href="#行业监测简报技能案例沉淀模块-·-m2">行业监测简报技能（案例沉淀模块 · M2）</a>
+<a href="#when-to-use">When To Use</a>
+<a href="#workflow">Workflow</a>
+<a href="#required-inputs">Required Inputs</a>
+<a href="#output-contract">Output Contract</a>
+<a href="#gotchas">Gotchas</a>
+<a href="#files-to-read">Files To Read</a></nav>
+    </aside>
+  </main>
+  <footer class="site-footer">
+    <div class="course-footer-line">环境公益 AI 赋能实战营 · Markdown 页面化材料</div>
+    <section class="org-footer" id="yuan-org" aria-label="元公益工作室介绍">
+    <img class="org-footer-logo" src="../../../assets/yuan-logo.png" alt="元公益工作室 logo" decoding="async">
+    <div>
+      <h2>元公益工作室</h2>
+      <p>元公益（北京市公鸣社会工作发展中心）成立于2015年，专注于为公益组织提供战略管理与行业发展的咨询服务，助力其战略管理能力提升、组织发展和转型。同时，以咨询机构和技术支持角色，积极推动公益组织的数字化应用。截止目前，已为超过100家公益组织（包括基金会、民非组织、协会）提供了组织发展、战略咨询或数字化赋能等服务。</p>
+    </div>
+  </section>
+  </footer>
+  <script type="application/json" id="markdown-source">"---\nname: env-ngo-industry-brief\ndescription: >-\n  Load when the user needs a short industry monitoring brief for an environmental\n  nonprofit — e.g. weekly/monthly digests of policy, meetings, peer projects, or\n  research under given keywords and a date range. Do not load for full policy\n  research papers, project proposals, closure reports, or social-media copy.\ndisable-model-invocation: true\n---\n\n# 行业监测简报技能（案例沉淀模块 · M2）\n\n把「按关键词扫一圈近期动态」固化成**可分享的短简报**：分类清晰、条目可溯源、篇幅可控。适合多区域/多办公室共用同一份监测输出。\n\n## When To Use\n\n- 用户给出**日期范围 + 关键词清单**，要一份行业动态简报（周报/月报量级）。\n- 用户要的是**监测摘要**，不是深度政策综述、项目书或结项报告。\n- 触发关键词：行业简报、行业动态、本周监测、种子简报、政策动态速览、对标项目扫描。\n\n不要用于：长篇政策研究综述（用 `env-ngo-policy-research`）；写项目立项书（用 `env-ngo-proposal-draft`）；资讯标题列表摘要但不做分类简报（用 `env-ngo-news-digest`）。\n\n## Workflow\n\n1. 确认日期范围、领域关键词、关注类别（默认四类：政策发布 / 行业会议 / 重要项目 / 学术进展）。\n2. 仅基于用户提供的链接、粘贴文本或已授权检索结果归纳；**无法核实的不写进正文**。\n3. 对照 `assets/brief_template.md` 填充分类条目。\n4. 每条写清：标题、约 80 字摘要、来源（文件名或 URL）、日期（若有）。\n5. 全篇控制在约 800 字；超出则合并次要条目或移入「可选阅读」。\n\n## Required Inputs\n\n- 日期范围（起止）。\n- 关键词清单（≥2 个）。\n- 信息来源：用户粘贴的新闻/政策摘录、链接列表，或检索结果文本。\n- 可选：机构关注的子领域标签、历史简报样本（对齐语气）。\n\n## Output Contract\n\n输出 Markdown，结构必须与 `assets/brief_template.md` 一致：\n\n1. **简报抬头**（周期、关键词、撰写说明）\n2. **政策发布**\n3. **行业会议 / 活动**\n4. **重要项目 / 对标实践**\n5. **学术 / 研究报告进展**（可无则写「本期无」）\n6. **缺失项 / 待核实清单**\n\n语言：中文；每条摘要约 80 字；全篇建议 ≤800 字。\n\n## Gotchas\n\n- **政策文件名称原文引用**，不自行改写简称易混版本号。\n- 无来源的条目**不得写入正文**，列入「待核实」。\n- 不以简报名义做因果归因或「行业必将如何」式判断。\n- 涉及机构/人名时脱敏为泛称（如「某省级项目」「某协会」）。\n- 不要把模板示例数据当成真实监测结果。\n- 多区域共用时：只输出事实摘要，区域差异化建议留给人工。\n\n## Files To Read\n\n- `assets/brief_template.md`：简报输出结构（必读）。\n- `assets/example_input_clips.md`：脱敏资讯摘录取样。\n"</script>
+  <script>
+    const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
+    async function copyMarkdownText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {}
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        return document.execCommand("copy");
+      } finally {
+        document.body.removeChild(textarea);
+      }
+    }
+    document.querySelectorAll("[data-copy-markdown]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const copied = await copyMarkdownText(markdownSource);
+        if (copied) {
+          const oldText = button.textContent;
+          button.textContent = "已复制";
+          setTimeout(() => { button.textContent = oldText; }, 1400);
+        } else {
+          const oldText = button.textContent;
+          button.textContent = "复制失败，请下载";
+          setTimeout(() => { button.textContent = oldText; }, 1800);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -135,6 +135,17 @@ a { color: inherit; }
 .doc h2 { margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 1.48rem; }
 .doc h3 { margin-top: 26px; font-size: 1.16rem; color: var(--forest); }
 .doc p, .doc li { color: var(--ink); overflow-wrap: anywhere; }
+.doc img {
+  display: block;
+  width: 100%;
+  max-width: 936px;
+  height: auto;
+  margin: 20px auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
 .doc blockquote {
   margin: 18px 0;
   padding: 14px 18px;
@@ -313,7 +324,7 @@ a { color: inherit; }
 <p>把<strong>已归集到统一文件夹</strong>的日报 CSV、照片说明，汇总成结构固定的周报/月报草稿。配合 QoderWork「先收拢、再处理」：人工（或 QoderWork 辅助）把分散台账放进 <code>01_原始台账/</code>，本 Skill 负责<strong>对数、填模板、标缺失</strong>。</p>
 <h2 id="when-to-use">When To Use</h2>
 <ul><li>用户已用 QoderWork 将多站点、多日的 CSV / 照片说明集中到<strong>一个项目台账文件夹</strong>（见 <code>assets/folder_structure.md</code>）。</li><li>用户要的是<strong>周报 / 月报 / 阶段执行报告</strong>（数据驱动、固定模板），不是结项长报告或公众号推文。</li><li>触发关键词：台账、周报、月报、站点数据汇总、原始台账核对、周期报告。</li></ul>
-<p>不要用于：只有叙事性流水账、无表格数据（用 <code>env-ngo-closure-report</code>）；写活动复盘帖（用 <code>env-ngo-activity-recap</code>）；从项目书生成 OKR 清单（另建文书 Skill）。</p>
+<p>不要用于：只有叙事性流水账、无表格数据（用 <code>env-ngo-closure-report</code>）；写活动复盘帖（用 <code>env-ngo-activity-recap</code>）；从项目书生成 OKR 清单（用 <code>env-ngo-okr-checklist</code>）。</p>
 <h2 id="workflow">Workflow</h2>
 <h3 id="phase-a-·-资料归集qoderworkskill-之前">Phase A · 资料归集（QoderWork，Skill 之前）</h3>
 <ol><li>按 <code>assets/folder_structure.md</code> 创建 <code>&lt;项目名称&gt;_台账/</code> 目录树。</li><li>将各站点、各日期的 CSV 与照片说明复制到 <code>01_原始台账/&lt;站点&gt;/</code>，统一文件名。</li><li>在 QoderWork 中打开该文件夹，确认路径可读。</li></ol>
@@ -330,7 +341,7 @@ a { color: inherit; }
 <h2 id="files-to-read">Files To Read</h2>
 <ul><li><code>assets/folder_structure.md</code>：QoderWork 文件夹结构与归集步骤（必读）。</li><li><code>assets/weekly_report_template.md</code>：输出结构模板（必读）。</li><li><code>assets/example_input_daily_logs.md</code>：脱敏测试样例。</li></ul>
       <div class="source-path">Markdown 原文：<a href="SKILL.md">part-04-scenario/skills/env-ngo-field-ledger/SKILL.md</a></div>
-      <nav class="doc-nav" aria-label="材料前后导航"><a href="../env-ngo-community-faq/SKILL.html"><span>上一份材料</span><strong>社群 FAQ 技能（传播运营模块 · M3）</strong></a><a href="../env-ngo-story-desensitize/SKILL.html"><span>下一份材料</span><strong>服务故事脱敏技能（案例库模块 · M2）</strong></a></nav>
+      <nav class="doc-nav" aria-label="材料前后导航"><a href="../env-ngo-community-faq/SKILL.html"><span>上一份材料</span><strong>社群 FAQ 技能（传播运营模块 · M3）</strong></a><a href="../env-ngo-industry-brief/SKILL.html"><span>下一份材料</span><strong>行业监测简报技能（案例沉淀模块 · M2）</strong></a></nav>
     </article>
     <aside class="side">
       <p class="side-title">材料操作</p>
@@ -359,7 +370,7 @@ a { color: inherit; }
     </div>
   </section>
   </footer>
-  <script type="application/json" id="markdown-source">"---\nname: env-ngo-field-ledger\ndescription: >-\n  Load when the user provides daily field logs (CSV spreadsheets), photo captions,\n  or a consolidated ledger folder for a reporting period and needs a structured\n  weekly or monthly project report draft for an environmental nonprofit. Do not\n  load for closure reports from narrative-only notes, grant proposals, or social\n  media copy without ledger data.\ndisable-model-invocation: true\n---\n\n# 现场数据台账技能（案例沉淀模块 · M2）\n\n把**已归集到统一文件夹**的日报 CSV、照片说明，汇总成结构固定的周报/月报草稿。配合 QoderWork「先收拢、再处理」：人工（或 QoderWork 辅助）把分散台账放进 `01_原始台账/`，本 Skill 负责**对数、填模板、标缺失**。\n\n## When To Use\n\n- 用户已用 QoderWork 将多站点、多日的 CSV / 照片说明集中到**一个项目台账文件夹**（见 `assets/folder_structure.md`）。\n- 用户要的是**周报 / 月报 / 阶段执行报告**（数据驱动、固定模板），不是结项长报告或公众号推文。\n- 触发关键词：台账、周报、月报、站点数据汇总、原始台账核对、周期报告。\n\n不要用于：只有叙事性流水账、无表格数据（用 `env-ngo-closure-report`）；写活动复盘帖（用 `env-ngo-activity-recap`）；从项目书生成 OKR 清单（另建文书 Skill）。\n\n## Workflow\n\n### Phase A · 资料归集（QoderWork，Skill 之前）\n\n1. 按 `assets/folder_structure.md` 创建 `\u003c项目名称>_台账/` 目录树。\n2. 将各站点、各日期的 CSV 与照片说明复制到 `01_原始台账/\u003c站点>/`，统一文件名。\n3. 在 QoderWork 中打开该文件夹，确认路径可读。\n\n### Phase B · 台账汇总（本 Skill）\n\n1. 读取用户指定的**报告周期**（如 2026-06-01 至 2026-06-07）和台账文件夹路径。\n2. 扫描 `01_原始台账/` 下该周期内所有 CSV，按站点、活动类型、指标名**求和或计数**（仅基于文件中的行，不估算）。\n3. 读取同周期 `照片说明.txt`，匹配到对应站点/日期的活动条目。\n4. 对照 `assets/weekly_report_template.md` 输出草稿；缺日报的站点/日期写入「数据核对说明」和「缺失项清单」。\n5. 将草稿建议保存到 `02_周期汇总/`（由用户或 QoderWork 执行保存）。\n\n## Required Inputs\n\n- 报告周期（起止日期）。\n- 台账文件夹路径（或用户粘贴该周期内的 CSV 内容与照片说明）。\n- 可选：站点列表、机构周报/月报历史范例（对齐语气与章节）。\n\n## Output Contract\n\n输出 Markdown，结构必须与 `assets/weekly_report_template.md` 一致，包含：\n\n1. **本周/本期工作概述**\n2. **分站点数据汇总表**（每表含：活动类型、指标、合计、数据来源路径）\n3. **主要活动与现场记录**（引用照片说明，已脱敏）\n4. **数据核对说明**（齐全性、合计一致性、照片对应情况）\n5. **下周计划 / 待跟进**\n6. **缺失项清单**\n\n语言：中文；篇幅 600–1200 字（周报）；月报可至 1500 字。\n\n## Gotchas\n\n- **不跨文件夹找文件**：若用户未归集，先提示完成 Phase A，不要猜测其他路径上的数据。\n- **数字只来自 CSV 行**：禁止估算、插值、编造；无法求和时写「待核对」。\n- **站点/日期缺失必须显式列出**：如「站点乙 2026-06-01 无日报」。\n- **照片说明中的人名**脱敏为代号；提醒 `[发布前请确认肖像授权]`。\n- **不同指标单位不可相加**（如「袋」与「公斤」分开展示）。\n- **与结项报告分工**：本 Skill 输出周期简报；完整结项走 `env-ngo-closure-report`，可引用本 Skill 已核对的数据表。\n\n## Files To Read\n\n- `assets/folder_structure.md`：QoderWork 文件夹结构与归集步骤（必读）。\n- `assets/weekly_report_template.md`：输出结构模板（必读）。\n- `assets/example_input_daily_logs.md`：脱敏测试样例。\n"</script>
+  <script type="application/json" id="markdown-source">"---\nname: env-ngo-field-ledger\ndescription: >-\n  Load when the user provides daily field logs (CSV spreadsheets), photo captions,\n  or a consolidated ledger folder for a reporting period and needs a structured\n  weekly or monthly project report draft for an environmental nonprofit. Do not\n  load for closure reports from narrative-only notes, grant proposals, or social\n  media copy without ledger data.\ndisable-model-invocation: true\n---\n\n# 现场数据台账技能（案例沉淀模块 · M2）\n\n把**已归集到统一文件夹**的日报 CSV、照片说明，汇总成结构固定的周报/月报草稿。配合 QoderWork「先收拢、再处理」：人工（或 QoderWork 辅助）把分散台账放进 `01_原始台账/`，本 Skill 负责**对数、填模板、标缺失**。\n\n## When To Use\n\n- 用户已用 QoderWork 将多站点、多日的 CSV / 照片说明集中到**一个项目台账文件夹**（见 `assets/folder_structure.md`）。\n- 用户要的是**周报 / 月报 / 阶段执行报告**（数据驱动、固定模板），不是结项长报告或公众号推文。\n- 触发关键词：台账、周报、月报、站点数据汇总、原始台账核对、周期报告。\n\n不要用于：只有叙事性流水账、无表格数据（用 `env-ngo-closure-report`）；写活动复盘帖（用 `env-ngo-activity-recap`）；从项目书生成 OKR 清单（用 `env-ngo-okr-checklist`）。\n\n## Workflow\n\n### Phase A · 资料归集（QoderWork，Skill 之前）\n\n1. 按 `assets/folder_structure.md` 创建 `\u003c项目名称>_台账/` 目录树。\n2. 将各站点、各日期的 CSV 与照片说明复制到 `01_原始台账/\u003c站点>/`，统一文件名。\n3. 在 QoderWork 中打开该文件夹，确认路径可读。\n\n### Phase B · 台账汇总（本 Skill）\n\n1. 读取用户指定的**报告周期**（如 2026-06-01 至 2026-06-07）和台账文件夹路径。\n2. 扫描 `01_原始台账/` 下该周期内所有 CSV，按站点、活动类型、指标名**求和或计数**（仅基于文件中的行，不估算）。\n3. 读取同周期 `照片说明.txt`，匹配到对应站点/日期的活动条目。\n4. 对照 `assets/weekly_report_template.md` 输出草稿；缺日报的站点/日期写入「数据核对说明」和「缺失项清单」。\n5. 将草稿建议保存到 `02_周期汇总/`（由用户或 QoderWork 执行保存）。\n\n## Required Inputs\n\n- 报告周期（起止日期）。\n- 台账文件夹路径（或用户粘贴该周期内的 CSV 内容与照片说明）。\n- 可选：站点列表、机构周报/月报历史范例（对齐语气与章节）。\n\n## Output Contract\n\n输出 Markdown，结构必须与 `assets/weekly_report_template.md` 一致，包含：\n\n1. **本周/本期工作概述**\n2. **分站点数据汇总表**（每表含：活动类型、指标、合计、数据来源路径）\n3. **主要活动与现场记录**（引用照片说明，已脱敏）\n4. **数据核对说明**（齐全性、合计一致性、照片对应情况）\n5. **下周计划 / 待跟进**\n6. **缺失项清单**\n\n语言：中文；篇幅 600–1200 字（周报）；月报可至 1500 字。\n\n## Gotchas\n\n- **不跨文件夹找文件**：若用户未归集，先提示完成 Phase A，不要猜测其他路径上的数据。\n- **数字只来自 CSV 行**：禁止估算、插值、编造；无法求和时写「待核对」。\n- **站点/日期缺失必须显式列出**：如「站点乙 2026-06-01 无日报」。\n- **照片说明中的人名**脱敏为代号；提醒 `[发布前请确认肖像授权]`。\n- **不同指标单位不可相加**（如「袋」与「公斤」分开展示）。\n- **与结项报告分工**：本 Skill 输出周期简报；完整结项走 `env-ngo-closure-report`，可引用本 Skill 已核对的数据表。\n\n## Files To Read\n\n- `assets/folder_structure.md`：QoderWork 文件夹结构与归集步骤（必读）。\n- `assets/weekly_report_template.md`：输出结构模板（必读）。\n- `assets/example_input_daily_logs.md`：脱敏测试样例。\n"</script>
   <script>
     const markdownSource = JSON.parse(document.getElementById("markdown-source").textContent);
     async function copyMarkdownText(text) {

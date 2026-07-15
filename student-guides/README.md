@@ -25,7 +25,9 @@
 | SG-15 | 观鸟综合事务型（T15） | M2 | 检索+待办表 | [SG-15](./SG-15-%E8%A7%82%E9%B8%9F%E7%BB%BC%E5%90%88%E4%BA%8B%E5%8A%A1%E5%9E%8B.md) |
 | SG-16 | 固废科普项目管理型（T16） | M3/M2 | OKR+资讯 | [SG-16](./SG-16-%E5%9B%BA%E5%BA%9F%E7%A7%91%E6%99%AE%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%9E%8B.md) |
 
-> **SG-09～16** 为 Lite 版（1 页 MVP + 推荐 Skill），对应脱敏速览 T09–T16。完整版结构见 SG-01～08。
+> **SG-09～16** 为 Lite 版（1 页 MVP + 推荐技能），对应脱敏速览 T09–T16。完整版结构见 SG-01～08。
+>
+> 课前需求对应的可 Fork 样板见 [`../skills.html`](../skills.html)；校验命令：`node scripts/validate-env-ngo-skills.mjs`（工作区根目录）。
 
 ---
 
