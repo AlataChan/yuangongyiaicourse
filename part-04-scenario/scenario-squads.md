@@ -20,6 +20,8 @@
 
 公开材料只使用脱敏场景类型，不含真实机构名称。个人进度请对照自己的学员指引填写。
 
+讲师展开讲授（翻车对照、话术、巡场）见工作区：`teaching/lesson-04-multi-agent/instructor-outline.md`。学员跟读：`handbook.html` 第四节 / 五节。
+
 ---
 
 ## 二、速查表：你的 MVP → 任务小队
