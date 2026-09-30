@@ -656,7 +656,8 @@
       .step-grid { grid-template-columns: repeat(2, 1fr); }
       .wf-grid { grid-template-columns: 1fr; }
       .test-grid { grid-template-columns: 1fr; }
-      .header-nav .nav-link { display: none; }
+      .header-inner { height: auto; align-items: flex-start; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+      .header-nav { flex-wrap: wrap; }
     }
     @media (max-width: 560px) {
       .section { padding: 52px 20px; }
@@ -724,14 +725,11 @@
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <nav class="header-nav" aria-label="第 3 课导航">
-        <a class="nav-link" href="../index.html">课程首页</a>
-        <a class="nav-link" href="#basics">五个基础词</a>
-        <a class="nav-link" href="#concepts">性格与记忆</a>
-        <a class="nav-link" href="#architecture">项目助理架构</a>
-        <a class="nav-link" href="#workflows">工作流</a>
-        <a class="nav-link" href="#testing">互测</a>
+        <a class="nav-link" href="index.html">本课概览</a>
+        <a class="nav-link" href="handbook.html">学员手册</a>
         <a class="nav-link" href="quiz.html">课后测验</a>
-        <a class="nav-cta" href="../index.html#insights">调研洞察</a>
+        <a class="nav-link" href="../skills.html">技能库</a>
+        <a class="nav-cta" href="../part-04-scenario/index.html">下一课 · 多智能体协作</a>
       </nav>
     </div>
   </header>
@@ -739,9 +737,7 @@
   <nav class="crumb" aria-label="面包屑">
     <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <a href="../part-02-knowledge-base/index.html">第 2 课 · 知识库</a>
-    <span aria-hidden="true">/</span>
-    第 3 课 · AI智能体
+第 3 课 · AI智能体
   </nav>
 
   <main>
@@ -1130,6 +1126,7 @@
         <p>第 3 课把技能和知识库编排成一个项目助理。第 4 课会把一个主场景拆成主控智能体、专责智能体和审核收口，用结构化交接协议完成联合工作。</p>
         <div class="next-actions">
           <a class="btn btn-primary" href="../part-04-scenario/index.html">进入第 4 课 · 多智能体协作</a>
+          <a class="btn btn-ghost" href="../bridge-materials/templates/03_to_04_agent_scenario_handoff.html">第 3 → 第 4 课交接包</a>
           <a class="btn btn-ghost" href="handbook.html">打开第 3 课学员手册</a>
         </div>
       </div>

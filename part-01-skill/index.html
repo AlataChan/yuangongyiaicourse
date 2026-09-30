@@ -302,7 +302,8 @@
 
     @media (max-width: 960px) {
       .concept-grid { grid-template-columns: repeat(2, 1fr); }
-      .header-nav .nav-link { display: none; }
+      .header-inner { height: auto; align-items: flex-start; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+      .header-nav { flex-wrap: wrap; }
     }
     @media (max-width: 680px) {
       .sample-grid { grid-template-columns: 1fr; }
@@ -372,16 +373,11 @@
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <nav class="header-nav" aria-label="第 1 课导航">
-        <a class="nav-link" href="../index.html">课程首页</a>
-        <a class="nav-link" href="#overview">课程概览</a>
-        <a class="nav-link" href="skill-standards.html">技能标准</a>
-        <a class="nav-link" href="content-pipeline-skills.html">内容生产线</a>
-        <a class="nav-link" href="skill-flywheel.html">技能飞轮</a>
-        <a class="nav-link" href="#objectives">学习目标</a>
-        <a class="nav-link" href="#samples">技能样板</a>
-        <a class="nav-link" href="templates.html">样板库</a>
+        <a class="nav-link" href="index.html">本课概览</a>
+        <a class="nav-link" href="handbook.html">学员手册</a>
         <a class="nav-link" href="quiz.html">课后测验</a>
-        <a class="nav-cta" href="../index.html#insights">调研洞察</a>
+        <a class="nav-link" href="../skills.html">技能库</a>
+        <a class="nav-cta" href="../part-02-knowledge-base/index.html">下一课 · 知识库</a>
       </nav>
     </div>
   </header>

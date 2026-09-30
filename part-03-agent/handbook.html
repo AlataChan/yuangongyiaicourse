@@ -889,7 +889,8 @@
       .example-pair { grid-template-columns: 1fr; }
       .feedback-grid { grid-template-columns: 1fr; }
       .hw-grid { grid-template-columns: 1fr; }
-      .header-nav .nav-link { display: none; }
+      .header-inner { height: auto; align-items: flex-start; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+      .header-nav { flex-wrap: wrap; }
       .case-banner-inner { flex-direction: column; }
       .fb-result-row { flex-direction: column; gap: 4px; }
       .fb-q { min-width: auto; }
@@ -964,14 +965,12 @@
         <span class="brand-mark" aria-hidden="true">🌿</span>
         <span>环境公益 AI 赋能实战营</span>
       </a>
-      <nav class="header-nav" aria-label="学员手册导航">
-        <a class="nav-link" href="../index.html">课程首页</a>
-        <a class="nav-link" href="#basics">五个基础词</a>
-        <a class="nav-link" href="#concepts">性格与记忆</a>
-        <a class="nav-link" href="#architecture">项目助理架构</a>
-        <a class="nav-link" href="#setup">Agent平台 首配</a>
-        <a class="nav-link" href="#workflows">工作流</a>
-        <a class="nav-cta" href="index.html">课程概览</a>
+      <nav class="header-nav" aria-label="第 3 课导航">
+        <a class="nav-link" href="index.html">本课概览</a>
+        <a class="nav-link" href="handbook.html">学员手册</a>
+        <a class="nav-link" href="quiz.html">课后测验</a>
+        <a class="nav-link" href="../skills.html">技能库</a>
+        <a class="nav-cta" href="../part-04-scenario/index.html">下一课 · 多智能体协作</a>
       </nav>
     </div>
   </header>
@@ -979,9 +978,7 @@
   <nav class="crumb" aria-label="面包屑">
     <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <a href="../part-02-knowledge-base/index.html">第 2 课 · 知识库</a>
-    <span aria-hidden="true">/</span>
-    <a href="index.html">第 3 课 · AI智能体</a>
+<a href="index.html">第 3 课 · AI智能体</a>
     <span aria-hidden="true">/</span>
     学员手册
   </nav>

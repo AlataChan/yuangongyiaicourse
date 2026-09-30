@@ -18,9 +18,9 @@
 2. **三条深写小队**：M1 文书 / M2 案例沉淀 / M3 传播（含变体说明）
 3. **课堂填空**：角色卡、交接包、人审点、5 条测试题干
 
-公开材料只使用脱敏场景类型，不含真实机构名称。个人进度请对照自己的学员指引填写。
+公开材料只使用脱敏场景类型，不含真实机构名称。个人进度对照样板库速查表填写。
 
-讲师展开讲授（翻车对照、话术、巡场）见工作区：`teaching/lesson-04-multi-agent/instructor-outline.md`。学员跟读：`handbook.html` 第四节 / 五节。
+学员跟读：`handbook.html` 第四节 / 五节。
 
 ---
 
@@ -251,11 +251,10 @@
 
 ---
 
-## 七、与学员指引、第 5 课的关系
+## 七、与第 5 课的关系
 
 | 材料 | 关系 |
 |------|------|
-| `student-guides/` 各 SG | 提供你的真实 MVP 与分课操作；第 4 课对照本页拆多智能体 |
 | 本页 | 提供脱敏的多技能协作模板，可 Fork 技能与验收题干 |
 | 第 5 课 | 把本课协作图 + 测试记录打进发布候选包 |
 
@@ -263,5 +262,4 @@
 
 - [第 4 课概览](./index.html)
 - [学员手册](./handbook.html)
-- [学员指引总索引](../student-guides/README.html)
-- [第 4 → 第 5 课交接包](../bridge-materials/templates/04_to_05_release_candidate_pack.md)
+- [第 4 → 第 5 课交接包](../bridge-materials/templates/04_to_05_release_candidate_pack.html)

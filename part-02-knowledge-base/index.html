@@ -509,7 +509,8 @@
       .compliance-grid { grid-template-columns: repeat(2, 1fr); }
       .mat-grid { grid-template-columns: 1fr; }
       .diag-branches { grid-template-columns: 1fr; }
-      .header-nav .nav-link { display: none; }
+      .header-inner { height: auto; align-items: flex-start; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+      .header-nav { flex-wrap: wrap; }
     }
     @media (max-width: 560px) {
       .section { padding: 52px 20px; }
@@ -577,15 +578,11 @@
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <nav class="header-nav" aria-label="第 2 课导航">
-        <a class="nav-link" href="../index.html">课程首页</a>
-        <a class="nav-link" href="#learning-path">学习路线</a>
-        <a class="nav-link" href="#kb-map">知识库地图</a>
-        <a class="nav-link" href="#compliance">合规分级</a>
-        <a class="nav-link" href="#materials">资料处理</a>
-        <a class="nav-link" href="#tool-route">工具落位</a>
-        <a class="nav-link" href="#retrieval">检索模式</a>
+        <a class="nav-link" href="index.html">本课概览</a>
+        <a class="nav-link" href="handbook.html">学员手册</a>
         <a class="nav-link" href="quiz.html">课后测验</a>
-        <a class="nav-cta" href="../index.html#insights">调研洞察</a>
+        <a class="nav-link" href="../skills.html">技能库</a>
+        <a class="nav-cta" href="../part-03-agent/index.html">下一课 · AI智能体</a>
       </nav>
     </div>
   </header>
@@ -593,9 +590,7 @@
   <nav class="crumb" aria-label="面包屑">
     <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <a href="../part-01-skill/index.html">第 1 课 · 技能</a>
-    <span aria-hidden="true">/</span>
-    第 2 课 · 知识库
+第 2 课 · 知识库
   </nav>
 
   <main>
@@ -913,6 +908,7 @@
         <p>技能知道怎么做，知识库提供弹药——下一步，把它们编排成一个完整的项目助理。第 3 课教你把多个技能和知识库挂到同一个 AI 智能体上，让它根据意图自动选技能、查知识库、给出回答。</p>
         <div class="next-actions">
           <a class="btn btn-primary" href="../part-03-agent/index.html">进入第 3 课 · AI智能体</a>
+          <a class="btn btn-ghost" href="../bridge-materials/templates/02_to_03_kb_agent_handoff.html">第 2 → 第 3 课交接包</a>
           <a class="btn btn-ghost" href="handbook.html">打开第 2 课学员手册</a>
         </div>
       </div>

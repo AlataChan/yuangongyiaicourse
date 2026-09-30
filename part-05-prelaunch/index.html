@@ -447,7 +447,8 @@
       .card-grid-3 { grid-template-columns: 1fr; }
       .card-grid-2 { grid-template-columns: 1fr; }
       .cl-items { columns: 1; }
-      .header-nav .nav-link { display: none; }
+      .header-inner { height: auto; align-items: flex-start; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+      .header-nav { flex-wrap: wrap; }
     }
     @media (max-width: 560px) {
       .section { padding: 52px 20px; }
@@ -513,12 +514,11 @@
         <span>环境公益 AI 赋能实战营</span>
       </a>
       <nav class="header-nav" aria-label="第 5 课导航">
-        <a class="nav-link" href="../index.html">课程首页</a>
-        <a class="nav-link" href="#review">成果盘点</a>
-        <a class="nav-link" href="#launch">发布预案</a>
-        <a class="nav-link" href="#plan">90天计划</a>
+        <a class="nav-link" href="index.html">本课概览</a>
+        <a class="nav-link" href="handbook.html">学员手册</a>
         <a class="nav-link" href="quiz.html">课后测验</a>
-        <a class="nav-cta" href="../index.html#workshop">工作坊</a>
+        <a class="nav-link" href="../skills.html">技能库</a>
+        <a class="nav-cta" href="../index.html#workshop">线下工作坊</a>
       </nav>
     </div>
   </header>
@@ -526,9 +526,7 @@
   <nav class="crumb" aria-label="面包屑">
     <a href="../index.html">课程首页</a>
     <span aria-hidden="true">/</span>
-    <a href="../part-04-scenario/index.html">第 4 课 · 多技能协同</a>
-    <span aria-hidden="true">/</span>
-    第 5 课 · 预发布
+第 5 课 · 预发布
   </nav>
 
   <main>
@@ -748,6 +746,7 @@
         <p>从技能到知识库，从 AI智能体到多技能协同，再到今天的预发布——你已经走完了整条主线。带上你的成果，我们线下见。</p>
         <div class="closing-actions">
           <a class="btn btn-primary" href="../index.html#workshop">查看工作坊安排</a>
+          <a class="btn btn-ghost" href="../bridge-materials/templates/05_to_workshop_release_review_pack.html">第 5 课 → 工作坊交接包</a>
           <a class="btn btn-ghost" href="../index.html">返回课程首页</a>
         </div>
       </div>

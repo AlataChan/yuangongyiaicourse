@@ -314,7 +314,8 @@
 
     @media (max-width: 960px) {
       .sample-grid { grid-template-columns: 1fr; }
-      .header-nav .nav-link { display: none; }
+      .header-inner { height: auto; align-items: flex-start; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+      .header-nav { flex-wrap: wrap; }
     }
     @media (max-width: 560px) {
       .section { padding: 28px 20px 52px; }
@@ -382,11 +383,12 @@
         <span class="brand-mark" aria-hidden="true">🌿</span>
         <span>环境公益 AI 赋能实战营</span>
       </a>
-      <nav class="header-nav" aria-label="技能样板库导航">
-        <a class="nav-link" href="../index.html">课程首页</a>
-        <a class="nav-link" href="index.html">第 1 课</a>
+      <nav class="header-nav" aria-label="第 1 课导航">
+        <a class="nav-link" href="index.html">本课概览</a>
         <a class="nav-link" href="handbook.html">学员手册</a>
-        <a class="nav-cta" href="../index.html#insights">调研洞察</a>
+        <a class="nav-link" href="quiz.html">课后测验</a>
+        <a class="nav-link" href="../skills.html">技能库</a>
+        <a class="nav-cta" href="../part-02-knowledge-base/index.html">下一课 · 知识库</a>
       </nav>
     </div>
   </header>
